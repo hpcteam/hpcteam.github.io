@@ -1,1 +1,10 @@
 theme: jekyll-theme-cayman
+title: HPC Team Documentation
+description: High Performance Computing | Clusters | Lustre | GPUs | InfiniBand
+
+markdown: kramdown
+
+collections:
+  pages:
+    output: true
+    permalink: /:name/
