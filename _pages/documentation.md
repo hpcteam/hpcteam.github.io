@@ -15,4 +15,4 @@ title: Documentation
 - [GPU Administration](/docs/gpu)
 
 ## Operations
-- [Troubleshooting](/docs/troubleshooting)
+- [Exporting Proxy](/docs/exporting_proxy)
