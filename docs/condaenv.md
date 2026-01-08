@@ -35,7 +35,7 @@ Run the installer:
 
 ### Output:
 
-**Welcome to Anaconda3 2024.10-1**
+Welcome to Anaconda3 2024.10-1
 
 Do you accept the license terms? [yes|no]
 ** yes**
@@ -55,9 +55,9 @@ Logout and login again.
 
 ### Verification:
 
-**conda info --envs**
+conda info --envs
 
-### Sample Output:
+### Output:
 
 # conda environments:
 #
@@ -75,9 +75,9 @@ Edit the `.condarc` file:
 
 Example `.condarc` (proxy configuration):
 
-**proxy_servers:
+proxy_servers:
   http: http://proxy.example.com:8080
-  https: http://proxy.example.com:8080**
+  https: http://proxy.example.com:8080
 
 Create a new Conda environment:
 
@@ -112,7 +112,7 @@ After re-login, verify:
 
 echo $CONDA_DEFAULT_ENV
 
-### Sample Output:
+### Output:
 
 user2env
 
@@ -132,7 +132,7 @@ Deactivate environment:
 
 **conda deactivate**
 
-### Sample Output:
+### Output:
 
 (base) [user2@server ~]$
 
