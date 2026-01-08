@@ -1,4 +1,4 @@
-````md
+
 # Installation of Anaconda and Creating Conda Environments
 
 This document describes the step-by-step process to install Anaconda, configure Conda, and manage Conda environments on a Linux system.
@@ -31,21 +31,21 @@ Choose the appropriate Linux installer, for example:
 
 Run the installer:
 
-bash Anaconda3-2024.10-1-Linux-x86_64.sh
+**bash Anaconda3-2024.10-1-Linux-x86_64.sh**
 
-### Sample Output:
+### Output:
 
-Welcome to Anaconda3 2024.10-1
+**Welcome to Anaconda3 2024.10-1**
 
 Do you accept the license terms? [yes|no]
->>> yes
+** yes**
 
 Anaconda3 will now be installed into this location:
-/home/asl/anaconda3
+/home/user1/anaconda3
 
 installation finished.
 Do you wish to initialize Anaconda3? [yes|no]
->>> yes
+yes
 
 ---
 
@@ -55,7 +55,7 @@ Logout and login again.
 
 ### Verification:
 
-conda info --envs
+**conda info --envs**
 
 ### Sample Output:
 
@@ -71,19 +71,19 @@ The `*` indicates the active **base** environment.
 
 Edit the `.condarc` file:
 
-vi /home/user1/anaconda3/.condarc
+**vi /home/user1/anaconda3/.condarc**
 
 Example `.condarc` (proxy configuration):
 
-proxy_servers:
+**proxy_servers:
   http: http://proxy.example.com:8080
-  https: http://proxy.example.com:8080
+  https: http://proxy.example.com:8080**
 
 Create a new Conda environment:
 
-conda create --name aslenv
+**conda create --name user1env**
 
-### Sample Output:
+### Output:
 
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
@@ -106,7 +106,7 @@ vi ~/.bashrc
 
 Add:
 
-conda activate user2env
+**conda activate user2env**
 
 After re-login, verify:
 
@@ -120,9 +120,9 @@ user2env
 
 ## Step 6: Activate and Deactivate Conda Environment
 
-Activate environment:
+**Activate environment:**
 
-conda activate user2env
+**conda activate user2env**
 
 ### Sample Output:
 
@@ -130,7 +130,7 @@ conda activate user2env
 
 Deactivate environment:
 
-conda deactivate
+**conda deactivate**
 
 ### Sample Output:
 
@@ -144,11 +144,11 @@ conda deactivate
 
 Activate base environment:
 
-source /home/softwares/AI/annaconda3/bin/activate
+**source /home/user1/annaconda3/bin/activate**
 
 Create environment:
 
-conda create --name <new-env-name>
+**conda create --name <new-env-name>**
 
 ### Sample Output:
 
@@ -159,7 +159,7 @@ Proceed ([y]/n)? y
 
 ### 2. Creating an Environment with a Specific Python Version
 
-conda create --name <env_name> python=3.11
+**conda create --name <env_name> python=3.11**
 
 #### Explanation:
 
@@ -169,7 +169,7 @@ conda create --name <env_name> python=3.11
 
 Example:
 
-conda create --name py311env python=3.11
+**conda create --name py311env python=3.11**
 
 ### Sample Output:
 
@@ -190,16 +190,16 @@ Python 3.11.7
 
 Activate base environment:
 
-source /home/softwares/AI/annaconda3/bin/activate
+**source /home/user1/annaconda3/bin/activate**
 
 Clone environment:
 
-conda create --name <new-env-name> --clone <available_env> --offline
+**conda create --name <new-env-name> --clone <available_env> --offline**
 
-### Sample Output:
+## Output:
 
-Source:      /home/softwares/AI/annaconda3/envs/available_env
-Destination: /home/softwares/AI/annaconda3/envs/new-env-name
+Source:      /home/user1/annaconda3/envs/available_env
+Destination: /home/user1/annaconda3/envs/new-env-name
 
 Executing transaction: done
 
@@ -212,11 +212,11 @@ Executing transaction: done
 
 Activate base environment:
 
-source /home/softwares/AI/annaconda3/bin/activate
+**source /home/user1/annaconda3/bin/activate**
 
 Delete environment:
 
-conda remove --name <env-name> --all
+**conda remove --name <env-name> --all**
 
 ### Sample Output:
 
@@ -227,7 +227,7 @@ Environment removed.
 
 ### 5. Removing a Package from an Environment
 
-conda remove --name <env-name> <lib-name>
+**conda remove --name <env-name> <lib-name>**
 
 ### Sample Output:
 
