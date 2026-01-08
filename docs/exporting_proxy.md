@@ -217,10 +217,3 @@ google-chrome
 This opens the system’s default proxy configuration where you can apply your proxy settings.
 
 ```
-
----
-
-If you want, I can **also make it look visually like a proper HPC admin documentation page** with **green-colored headings, code blocks styled, and rounded navigation buttons** for your GitHub Pages.  
-
-Do you want me to do that next?
-```
