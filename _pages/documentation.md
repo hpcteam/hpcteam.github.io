@@ -1,27 +1,16 @@
 ---
 layout: default
 title: Documentation
+nav_order: 1
+has_children: true
 ---
-## INSTALATION
-- [Metis library ](/docs/metis-5.2.1)
 
-## Storage
-- [Lustre File System](/docs/lustre)
+# Documentation
 
-## Scheduling
-- [Slurm Workload Manager](/docs/slurm)
+Welcome to **HPC Team internal documentation**.
 
-## Accelerators
-- [GPU Administration](/docs/gpu)
-
-## Operations
-<details>
-  <summary><strong>Operations</strong></summary>
-
-  <ul>
-    <li><a href="/documentation/exporting-proxy">Exporting Proxy</a></li>
-    <li><a href="/documentation/anaconda-env">AnaConda Env</a></li>
-    <li><a href="/documentation/metis-5.0.1">Metis 5.0.1</a></li>
-  </ul>
-
-</details>
+This portal covers:
+- Cluster administration
+- Lustre file systems
+- Slurm scheduling
+- GPU & InfiniBand operations
