@@ -1,10 +1,7 @@
-theme: jekyll-theme-cayman
+remote_theme: just-the-docs/just-the-docs
+
 title: HPC Team Documentation
 description: High Performance Computing | Clusters | Lustre | GPUs | InfiniBand
 
-markdown: kramdown
-
-collections:
-  pages:
-    output: true
-    permalink: /:name/
+search_enabled: true
+color_scheme: light
