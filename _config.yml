@@ -8,7 +8,7 @@ color_scheme: dark
 
 logo: "/assets/images/hpc-logo.png"
 
-# 🔹 LEFT SIDEBAR TOP LINKS
+# 🔹 LEFT SIDEBAR (TOP-LEFT)
 aux_links:
   Home:
     - "/"
