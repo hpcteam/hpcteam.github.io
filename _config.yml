@@ -1,0 +1,28 @@
+title: HPC & LINUX
+description: High Performance Computing | Clusters | Lustre | GPUs | InfiniBand
+baseurl: "" # The base URL of the site. Empty for the root
+url: "https://yourusername.github.io" # Your site URL (GitHub Pages URL)
+
+# Set theme
+theme: "just-the-docs"
+
+# Enable search
+search_enabled: true
+
+# Navigation links
+nav:
+  - title: Home
+    url: /
+    icon: fas fa-home
+  - title: Documentation
+    url: /documentation/
+    icon: fas fa-book
+  - title: Projects
+    url: /projects/
+    icon: fas fa-cogs
+  - title: Contact
+    url: /contact/
+    icon: fas fa-envelope
+
+# Enable footer
+footer: true
