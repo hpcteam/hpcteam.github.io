@@ -8,7 +8,7 @@ color_scheme: dark
 
 logo: "/assets/images/hpc-logo.png"
 
-# 🔹 LEFT SIDEBAR (TOP-LEFT)
+# ✅ LEFT SIDEBAR LINKS (TOP-LEFT)
 aux_links:
   Home:
     - "/"
@@ -20,7 +20,3 @@ aux_links:
 aux_links_new_tab: true
 
 footer_content: "© HPC & Linux Team"
-
-just_the_docs:
-  custom_css:
-    - assets/css/custom.css
