@@ -1,0 +1,15 @@
+/* Left sidebar accent bar */
+.side-bar {
+  border-left: 6px solid #22c55e; /* green */
+}
+
+/* Sidebar background slightly darker */
+.side-bar {
+  background-color: #1f2933;
+}
+
+/* Active link color */
+.nav-list .nav-list-item .nav-list-link.active {
+  color: #22c55e;
+  font-weight: 600;
+}
