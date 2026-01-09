@@ -23,3 +23,6 @@ footer_content: "© HPC & Linux Team"
 title: HPC Team Documentation
 logo: "/assets/images/hpc-logo.png"   # optional image
 
+just_the_docs:
+  custom_css:
+    - assets/css/custom.css
