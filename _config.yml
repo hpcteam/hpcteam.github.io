@@ -5,3 +5,12 @@ description: High Performance Computing | Clusters | Lustre | GPUs | InfiniBand
 
 search_enabled: true
 color_scheme: light
+
+- title: Home
+  url: /
+- title: Documentation
+  url: /documentation/
+- title: Projects
+  url: /projects/
+- title: Contact
+  url: /contact/
