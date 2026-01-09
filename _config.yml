@@ -1,20 +1,42 @@
----
-
+# Remote theme configuration
 remote_theme: just-the-docs/just-the-docs
 
+# Basic site information
 title: HPC & LINUX
 description: High Performance Computing | Clusters | Lustre | GPUs | InfiniBand
 
+# Enable search functionality
 search_enabled: true
+
+# Color scheme for the site
 color_scheme: light
 
+# Sidebar settings
+sticky_sidebar: true  # Makes the sidebar sticky on scroll
+toc: true  # Enable Table of Contents in sidebar for documentation pages
+
+# Navigation links for the sidebar and top menu
 nav:
-- title: Home
-  url: /
-- title: Documentation
-  url: /documentation/
-- title: Projects
-  url: /projects/
-- title: Contact
-  url: /contact/
----
+  - title: Home
+    url: /
+    icon: fas fa-home
+  - title: Documentation
+    url: /documentation/
+    icon: fas fa-book
+  - title: Projects
+    url: /projects/
+    icon: fas fa-cogs
+  - title: Contact
+    url: /contact/
+    icon: fas fa-envelope
+
+# Optional settings for Google Analytics (if you want to track visitors)
+# google_analytics: UA-XXXXX-Y
+
+# Enable or disable some Just the Docs features
+just_the_docs:
+  # Enable social sharing on each page
+  social_share: true
+  
+  # Show or hide footer information
+  footer: true
