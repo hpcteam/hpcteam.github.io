@@ -15,6 +15,13 @@ title: Documentation
 - [GPU Administration](/docs/gpu)
 
 ## Operations
-- [Exporting Proxy](/docs/exporting_proxy)
-- [AnaConda Env](/docs/condaenv)
-- [Metis5.0.1](/docs/metis.5.1.0)
+<details>
+  <summary><strong>Operations</strong></summary>
+
+  <ul>
+    <li><a href="/documentation/exporting-proxy">Exporting Proxy</a></li>
+    <li><a href="/documentation/anaconda-env">AnaConda Env</a></li>
+    <li><a href="/documentation/metis-5.0.1">Metis 5.0.1</a></li>
+  </ul>
+
+</details>
