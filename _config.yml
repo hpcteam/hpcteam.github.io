@@ -1,3 +1,5 @@
+---
+
 remote_theme: just-the-docs/just-the-docs
 
 title: HPC & LINUX
@@ -14,3 +16,4 @@ color_scheme: light
   url: /projects/
 - title: Contact
   url: /contact/
+---
