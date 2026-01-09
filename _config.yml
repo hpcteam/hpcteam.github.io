@@ -4,16 +4,4 @@ title: HPC Team Documentation
 description: High Performance Computing | Clusters | Lustre | GPUs | InfiniBand
 
 search_enabled: true
-color_scheme: dark
-
-logo: "/assets/images/hpc-logo.png"
-
-# Left sidebar quick links (TOP-LEFT)
-aux_links:
-  Home: /
-  Documentation: /documentation/
-  GitHub: https://github.com/hpcteam
-
-aux_links_new_tab: true
-
-footer_content: "© HPC & Linux Team"
+color_scheme: light
