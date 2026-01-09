@@ -1,28 +1,26 @@
 remote_theme: just-the-docs/just-the-docs
 
-title: HPC & LINUX
+title: HPC Team Documentation
 description: High Performance Computing | Clusters | Lustre | GPUs | InfiniBand
 
+# Enable search
 search_enabled: true
 
-# 🎨 Color
+# Theme color
 color_scheme: dark
 
-# 🔗 Top right links
+# Logo (top-left)
+logo: "/assets/images/hpc-logo.png"
+
+# Top-right external links (ONLY external)
 nav_external_links:
-  - title: Home
-    url: /
-  - title: Documentation
-    url: /documentation/
   - title: GitHub
     url: https://github.com/hpcteam
 
 # Footer
 footer_content: "© HPC & Linux Team"
 
-title: HPC Team Documentation
-logo: "/assets/images/hpc-logo.png"   # optional image
-
+# Custom CSS
 just_the_docs:
   custom_css:
     - assets/css/custom.css
