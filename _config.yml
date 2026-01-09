@@ -1,7 +1,7 @@
 title: HPC & LINUX
 description: High Performance Computing | Clusters | Lustre | GPUs | InfiniBand
-baseurl: "" # The base URL of the site. Empty for the root
-url: "https://hpcteam.github.io/" # Your site URL (GitHub Pages URL)
+baseurl: "" 
+url: "https://hpcteam.github.io/" 
 
 # Set theme
 theme: "just-the-docs"
