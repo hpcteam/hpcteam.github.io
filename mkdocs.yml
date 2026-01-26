@@ -1,4 +1,24 @@
 site_name: AYYAPPASWAMY EETHAKOTA
 
 theme:
-  name: material
+  name: material  # Use Material theme
+
+markdown_extensions:
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+nav:
+  - Professional Overview: docs/Professional-Summary.md
+  - Technical Skills: docs/technical-skills.md
+  - Professional Experience: docs/professional-experience.md
+  - Machines, Hardware & Networks: docs/machines-hardware-networks.md
+  - Projects: docs/projects.md
+  - Roles & Responsibilities: docs/roles-responsibilities.md
+  - Applications-and-libraries: docs/applications-and-libraries.md
+  - Hpc-troubleshooting-notes: docs/hpc-troubleshooting-notes.md
+  - Education: docs/education.md
+  - Contact: docs/contact.md
