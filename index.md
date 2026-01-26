@@ -79,3 +79,14 @@ Use the navigation menu to explore detailed sections covering:
 - HPC Operational Issues and Troubleshooting  
 - Education and Contact Information  
 
+## Navigation22
+
+- [Professional Overview](docs/Professional-Summary.md)
+- [Technical Skills](docs/technical-skills.md)
+- [Professional Experience](docs/professional-experience.md)
+- [Projects](docs/projects.md)
+- [Roles & Responsibilities](docs/roles-responsibilities.md)
+- [HPC Troubleshooting Notes](docs/hpc-troubleshooting-notes.md)
+- [Education](docs/education.md)
+- [Contact](docs/contact.md)
+
