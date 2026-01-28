@@ -1,7 +1,22 @@
 site_name: AYYAPPASWAMY EETHAKOTA
 
 theme:
+<<<<<<< HEAD
   name: material  # Use Material theme
+=======
+  name: material
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.preview
+    - navigation.tracking
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+  
+>>>>>>> b496df6 (modification)
 
 markdown_extensions:
   - attr_list
