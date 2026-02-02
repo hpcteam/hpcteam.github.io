@@ -50,7 +50,7 @@ plugins:
  
 nav:
   - About Me:
-      - Professional Overview: About Me/Professional-Summary.md
+      - Professional Overview: About_Me/Professional-Summary.md
       - Technical Skills: About Me/technical-skills.md
       - Roles & Responsibilities: About Me/roles-responsibilities.md
       - Professional Experience: About Me/professional-experience.md
