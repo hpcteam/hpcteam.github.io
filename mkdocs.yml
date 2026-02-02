@@ -49,32 +49,31 @@ plugins:
 
  
 nav:
-  - Home:
-      - Professional Overview: Home/Professional-Summary.md
+  - Home: index.md
+
+  - Profile:
+      - Professional Summary: Home/Professional-Summary.md
       - Technical Skills: Home/technical-skills.md
       - Roles & Responsibilities: Home/roles-responsibilities.md
       - Professional Experience: Home/professional-experience.md
       - Projects: Home/projects.md
-      - Machines, Hardware & Networks: Home/machines-hardware-networks.md
-      - Applications and Libraries: Home/applications-and-libraries.md
-      - HPC Troubleshooting Notes: Home/hpc-troubleshooting-notes.md
       - Education: Home/education.md
       - Contact: Home/contact.md
+
   - Documents:
-      - Test: Documents/test.md
-      - Python : Documents/Python.md
-      - Open Mpi : Documents/OpenMpi.md
-      - Hyper-Threading HPC Guide : Documents/hyperthreading.md
-      - Linux Commands : Documents/Linux_commands.md
-      - Metis : Documents/Metis.md
-      - Local Repo : Documents/Local_repo.md
-      - Proxy Networks : Documents/Proxy.md
-      - Anaconda : Documents/Anaconda.md
-      - LVM : Documents/Logical Volume Manager (LVM).md
-      - Mkdocs : Documents/GitHub_Pages_MkDocs.md
+      - GitHub Pages CI/CD: Documents/GitHub_Pages_MkDocs.md
+      - Linux Commands: Documents/Linux_commands.md
+      - LVM: Documents/Logical Volume Manager (LVM).md
+      - Python: Documents/Python.md
+      - Anaconda: Documents/Anaconda.md
+      - OpenMPI: Documents/OpenMpi.md
+      - METIS: Documents/Metis.md
+      - Proxy: Documents/Proxy.md
+      - Local Repo: Documents/Local_repo.md
+      - Hyperthreading: Documents/hyperthreading.md
       - Scripts:
-        - Basic Shell Script: Documents/Scripts/run.sh.md
-  - Applications:
-    - Test: Applications/test.md
-  - Troubleshooting :
-     - Overview: Troubleshooting/index.md
+          - Run Script: Documents/Scripts/run.sh.md
+
+  - Troubleshooting:
+      - Overview: Troubleshooting/index.md
+
