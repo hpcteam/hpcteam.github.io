@@ -49,7 +49,7 @@ plugins:
 
  
 nav:
-  - About Me:
+  - about_Me:
       - Professional Overview: about_Me/Professional-Summary.md
       - Technical Skills: about_Me/technical-skills.md
       - Roles & Responsibilities: about_Me/roles-responsibilities.md
