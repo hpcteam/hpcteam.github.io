@@ -12,9 +12,31 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.path
-    - navigation.top
-  
+    - navigation.prune
 
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+    
+  
 markdown_extensions:
   - attr_list
   - toc:
@@ -22,40 +44,36 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+plugins:
+  - privacy
 
  
 nav:
-  - Professional Overview: docs/Professional-Summary.md
-  - Technical Skills: docs/technical-skills.md
-  - Professional Experience: docs/professional-experience.md
-  - Machines, Hardware & Networks: docs/machines-hardware-networks.md
-  - Projects: docs/projects.md
-  - Roles & Responsibilities: docs/roles-responsibilities.md
-  - Applications-and-libraries: docs/applications-and-libraries.md
-  - Hpc-troubleshooting-notes: docs/hpc-troubleshooting-notes.md
-  - Education: docs/education.md
-  - Contact: docs/contact.md
-site_name: AYYAPPASWAMY EETHAKOTA
-
-theme:
-  name: material  # Use Material theme
-
-markdown_extensions:
-  - attr_list
-  - toc:
-      permalink: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-
-nav:
-  - Professional Overview: docs/Professional-Summary.md
-  - Technical Skills: docs/technical-skills.md
-  - Professional Experience: docs/professional-experience.md
-  - Machines, Hardware & Networks: docs/machines-hardware-networks.md
-  - Projects: docs/projects.md
-  - Roles & Responsibilities: docs/roles-responsibilities.md
-  - Applications-and-libraries: docs/applications-and-libraries.md
-  - Hpc-troubleshooting-notes: docs/hpc-troubleshooting-notes.md
-  - Education: docs/education.md
-  - Contact: docs/contact.md
+  - About Me:
+      - Professional Overview: About Me/Professional-Summary.md
+      - Technical Skills: About Me/technical-skills.md
+      - Roles & Responsibilities: About Me/roles-responsibilities.md
+      - Professional Experience: About Me/professional-experience.md
+      - Projects: About Me/projects.md
+      - Machines, Hardware & Networks: About Me/machines-hardware-networks.md
+      - Applications and Libraries: About Me/applications-and-libraries.md
+      - HPC Troubleshooting Notes: About Me/hpc-troubleshooting-notes.md
+      - Education: About Me/education.md
+      - Contact: About Me/contact.md
+  - Documents:
+      - Test: Documents/test.md
+      - Python : Documents/Python.md
+      - Open Mpi : Documents/OpenMpi.md
+      - Hyper-Threading HPC Guide : Documents/hyperthreading.md
+      - Linux Commands : Documents/Linux_commands.md
+      - Metis : Documents/Metis.md
+      - Local Repo : Documents/Local_repo.md
+      - Proxy Networks : Documents/Proxy.md
+      - Anaconda : Documents/Anaconda.md
+      - LVM : Documents/Logical Volume Manager (LVM).md
+      - Scripts:
+        - Basic Shell Script: Documents/Scripts/run.sh.md
+  - Applications:
+    - Test: Appilcations/test.md
+  - Troubleshooting :
+     - Overview: Troubleshooting/index.md
