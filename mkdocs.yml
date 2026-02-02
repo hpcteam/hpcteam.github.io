@@ -42,8 +42,8 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 plugins:
   - privacy
 
@@ -71,6 +71,7 @@ nav:
       - Proxy Networks : Documents/Proxy.md
       - Anaconda : Documents/Anaconda.md
       - LVM : Documents/Logical Volume Manager (LVM).md
+      - Mkdocs : Documents/GitHub_Pages_MkDocs.md
       - Scripts:
         - Basic Shell Script: Documents/Scripts/run.sh.md
   - Applications:
