@@ -1,0 +1,15 @@
+site_name: AYYAPPASWAMY EETHAKOTA
+theme:
+  name: material
+
+
+nav:
+  - Professional Overview: Professional-Summary.md
+  - Technical skills: technical-skills.md
+  - Professional experience: professional-experience.md
+  - Machines hardware-networks: machines-hardware-networks.md
+  - Projects: projects.md
+  - Roles-responsibilities: roles-responsibilities.md
+  - Education: education.md
+  - Contact: contact.md
+
