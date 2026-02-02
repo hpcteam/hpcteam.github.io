@@ -10,7 +10,7 @@ clusters, high-speed InfiniBand networks, and enterprise Linux systems.
 
 ---
 
-## Professional Overview
+## **Professional Overview**
 
 I support and operate large-scale Linux and HPC environments used for mission-critical
 research and engineering workloads. My responsibilities include cluster administration,
@@ -23,7 +23,7 @@ NVIDIA H100 GPU accelerators.
 
 ---
 
-## Areas of Work
+## **Areas of Work**
 
 - Linux system administration in multi-node HPC environments  
 - HPC cluster operations using NVIDIA Bright Cluster Manager  
@@ -37,7 +37,7 @@ NVIDIA H100 GPU accelerators.
 
 ---
 
-## Operational Knowledge Base
+## **Operational Knowledge Base**
 
 This site includes a detailed collection of real-world operational issues and
 troubleshooting scenarios encountered in production environments, such as:

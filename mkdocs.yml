@@ -7,6 +7,7 @@ theme:
   name: material
   features:
     - navigation.instant
+    - navigation.tabs
     - navigation.instant.prefetch
     - navigation.instant.preview
     - navigation.tracking
@@ -25,7 +26,10 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+plugins:
+  - privacy
 
+ 
 nav:
   - Professional Overview: docs/Professional-Summary.md
   - Technical Skills: docs/technical-skills.md
