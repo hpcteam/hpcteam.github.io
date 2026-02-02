@@ -1,9 +1,6 @@
 site_name: AYYAPPASWAMY EETHAKOTA
 
 theme:
-<<<<<<< HEAD
-  name: material  # Use Material theme
-=======
   name: material
   features:
     - navigation.instant
@@ -17,7 +14,6 @@ theme:
     - navigation.path
     - navigation.top
   
->>>>>>> b496df6 (modification)
 
 markdown_extensions:
   - attr_list
@@ -26,8 +22,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-plugins:
-  - privacy
 
  
 nav:
