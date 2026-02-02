@@ -1,0 +1,1642 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Linux_commands/">
+      
+      
+        <link rel="next" href="../Local_repo/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Metis - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#metis-510-theory-and-hpc-implications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../About Me/Professional-Summary.md" class="md-tabs__link">
+          
+  
+  
+  About Me
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../test/" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Appilcations/test/" class="md-tabs__link">
+          
+  
+  
+  Applications
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../About Me/Professional-Summary.md" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Mpi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyperthreading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hyper-Threading HPC Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metis
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Key Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Architecture Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Architecture Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-coarsening-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Coarsening Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-initial-partitioning-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Initial Partitioning Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-uncoarsening-and-refinement-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Uncoarsening and Refinement Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cleanup-old-builds-if-any" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Cleanup Old Builds (If Any)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-create-build-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Create Build Directory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-configure-using-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Configure Using CMake
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Configure Using CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmake-options-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CMake Options Explained
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-openfoam-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example (OpenFOAM Integration)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-build-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Build the Project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-install-metis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Install Metis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Verify Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-post-installation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Post-Installation Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Post-Installation Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-library-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Library Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linking-against-metis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linking Against Metis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_repo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Repo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxy Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Anaconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logical%20Volume%20Manager%20%28LVM%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scripts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scripts/run.sh.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Shell Script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Appilcations/test/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applications
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Key Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Architecture Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Architecture Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-coarsening-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Coarsening Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-initial-partitioning-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Initial Partitioning Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-uncoarsening-and-refinement-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Uncoarsening and Refinement Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cleanup-old-builds-if-any" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Cleanup Old Builds (If Any)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-create-build-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Create Build Directory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-configure-using-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Configure Using CMake
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Configure Using CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmake-options-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CMake Options Explained
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-openfoam-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example (OpenFOAM Integration)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-build-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Build the Project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-install-metis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Install Metis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Verify Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-post-installation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Post-Installation Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Post-Installation Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-library-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Library Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linking-against-metis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linking Against Metis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="metis-510-theory-and-hpc-implications">Metis 5.1.0 Theory and HPC Implications<a class="headerlink" href="#metis-510-theory-and-hpc-implications" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
+<p><strong>Metis</strong> is a high-performance library for <strong>graph partitioning</strong>, <strong>mesh partitioning</strong>, and <strong>sparse matrix ordering</strong>. It is widely used in scientific and high-performance computing applications where large graphs and meshes must be efficiently decomposed.</p>
+<p>Metis helps in:</p>
+<ul>
+<li>Reducing communication overhead in parallel applications</li>
+<li>Improving cache efficiency</li>
+<li>Optimizing load balancing across processors</li>
+</ul>
+<p>Typical application areas include:</p>
+<ul>
+<li>Finite Element Analysis (FEA)</li>
+<li>Computational Fluid Dynamics (CFD)</li>
+<li>Large-scale graph analytics</li>
+<li>Scientific simulations</li>
+</ul>
+<hr />
+<h2 id="2-key-features">2. Key Features<a class="headerlink" href="#2-key-features" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Multilevel graph partitioning algorithms</li>
+<li>k-way and recursive bisection partitioning</li>
+<li>Mesh partitioning support</li>
+<li>Sparse matrix reordering (nested dissection)</li>
+<li>Efficient handling of large-scale graphs</li>
+<li>Shared and static library support</li>
+</ul>
+<hr />
+<h2 id="3-architecture-overview">3. Architecture Overview<a class="headerlink" href="#3-architecture-overview" title="Permanent link">&para;</a></h2>
+<p>Metis uses a <strong>multilevel partitioning strategy</strong>, which consists of three phases:</p>
+<h3 id="31-coarsening-phase">3.1 Coarsening Phase<a class="headerlink" href="#31-coarsening-phase" title="Permanent link">&para;</a></h3>
+<p>The original graph is reduced in size by collapsing vertices and edges while preserving the overall structure.</p>
+<h3 id="32-initial-partitioning-phase">3.2 Initial Partitioning Phase<a class="headerlink" href="#32-initial-partitioning-phase" title="Permanent link">&para;</a></h3>
+<p>The coarsened graph is partitioned using fast and lightweight algorithms.</p>
+<h3 id="33-uncoarsening-and-refinement-phase">3.3 Uncoarsening and Refinement Phase<a class="headerlink" href="#33-uncoarsening-and-refinement-phase" title="Permanent link">&para;</a></h3>
+<p>The partition is projected back to the original graph, with refinement at each level to improve partition quality.</p>
+<p>This approach provides high-quality partitions with low computational cost.</p>
+<hr />
+<h2 id="4-prerequisites">4. Prerequisites<a class="headerlink" href="#4-prerequisites" title="Permanent link">&para;</a></h2>
+<p>Ensure the following dependencies are available:</p>
+<ul>
+<li>CMake (required)</li>
+<li>GCC or a compatible C/C++ compiler</li>
+<li>GKlib (included in the Metis source tree)</li>
+<li>Linux-based operating system</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>Important</strong><br />
+For Metis 5.1.0, <strong><code>make</code> must not be used directly</strong>. The build process must be performed <strong>exclusively via CMake</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="5-cleanup-old-builds-if-any">5. Cleanup Old Builds (If Any)<a class="headerlink" href="#5-cleanup-old-builds-if-any" title="Permanent link">&para;</a></h2>
+<p>Before starting a fresh build, remove any existing build artifacts:</p>
+<pre><code class="language-bash">rm -rf build CMakeCache.txt CMakeFiles
+
+</code></pre>
+<p>This removes:</p>
+<ul>
+<li>Previous build directory</li>
+<li>Cached CMake configuration</li>
+<li>Temporary CMake files</li>
+</ul>
+<hr />
+<h2 id="6-create-build-directory">6. Create Build Directory<a class="headerlink" href="#6-create-build-directory" title="Permanent link">&para;</a></h2>
+<p>It is recommended to build Metis in a separate directory.</p>
+<pre><code class="language-bash">mkdir build
+cd build
+</code></pre>
+<p>If errors occur, you can safely delete this directory and retry.</p>
+<hr />
+<h2 id="7-configure-using-cmake">7. Configure Using CMake<a class="headerlink" href="#7-configure-using-cmake" title="Permanent link">&para;</a></h2>
+<p>Run the following command from inside the <code>build</code> directory:</p>
+<pre><code class="language-bash">cmake \
+  -DGKLIB_PATH=../GKlib \
+  -DCMAKE_INSTALL_PREFIX=/opt/Metis-5.1.0 \
+  -DSHARED=ON \
+  ..
+</code></pre>
+<h3 id="cmake-options-explained">CMake Options Explained<a class="headerlink" href="#cmake-options-explained" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong><code>-DGKLIB_PATH=../GKlib</code></strong>
+  Specifies the path to the GKlib directory bundled with Metis.</p>
+</li>
+<li>
+<p><strong><code>-DCMAKE_INSTALL_PREFIX=/opt/Metis-5.1.0</code></strong>
+  Defines the target installation directory.</p>
+</li>
+<li>
+<p><strong><code>-DSHARED=ON</code></strong>
+  Builds shared libraries (<code>.so</code>).</p>
+</li>
+</ul>
+<h3 id="example-openfoam-integration">Example (OpenFOAM Integration)<a class="headerlink" href="#example-openfoam-integration" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">cmake \
+  -DGKLIB_PATH=/opt/OpenFoam2112/ThirdParty-v2112/sources/metis/metis-5.1.0/GKlib \
+  -DCMAKE_INSTALL_PREFIX=/opt/OpenFoam2112/ThirdParty-v2112/platforms/linux64Gcc/metis-5.1.0 \
+  -DSHARED=ON \
+  ..
+</code></pre>
+<hr />
+<h2 id="8-build-the-project">8. Build the Project<a class="headerlink" href="#8-build-the-project" title="Permanent link">&para;</a></h2>
+<p>After successful configuration, compile Metis:</p>
+<pre><code class="language-bash">cmake --build . -j$(nproc)
+</code></pre>
+<p>This uses all available CPU cores for faster compilation.</p>
+<blockquote>
+<p>⚠️ If errors occur, review the output carefully, fix the issue, and re-run the build.</p>
+</blockquote>
+<hr />
+<h2 id="9-install-metis">9. Install Metis<a class="headerlink" href="#9-install-metis" title="Permanent link">&para;</a></h2>
+<p>Install Metis to the configured prefix:</p>
+<pre><code class="language-bash">cmake --install .
+</code></pre>
+<hr />
+<h2 id="10-verify-installation">10. Verify Installation<a class="headerlink" href="#10-verify-installation" title="Permanent link">&para;</a></h2>
+<p>Confirm that Metis was installed correctly:</p>
+<pre><code class="language-bash">ls /opt/Metis-5.1.0
+</code></pre>
+<p>Expected directories:</p>
+<ul>
+<li><code>bin/</code> – Executable utilities</li>
+<li><code>lib/</code> – Shared and static libraries</li>
+<li><code>include/</code> – Header files</li>
+</ul>
+<hr />
+<h2 id="11-post-installation-notes">11. Post-Installation Notes<a class="headerlink" href="#11-post-installation-notes" title="Permanent link">&para;</a></h2>
+<h3 id="update-library-path">Update Library Path<a class="headerlink" href="#update-library-path" title="Permanent link">&para;</a></h3>
+<p>If the library directory is not in the system default path:</p>
+<pre><code class="language-bash">export LD_LIBRARY_PATH=/opt/Metis-5.1.0/lib:$LD_LIBRARY_PATH
+</code></pre>
+<h3 id="linking-against-metis">Linking Against Metis<a class="headerlink" href="#linking-against-metis" title="Permanent link">&para;</a></h3>
+<p>Applications using Metis must:</p>
+<ul>
+<li>Include headers from <code>include/</code></li>
+<li>Link against libraries in <code>lib/</code></li>
+</ul>
+<hr />
+<h2 id="12-conclusion">12. Conclusion<a class="headerlink" href="#12-conclusion" title="Permanent link">&para;</a></h2>
+<p>Metis 5.1.0 provides efficient and scalable graph and mesh partitioning capabilities.
+When properly configured and installed, it can significantly enhance the performance of parallel and scientific computing applications.</p>
+<p>```</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

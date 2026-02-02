@@ -1,0 +1,1743 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../OpenMpi/">
+      
+      
+        <link rel="next" href="../Linux_commands/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Hyper-Threading HPC Guide - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hyper-threading-theory-and-hpc-implications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hyper-Threading HPC Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../About Me/Professional-Summary.md" class="md-tabs__link">
+          
+  
+  
+  About Me
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../test/" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Appilcations/test/" class="md-tabs__link">
+          
+  
+  
+  Applications
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../About Me/Professional-Summary.md" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Mpi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hyper-Threading HPC Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hyper-Threading HPC Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-hyper-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Hyper-Threading?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works-simplified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works (simplified)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages-of-hyper-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages of Hyper-Threading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disadvantages-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disadvantages / Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyper-threading-in-hpc-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hyper-Threading in HPC Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hyper-Threading in HPC Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#effect-of-hyper-threading-in-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effect of Hyper-Threading in HPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-hpc-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General HPC Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-enable-disable-ht" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Enable / Disable HT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-and-disable-hyper-threading-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable and Disable Hyper-Threading (Linux)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-nproc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using nproc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-idrac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing iDRAC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing iDRAC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-network-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Network Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-direct-usb-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Direct USB Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-enable-disable-hyper-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps to Enable / Disable Hyper-Threading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps to Enable / Disable Hyper-Threading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-meaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Meaning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_repo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Repo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxy Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Anaconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logical%20Volume%20Manager%20%28LVM%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scripts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scripts/run.sh.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Shell Script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Appilcations/test/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applications
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-hyper-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Hyper-Threading?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works-simplified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works (simplified)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages-of-hyper-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages of Hyper-Threading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disadvantages-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disadvantages / Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyper-threading-in-hpc-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hyper-Threading in HPC Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hyper-Threading in HPC Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#effect-of-hyper-threading-in-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effect of Hyper-Threading in HPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-hpc-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General HPC Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-enable-disable-ht" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Enable / Disable HT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-and-disable-hyper-threading-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable and Disable Hyper-Threading (Linux)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-nproc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using nproc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-idrac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing iDRAC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing iDRAC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-network-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Network Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-direct-usb-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Direct USB Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-enable-disable-hyper-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps to Enable / Disable Hyper-Threading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps to Enable / Disable Hyper-Threading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-meaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Meaning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hyper-threading-theory-and-hpc-implications">Hyper-Threading Theory and HPC Implications<a class="headerlink" href="#hyper-threading-theory-and-hpc-implications" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="what-is-hyper-threading">What is Hyper-Threading?<a class="headerlink" href="#what-is-hyper-threading" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Hyper-Threading (HT) is <strong>Intel’s implementation of Simultaneous Multithreading (SMT)</strong>.</li>
+<li>It allows <strong>one physical CPU core</strong> to appear as <strong>two logical cores</strong> to the operating system.</li>
+<li>Each logical core can handle <strong>independent threads</strong> simultaneously.</li>
+<li>Purpose: <strong>better utilization of CPU resources</strong> that would otherwise remain idle.</li>
+</ul>
+<p><strong>Analogy:</strong><br />
+Think of a chef (CPU core) who can cook <strong>one dish at a time</strong>. Normally, if the chef is waiting for water to boil (idle), nothing happens. With Hyper-Threading, the chef can start preparing a second dish while waiting — making the overall kitchen (CPU) more efficient.</p>
+<hr />
+<h2 id="how-it-works-simplified">How it works (simplified)<a class="headerlink" href="#how-it-works-simplified" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Each physical core has:</li>
+<li>Execution units (ALUs, FPUs)</li>
+<li>Cache memory</li>
+<li>When one thread stalls (waiting for memory, I/O, etc.), the <strong>other thread can use the execution units</strong>.</li>
+<li>The operating system sees <strong>twice as many cores</strong>, but performance <strong>does not double</strong>.</li>
+</ul>
+<hr />
+<h2 id="advantages-of-hyper-threading">Advantages of Hyper-Threading<a class="headerlink" href="#advantages-of-hyper-threading" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Advantage</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Better CPU utilization</td>
+<td>Idle execution units can be used by a second thread.</td>
+</tr>
+<tr>
+<td>Improved throughput</td>
+<td>More threads can run concurrently.</td>
+</tr>
+<tr>
+<td>Multi-tasking efficiency</td>
+<td>Useful for running multiple applications simultaneously.</td>
+</tr>
+<tr>
+<td>Cost-effective performance</td>
+<td>Acts like adding cores <strong>without buying more physical cores</strong>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="disadvantages-limitations">Disadvantages / Limitations<a class="headerlink" href="#disadvantages-limitations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Disadvantage</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance not doubled</td>
+<td>Two threads share the <strong>same physical resources</strong>.</td>
+</tr>
+<tr>
+<td>Can increase latency</td>
+<td>Threads may compete for CPU resources.</td>
+</tr>
+<tr>
+<td>Security concerns</td>
+<td>Some side-channel attacks exploit HT (e.g., Spectre/Meltdown).</td>
+</tr>
+<tr>
+<td>Not always beneficial for HPC</td>
+<td>Certain HPC applications need <strong>dedicated cores</strong> for consistent performance.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="hyper-threading-in-hpc-environments">Hyper-Threading in HPC Environments<a class="headerlink" href="#hyper-threading-in-hpc-environments" title="Permanent link">&para;</a></h2>
+<p>HPC workloads are <strong>compute-intensive</strong> and often <strong>parallelized</strong> using MPI/OpenMP. They usually:</p>
+<ul>
+<li>Use <strong>floating-point-heavy calculations</strong></li>
+<li>Require <strong>predictable, consistent performance</strong></li>
+<li>Run on clusters with <strong>many nodes/cores</strong></li>
+</ul>
+<h3 id="effect-of-hyper-threading-in-hpc">Effect of Hyper-Threading in HPC<a class="headerlink" href="#effect-of-hyper-threading-in-hpc" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU-bound, floating-point heavy</td>
+<td>HT may <strong>not help</strong>; can slightly reduce performance because threads compete for execution units.</td>
+</tr>
+<tr>
+<td>Memory-bound workloads</td>
+<td>HT can help utilize idle CPU cycles while waiting for memory, giving <strong>small performance gains</strong>.</td>
+</tr>
+<tr>
+<td>Latency-sensitive applications</td>
+<td>HT can <strong>increase variability</strong> and <strong>slow down tight communication loops</strong>.</td>
+</tr>
+<tr>
+<td>Large MPI jobs</td>
+<td>Often better to <strong>disable HT</strong> for consistent core-to-core performance.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="general-hpc-best-practices">General HPC Best Practices<a class="headerlink" href="#general-hpc-best-practices" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Check your workload type</strong></li>
+<li>CPU-intensive → HT off</li>
+<li>I/O or memory-bound → HT can be left on</li>
+<li><strong>Benchmark your applications</strong></li>
+<li>Run with HT enabled and disabled to see the effect.</li>
+<li><strong>Cluster scheduling</strong></li>
+<li>Schedulers (Slurm, PBS) treat logical cores differently.</li>
+<li>HT-enabled CPUs may require configuring <strong>threads per core</strong> carefully.</li>
+<li><strong>Energy considerations</strong></li>
+<li>HT may slightly increase power consumption.</li>
+<li><strong>Security</strong></li>
+<li>In multi-tenant environments, <strong>disabling HT can improve isolation</strong>.</li>
+</ol>
+<hr />
+<h2 id="when-to-enable-disable-ht">When to Enable / Disable HT<a class="headerlink" href="#when-to-enable-disable-ht" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HPC scientific computing (CPU-heavy)</td>
+<td><strong>Disable</strong> Hyper-Threading</td>
+</tr>
+<tr>
+<td>Multi-tasking / server virtualization</td>
+<td><strong>Enable</strong> Hyper-Threading</td>
+</tr>
+<tr>
+<td>Mixed workloads</td>
+<td>Test &amp; benchmark; enable only if performance improves</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>HT is <strong>not magic</strong>; it doesn’t double performance.</li>
+<li>It’s <strong>good for throughput</strong>, not latency-critical HPC tasks.</li>
+<li>In HPC clusters, <strong>most admins disable HT</strong> to ensure:</li>
+<li>Predictable performance</li>
+<li>Consistent benchmarking</li>
+<li>Efficient resource scheduling</li>
+</ul>
+<h3 id="enable-and-disable-hyper-threading-linux"><strong>Enable and Disable Hyper-Threading (Linux)</strong><a class="headerlink" href="#enable-and-disable-hyper-threading-linux" title="Permanent link">&para;</a></h3>
+<hr />
+<pre><code class="language-markdown">---
+
+## Enable / Disable Hyper-Threading Manually (BIOS / iDRAC)
+
+&gt; ⚠️ **IMPORTANT**
+&gt;
+&gt; * The server **will reboot**
+&gt; * Ensure the node is **isolated**
+&gt; * Make sure **no jobs are running**
+
+---
+
+## What is Hyper-Threading
+Hyper-Threading (HT) allows a single physical CPU core to execute multiple threads.
+It can improve overall throughput but may impact performance consistency in HPC,
+real-time, or security-sensitive workloads.
+
+---
+
+## Check Hyper-Threading Status
+
+Run the following command:
+
+```bash
+lscpu | grep -E &quot;Thread|Core|Socket&quot;
+</code></pre>
+<h3 id="interpretation">Interpretation<a class="headerlink" href="#interpretation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Thread(s) per core: 2</strong> → Hyper-Threading is <strong>enabled</strong></li>
+<li><strong>Thread(s) per core: 1</strong> → Hyper-Threading is <strong>disabled</strong></li>
+</ul>
+<hr />
+<h3 id="using-nproc">Using <code>nproc</code><a class="headerlink" href="#using-nproc" title="Permanent link">&para;</a></h3>
+<p>If the server has <strong>192 physical cores</strong>, run:</p>
+<pre><code class="language-bash">nproc
+</code></pre>
+<ul>
+<li>Output <strong>greater than 192</strong> → Hyper-Threading is <strong>enabled</strong></li>
+<li>Output <strong>equal to 192</strong> → Hyper-Threading is <strong>disabled</strong></li>
+</ul>
+<hr />
+<h2 id="accessing-idrac">Accessing iDRAC<a class="headerlink" href="#accessing-idrac" title="Permanent link">&para;</a></h2>
+<h3 id="option-1-network-access">Option 1: Network Access<a class="headerlink" href="#option-1-network-access" title="Permanent link">&para;</a></h3>
+<p>If the server is accessible on the local network:</p>
+<ul>
+<li>Open a browser</li>
+<li>Access iDRAC using:</li>
+</ul>
+<p><code>https://&lt;server-ip&gt;
+  example:
+  https://168.192.1.1</code></p>
+<h3 id="option-2-direct-usb-access">Option 2: Direct USB Access<a class="headerlink" href="#option-2-direct-usb-access" title="Permanent link">&para;</a></h3>
+<p>If the server is not reachable on the network:</p>
+<ul>
+<li>Connect the server to a laptop using a <strong>USB-B cable</strong></li>
+<li>Access the iDRAC console locally</li>
+</ul>
+<hr />
+<h2 id="steps-to-enable-disable-hyper-threading">Steps to Enable / Disable Hyper-Threading<a class="headerlink" href="#steps-to-enable-disable-hyper-threading" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Log in to the iDRAC console</li>
+<li>Navigate to:</li>
+</ol>
+<p><code>Configuration → BIOS → Processor Settings</code>
+3. Locate the following options:</p>
+<ul>
+<li><strong>Logical Processor</strong></li>
+<li><strong>Virtualization Technology</strong></li>
+</ul>
+<h3 id="configuration-meaning">Configuration Meaning<a class="headerlink" href="#configuration-meaning" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Logical Processor = Enabled</strong> → Hyper-Threading <strong>enabled</strong></li>
+<li>
+<p><strong>Logical Processor = Disabled</strong> → Hyper-Threading <strong>disabled</strong></p>
+</li>
+<li>
+<p>Save the changes</p>
+</li>
+<li>Reboot the server to apply the configuration</li>
+</ul>
+<hr />
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>BIOS-level configuration is <strong>persistent</strong></li>
+<li>Recommended for <strong>production HPC environments</strong></li>
+<li>OS-level SMT changes are temporary and reset on reboot</li>
+</ul>
+<pre><code>
+---
+
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

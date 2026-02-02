@@ -1,0 +1,1982 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Anaconda/">
+      
+      
+        <link rel="next" href="../../Appilcations/test/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>LVM - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lvm-logical-volume-manager" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LVM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../About Me/Professional-Summary.md" class="md-tabs__link">
+          
+  
+  
+  About Me
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../test/" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Appilcations/test/" class="md-tabs__link">
+          
+  
+  
+  Applications
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../About Me/Professional-Summary.md" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Mpi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyperthreading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hyper-Threading HPC Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_repo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Repo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxy Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Anaconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVM
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is LVM?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-lvm-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why LVM Is Needed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm-storage-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVM Storage Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-physical-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Physical Disk
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-partition-optional-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Partition (Optional Layer)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-physical-volume-pv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Physical Volume (PV)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-volume-group-vg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Volume Group (VG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-logical-volume-lv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Logical Volume (LV)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Filesystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-mount-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Mount Point
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-lvm-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal LVM Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internal LVM Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-advantages-of-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Advantages of LVM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-and-mount-an-lvm-volume-on-a-new-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create and Mount an LVM Volume on a New Disk
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attach-a-virtual-disk-to-your-hyper-v-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attach a Virtual Disk to Your Hyper-V VM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm-setup-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVM Setup Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LVM Setup Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-verify-the-new-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Verify the New Disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-new-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create a New Partition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-a-physical-volume-pv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create a Physical Volume (PV)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-create-a-volume-group-vg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Create a Volume Group (VG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-create-a-logical-volume-lv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create a Logical Volume (LV)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-create-a-filesystem-on-the-lv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Create a Filesystem on the LV
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-create-a-mount-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Create a Mount Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-mount-the-new-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Mount the New Filesystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-verify-the-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Verify the Mount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-make-the-mount-persistent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Make the Mount Persistent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-test-the-fstab-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Test the fstab Entry
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm-structure-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVM Structure Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm-components-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVM Components Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scripts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scripts/run.sh.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Shell Script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Appilcations/test/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applications
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is LVM?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-lvm-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why LVM Is Needed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm-storage-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVM Storage Layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-physical-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Physical Disk
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-partition-optional-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Partition (Optional Layer)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-physical-volume-pv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Physical Volume (PV)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-volume-group-vg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Volume Group (VG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-logical-volume-lv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Logical Volume (LV)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Filesystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-mount-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Mount Point
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-lvm-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal LVM Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internal LVM Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extents
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-advantages-of-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Advantages of LVM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-and-mount-an-lvm-volume-on-a-new-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create and Mount an LVM Volume on a New Disk
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attach-a-virtual-disk-to-your-hyper-v-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attach a Virtual Disk to Your Hyper-V VM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm-setup-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVM Setup Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LVM Setup Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-verify-the-new-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Verify the New Disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-new-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create a New Partition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-a-physical-volume-pv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create a Physical Volume (PV)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-create-a-volume-group-vg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Create a Volume Group (VG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-create-a-logical-volume-lv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create a Logical Volume (LV)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-create-a-filesystem-on-the-lv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Create a Filesystem on the LV
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-create-a-mount-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Create a Mount Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-mount-the-new-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Mount the New Filesystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-verify-the-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Verify the Mount
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-make-the-mount-persistent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Make the Mount Persistent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-test-the-fstab-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Test the fstab Entry
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm-structure-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVM Structure Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lvm-components-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LVM Components Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lvm-logical-volume-manager">📘 LVM (Logical Volume Manager)<a class="headerlink" href="#lvm-logical-volume-manager" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="what-is-lvm">What is LVM?<a class="headerlink" href="#what-is-lvm" title="Permanent link">&para;</a></h2>
+<p><strong>LVM (Logical Volume Manager)</strong> is a storage management system in Linux that adds an <strong>abstraction layer</strong> between physical storage devices and filesystems.</p>
+<p>Its main purpose is to make disk storage:</p>
+<ul>
+<li>Flexible</li>
+<li>Expandable</li>
+<li>Easier to manage</li>
+</ul>
+<p>Instead of working directly with fixed disk partitions, LVM allows administrators to work with <strong>logical storage units</strong> that can be resized and reorganized easily.</p>
+<hr />
+<h2 id="why-lvm-is-needed">Why LVM Is Needed<a class="headerlink" href="#why-lvm-is-needed" title="Permanent link">&para;</a></h2>
+<p>Traditional disk partitioning has limitations:</p>
+<ul>
+<li>Partitions have fixed sizes</li>
+<li>Expanding storage often requires downtime</li>
+<li>Adding new disks is difficult</li>
+<li>Disk space cannot be easily shared</li>
+</ul>
+<p>LVM overcomes these limitations by separating:</p>
+<ul>
+<li><strong>Physical storage</strong> from</li>
+<li><strong>Logical storage</strong></li>
+</ul>
+<p>This separation allows dynamic storage management.</p>
+<hr />
+<h2 id="lvm-storage-layers">LVM Storage Layers<a class="headerlink" href="#lvm-storage-layers" title="Permanent link">&para;</a></h2>
+<p>LVM is built using multiple logical layers. Each layer has a specific role.</p>
+<pre><code>Physical Disk → Physical Volume → Volume Group → Logical Volume → Filesystem → Mount Point
+</code></pre>
+<hr />
+<h2 id="1-physical-disk">1. Physical Disk<a class="headerlink" href="#1-physical-disk" title="Permanent link">&para;</a></h2>
+<p>A <strong>physical disk</strong> is a real storage device such as:</p>
+<ul>
+<li>Hard disk</li>
+<li>SSD</li>
+<li>Virtual disk</li>
+</ul>
+<p>It provides raw storage capacity but has no understanding of files or directories.</p>
+<hr />
+<h2 id="2-partition-optional-layer">2. Partition (Optional Layer)<a class="headerlink" href="#2-partition-optional-layer" title="Permanent link">&para;</a></h2>
+<p>A <strong>partition</strong> is a defined section of a physical disk.</p>
+<p>Although LVM can work directly on entire disks, partitions are often used for:</p>
+<ul>
+<li>Organization</li>
+<li>Compatibility</li>
+<li>Disk layout clarity</li>
+</ul>
+<p>Partitions act as containers that can later be managed by LVM.</p>
+<hr />
+<h2 id="3-physical-volume-pv">3. Physical Volume (PV)<a class="headerlink" href="#3-physical-volume-pv" title="Permanent link">&para;</a></h2>
+<p>A <strong>Physical Volume (PV)</strong> is a disk or partition that has been initialized for use by LVM.</p>
+<p>When a PV is created:</p>
+<ul>
+<li>LVM writes metadata on it</li>
+<li>The space is divided into equal-sized blocks called <strong>Physical Extents</strong></li>
+</ul>
+<p>A PV is the <strong>basic building block</strong> of LVM.</p>
+<hr />
+<h2 id="4-volume-group-vg">4. Volume Group (VG)<a class="headerlink" href="#4-volume-group-vg" title="Permanent link">&para;</a></h2>
+<p>A <strong>Volume Group (VG)</strong> is a storage pool created by combining one or more Physical Volumes.</p>
+<p>Key characteristics:</p>
+<ul>
+<li>Aggregates total storage capacity</li>
+<li>Can grow by adding more PVs</li>
+<li>Acts as a single large storage unit</li>
+</ul>
+<p>The VG hides the complexity of multiple disks.</p>
+<hr />
+<h2 id="5-logical-volume-lv">5. Logical Volume (LV)<a class="headerlink" href="#5-logical-volume-lv" title="Permanent link">&para;</a></h2>
+<p>A <strong>Logical Volume (LV)</strong> is a virtual storage unit created from a Volume Group.</p>
+<p>Characteristics:</p>
+<ul>
+<li>Acts like a traditional disk partition</li>
+<li>Can be resized</li>
+<li>Can span multiple physical disks</li>
+<li>Used to store filesystems</li>
+</ul>
+<p>Logical Volumes are the main objects users interact with in LVM.</p>
+<hr />
+<h2 id="6-filesystem">6. Filesystem<a class="headerlink" href="#6-filesystem" title="Permanent link">&para;</a></h2>
+<p>A <strong>filesystem</strong> defines how data is stored and organized on a Logical Volume.</p>
+<p>Responsibilities:</p>
+<ul>
+<li>Manages files and directories</li>
+<li>Handles permissions and metadata</li>
+<li>Controls space allocation</li>
+</ul>
+<p>Common filesystems include ext4 and XFS.</p>
+<hr />
+<h2 id="7-mount-point">7. Mount Point<a class="headerlink" href="#7-mount-point" title="Permanent link">&para;</a></h2>
+<p>A <strong>mount point</strong> is a directory in the Linux filesystem hierarchy where a filesystem is attached.</p>
+<p>Once mounted:</p>
+<ul>
+<li>Data on the Logical Volume becomes accessible</li>
+<li>The filesystem integrates into the system’s directory tree</li>
+</ul>
+<hr />
+<h2 id="internal-lvm-concepts">Internal LVM Concepts<a class="headerlink" href="#internal-lvm-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="extents">Extents<a class="headerlink" href="#extents" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Physical Extents (PE):</strong> Fixed-size blocks on a Physical Volume</li>
+<li><strong>Logical Extents (LE):</strong> Mapped blocks used by Logical Volumes</li>
+</ul>
+<p>LVM maps LEs to PEs dynamically, enabling flexibility and resizing.</p>
+<hr />
+<h2 id="key-advantages-of-lvm">Key Advantages of LVM<a class="headerlink" href="#key-advantages-of-lvm" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Dynamic resizing of storage</li>
+<li>Ability to add disks without downtime</li>
+<li>Improved storage utilization</li>
+<li>Support for snapshots</li>
+<li>Better abstraction of physical hardware</li>
+</ul>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>LVM separates physical storage from logical usage</li>
+<li>Storage is managed in layers</li>
+<li>Logical Volumes provide flexibility over traditional partitions</li>
+<li>Filesystems operate on LVM, not directly on disks</li>
+</ul>
+<hr />
+<h2 id="create-and-mount-an-lvm-volume-on-a-new-disk"><strong>Create and Mount an LVM Volume on a New Disk</strong><a class="headerlink" href="#create-and-mount-an-lvm-volume-on-a-new-disk" title="Permanent link">&para;</a></h2>
+<h2 id="attach-a-virtual-disk-to-your-hyper-v-vm">Attach a Virtual Disk to Your Hyper-V VM<a class="headerlink" href="#attach-a-virtual-disk-to-your-hyper-v-vm" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Shut down the VM.</li>
+<li>Open Hyper-V Manager.</li>
+<li>Right-click on the VM and select <strong>Settings</strong>.</li>
+<li>Under <strong>Hardware</strong>, select <strong>SCSI Controller</strong> (or add one if it's not there already).</li>
+<li>Click <strong>Add</strong> &gt; <strong>Hard Drive</strong> &gt; <strong>New</strong>.</li>
+<li>Choose VHDX or VHD, set the size for the new virtual disk, and click <strong>OK</strong>.</li>
+<li>Start the VM.</li>
+</ol>
+<h2 id="lvm-setup-steps">LVM Setup Steps<a class="headerlink" href="#lvm-setup-steps" title="Permanent link">&para;</a></h2>
+<h3 id="1-verify-the-new-disk">1. Verify the New Disk<a class="headerlink" href="#1-verify-the-new-disk" title="Permanent link">&para;</a></h3>
+<p>Check if the new disk is visible to the system:</p>
+<pre><code>lsblk
+fdisk -l
+</code></pre>
+<p><strong>Example output:</strong></p>
+<pre><code>sdb       8:16   0  100G  0 disk
+</code></pre>
+<h3 id="2-create-a-new-partition">2. Create a New Partition<a class="headerlink" href="#2-create-a-new-partition" title="Permanent link">&para;</a></h3>
+<p>Use <code>fdisk</code> to create a Linux partition on <code>/dev/sdb</code>:</p>
+<pre><code class="language-bash">fdisk /dev/sdb
+</code></pre>
+<p>Inside <code>fdisk</code>, perform the following:
+- Press <code>n</code> → create a new partition
+- Press <code>p</code> → primary partition
+- Accept defaults for sector unless specific sector sizes are needed
+- Define size, e.g.: <code>+95G</code>
+- Press <code>w</code> → write changes and exit</p>
+<p>Verify the new partition:</p>
+<pre><code class="language-bash">fdisk -l /dev/sdb
+</code></pre>
+<p>You should now have <code>/dev/sdb1</code>.</p>
+<h3 id="3-create-a-physical-volume-pv">3. Create a Physical Volume (PV)<a class="headerlink" href="#3-create-a-physical-volume-pv" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">pvcreate /dev/sdb1
+</code></pre>
+<p>Confirm:</p>
+<pre><code class="language-bash">pvs
+pvsdisplay
+</code></pre>
+<h3 id="4-create-a-volume-group-vg">4. Create a Volume Group (VG)<a class="headerlink" href="#4-create-a-volume-group-vg" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">vgcreate earth_volume_group /dev/sdb1
+</code></pre>
+<p>Check VG details:</p>
+<pre><code class="language-bash">vgdisplay
+</code></pre>
+<h3 id="5-create-a-logical-volume-lv">5. Create a Logical Volume (LV)<a class="headerlink" href="#5-create-a-logical-volume-lv" title="Permanent link">&para;</a></h3>
+<p>Allocate 90 GB for the new logical volume:</p>
+<pre><code class="language-bash">lvcreate -L 90G -n my_logical_volume earth_volume_group
+</code></pre>
+<p>List LVs:</p>
+<pre><code class="language-bash">lvs
+</code></pre>
+<p>Confirm LV path:</p>
+<pre><code>/dev/earth_volume_group/my_logical_volume
+</code></pre>
+<h3 id="6-create-a-filesystem-on-the-lv">6. Create a Filesystem on the LV<a class="headerlink" href="#6-create-a-filesystem-on-the-lv" title="Permanent link">&para;</a></h3>
+<p>Format the logical volume with the <code>ext4</code> filesystem:</p>
+<pre><code class="language-bash">mkfs.ext4 /dev/earth_volume_group/my_logical_volume
+</code></pre>
+<h3 id="7-create-a-mount-directory">7. Create a Mount Directory<a class="headerlink" href="#7-create-a-mount-directory" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">mkdir -p /HOME
+</code></pre>
+<h3 id="8-mount-the-new-filesystem">8. Mount the New Filesystem<a class="headerlink" href="#8-mount-the-new-filesystem" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">mount /dev/earth_volume_group/my_logical_volume /HOME
+</code></pre>
+<h3 id="9-verify-the-mount">9. Verify the Mount<a class="headerlink" href="#9-verify-the-mount" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">df -Th
+</code></pre>
+<p><strong>Expected output:</strong></p>
+<pre><code>/dev/mapper/earth_volume_group-my_logical_volume  ext4  89G   24K  84G  1% /HOME
+</code></pre>
+<h3 id="10-make-the-mount-persistent">10. Make the Mount Persistent<a class="headerlink" href="#10-make-the-mount-persistent" title="Permanent link">&para;</a></h3>
+<p><strong>Before editing <code>/etc/fstab</code>, always back it up:</strong></p>
+<pre><code class="language-bash">cp /etc/fstab /etc/fstab.bak
+</code></pre>
+<p>Get the UUID of the newly formatted LV:</p>
+<pre><code class="language-bash">blkid /dev/earth_volume_group/my_logical_volume
+</code></pre>
+<p><strong>Example output:</strong></p>
+<pre><code>/dev/earth_volume_group/my_logical_volume: UUID=&quot;6a62873b-95f8-4252-b73d-82daa7378b11&quot; TYPE=&quot;ext4&quot;
+</code></pre>
+<p>Copy the UUID shown for the device. Edit <code>/etc/fstab</code>:</p>
+<pre><code class="language-bash">vi /etc/fstab
+</code></pre>
+<p>Add this line at the end (replace <code>&lt;UUID&gt;</code> with the actual UUID):</p>
+<pre><code>UUID=&lt;UUID&gt;  /HOME  ext4  defaults  0  0
+</code></pre>
+<h3 id="11-test-the-fstab-entry">11. Test the fstab Entry<a class="headerlink" href="#11-test-the-fstab-entry" title="Permanent link">&para;</a></h3>
+<p>Unmount and remount to ensure the entry works:</p>
+<pre><code class="language-bash">umount /HOME
+mount -a
+df -Th
+</code></pre>
+<p>You should see <code>/HOME</code> mounted automatically.</p>
+<h2 id="lvm-structure-diagram">LVM Structure Diagram<a class="headerlink" href="#lvm-structure-diagram" title="Permanent link">&para;</a></h2>
+<pre><code>[Physical Disk: /dev/sdb]
+          │
+          ▼
+[Partition: /dev/sdb1] ← we have to create
+          │
+          ▼
+[Physical Volume (PV): /dev/sdb1] ← we have to create
+          │
+          ▼
+[Volume Group (VG): earth_volume_group] ← we have to create
+          │
+          ▼
+[Logical Volume (LV): my_logical_volume] ← we have to create
+          │
+          ▼
+[Filesystem: ext4]
+          │
+          ▼
+[Mount Point: /HOME]
+</code></pre>
+<h2 id="lvm-components-summary">LVM Components Summary<a class="headerlink" href="#lvm-components-summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Physical Disk</strong>: The entire disk device.</li>
+<li><strong>Partition</strong>: Disk section created with <code>fdisk</code>, e.g., <code>/dev/sdb1</code>.</li>
+<li><strong>Physical Volume (PV)</strong>: LVM-initialized partition, e.g., after <code>pvcreate /dev/sdb1</code>.</li>
+<li><strong>Volume Group (VG)</strong>: Pool of storage created by combining PV(s), e.g., <code>earth_volume_group</code>.</li>
+<li><strong>Logical Volume (LV)</strong>: Virtual disk partition allocated from VG, e.g., <code>my_logical_volume</code>.</li>
+<li><strong>Filesystem</strong>: Format the LV with a filesystem like ext4.</li>
+<li><strong>Mount Point</strong>: Directory to access the data, e.g., <code>/HOME</code>.
+```</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

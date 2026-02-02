@@ -1,0 +1,1524 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Metis/">
+      
+      
+        <link rel="next" href="../Proxy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Local Repo - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#creating-and-configuring-a-local-repository-in-rhel-without-subscription" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Local Repo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../About Me/Professional-Summary.md" class="md-tabs__link">
+          
+  
+  
+  About Me
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../test/" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Appilcations/test/" class="md-tabs__link">
+          
+  
+  
+  Applications
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../About Me/Professional-Summary.md" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Mpi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyperthreading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hyper-Threading HPC Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Repo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Repo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-install-required-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install Required Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-obtain-repository-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Obtain Repository Packages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Obtain Repository Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-download-packages-using-reposync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Download Packages Using reposync
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-use-rhel-dvd-iso-images-offline-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Use RHEL DVD ISO Images (Offline Method)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-directory-structure-for-local-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create Directory Structure for Local Repositories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-copy-rpm-files-to-local-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Copy RPM Files to Local Repository
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Copy RPM Files to Local Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-copy-from-external-media-usb-mounted-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Copy from External Media (USB / Mounted Disk)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-copy-from-rhel-iso-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Copy from RHEL ISO Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-repository-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create Repository Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-configure-local-repository-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Configure Local Repository Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-verify-repository-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Verify Repository Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-clean-dnf-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Clean DNF Cache
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-install-packages-from-local-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Install Packages from Local Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-verify-pcs-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Verify PCS Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxy Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Anaconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logical%20Volume%20Manager%20%28LVM%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scripts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scripts/run.sh.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Shell Script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Appilcations/test/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applications
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-install-required-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install Required Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-obtain-repository-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Obtain Repository Packages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Obtain Repository Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-download-packages-using-reposync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Download Packages Using reposync
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-use-rhel-dvd-iso-images-offline-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Use RHEL DVD ISO Images (Offline Method)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-directory-structure-for-local-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create Directory Structure for Local Repositories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-copy-rpm-files-to-local-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Copy RPM Files to Local Repository
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Copy RPM Files to Local Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-copy-from-external-media-usb-mounted-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Copy from External Media (USB / Mounted Disk)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-copy-from-rhel-iso-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Copy from RHEL ISO Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-repository-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create Repository Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-configure-local-repository-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Configure Local Repository Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-verify-repository-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Verify Repository Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-clean-dnf-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Clean DNF Cache
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-install-packages-from-local-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Install Packages from Local Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-verify-pcs-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Verify PCS Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="creating-and-configuring-a-local-repository-in-rhel-without-subscription"><strong>Creating and Configuring a Local Repository in RHEL (Without Subscription)</strong><a class="headerlink" href="#creating-and-configuring-a-local-repository-in-rhel-without-subscription" title="Permanent link">&para;</a></h1>
+<p>This guide explains how to create and configure a <strong>local YUM/DNF repository</strong> on <strong>RHEL</strong> systems <strong>without an active Red Hat subscription</strong>.<br />
+The repository can be created using <strong>downloaded RPMs</strong> or <strong>RHEL ISO images</strong>.</p>
+<hr />
+<h2 id="1-install-required-dependencies">1. Install Required Dependencies<a class="headerlink" href="#1-install-required-dependencies" title="Permanent link">&para;</a></h2>
+<p>Install the required tool to generate repository metadata:</p>
+<pre><code class="language-bash">dnf install -y createrepo
+</code></pre>
+<hr />
+<h2 id="2-obtain-repository-packages">2. Obtain Repository Packages<a class="headerlink" href="#2-obtain-repository-packages" title="Permanent link">&para;</a></h2>
+<p>You can obtain RPM packages in <strong>two ways</strong>:</p>
+<h3 id="option-1-download-packages-using-reposync">Option 1: Download Packages Using <code>reposync</code><a class="headerlink" href="#option-1-download-packages-using-reposync" title="Permanent link">&para;</a></h3>
+<p>If the system has temporary internet access:</p>
+<pre><code class="language-bash">reposync --reponame=&lt;repository-name&gt; -p /local-repo
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">reposync --reponame=baseos -p /local-repo
+</code></pre>
+<hr />
+<h3 id="option-2-use-rhel-dvd-iso-images-offline-method">Option 2: Use RHEL DVD ISO Images (Offline Method)<a class="headerlink" href="#option-2-use-rhel-dvd-iso-images-offline-method" title="Permanent link">&para;</a></h3>
+<p>If you have RHEL ISO images (recommended for offline environments), you can configure the local repository using those images.</p>
+<hr />
+<h2 id="3-create-directory-structure-for-local-repositories">3. Create Directory Structure for Local Repositories<a class="headerlink" href="#3-create-directory-structure-for-local-repositories" title="Permanent link">&para;</a></h2>
+<p>Create directories to store RPM files:</p>
+<pre><code class="language-bash">mkdir -p /local-repo/baseos
+mkdir -p /local-repo/appstream
+mkdir -p /local-repo/highavailability
+</code></pre>
+<hr />
+<h2 id="4-copy-rpm-files-to-local-repository">4. Copy RPM Files to Local Repository<a class="headerlink" href="#4-copy-rpm-files-to-local-repository" title="Permanent link">&para;</a></h2>
+<h3 id="41-copy-from-external-media-usb-mounted-disk">4.1 Copy from External Media (USB / Mounted Disk)<a class="headerlink" href="#41-copy-from-external-media-usb-mounted-disk" title="Permanent link">&para;</a></h3>
+<p>If the RPMs are already available on external media:</p>
+<pre><code class="language-bash">rsync -avz /run/media/&lt;user&gt;/RHEL/BaseOS/* /local-repo/baseos
+rsync -avz /run/media/&lt;user&gt;/RHEL/AppStream/* /local-repo/appstream
+rsync -avz /run/media/&lt;user&gt;/RHEL/HighAvailability/* /local-repo/highavailability
+</code></pre>
+<hr />
+<h3 id="42-copy-from-rhel-iso-image">4.2 Copy from RHEL ISO Image<a class="headerlink" href="#42-copy-from-rhel-iso-image" title="Permanent link">&para;</a></h3>
+<p>Mount the RHEL ISO image:</p>
+<pre><code class="language-bash">mkdir -p /mnt/iso_image
+mount rhel9.4.iso /mnt/iso_image
+</code></pre>
+<p>Verify contents:</p>
+<pre><code class="language-bash">ls -l /mnt/iso_image
+</code></pre>
+<p>You should see directories such as <code>BaseOS</code> and <code>AppStream</code>.</p>
+<p>Copy the RPMs:</p>
+<pre><code class="language-bash">rsync -avz /mnt/iso_image/BaseOS/* /local-repo/baseos
+rsync -avz /mnt/iso_image/AppStream/* /local-repo/appstream
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>Note</strong>
+The <strong>HighAvailability</strong> repository is <strong>not included</strong> in standard RHEL ISO images.
+It must be downloaded separately if required.</p>
+</blockquote>
+<hr />
+<h2 id="5-create-repository-metadata">5. Create Repository Metadata<a class="headerlink" href="#5-create-repository-metadata" title="Permanent link">&para;</a></h2>
+<p>Generate metadata so <code>dnf</code> can recognize the repositories:</p>
+<pre><code class="language-bash">createrepo /local-repo/baseos
+createrepo /local-repo/appstream
+createrepo /local-repo/highavailability
+</code></pre>
+<blockquote>
+<p>⚠️ If errors occur, verify that RPM files were copied correctly.</p>
+</blockquote>
+<hr />
+<h2 id="6-configure-local-repository-files">6. Configure Local Repository Files<a class="headerlink" href="#6-configure-local-repository-files" title="Permanent link">&para;</a></h2>
+<p>Create a repository configuration file:</p>
+<pre><code class="language-bash">vi /etc/yum.repos.d/local.repo
+</code></pre>
+<p>Add the following content:</p>
+<pre><code class="language-ini">[local-baseos]
+name=Local BaseOS Repository
+baseurl=file:///local-repo/baseos
+enabled=1
+gpgcheck=0
+
+[local-appstream]
+name=Local AppStream Repository
+baseurl=file:///local-repo/appstream
+enabled=1
+gpgcheck=0
+
+[local-highavailability]
+name=Local HighAvailability Repository
+baseurl=file:///local-repo/highavailability
+enabled=1
+gpgcheck=0
+</code></pre>
+<blockquote>
+<p>🔹 <code>gpgcheck=0</code> is recommended for offline/local repositories.
+If GPG keys are available, you may enable it.</p>
+</blockquote>
+<hr />
+<h2 id="7-verify-repository-configuration">7. Verify Repository Configuration<a class="headerlink" href="#7-verify-repository-configuration" title="Permanent link">&para;</a></h2>
+<p>Check whether repositories are enabled:</p>
+<pre><code class="language-bash">dnf repolist
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">yum repolist
+</code></pre>
+<hr />
+<h2 id="8-clean-dnf-cache">8. Clean DNF Cache<a class="headerlink" href="#8-clean-dnf-cache" title="Permanent link">&para;</a></h2>
+<p>Clear existing cache and reload metadata:</p>
+<pre><code class="language-bash">dnf clean all
+dnf makecache
+</code></pre>
+<hr />
+<h2 id="9-install-packages-from-local-repository">9. Install Packages from Local Repository<a class="headerlink" href="#9-install-packages-from-local-repository" title="Permanent link">&para;</a></h2>
+<p>Example: Install <code>pcs</code> package:</p>
+<pre><code class="language-bash">dnf install pcs
+</code></pre>
+<hr />
+<h2 id="10-verify-pcs-installation">10. Verify PCS Installation<a class="headerlink" href="#10-verify-pcs-installation" title="Permanent link">&para;</a></h2>
+<p>Check whether the service is installed and running:</p>
+<pre><code class="language-bash">systemctl status pcsd
+</code></pre>
+<p>Check available commands:</p>
+<pre><code class="language-bash">pcs --help
+</code></pre>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Configuring a local repository in RHEL without a subscription allows systems to operate fully in <strong>offline or restricted environments</strong>.
+Using ISO images or synced RPMs ensures consistent package availability and simplifies system management.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

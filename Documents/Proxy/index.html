@@ -1,0 +1,2348 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Local_repo/">
+      
+      
+        <link rel="next" href="../Anaconda/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Proxy Networks - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-what-is-a-proxy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Proxy Networks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../About Me/Professional-Summary.md" class="md-tabs__link">
+          
+  
+  
+  About Me
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../test/" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Appilcations/test/" class="md-tabs__link">
+          
+  
+  
+  Applications
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../About Me/Professional-Summary.md" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Mpi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyperthreading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hyper-Threading HPC Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_repo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Repo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxy Networks
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxy Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-a-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What Is a Proxy?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What Is a Proxy?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-internet-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Normal Internet Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internet-connection-using-a-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internet Connection Using a Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-is-a-proxy-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. What Is a Proxy Network?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-why-use-a-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Why Use a Proxy?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Why Use a Proxy?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-internet-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Internet Access Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Caching
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-types-of-proxies-basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Types of Proxies (Basic)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Types of Proxies (Basic)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTPS Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-how-a-proxy-works-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. How a Proxy Works (Step by Step)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-using-a-proxy-on-linux-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Using a Proxy on Linux / macOS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-what-does-export-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. What Does export Mean?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-setting-proxy-using-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Setting Proxy Using export
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Setting Proxy Using export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-breaking-down-the-proxy-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Breaking Down the Proxy URL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Breaking Down the Proxy URL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-on-url-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note on URL Encoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-what-happens-after-exporting-the-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. What Happens After Exporting the Proxy?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. What Happens After Exporting the Proxy?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-temporary-vs-permanent-proxy-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Temporary vs Permanent Proxy Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Temporary vs Permanent Proxy Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temporary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permanent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permanent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-security-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Security Warning ⚠️
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-installing-python-libraries-using-pip-through-a-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Installing Python Libraries Using pip Through a Proxy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Installing Python Libraries Using pip Through a Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-1-proxy-in-the-pip-install-command-one-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 1: Proxy in the pip install Command (One-Time)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2-export-proxy-once-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 2: Export Proxy Once (Recommended)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 2: Export Proxy Once (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-export-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Export Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-3-permanent-proxy-for-pip-best-for-servers-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 3: Permanent Proxy for pip (Best for Servers / HPC)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 3: Permanent Proxy for pip (Best for Servers / HPC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-config-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create Config Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create Config File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-install-normally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Install Normally
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Common Mistakes ❌
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Common Mistakes ❌">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wrong-package-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wrong Package Name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-url-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing URL Encoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-how-to-verify-proxy-is-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. How to Verify Proxy Is Working
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-ssl-certificate-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. SSL / Certificate Errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-quick-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Quick Summary 🧠
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Anaconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logical%20Volume%20Manager%20%28LVM%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scripts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scripts/run.sh.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Shell Script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Appilcations/test/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applications
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-a-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What Is a Proxy?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What Is a Proxy?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-internet-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Normal Internet Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internet-connection-using-a-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internet Connection Using a Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-is-a-proxy-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. What Is a Proxy Network?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-why-use-a-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Why Use a Proxy?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Why Use a Proxy?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-internet-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Internet Access Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Caching
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-types-of-proxies-basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Types of Proxies (Basic)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Types of Proxies (Basic)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTPS Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-how-a-proxy-works-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. How a Proxy Works (Step by Step)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-using-a-proxy-on-linux-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Using a Proxy on Linux / macOS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-what-does-export-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. What Does export Mean?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-setting-proxy-using-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Setting Proxy Using export
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Setting Proxy Using export">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-breaking-down-the-proxy-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Breaking Down the Proxy URL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Breaking Down the Proxy URL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-on-url-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note on URL Encoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-what-happens-after-exporting-the-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. What Happens After Exporting the Proxy?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. What Happens After Exporting the Proxy?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-temporary-vs-permanent-proxy-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Temporary vs Permanent Proxy Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Temporary vs Permanent Proxy Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temporary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permanent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permanent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-security-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Security Warning ⚠️
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-installing-python-libraries-using-pip-through-a-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Installing Python Libraries Using pip Through a Proxy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Installing Python Libraries Using pip Through a Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-1-proxy-in-the-pip-install-command-one-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 1: Proxy in the pip install Command (One-Time)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2-export-proxy-once-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 2: Export Proxy Once (Recommended)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 2: Export Proxy Once (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-export-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Export Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-3-permanent-proxy-for-pip-best-for-servers-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 3: Permanent Proxy for pip (Best for Servers / HPC)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 3: Permanent Proxy for pip (Best for Servers / HPC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-config-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create Config Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create Config File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-install-normally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Install Normally
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Common Mistakes ❌
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Common Mistakes ❌">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wrong-package-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wrong Package Name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-url-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing URL Encoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-how-to-verify-proxy-is-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. How to Verify Proxy Is Working
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-ssl-certificate-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. SSL / Certificate Errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-quick-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Quick Summary 🧠
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Proxy Networks</h1>
+
+<hr />
+<p>Proxy Network – Basics Guide</p>
+<p>This guide explains <strong>what a proxy network is</strong>, <strong>why it is used</strong>, and <strong>how to use it</strong>, starting from the very basics.<br />
+It is intended for students, developers, and anyone working in institutional or server environments.</p>
+<hr />
+<h2 id="1-what-is-a-proxy">1. What Is a Proxy?<a class="headerlink" href="#1-what-is-a-proxy" title="Permanent link">&para;</a></h2>
+<p>A <strong>proxy</strong> is an intermediate server between your computer and the internet.</p>
+<h3 id="normal-internet-connection">Normal Internet Connection<a class="headerlink" href="#normal-internet-connection" title="Permanent link">&para;</a></h3>
+<pre><code>
+Your Computer → Website
+
+</code></pre>
+<h3 id="internet-connection-using-a-proxy">Internet Connection Using a Proxy<a class="headerlink" href="#internet-connection-using-a-proxy" title="Permanent link">&para;</a></h3>
+<p>Your Computer → Proxy Server → Website</p>
+<p>Instead of connecting directly to a website, your request is first sent to the <strong>proxy server</strong>, which then communicates with the website on your behalf.</p>
+<hr />
+<h2 id="2-what-is-a-proxy-network">2. What Is a Proxy Network?<a class="headerlink" href="#2-what-is-a-proxy-network" title="Permanent link">&para;</a></h2>
+<p>A <strong>proxy network</strong> is a setup where:
+- Multiple users access the internet
+- Through one or more <strong>proxy servers</strong></p>
+<p>The proxy server:
+- Receives requests from users<br />
+- Forwards them to the internet<br />
+- Receives responses<br />
+- Sends the responses back to users  </p>
+<p>Proxy networks are commonly used in <strong>companies, universities, data centers, and HPC clusters</strong>.</p>
+<hr />
+<h2 id="3-why-use-a-proxy">3. Why Use a Proxy?<a class="headerlink" href="#3-why-use-a-proxy" title="Permanent link">&para;</a></h2>
+<p>Common reasons include:</p>
+<h3 id="1-internet-access-control">1. Internet Access Control<a class="headerlink" href="#1-internet-access-control" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restrict or allow access to specific websites</li>
+<li>Widely used in offices, colleges, and research labs</li>
+</ul>
+<h3 id="2-security">2. Security<a class="headerlink" href="#2-security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Hides the user’s real IP address</li>
+<li>Protects internal networks from direct exposure</li>
+</ul>
+<h3 id="3-monitoring">3. Monitoring<a class="headerlink" href="#3-monitoring" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Allows administrators to monitor internet usage</li>
+</ul>
+<h3 id="4-caching">4. Caching<a class="headerlink" href="#4-caching" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Frequently accessed content loads faster</li>
+<li>Reduces bandwidth usage</li>
+</ul>
+<hr />
+<h2 id="4-types-of-proxies-basic">4. Types of Proxies (Basic)<a class="headerlink" href="#4-types-of-proxies-basic" title="Permanent link">&para;</a></h2>
+<h3 id="http-proxy">HTTP Proxy<a class="headerlink" href="#http-proxy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Used for standard web traffic</li>
+<li>Example: browsing normal websites</li>
+</ul>
+<h3 id="https-proxy">HTTPS Proxy<a class="headerlink" href="#https-proxy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Used for encrypted web traffic</li>
+<li>Required for secure websites</li>
+</ul>
+<hr />
+<h2 id="5-how-a-proxy-works-step-by-step">5. How a Proxy Works (Step by Step)<a class="headerlink" href="#5-how-a-proxy-works-step-by-step" title="Permanent link">&para;</a></h2>
+<ol>
+<li>You request a website  </li>
+<li>The request goes to the proxy server  </li>
+<li>The proxy checks access permissions  </li>
+<li>The proxy forwards the request to the website  </li>
+<li>The website responds to the proxy  </li>
+<li>The proxy sends the response back to you  </li>
+</ol>
+<hr />
+<h2 id="6-using-a-proxy-on-linux-macos">6. Using a Proxy on Linux / macOS<a class="headerlink" href="#6-using-a-proxy-on-linux-macos" title="Permanent link">&para;</a></h2>
+<p>Most command-line tools read proxy settings from <strong>environment variables</strong>.</p>
+<p>Common variables:
+- <code>http_proxy</code>
+- <code>https_proxy</code></p>
+<hr />
+<h2 id="7-what-does-export-mean">7. What Does <code>export</code> Mean?<a class="headerlink" href="#7-what-does-export-mean" title="Permanent link">&para;</a></h2>
+<p>In Linux/macOS:
+- <code>export</code> sets an <strong>environment variable</strong>
+- Makes it available to all programs started from that terminal session</p>
+<hr />
+<h2 id="8-setting-proxy-using-export">8. Setting Proxy Using <code>export</code><a class="headerlink" href="#8-setting-proxy-using-export" title="Permanent link">&para;</a></h2>
+<h3 id="example-commands">Example Commands<a class="headerlink" href="#example-commands" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">export http_proxy=&quot;http://username:password@proxy_ip:port/&quot;
+export https_proxy=&quot;https://username:password@proxy_ip:port/&quot;
+</code></pre>
+<h3 id="real-example">Real Example<a class="headerlink" href="#real-example" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">export http_proxy=&quot;http://application_user:Abc%60123456@100.100.100.100:100/&quot;
+export https_proxy=&quot;https://application_user:Abc%60123456@100.100.100.100:100/&quot;
+</code></pre>
+<hr />
+<h2 id="9-breaking-down-the-proxy-url">9. Breaking Down the Proxy URL<a class="headerlink" href="#9-breaking-down-the-proxy-url" title="Permanent link">&para;</a></h2>
+<pre><code>http://application_user:Abc%60123456@100.100.100.100:100/
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>http://</code></td>
+<td>Proxy protocol</td>
+</tr>
+<tr>
+<td><code>application_user</code></td>
+<td>Proxy username</td>
+</tr>
+<tr>
+<td><code>Abc%60123456</code></td>
+<td>Proxy password (URL-encoded)</td>
+</tr>
+<tr>
+<td><code>100.100.100.100</code></td>
+<td>Proxy server IP</td>
+</tr>
+<tr>
+<td><code>100</code></td>
+<td>Proxy port</td>
+</tr>
+</tbody>
+</table>
+<h3 id="note-on-url-encoding">Note on URL Encoding<a class="headerlink" href="#note-on-url-encoding" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>%40</code> is URL encoding for <code>@</code></li>
+<li>Password <code>Abc@123456</code> becomes <code>Abc%60123456</code></li>
+</ul>
+<hr />
+<h2 id="10-what-happens-after-exporting-the-proxy">10. What Happens After Exporting the Proxy?<a class="headerlink" href="#10-what-happens-after-exporting-the-proxy" title="Permanent link">&para;</a></h2>
+<p>Once exported:</p>
+<ul>
+<li>Tools like <code>curl</code>, <code>wget</code>, <code>pip</code>, <code>apt</code>, and <code>git</code></li>
+<li>Automatically route traffic through the proxy</li>
+</ul>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">curl google.com
+pip install numpy
+</code></pre>
+<hr />
+<h2 id="11-temporary-vs-permanent-proxy-settings">11. Temporary vs Permanent Proxy Settings<a class="headerlink" href="#11-temporary-vs-permanent-proxy-settings" title="Permanent link">&para;</a></h2>
+<h3 id="temporary">Temporary<a class="headerlink" href="#temporary" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Works only for the current terminal session</li>
+<li>Lost after closing the terminal</li>
+</ul>
+<h3 id="permanent">Permanent<a class="headerlink" href="#permanent" title="Permanent link">&para;</a></h3>
+<p>Add the export commands to:</p>
+<ul>
+<li><code>~/.bashrc</code></li>
+<li><code>~/.profile</code></li>
+</ul>
+<hr />
+<h2 id="12-security-warning">12. Security Warning ⚠️<a class="headerlink" href="#12-security-warning" title="Permanent link">&para;</a></h2>
+<p>Proxy credentials are stored in <strong>plain text</strong>.</p>
+<p>Recommendations:</p>
+<ul>
+<li>Avoid sharing terminal screenshots</li>
+<li>Clear shell history if required</li>
+<li>Use secure credential management when possible</li>
+</ul>
+<hr />
+<h2 id="13-installing-python-libraries-using-pip-through-a-proxy">13. Installing Python Libraries Using <code>pip</code> Through a Proxy<a class="headerlink" href="#13-installing-python-libraries-using-pip-through-a-proxy" title="Permanent link">&para;</a></h2>
+<h3 id="method-1-proxy-in-the-pip-install-command-one-time">Method 1: Proxy in the <code>pip install</code> Command (One-Time)<a class="headerlink" href="#method-1-proxy-in-the-pip-install-command-one-time" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">pip install pandas --proxy http://application_user:Abc%60123456@100.100.100.100:100
+</code></pre>
+<p>✅ Uses the proxy only for this command.</p>
+<hr />
+<h3 id="method-2-export-proxy-once-recommended">Method 2: Export Proxy Once (Recommended)<a class="headerlink" href="#method-2-export-proxy-once-recommended" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-export-proxy">Step 1: Export Proxy<a class="headerlink" href="#step-1-export-proxy" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">export http_proxy=&quot;http://application_user:Abc%60123456@100.100.100.100:100/&quot;
+export https_proxy=&quot;https://application_user:Abc%60123456@100.100.100.100:100/&quot;
+</code></pre>
+<h4 id="step-2-install-package">Step 2: Install Package<a class="headerlink" href="#step-2-install-package" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">pip install pandas
+</code></pre>
+<p>✅ <code>pip</code> automatically uses the proxy.</p>
+<hr />
+<h3 id="method-3-permanent-proxy-for-pip-best-for-servers-hpc">Method 3: Permanent Proxy for <code>pip</code> (Best for Servers / HPC)<a class="headerlink" href="#method-3-permanent-proxy-for-pip-best-for-servers-hpc" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-create-config-directory">Step 1: Create Config Directory<a class="headerlink" href="#step-1-create-config-directory" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">mkdir -p ~/.pip
+</code></pre>
+<h4 id="step-2-create-config-file">Step 2: Create Config File<a class="headerlink" href="#step-2-create-config-file" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">nano ~/.pip/pip.conf
+</code></pre>
+<h4 id="step-3-add-configuration">Step 3: Add Configuration<a class="headerlink" href="#step-3-add-configuration" title="Permanent link">&para;</a></h4>
+<pre><code class="language-ini">[global]
+proxy = http://application_user:Abc%60123456@100.100.100.100:100
+</code></pre>
+<h4 id="step-4-install-normally">Step 4: Install Normally<a class="headerlink" href="#step-4-install-normally" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">pip install pandas
+</code></pre>
+<hr />
+<h2 id="14-common-mistakes">14. Common Mistakes ❌<a class="headerlink" href="#14-common-mistakes" title="Permanent link">&para;</a></h2>
+<h3 id="wrong-package-name">Wrong Package Name<a class="headerlink" href="#wrong-package-name" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">pip install pands   # ❌
+pip install pandas  # ✅
+</code></pre>
+<h3 id="missing-url-encoding">Missing URL Encoding<a class="headerlink" href="#missing-url-encoding" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use <code>Abc%60123456</code></li>
+<li>Not <code>Abc@123456</code></li>
+</ul>
+<hr />
+<h2 id="15-how-to-verify-proxy-is-working">15. How to Verify Proxy Is Working<a class="headerlink" href="#15-how-to-verify-proxy-is-working" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">pip install numpy -v
+</code></pre>
+<p>If you see:</p>
+<pre><code>Connecting to 100.100.100.100:100
+</code></pre>
+<p>➡️ The proxy is being used.</p>
+<hr />
+<h2 id="16-ssl-certificate-errors">16. SSL / Certificate Errors<a class="headerlink" href="#16-ssl-certificate-errors" title="Permanent link">&para;</a></h2>
+<p>Try:</p>
+<pre><code class="language-bash">pip install pandas \
+  --proxy http://application_user:Abc%60123456@100.100.100.100:100 \
+  --trusted-host pypi.org \
+  --trusted-host files.pythonhosted.org
+</code></pre>
+<hr />
+<h2 id="17-quick-summary">17. Quick Summary 🧠<a class="headerlink" href="#17-quick-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--proxy</code></td>
+<td>One-time install</td>
+</tr>
+<tr>
+<td><code>export</code></td>
+<td>Session-wide usage</td>
+</tr>
+<tr>
+<td><code>pip.conf</code></td>
+<td>Permanent server setup</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>In short:</strong>
+A proxy is a middleman between you and the internet.
+Proxy networks are widely used in institutions for security, control, and performance.</p>
+<p>```</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
