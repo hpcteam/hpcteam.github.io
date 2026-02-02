@@ -194,3 +194,226 @@ mkdocs gh-deploy --force
 * `mkdocs gh-deploy` handles everything automatically
 
 
+Perfect 👍
+Below is a **clean, copy-paste ready Markdown document** you can save as, for example:
+
+```bash
+docs/Documents/How_To_Add_New_Page_Auto_Deploy.md
+```
+
+# How to Create or Update Pages in MkDocs (Auto Deployment via GitHub Actions)
+
+This document explains **how to create new pages, edit existing pages, and how changes are automatically deployed** to the live website using **GitHub Actions CI/CD**.
+
+Repository:
+- https://github.com/hpcteam/hpcteam.github.io  
+Live site:
+- https://hpcteam.github.io
+
+---
+
+## 1. How Auto Deployment Works (Simple Flow)
+
+Whenever you push changes to the `main` branch, the following happens automatically:
+
+```
+
+Edit Markdown File
+↓
+Git Commit
+↓
+Git Push
+↓
+GitHub Actions CI/CD
+↓
+MkDocs Build (--strict)
+↓
+Website Updated Automatically
+
+```
+
+⚠️ You **do not need to run** `mkdocs gh-deploy` manually.
+
+---
+
+## 2. Creating a New Page (Step-by-Step)
+
+### Example: Creating a New Page called `Slurm Basics`
+
+---
+
+### Step 1: Create a New Markdown File
+
+In VS Code:
+
+1. Open the project folder
+2. Navigate to:
+```
+
+docs/Documents/
+
+```
+3. Create a new file:
+```
+
+Slurm.md
+
+````
+
+Add content:
+
+```markdown
+# Slurm Basics
+
+Slurm is a workload manager used in HPC clusters.
+
+## Common Commands
+```bash
+sinfo
+squeue
+sbatch
+````
+
+````
+
+Save the file.
+
+---
+
+### Step 2: Add the Page to Navigation (MANDATORY)
+
+Open `mkdocs.yml`.
+
+Under the `Documents:` section, add:
+
+```yaml
+- Slurm Basics: Documents/Slurm.md
+````
+
+⚠️ Important:
+Because CI uses `mkdocs build --strict`, **every page must be listed in `nav`**.
+
+---
+
+### Step 3: Test Locally (Optional but Recommended)
+
+```bash
+mkdocs serve
+```
+
+Open in browser:
+
+```
+http://127.0.0.1:8000
+```
+
+Verify:
+
+* Page loads correctly
+* Navigation entry appears
+
+---
+
+### Step 4: Commit Changes
+
+Using terminal:
+
+```bash
+git add docs/Documents/Slurm.md mkdocs.yml
+git commit -m "Add Slurm Basics documentation"
+```
+
+OR using VS Code Source Control:
+
+* Commit with message
+
+---
+
+### Step 5: Push Changes
+
+```bash
+git push
+```
+
+---
+
+### Step 6: Automatic Deployment
+
+After push:
+
+* GitHub Actions runs automatically
+* MkDocs site is rebuilt
+* Website updates in ~30–60 seconds
+
+Visit:
+
+```
+https://hpcteam.github.io
+```
+
+---
+
+## 3. Editing an Existing Page
+
+Example: Editing `Linux_commands.md`
+
+Steps:
+
+1. Open file in VS Code
+2. Modify content
+3. Save
+4. Commit
+5. Push
+
+Deployment happens automatically.
+
+---
+
+## 4. What Will Break the Deployment (IMPORTANT)
+
+Because `--strict` mode is enabled, the build will **FAIL** if:
+
+* A Markdown file exists but is **not listed in `nav`**
+* A file is listed in `nav` but **does not exist**
+* Filename case does not match (`Linux.md` ≠ `linux.md`)
+* Temporary or test files are left in `docs/`
+
+---
+
+## 5. Best Practices (Recommended)
+
+* Always add new pages to `mkdocs.yml`
+* Avoid `test.md` files in production
+* Use clear, descriptive filenames
+* Run `mkdocs serve` before pushing if possible
+* Keep navigation clean and structured
+
+---
+
+## 6. Daily Workflow (Quick Reference)
+
+```bash
+# Edit or add markdown files
+git add .
+git commit -m "Update documentation"
+git push
+```
+
+The website updates automatically.
+
+---
+
+## 7. Summary
+
+* GitHub Actions handles deployment
+* Every push to `main` triggers a rebuild
+* No manual deployment steps required
+* Strict mode ensures clean, error-free documentation
+
+This workflow follows **industry-standard DevOps documentation practices**.
+
+```
+
+---
+
+
