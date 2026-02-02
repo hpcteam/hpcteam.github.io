@@ -194,12 +194,13 @@ mkdocs gh-deploy --force
 * `mkdocs gh-deploy` handles everything automatically
 
 
-Perfect 👍
-Below is a **clean, copy-paste ready Markdown document** you can save as, for example:
 
-```bash
+```
 docs/Documents/How_To_Add_New_Page_Auto_Deploy.md
 ```
+
+---
+
 
 # How to Create or Update Pages in MkDocs (Auto Deployment via GitHub Actions)
 
@@ -415,5 +416,6 @@ This workflow follows **industry-standard DevOps documentation practices**.
 ```
 
 ---
+
 
 
