@@ -49,17 +49,17 @@ plugins:
 
  
 nav:
-  - about_Me:
-      - Professional Overview: about_Me/Professional-Summary.md
-      - Technical Skills: about_Me/technical-skills.md
-      - Roles & Responsibilities: about_Me/roles-responsibilities.md
-      - Professional Experience: About Me/professional-experience.md
-      - Projects: About Me/projects.md
-      - Machines, Hardware & Networks: About Me/machines-hardware-networks.md
-      - Applications and Libraries: About Me/applications-and-libraries.md
-      - HPC Troubleshooting Notes: About Me/hpc-troubleshooting-notes.md
-      - Education: About Me/education.md
-      - Contact: About Me/contact.md
+  - Home:
+      - Professional Overview: Home/Professional-Summary.md
+      - Technical Skills: Home/technical-skills.md
+      - Roles & Responsibilities: Home/roles-responsibilities.md
+      - Professional Experience: Home/professional-experience.md
+      - Projects: Home/projects.md
+      - Machines, Hardware & Networks: Home/machines-hardware-networks.md
+      - Applications and Libraries: Home/applications-and-libraries.md
+      - HPC Troubleshooting Notes: Home/hpc-troubleshooting-notes.md
+      - Education: Home/education.md
+      - Contact: Home/contact.md
   - Documents:
       - Test: Documents/test.md
       - Python : Documents/Python.md
@@ -74,6 +74,6 @@ nav:
       - Scripts:
         - Basic Shell Script: Documents/Scripts/run.sh.md
   - Applications:
-    - Test: Appilcations/test.md
+    - Test: Applications/test.md
   - Troubleshooting :
      - Overview: Troubleshooting/index.md

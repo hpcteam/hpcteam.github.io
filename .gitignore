@@ -1,4 +1,4 @@
 site/
-.cache/
-*.bak
 __pycache__/
+*.pyc
+.env
