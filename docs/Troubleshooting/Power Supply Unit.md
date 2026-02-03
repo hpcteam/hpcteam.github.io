@@ -66,7 +66,7 @@ If the server has **two PSUs**:
 ### Step 4: Check PSU LED Light
 
 | LED Color      | Meaning             |
-| -------------- | ------------------- |
+| ---------------| ------------------- |
 | Green          | PSU is working      |
 | Blinking Green | PSU firmware update |
 | Blinking Amber | PSU problem         |
