@@ -1,4 +1,4 @@
-# Server Power Supply (PSU) Issue 
+# Power Supply Unit (PSU) Issue 
 ---
 
 ## What is a PSU?
