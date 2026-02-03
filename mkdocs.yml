@@ -80,5 +80,6 @@ nav:
   - Troubleshooting:
       - Overview: Troubleshooting/index.md
       - Hardware Troubleshooting : Troubleshooting/Hardware Troubleshooting.md
+      - Power Drain : Troubleshooting/Power Drain.md
 
 
