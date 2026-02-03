@@ -25,7 +25,7 @@ You may see:
 
 ---
 
-## Basic Checks (Do This First)
+## First checks
 
 1. Make sure the **power cable is connected tightly**
 2. Check the **power socket or PDU**
@@ -65,10 +65,6 @@ If the server has **two PSUs**:
 
 ### Step 4: Check PSU LED Light
 
-![Image](https://supportkb.dell.com/img/ka0Do000000xhAHIAY/ka0Do000000xhAHIAY_en_US_2.jpeg)
-
-![Image](https://supportkb.dell.com/img/ka0Do000000xhAHIAY/ka0Do000000xhAHIAY_en_US_1.jpeg)
-
 | LED Color      | Meaning             |
 | -------------- | ------------------- |
 | Green          | PSU is working      |
@@ -78,7 +74,7 @@ If the server has **two PSUs**:
 
 ---
 
-## Replacing a PSU (Safe Method)
+## Replacing a PSU 
 
 If the server has **two PSUs (redundant)**, you do NOT need to shut down.
 
@@ -116,9 +112,13 @@ If the server has **two PSUs (redundant)**, you do NOT need to shut down.
 ## Summary
 
 ✔ Check cables
+
 ✔ Check power source
+
 ✔ Swap PSU
+
 ✔ Check LED light
+
 ✔ Replace PSU if needed
 
 ---
