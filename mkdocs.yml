@@ -72,9 +72,13 @@ nav:
       - Local Repo: Documents/Local_repo.md
       - Hyperthreading: Documents/hyperthreading.md
       - Slurm Basics: Documents/Slurm.md
+      - SU2 : Documents/SU2_Installation.md
+      
       - Scripts:
           - Run Script: Documents/Scripts/run.sh.md
 
   - Troubleshooting:
       - Overview: Troubleshooting/index.md
+      - Hardware Troubleshooting : Troubleshooting/Hardware Troubleshooting.md
+
 
