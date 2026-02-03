@@ -1,4 +1,4 @@
-# DIMM (Memory) Error Troubleshooting – Detailed SOP Using iDRAC
+# DIMM (Memory) Error Troubleshooting 
 ---
 
 ## Purpose
