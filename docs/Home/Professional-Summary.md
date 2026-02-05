@@ -4,7 +4,7 @@ layout: default
 ---
 
 ---
-I am a **Linux Systems Administrator and HPC Engineer** with nearly **two years of hands-on experience** supporting **large-scale high-performance computing (HPC) environments** used for **government and enterprise research workloads**. My work focuses on operating and maintaining **production-grade HPC infrastructure**, where reliability, performance consistency, and availability are critical.
+I am a **Linux Systems Administrator and HPC Engineer** with **two years of hands-on experience** supporting **large-scale high-performance computing (HPC) environments** used for **government and enterprise research workloads**. My work focuses on operating and maintaining **production-grade HPC infrastructure**, where reliability, performance consistency, and availability are critical.
 
 I have contributed to the deployment and sustained operation of **India’s 11-Petaflops supercomputing infrastructure**, working on environments comprising **1,200+ compute nodes and NVIDIA H100 GPU accelerator systems**. My responsibilities include **cluster provisioning, operating system management, workload scheduling, monitoring, and troubleshooting** across CPU and GPU-based clusters.
 ---
