@@ -18,7 +18,7 @@ job scheduling, performance benchmarking, monitoring, automation, and incident
 management across CPU and GPU-based systems.
 
 I have contributed to the deployment and sustained operation of India’s multi-petaflops
-HPC infrastructure, supporting environments with over 1,200 compute nodes and
+HPC infrastructure, supporting environments with over 1,300+ compute nodes and
 NVIDIA H100 GPU accelerators.
 
 ---
