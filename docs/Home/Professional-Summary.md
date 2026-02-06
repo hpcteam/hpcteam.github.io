@@ -3,8 +3,6 @@ title: Professional Summary
 layout: default
 ---
 
-## Professional Summary
-
 I am a Linux Systems Administrator and HPC Engineer with two years of hands-on experience managing large-scale, high-performance computing (HPC) environments designed to support government and enterprise research workloads. My focus is on ensuring the reliability, performance, and availability of production-grade HPC infrastructures.
 
 I have been an integral part of the deployment and ongoing operations of India’s 11-Petaflops supercomputing infrastructure, supporting environments consisting of over 1,300 compute nodes and NVIDIA H100 GPU accelerator systems. My core responsibilities encompass cluster provisioning, operating system management, workload scheduling, system monitoring, hardware management, and troubleshooting across both CPU and GPU-based clusters to ensure high performance and minimal downtime. I also manage storage solutions like Lustre File System to maintain efficient data storage and access across the HPC environment.
