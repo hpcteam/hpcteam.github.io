@@ -28,15 +28,13 @@ NVIDIA H100 GPU accelerators.
 
 ## **Areas of Work**
 
-- Linux system administration in multi-node HPC environments  
-- HPC cluster operations using NVIDIA Bright Cluster Manager  
-- Workload scheduling and execution using PBS Pro and Slurm  
+- **Linux system administration** in multi-node HPC environments  
+- HPC cluster operations using **NVIDIA Bright Cluster Manager** 
+- Workload scheduling and execution using**PBS Pro** and **Slurm**  
 - GPU-enabled compute platforms and NVIDIA software stack  
-- High-speed InfiniBand (400 Gb/s) networking  
-- Performance benchmarking using HPL, LINPACK, and HPCC  
-- Automation using shell scripting  
+- High-speed **InfiniBand (400 Gb/s)** networking   
 - Hardware, firmware, and datacenter operations  
-- 24×7 L2 production support and incident handling  
+- 24×7 **L2** production support and incident handling  
 
 ---
 
@@ -49,7 +47,7 @@ troubleshooting scenarios encountered in production environments, such as:
 - Job scheduling, queue, and execution failures  
 - Benchmarking and performance validation errors  
 - GPU driver, CUDA, and accelerator-related issues  
-- Cluster management and licensing problems  
+- Cluster management  problems  
 - InfiniBand fabric and communication issues  
 - Hardware-level faults (disk, NIC, DIMM, CPU)  
 - Software installation and compilation errors  
@@ -69,16 +67,5 @@ The purpose of this documentation is to:
 - Support interview discussions and technical evaluations  
 
 ---
-
-## Navigation
-
-Use the navigation menu to explore detailed sections covering:
-
-- Professional Overview and Experience  
-- Technical Skills  
-- Machines, Hardware, and Networks  
-- Projects and Contributions  
-- Roles and Responsibilities  
-- HPC Operational Issues and Troubleshooting  
-- Education and Contact Information  
+ 
 
