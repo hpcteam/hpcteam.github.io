@@ -76,20 +76,31 @@ Providing continuous L2 support for production systems, including monitoring sys
 
 ## **Operational Knowledge Base**
 
-This site includes a detailed collection of real-world operational issues and
-troubleshooting scenarios encountered in production environments, such as:
+In my work with HPC environments, I’ve encountered and resolved a wide range of operational challenges. Below are some of the key areas where I apply my expertise:
 
-- User access, SSH, and network connectivity issues  
-- Job scheduling, queue, and execution failures  
-- Benchmarking and performance validation errors  
-- GPU driver, CUDA, and accelerator-related issues  
-- Cluster management  problems  
-- InfiniBand fabric and communication issues  
-- Hardware-level faults (disk, NIC, DIMM, CPU)  
-- Software installation and compilation errors  
+**Cluster Access Problems:**
+Diagnosing and resolving issues related to SSH connectivity, user access permissions, and network configurations, ensuring seamless access to cluster nodes for users and administrators.
 
-These scenarios are documented to reflect practical problem-solving approaches
-used in enterprise HPC operations.
+**Job Scheduling Issues:**
+Troubleshooting job scheduling failures in PBS Pro and Slurm, addressing problems with job queues, resource allocation, and node communication. I resolve queue stalls, job execution failures, and optimize job submissions for better resource utilization.
+
+**Application Installation and Troubleshooting:**
+Managing the installation and configuration of both commercial and open-source applications in high-performance computing environments. Troubleshooting installation issues and ensuring correct dependencies for smooth software setup and operation.
+
+**Driver Installation:**
+Handling the installation and troubleshooting of hardware drivers for components like GPUs, network cards, and accelerators, with a focus on resolving conflicts, ensuring compatibility, and setting up CUDA and NVIDIA drivers.
+
+**Library Installation:**
+Installing and configuring critical libraries like MPI, CUDA, and OpenCL for scientific applications. I troubleshoot dependencies and library conflicts, ensuring proper linking for optimal application performance.
+
+**System Resource Management and Optimization:**
+Identifying resource bottlenecks and optimizing system configurations to ensure efficient utilization of CPU, memory, storage, and network resources. I’ve tackled issues related to overutilized resources, improving cluster performance through careful configuration adjustments.
+
+**Network Configuration and Troubleshooting:**
+Resolving network-related issues like slow communication, InfiniBand fabric issues, and latency between nodes. This includes configuring switches, ensuring proper fabric topology, and diagnosing network disruptions to keep data flow uninterrupted.
+
+**Hardware Failures and Recovery:**
+Handling hardware-level failures such as disk failures, DIMM issues, CPU malfunctions, and resolving hardware faults through hardware replacements or configuration changes. I also develop failover strategies and data recovery plans to minimize system downtime.
 
 ---
 
