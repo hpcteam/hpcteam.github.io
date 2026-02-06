@@ -1,4 +1,4 @@
-![Home Image](assets/home.jpg)
+![Home Image](asset/index.png)
 
 # Ayyappaswamy Eethakota
 
