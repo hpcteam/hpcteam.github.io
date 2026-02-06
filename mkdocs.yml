@@ -13,11 +13,30 @@ theme:
     - navigation.expand
     - navigation.path
     - navigation.prune
-    - light/dark mode toggle
 
-extra_css:
-  - assets/css/custom.css
+  palette:
 
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+    
+  
 markdown_extensions:
   - attr_list
   - toc:
@@ -25,12 +44,13 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
 plugins:
   - privacy
 
+ 
 nav:
   - Home: index.md
+
   - Profile:
       - Professional Summary: Home/Professional-Summary.md
       - Technical Skills: Home/technical-skills.md
@@ -38,6 +58,8 @@ nav:
       - Professional Experience: Home/professional-experience.md
       - Projects: Home/projects.md
       - Education: Home/education.md
+      
+
   - Documents:
       - GitHub Pages CI/CD: Documents/GitHub_Pages_MkDocs.md
       - Linux Commands: Documents/Linux_commands.md
@@ -51,8 +73,10 @@ nav:
       - Hyperthreading: Documents/hyperthreading.md
       - Slurm Basics: Documents/Slurm.md
       - SU2 : Documents/SU2_Installation.md
+      
       - Scripts:
           - Run Script: Documents/Scripts/run.sh.md
+
   - Troubleshooting:
       - Overview: Troubleshooting/index.md
       - Hardware Troubleshooting : Troubleshooting/Hardware Troubleshooting.md
@@ -60,4 +84,6 @@ nav:
       - Power Supply Unit (PSU) : Troubleshooting/Power Supply Unit.md
       - Memory issue : Troubleshooting/Memory issue.md
       - Processor : Troubleshooting/Processor-replaceing.md
+
+      
   - Contact: Home/contact.md
