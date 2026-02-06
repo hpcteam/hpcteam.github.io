@@ -4,21 +4,28 @@ layout: default
 ---
 
 ---
-I am a **Linux Systems Administrator and HPC Engineer** with **two years of hands-on experience** supporting **large-scale high-performance computing (HPC) environments** used for **government and enterprise research workloads**. My work focuses on operating and maintaining **production-grade HPC infrastructure**, where reliability, performance consistency, and availability are critical.
+I am a Linux Systems Administrator and HPC Engineer with two years of hands-on experience managing large-scale, high-performance computing (HPC) environments designed for government and enterprise research workloads. My focus is on ensuring the reliability, performance, and availability of production-grade HPC infrastructures.
 
-I have contributed to the deployment and sustained operation of **India’s 11-Petaflops supercomputing infrastructure**, working on environments comprising **1,300+ compute nodes and NVIDIA H100 GPU accelerator systems**. My responsibilities include **cluster provisioning, operating system management, workload scheduling, monitoring, and troubleshooting** across CPU and GPU-based clusters.
+I have played a key role in the deployment and ongoing operations of India’s 11-Petaflops supercomputing infrastructure, supporting environments with over 1,300 compute nodes and NVIDIA H100 GPU accelerator systems. My core responsibilities include cluster provisioning, operating system management, workload scheduling, system monitoring, and troubleshooting across both CPU and GPU-based clusters to ensure optimal performance and minimal downtime.
+
 ---
 
-## What I Do
+## **Core Responsibilities**
 
-In my current role at **TIS Labs Pvt. Ltd.**, I manage and support HPC systems using **NVIDIA Bright Cluster Manager**, handling:
+OS Provisioning and Node Lifecycle Management:
+Managing the provisioning, configuration, and maintenance of operating systems across compute nodes, ensuring proper setup, updates, and lifecycle management throughout the node’s usage.
 
-* OS provisioning and node lifecycle management
-* Scheduler integration and workload execution using **PBS Pro**
-* Continuous monitoring and health validation
-* User access control and system-level troubleshooting
+Scheduler Integration and Workload Execution Using PBS Pro:
+Configuring and optimizing PBS Pro for efficient workload scheduling, ensuring optimal resource allocation and smooth execution of tasks across HPC systems.
 
-I work with monitoring platforms such as **Bright Cluster Manager**, **Dell OpenManage Enterprise**, and **InfiniBand UFM** to detect issues early and maintain **high system availability (99.99%)** in production environments.
+Continuous Monitoring and Health Validation:
+Conducting ongoing monitoring of system performance, validating hardware and software health, and proactively addressing potential issues to maintain system integrity.
+
+User Access Control and System-Level Troubleshooting:
+Managing user access to the HPC environment, troubleshooting system-level issues related to both hardware and software, and ensuring minimal disruptions to users and workloads.
+
+System Monitoring Tools:
+Utilizing monitoring platforms such as Bright Cluster Manager, Dell OpenManage Enterprise, and InfiniBand UFM to detect and resolve issues early, ensuring system availability and performance, with an uptime target of 99.99% in production environments.
 
 ---
 
