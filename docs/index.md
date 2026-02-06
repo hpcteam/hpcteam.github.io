@@ -3,7 +3,7 @@
 
 # Ayyappaswamy Eethakota
 
-**Linux Systems Administrator** and**High-Performance Computing (HPC) Engineer** with
+**Linux Systems Administrator** and **High-Performance Computing (HPC) Engineer** with
 hands-on experience supporting **large-scale**, production-grade HPC environments
 for **government** and **enterprise** research workloads.
 
