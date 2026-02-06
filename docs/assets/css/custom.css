@@ -1,8 +1,0 @@
-/* Hide left and right sidebars on the home page */
-.md-typeset .md-nav, .md-typeset .md-sidebar {
-    display: none;
-}
-
-body.home-page .md-typeset .md-nav, body.home-page .md-typeset .md-sidebar {
-    display: block;
-}
