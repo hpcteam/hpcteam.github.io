@@ -113,6 +113,15 @@ The purpose of this documentation is to:
 - Serve as a personal technical knowledge base  
 - Support interview discussions and technical evaluations  
 
+## Contact Me
+
+[:material-email:](mailto:eethakotaayyappaswamy@gmail.com){ style="font-size: 32px; margin-right: 20px;" }
+[:material-linkedin:](https://www.linkedin.com/in/ayyappaswamy-eethakota-ab3834339){ style="font-size: 32px; margin-right: 20px;" }
+[:material-phone:](tel:+919652065688){ style="font-size: 32px; margin-right: 20px;" } 
+
+[:material-file-download: Download Resume](../assets/Ayyappaswamy_Resume.pdf){ .md-button .md-button--primary download }
+
+
 ---
  
 
