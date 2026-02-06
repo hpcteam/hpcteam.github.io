@@ -119,7 +119,7 @@ The purpose of this documentation is to:
 [:material-linkedin:](https://www.linkedin.com/in/ayyappaswamy-eethakota-ab3834339){ style="font-size: 32px; margin-right: 20px;" }
 [:material-phone:](tel:+919652065688){ style="font-size: 32px; margin-right: 20px;" } 
 
-[:material-file-download: Download Resume](../assets/Ayyappaswamy_Resume.pdf){ .md-button .md-button--primary download }
+[:material-file-download: Download Resume](/assets/Ayyappaswamy_Resume.pdf){ .md-button .md-button--primary download }
 
 
 ---
