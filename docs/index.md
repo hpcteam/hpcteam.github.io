@@ -30,7 +30,7 @@ NVIDIA H100 GPU accelerators.
 
 **Linux System Administration** in Multi-node HPC Environments: Experience managing and troubleshooting large-scale Linux environments in high-performance computing systems, ensuring stability and uptime.
 
-**HPC Cluster Operations using NVIDIA Bright Cluster Manager**: Skilled in configuring, deploying, and monitoring multi-node clusters for high-performance workloads using Bright Cluster Manager.
+**HPC Cluster Operations using NVIDIA Bright Cluster Manager**: deploying, and monitoring multi-node clusters for high-performance workloads using Bright Cluster Manager.
 
 **Workload Scheduling with PBS Pro** and Slurm: Responsible for managing job queues, resource allocation, and task execution to maximize efficiency and throughput in production HPC environments.
 
