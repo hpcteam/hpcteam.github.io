@@ -17,8 +17,7 @@ clusters, high-speed InfiniBand networks, and enterprise Linux systems.
 
 I support and operate large-scale Linux and HPC environments used for mission-critical
 research and engineering workloads. My responsibilities include cluster administration,
-job scheduling, performance benchmarking, monitoring, automation, and incident
-management across CPU and GPU-based systems.
+job scheduling, monitoring, automation, and incident management across CPU and GPU-based systems.
 
 I have contributed to the deployment and sustained operation of India’s multi-petaflops
 HPC infrastructure, supporting environments with over 1,300+ compute nodes and
