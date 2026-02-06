@@ -57,9 +57,6 @@ Applying security measures like firewalls, access controls, and system updates t
 **Automation and Scripting:**
 Writing simple scripts to automate tasks like software installation, system checks, and data backups, making processes faster and more efficient.
 
-**Incident Management**:
-Handling issues as they arise in a **24×7 support environment**, diagnosing problems quickly, and ensuring that systems are restored as soon as possible with minimal downtime.
-
 **Lustre File System Management and Troubleshooting**:
 Managing and maintaining the Lustre File System to ensure high-performance storage across multiple nodes, including setting up, troubleshooting issues, tuning performance, and ensuring data integrity and accessibility.
 
@@ -69,24 +66,9 @@ Setting up and managing Mellanox UFM to monitor and manage high-speed InfiniBand
 **Dell OpenManage Enterprise (OME) Management:**
 Managing Dell OpenManage Enterprise (OME) to monitor and manage server health, perform firmware updates, and troubleshoot hardware issues in a large-scale environment, ensuring the stability and performance of Dell servers across the data center.
 
-**Linux System Administration** in Multi-node HPC Environments: Experience managing and troubleshooting large-scale Linux environments in high-performance computing systems, ensuring stability and uptime.
-
-
-**HPC Cluster Operations using NVIDIA Bright Cluster Manager**: deploying, and monitoring multi-node clusters for high-performance workloads using Bright Cluster Manager.
-
-**Workload Scheduling with PBS Pro** and Slurm: Responsible for managing job queues, resource allocation, and task execution to maximize efficiency and throughput in production HPC environments.
-
-**Hardware Troubleshooting**: Proficient in diagnosing and resolving hardware issues, including CPU, memory, and motherboard replacements in production environments.
-
-**Software Installation & Configuration**: Installing both commercial and open-source applications, performing basic configurations, and troubleshooting job scheduling errors.
-
-- **Linux system administration** in multi-node HPC environments  
-- HPC cluster operations using **NVIDIA Bright Cluster Manager** 
-- Workload scheduling and execution using**PBS Pro** and **Slurm**  
-- GPU-enabled compute platforms and NVIDIA software stack  
-- High-speed **InfiniBand (400 Gb/s)** networking   
-- Hardware, firmware, and datacenter operations  
-- 24×7 **L2** production support and incident handling  
+**24×7  Production Support and Incident Management**:
+Providing continuous L2 support for production systems, including monitoring system health, diagnosing and resolving hardware and software issues, managing incidents, and ensuring minimal downtime in mission-critical environments.
+ 
 
 ---
 
