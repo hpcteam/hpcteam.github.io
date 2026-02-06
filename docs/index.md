@@ -66,10 +66,12 @@ Setting up and managing Mellanox UFM to monitor and manage high-speed InfiniBand
 **Dell OpenManage Enterprise (OME) Management:**
 Managing Dell OpenManage Enterprise (OME) to monitor and manage server health, perform firmware updates, and troubleshoot hardware issues in a large-scale environment, ensuring the stability and performance of Dell servers across the data center.
 
+**HPL Benchmarking and Performance Tuning:**
+Running and analyzing HPL (High Performance Linpack) benchmarks to evaluate the performance of HPC systems, identifying bottlenecks, and fine-tuning system configurations to maximize computational efficiency and achieve optimal performance in scientific and engineering workloads.
+
 **24×7  Production Support and Incident Management**:
 Providing continuous L2 support for production systems, including monitoring system health, diagnosing and resolving hardware and software issues, managing incidents, and ensuring minimal downtime in mission-critical environments.
  
-
 ---
 
 ## **Operational Knowledge Base**
