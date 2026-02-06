@@ -49,7 +49,8 @@ plugins:
 
  
 nav:
-  - Home: index.md
+  - Home:
+      - Home: Home/index.md
       - Professional Summary: Home/Professional-Summary.md
       - Technical Skills: Home/technical-skills.md
       - Roles & Responsibilities: Home/roles-responsibilities.md
