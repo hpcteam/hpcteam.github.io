@@ -1,3 +1,5 @@
+![Home Image](assets/home.jpg)
+
 # Ayyappaswamy Eethakota
 
 Linux Systems Administrator and High-Performance Computing (HPC) Engineer with
