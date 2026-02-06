@@ -27,12 +27,58 @@ NVIDIA H100 GPU accelerators.
 
 ## **Areas of Work**
 
+**Linux System Administration**:
+Managing and maintaining Linux systems across many computers, ensuring they run smoothly, are secure, and are kept up-to-date.
+
+**HPC Cluster Management**:
+Setting up and managing large clusters of computers used for high-performance computing (HPC), using tools like Bright Cluster Manager.
+
+**Workload Scheduling and Management**:
+Using job schedulers such as PBS Pro and Slurm to manage and schedule tasks on the system, ensuring tasks run efficiently without delays or failures.
+
+**PBS Pro Job Scheduling and Management**:
+Configuring and managing PBS Pro for job scheduling in high-performance computing environments, including creating job queues, monitoring job execution, troubleshooting job failures, optimizing resource allocation, and ensuring efficient workload distribution across compute nodes.
+
+**Hardware Troubleshooting**:
+Identifying and fixing hardware issues like CPU failures, memory problems, network card faults, and other hardware-related issues in large systems.
+
+**Software Installation** and **Configuration**:
+Installing both commercial and open-source software applications, configuring them correctly, and troubleshooting any issues that arise, including job scheduling problems.
+
+**Network Management**:
+Ensuring that all computers in the cluster can communicate properly with each other, setting up InfiniBand networks, and solving any network-related issues.
+
+**System Monitoring and Performance Tuning**:
+Monitoring the performance of systems and clusters, identifying areas that can be improved, and applying solutions to increase system performance and reliability.
+
+**Security Management**:
+Applying security measures like firewalls, access controls, and system updates to keep the system secure from unauthorized access and attacks.
+
+**Automation and Scripting:**
+Writing simple scripts to automate tasks like software installation, system checks, and data backups, making processes faster and more efficient.
+
+**Incident Management**:
+Handling issues as they arise in a **24×7 support environment**, diagnosing problems quickly, and ensuring that systems are restored as soon as possible with minimal downtime.
+
+**Lustre File System Management and Troubleshooting**:
+Managing and maintaining the Lustre File System to ensure high-performance storage across multiple nodes, including setting up, troubleshooting issues, tuning performance, and ensuring data integrity and accessibility.
+
+**Mellanox UFM (Unified Fabric Manager) Monitoring**:
+Setting up and managing Mellanox UFM to monitor and manage high-speed InfiniBand networks in HPC environments, ensuring optimal network performance, diagnosing and resolving network-related issues, and maintaining fabric health across multiple nodes and switches.
+
+**Dell OpenManage Enterprise (OME) Management:**
+Managing Dell OpenManage Enterprise (OME) to monitor and manage server health, perform firmware updates, and troubleshoot hardware issues in a large-scale environment, ensuring the stability and performance of Dell servers across the data center.
 
 **Linux System Administration** in Multi-node HPC Environments: Experience managing and troubleshooting large-scale Linux environments in high-performance computing systems, ensuring stability and uptime.
+
 
 **HPC Cluster Operations using NVIDIA Bright Cluster Manager**: deploying, and monitoring multi-node clusters for high-performance workloads using Bright Cluster Manager.
 
 **Workload Scheduling with PBS Pro** and Slurm: Responsible for managing job queues, resource allocation, and task execution to maximize efficiency and throughput in production HPC environments.
+
+**Hardware Troubleshooting**: Proficient in diagnosing and resolving hardware issues, including CPU, memory, and motherboard replacements in production environments.
+
+**Software Installation & Configuration**: Installing both commercial and open-source applications, performing basic configurations, and troubleshooting job scheduling errors.
 
 - **Linux system administration** in multi-node HPC environments  
 - HPC cluster operations using **NVIDIA Bright Cluster Manager** 
