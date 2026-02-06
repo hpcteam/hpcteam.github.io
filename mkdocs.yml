@@ -56,7 +56,7 @@ nav:
       - Professional Experience: Home/professional-experience.md
       - Projects: Home/projects.md
       - Education: Home/education.md
-      - Contact: Home/contact.md
+      
 
   - Documents:
       - GitHub Pages CI/CD: Documents/GitHub_Pages_MkDocs.md
@@ -83,4 +83,6 @@ nav:
       - Memory issue : Troubleshooting/Memory issue.md
       - Processor : Troubleshooting/Processor-replaceing.md
 
+      
+  - Contact: Home/contact.md
 
