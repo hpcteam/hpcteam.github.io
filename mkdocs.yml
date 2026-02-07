@@ -73,6 +73,8 @@ nav:
       - Hyperthreading: Documents/hyperthreading.md
       - Slurm Basics: Documents/Slurm.md
       - SU2 : Documents/SU2_Installation.md
+      - Lustre File System : Documents/Lustre.md
+      
       
       - Scripts:
           - Run Script: Documents/Scripts/run.sh.md
