@@ -15,7 +15,6 @@ theme:
     - navigation.prune
 
   palette:
-    primary: white
 
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
