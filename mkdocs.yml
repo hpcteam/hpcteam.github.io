@@ -73,8 +73,11 @@ nav:
       - Hyperthreading: Documents/hyperthreading.md
       - Slurm Basics: Documents/Slurm.md
       - SU2 : Documents/SU2_Installation.md
-      - Lustre File System : Documents/Lustre.md
-      
+      - NFS-FILEsystem : Documents/NFS-FILESYSTEM.md
+      - Lustre File System:
+          - Lustre: Documents/Lustre.md
+          - Installation: Documents/lustre-installtion.md
+
       
       - Scripts:
           - Run Script: Documents/Scripts/run.sh.md
