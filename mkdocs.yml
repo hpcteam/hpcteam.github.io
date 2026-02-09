@@ -54,11 +54,12 @@ nav:
   - Profile:
       - Professional Summary: Home/Professional-Summary.md
       - Technical Skills: Home/technical-skills.md
-      - Roles & Responsibilities: Home/roles-responsibilities.md
       - Professional Experience: Home/professional-experience.md
-      - Projects: Home/projects.md
-      - Education: Home/education.md
+      - Roles & Responsibilities: Home/roles-responsibilities.md
       - Applications & Libraries: Home/Applications&Libraries.md
+      - Projects: Home/projects.md
+      
+      
       
 
   - Documents:

@@ -1,68 +1,44 @@
-# Projects
-
-This section outlines key projects where I contributed to the deployment, operation,
-and stabilization of large-scale HPC and datacenter infrastructure in production
-environments.
-
+# **Projects**
 ---
 
-## India’s Multi-Petaflops HPC Cluster Deployment
+### India’s Multi-Petaflops HPC Cluster Deployment
 
-I was part of the core operations team supporting the deployment and sustained
-operation of a **multi-petaflops high-performance computing environment** used for
-national research and government workloads.
+I was part of the core team responsible for deploying and maintaining a multi-petaflops high-performance computing system used for national research and government tasks.
 
-### Scope & Contributions
+**Scope & Contributions:**
 
-- Supported an HPC environment delivering approximately **11 Petaflops of compute
-  performance**.
-- Operated and administered clusters consisting of **1,200+ compute nodes** and
-  **NVIDIA H100 GPU accelerator nodes**.
-- Assisted with **cluster provisioning and configuration** using NVIDIA Bright
-  Cluster Manager.
-- Supported **workload scheduling and job execution** through PBS Pro in shared
-  production environments.
-- Performed **system validation and performance benchmarking** using HPL, LINPACK,
-  and HPCC to verify compute throughput and stability.
-- Participated in **production readiness checks**, ensuring compute, network, and
-  monitoring components were operational before user onboarding.
-- Supported **400 Gb/s InfiniBand fabric monitoring and troubleshooting** during
-  cluster operation.
+* Supported an HPC environment delivering about 11 Petaflops of compute power.
+* Managed clusters with over 1,300+ compute nodes and NVIDIA H100 GPUs.
+* Managed **13 Petabytes** of **Lustre** storage, including monitoring and troubleshooting for optimal performance.
+* Supported **30 Petabytes** of tape library storage to ensure secure and efficient data archiving and retrieval.
+* Set up and configure the cluster using **NVIDIA Bright Cluster Manager**.
+* Managed job scheduling and task execution using **PBS Pro** in shared environments.
+* Validated system performance using **HPL**, **LINPACK**, and **HPCC** to ensure stable compute throughput.
+* Participated in checks before production launch, confirming that compute, network, and monitoring systems were fully operational.
+* Monitored and troubleshot **400 Gb/s InfiniBand** fabric during cluster operations.
+* This project required high standards of performance, availability, and reliability for national research workloads.
 
-This project required strict adherence to availability, performance, and operational
-standards due to its role in national research workloads.
+### Datacenter Infrastructure Modernization
 
----
+I contributed to a major datacenter modernization project to support enterprise and HPC-ready infrastructure.
 
-## BSNL Datacenter Infrastructure Modernization
+**Scope & Contributions:**
 
-I contributed to a large-scale datacenter modernization initiative supporting
-enterprise and HPC-ready infrastructure.
+* Supported server installation and integration in the datacenter environment.
+* Handled operating system installation and validation across several nodes.
+* Assisted with network connectivity tests and system readiness checks.
+* Supported hardware configuration, firmware validation, and initial system setup.
+* Worked closely with infrastructure and networking teams to ensure smooth deployment and transition to production.
+* This project aimed to improve infrastructure reliability, scalability, and readiness for HPC and enterprise workloads.
 
-### Scope & Contributions
+### Ongoing Operational Projects
 
-- Supported **server installation and physical integration** activities within the
-  datacenter environment.
-- Performed **operating system provisioning and validation** across multiple nodes.
-- Assisted with **network connectivity checks and system readiness validation**.
-- Supported **hardware configuration, firmware validation, and initial system
-  bring-up** activities.
-- Worked with infrastructure and networking teams to ensure **smooth multi-node
-  deployment** and operational handover.
+Along with large deployments, I am involved in several ongoing operational projects, including:
 
-This project focused on improving infrastructure reliability, scalability, and
-readiness for high-performance and enterprise workloads.
+* Cluster expansion and adding new nodes
+* Hardware refreshes and firmware upgrades
+* Performance validation after system updates or changes
+* Automating processes for provisioning and administration
+* Addressing incidents and improving systems based on feedback
 
 ---
-
-## Ongoing Operational Projects
-
-In addition to major deployments, I regularly contribute to operational initiatives,
-including:
-
-- Cluster expansion and node onboarding
-- Hardware refresh and firmware upgrade cycles
-- Performance validation following system changes
-- Automation improvements for provisioning and administration
-- Incident-driven corrective actions and system improvements
-

@@ -1,6 +1,6 @@
-# Professional Experience
+# **Professional Experience**
 
-## Linux Systems Administrator  
+## **Linux Systems Administrator**  
 **TIS Labs Pvt. Ltd., Kolkata**  
 *January 2024 – Present*
 
@@ -13,7 +13,7 @@ validation, and infrastructure maintenance across CPU and GPU-based HPC systems.
 
 ### Key Responsibilities & Contributions
 
-- Administered and supported large-scale HPC clusters comprising over **1,200 compute
+- Administered and supported large-scale HPC clusters comprising over **1,300+ compute
   nodes** and **GPU accelerator nodes with NVIDIA H100 GPUs**, sustaining production
   workloads at **multi-petaflop scale**.
 - Managed HPC environments using **NVIDIA Bright Cluster Manager**, including cluster
@@ -40,7 +40,7 @@ validation, and infrastructure maintenance across CPU and GPU-based HPC systems.
   security standards.
 - Provided **24×7 L2 operational support**, handling incident diagnosis, root-cause
   analysis, corrective actions, and operational documentation.
-- Contributed to **BSNL datacenter modernization activities**, supporting server
+- Contributed to **datacenter modernization activities**, supporting server
   integration, network validation, and operating system provisioning across
   multi-node environments.
 
