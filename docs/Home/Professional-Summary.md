@@ -16,7 +16,7 @@ Managing the provisioning, configuration, and maintenance of operating systems a
 Responsible for maintaining and troubleshooting hardware components such as CPUs, memory modules, network interface cards (NICs), and storage devices. I address hardware failures, perform component replacements, and ensure optimal hardware functionality across the entire cluster.
 
 **Scheduler Integration and Workload Execution Using PBS Pro:**
-Configuring and optimizing PBS Pro for efficient workload scheduling, ensuring smooth execution of tasks across both CPU and GPU-based clusters. I fine-tune resource allocation to maximize system performance and minimize job queuing delays.
+Basic Configuring and optimizing PBS Pro for efficient workload scheduling, ensuring smooth execution of tasks across both CPU and GPU-based clusters. I fine-tune resource allocation to maximize system performance and minimize job queuing delays.
 
 **Lustre File System Management and Troubleshooting:**
 Maintenance of  Lustre File System to ensure high-performance, scalable storage across multiple compute nodes. I troubleshoot data access issues, optimize file system performance, and ensure data integrity and availability for research workloads.
@@ -37,40 +37,44 @@ Utilizing platforms like Bright Cluster Manager, Dell OpenManage Enterprise (OME
 Supporting InfiniBand networks by monitoring link health, troubleshooting connectivity issues, and assisting with network optimization. I ensure that network performance remains strong, which is essential for high-throughput data transfer in HPC environments.
 
 ---
+## **Automation & Operations**
 
-## Automation & Operations
+Automation plays a crucial role in enhancing efficiency and reducing manual effort across various aspects of server management. I leverage **shell scripting** to automate several key operations, such as:
 
-Automation plays a key role in my daily work. I use **shell scripting** to streamline:
+* **Server Configuration and Actions**:
+  Using shell scripts to automate **server configurations**, ensuring uniformity across all systems. This includes managing **hardware drivers**, **system settings**, and verifying that all servers are configured consistently with the required parameters.
 
-* OS installations and node provisioning
-* User onboarding and access management
-* Package deployment and environment setup
+* **Server Monitoring and Data Collection**:
+  Automating **server monitoring** tasks, including **collecting server data** (CPU, memory) and **checking the status of critical services**. This allows me to quickly identify potential issues, such as **resource exhaustion** or **service failures**, and take action to prevent disruptions.
 
-These efforts have reduced manual administrative tasks, improved deployment efficiency, and lowered user-related support requests.
+* **Identifying Configuration Issues**:
+  Writing scripts to identify **hardware or driver mismatches** across servers. This ensures that all servers have the correct **hardware driver configurations**, preventing inconsistencies that could affect performance or cause errors.
 
----
 
-## Infrastructure & Datacenter Work
-
-Alongside software operations, I am actively involved in **hardware and datacenter activities**, including:
-
-* Server integration and validation
-* BIOS, firmware, and driver updates
-* Hardware troubleshooting on **Dell PowerEdge platforms**
-
-I also contributed to **BSNL’s datacenter modernization project**, supporting server installation, network validation, and OS provisioning across multi-node environments.
 
 ---
 
-## Operations & Support
+## **Operations & Support**
 
-I currently provide **24×7 L2 operational support**, handling incident diagnosis, root-cause analysis, corrective actions, and documentation in **high-availability environments**. My focus is on maintaining stable infrastructure, predictable performance, and a smooth experience for researchers and engineers running compute-intensive workloads.
+I provide 24×7 L2 operational support in high-availability environments, focusing on:
+
+* Incident diagnosis and root-cause analysis
+
+* Corrective actions and continuous system optimization
+
+* Comprehensive documentation of troubleshooting processes and solutions
+
+My primary goal is to ensure a stable infrastructure, predictable performance, and a smooth experience for researchers and engineers working on compute-intensive workloads, maintaining uptime and reliability across all systems.
 
 ---
 
-## Focus & Approach
+## **Focus & Approach**
 
-My approach centers on **stability, performance, and scalability**. I aim to build and operate Linux and HPC environments that are reliable, well-monitored, and ready for demanding scientific and engineering workloads.
+My approach is focused on three key areas: stability, performance, and scalability. I work to create and maintain Linux and HPC environments that are:
 
----
+* Reliable: Making sure systems are strong, secure, and perform well at all times.
+
+* Well-monitored: Keeping an eye on system health to spot any issues early.
+
+* Ready for demanding tasks: Setting up systems that can handle scientific and engineering workloads, ensuring they meet the needs of complex computing tasks.
 

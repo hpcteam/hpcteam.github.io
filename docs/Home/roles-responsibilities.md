@@ -1,85 +1,66 @@
-# Roles & Responsibilities
+# **Roles & Responsibilities**
 
-This section defines my operational roles and responsibilities while supporting
-large-scale Linux and high-performance computing (HPC) environments in production.
+This section outlines my key roles and responsibilities in supporting large-scale Linux and high-performance computing (HPC) environments in production settings.
 
----
+### HPC Operations & Administration
 
-## HPC Operations & Administration
+* Manage and support multi-petaflop HPC environments for research workloads.
+* Perform tasks like setting up and managing compute nodes, from installation to decommissioning.
+* Support workload scheduling using PBS Pro to ensure tasks run smoothly in shared environments.
+* Ensure stable job execution across both CPU and GPU-based clusters.
 
-- Administer and support multi-petaflop HPC environments for government and enterprise
-  research workloads.
-- Perform compute node provisioning, configuration, and lifecycle management.
-- Support workload scheduling and execution using PBS Pro in shared HPC environments.
-- Ensure stable and predictable job execution across CPU and GPU-based clusters.
+### System Monitoring & Reliability
 
----
+* Monitor system health and availability using tools like **NVIDIA Bright Cluster Manager**, **Dell OpenManage Enterprise**, and **InfiniBand UFM**.
+* Run proactive health checks to identify potential issues in hardware, networks, or systems.
+* Respond to alerts and incidents to minimize disruptions and maintain system uptime.
+* Ensure high availability of systems in 24×7 production environments.
 
-## System Monitoring & Reliability
+### Performance Validation & Optimization
 
-- Monitor system health and availability using NVIDIA Bright Cluster Manager,
-  Dell OpenManage Enterprise, and InfiniBand UFM.
-- Perform proactive health checks to identify hardware, network, and system issues.
-- Respond to alerts and incidents to minimize service disruption.
-- Maintain high availability in 24×7 production environments.
+* Run performance benchmarks using tools like **HPL**, **LINPACK**, and **HPCC**.
+* Validate performance after system upgrades, changes, or new deployments.
+* Work on fine-tuning system performance to meet operational goals.
 
----
+### Application & User Support
 
-## Performance Validation & Optimization
+* Install, configure, and validate both commercial and open-source applications in HPC environments.
+* Support running applications that use **MPI** for multi-node execution.
+* Manage environment modules and application runtime settings to ensure smooth operation.
+* Provide user onboarding, access management, and technical support to researchers and engineers.
 
-- Execute and analyze performance benchmarks using HPL, LINPACK, and HPCC.
-- Validate compute throughput and floating-point performance after deployments,
-  upgrades, and configuration changes.
-- Assist with performance tuning and baseline validation for production clusters.
+### Automation & Operational Efficiency
 
----
+* Write shell scripts to automate common administrative tasks.
+* Automate processes like OS provisioning, user management, and software deployment.
+* Streamline operations to improve consistency and reduce manual effort.
 
-## Application & User Support
+### Hardware & Infrastructure Support
 
-- Install, configure, and validate commercial and open-source HPC applications.
-- Support MPI-based multi-node application execution.
-- Manage environment modules and application runtime configurations.
-- Provide user onboarding, access management, and technical support.
+* Assist with server installation, integration, and validation in datacenter environments.
+* Perform BIOS, firmware, and driver upgrades on **Dell PowerEdge** platforms.
+* Troubleshoot hardware issues and assist with diagnostics and repairs.
+* Help coordinate infrastructure changes during upgrades and system expansions.
 
----
+### Networking Support
 
-## Automation & Operational Efficiency
+* Manage high-speed **InfiniBand (400 Gb/s)** networking for HPC clusters.
+* Monitor network health, fix connectivity issues, and optimize performance.
+* Ensure network readiness for running large-scale parallel workloads.
 
-- Develop and maintain shell scripts for automation of routine administrative tasks.
-- Automate OS provisioning, user management, and package deployment.
-- Improve operational consistency and reduce manual intervention through scripting.
+### Incident Management & Documentation
 
----
+* Provide L2-level incident support in high-availability environments.
+* Analyze and troubleshoot system issues, then take corrective actions.
+* Document incidents, solutions, and operational procedures for future reference.
+* Support activities related to system changes and updates.
 
-## Hardware & Infrastructure Support
+### Datacenter & Project Support
 
-- Support server installation, integration, and validation in datacenter environments.
-- Perform BIOS, firmware, and driver upgrades on Dell PowerEdge platforms.
-- Assist with hardware diagnostics and issue resolution.
-- Coordinate infrastructure changes during upgrades and expansions.
-
----
-
-## Networking Support
-
-- Support high-speed InfiniBand (400 Gb/s) networking for HPC clusters.
-- Monitor fabric health and resolve connectivity and performance issues.
-- Validate network readiness for large-scale parallel workloads.
+* Contribute to projects aimed at datacenter modernization and infrastructure deployment.
+* Support tasks like server installation, OS provisioning, and network setup.
+* Work closely with cross-functional teams during project execution and handover.
 
 ---
 
-## Incident Management & Documentation
-
-- Provide L2-level incident support in high-availability environments.
-- Perform root-cause analysis and corrective actions for system issues.
-- Document incidents, resolutions, and operational procedures.
-- Support change implementation and validation activities.
-
----
-
-## Datacenter & Project Support
-
-- Contribute to datacenter modernization and infrastructure deployment projects.
-- Support server mounting, OS provisioning, and network validation activities.
-- Coordinate with cross-functional teams during project execution and handover.
-
+This keeps your descriptions clear, concise, and easy to read while still covering all the key responsibilities. Let me know if you want further adjustments!
