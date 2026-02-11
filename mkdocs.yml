@@ -14,15 +14,6 @@ theme:
     - navigation.path
     - navigation.prune
 
-# Remove the generator notice
-extra:
-  generator: false
-
-# Optionally, hide the entire footer
-hide:
-  - footer
-
-
 palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
