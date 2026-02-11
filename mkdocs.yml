@@ -14,7 +14,7 @@ theme:
     - navigation.path
     - navigation.prune
 
-palette:
+  palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
