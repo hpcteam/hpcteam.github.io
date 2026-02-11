@@ -71,13 +71,15 @@ nav:
       - LVM: Documents/Logical Volume Manager (LVM).md
       - Local Repo: Documents/Local_repo.md
       - METIS: Documents/Metis.md
+      - What is module file : Documents/Module-File.md
       - NFS : Documents/NFS.md
       - OpenMPI: Documents/OpenMpi.md
       - PIP: Documents/PIP.md
+      - Python-3.14.3: Documents/Python-Offline.md
       - Proxy: Documents/Proxy.md            
       - Slurm Basics: Documents/Slurm.md
       - SU2 : Documents/SU2_Installation.md
-      - Python-3.14.3: Documents/Python-Offline.md
+      
       
       
       - Lustre File System:
