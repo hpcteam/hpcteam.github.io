@@ -104,9 +104,6 @@ HPC workloads are **compute-intensive** and often **parallelized** using MPI/Ope
 ### **Enable and Disable Hyper-Threading (Linux)**
 ---
 
-````markdown
----
-
 ## Enable / Disable Hyper-Threading Manually (BIOS / iDRAC)
 
 > ⚠️ **IMPORTANT**
@@ -117,26 +114,20 @@ HPC workloads are **compute-intensive** and often **parallelized** using MPI/Ope
 
 ---
 
-## What is Hyper-Threading
-Hyper-Threading (HT) allows a single physical CPU core to execute multiple threads.
-It can improve overall throughput but may impact performance consistency in HPC,
-real-time, or security-sensitive workloads.
-
----
 
 ## Check Hyper-Threading Status
 
 Run the following command:
 
-```bash
+```
 lscpu | grep -E "Thread|Core|Socket"
-````
+
 
 ### Interpretation
 
 * **Thread(s) per core: 2** → Hyper-Threading is **enabled**
 * **Thread(s) per core: 1** → Hyper-Threading is **disabled**
-
+```
 ---
 
 ### Using `nproc`
@@ -204,9 +195,3 @@ If the server is not reachable on the network:
 * BIOS-level configuration is **persistent**
 * Recommended for **production HPC environments**
 * OS-level SMT changes are temporary and reset on reboot
-
-```
-
----
-
-```

@@ -63,20 +63,22 @@ nav:
       
 
   - Documents:
-      - Documents: Documents/index.md
+      - Important Note : Documents/index.md
+      - Anaconda: Documents/Anaconda.md
       - GitHub Pages CI/CD: Documents/GitHub_Pages_MkDocs.md
+      - Hyperthreading: Documents/hyperthreading.md
       - Linux Commands: Documents/Linux_commands.md
       - LVM: Documents/Logical Volume Manager (LVM).md
-      - Python: Documents/Python.md
-      - Anaconda: Documents/Anaconda.md
-      - OpenMPI: Documents/OpenMpi.md
-      - METIS: Documents/Metis.md
-      - Proxy: Documents/Proxy.md
       - Local Repo: Documents/Local_repo.md
-      - Hyperthreading: Documents/hyperthreading.md
+      - METIS: Documents/Metis.md
+      - NFS : Documents/NFS.md
+      - OpenMPI: Documents/OpenMpi.md
+      - PIP: Documents/PIP.md
+      - Proxy: Documents/Proxy.md            
       - Slurm Basics: Documents/Slurm.md
       - SU2 : Documents/SU2_Installation.md
-      - NFS : Documents/NFS.md
+      - Python-3.14.3: Documents/Python-Offline.md
+      
       
       - Lustre File System:
           - Lustre: Documents/Lustre.md

@@ -4,7 +4,7 @@
 
 
 
-👉 **OpenMPI lets many processes talk to each other efficiently**, even if they’re running on different machines in a cluster.
+**OpenMPI lets many processes talk to each other efficiently**, even if they’re running on different machines in a cluster.
 
 ### What it’s used for
 
@@ -37,7 +37,7 @@ Example idea:
 
 ### Step 1: Download Source Code
 
-Download from official website (gcc, llvm, openmpi, etc.)
+Download from official website 
 
 ---
 
@@ -90,6 +90,7 @@ Example:
 
 ```
 make -j 16
+make -j (run on all avaliable cores)
 ```
 
 ---
@@ -133,7 +134,7 @@ mpirun -np 2 hostname
 
 ---
 
-## Notes (Best Practices)
+## Notes 
 
 * Always install under `/home/software` or `/opt/software`
 * Always use module files for HPC environments
@@ -143,4 +144,4 @@ mpirun -np 2 hostname
 
 ---
 
-**Document prepared for HPC / Linux System Administration use**
+**Document prepared for Only Reference Propuse Only**

@@ -1,6 +1,4 @@
-# Metis 5.1.0 Theory and HPC Implications
-
-
+# Metis 5.1.0 
 ---
 
 ## 1. Introduction
@@ -33,27 +31,7 @@ Typical application areas include:
 
 ---
 
-## 3. Architecture Overview
-
-Metis uses a **multilevel partitioning strategy**, which consists of three phases:
-
-### 3.1 Coarsening Phase
-
-The original graph is reduced in size by collapsing vertices and edges while preserving the overall structure.
-
-### 3.2 Initial Partitioning Phase
-
-The coarsened graph is partitioned using fast and lightweight algorithms.
-
-### 3.3 Uncoarsening and Refinement Phase
-
-The partition is projected back to the original graph, with refinement at each level to improve partition quality.
-
-This approach provides high-quality partitions with low computational cost.
-
----
-
-## 4. Prerequisites
+## 3. Prerequisites
 
 Ensure the following dependencies are available:
 
@@ -67,7 +45,7 @@ Ensure the following dependencies are available:
 
 ---
 
-## 5. Cleanup Old Builds (If Any)
+## 4. Cleanup Old Builds (If Any)
 
 Before starting a fresh build, remove any existing build artifacts:
 
@@ -83,7 +61,7 @@ This removes:
 
 ---
 
-## 6. Create Build Directory
+## 5. Create Build Directory
 
 It is recommended to build Metis in a separate directory.
 
@@ -96,7 +74,7 @@ If errors occur, you can safely delete this directory and retry.
 
 ---
 
-## 7. Configure Using CMake
+## 6. Configure Using CMake
 
 Run the following command from inside the `build` directory:
 
@@ -131,7 +109,7 @@ cmake \
 
 ---
 
-## 8. Build the Project
+## 7. Build the Project
 
 After successful configuration, compile Metis:
 
@@ -145,7 +123,7 @@ This uses all available CPU cores for faster compilation.
 
 ---
 
-## 9. Install Metis
+## 8. Install Metis
 
 Install Metis to the configured prefix:
 
@@ -155,7 +133,7 @@ cmake --install .
 
 ---
 
-## 10. Verify Installation
+## 9. Verify Installation
 
 Confirm that Metis was installed correctly:
 
@@ -171,7 +149,7 @@ Expected directories:
 
 ---
 
-## 11. Post-Installation Notes
+## 10. Post-Installation Notes
 
 ### Update Library Path
 
@@ -190,11 +168,7 @@ Applications using Metis must:
 
 ---
 
-## 12. Conclusion
+## 11. Conclusion
 
 Metis 5.1.0 provides efficient and scalable graph and mesh partitioning capabilities.
 When properly configured and installed, it can significantly enhance the performance of parallel and scientific computing applications.
-
-```
-
----
