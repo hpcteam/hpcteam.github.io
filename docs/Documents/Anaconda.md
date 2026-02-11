@@ -1,6 +1,7 @@
+# What is Anaconda?
+
 **Anaconda** is a popular open-source distribution for the **Python** and **R** programming languages, mainly used for **data science**, **machine learning**, and **scientific computing**. It comes with many pre-installed libraries and tools that make it easier to work in these fields, and it is known for simplifying package management and environment management.
 
-### What is Anaconda?
 
 Anaconda simplifies the installation and management of Python libraries and dependencies for data science and scientific computing projects. It comes with the **Conda** package manager, which allows you to easily install, update, and manage Python packages and their dependencies. It also provides a way to manage isolated environments to avoid conflicts between different package versions.
 
@@ -258,5 +259,3 @@ conda remove --name py39env numpy
 | Delete environment         | `conda remove --name <env> --all`              | `conda remove --name env_conda --all`          |
 | Install package            | `conda install -n <env> <package>`             | `conda install -n py39env pandas`              |
 | Remove package             | `conda remove -n <env> <package>`              | `conda remove -n py39env pandas`               |
-
-```
