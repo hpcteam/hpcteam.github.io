@@ -91,16 +91,3 @@ ls
 You should see directories such as `bin`, `lib`, and `include`, confirming that OpenMPI has been installed successfully with UCX support.
 
 
-### 7. **Check Configuration and Prefix Setup**
-
-Verify that the `configure` command was run correctly, specifying the right prefix and UCX path.
-
-```bash
-./configure --prefix=/home/admin/apps/openmpi-ucx --with-ucx=/home/admin/apps/ucx-1.18.0
-```
----
-
-## Conclusion
-
-Compiling OpenMPI with UCX provides significant advantages in terms of performance, scalability, and flexibility for HPC environments. By using UCX, you can take full advantage of modern interconnect technologies and achieve high-efficiency communication across large clusters, which is essential for achieving optimal performance in parallel and distributed applications.
-

@@ -81,13 +81,10 @@ nav:
       - Slurm Basics: Documents/Slurm.md
       - test : Documents/test.md
       
-      
-      
       - Lustre File System:
           - Lustre: Documents/Lustre.md
           - Installation: Documents/lustre-installtion.md
 
-      
       - Scripts:
           - Run Script: Documents/Scripts/run.sh.md
 
@@ -100,11 +97,14 @@ nav:
       - Processor : Troubleshooting/Processor-replaceing.md
 
   - Installation:
-      - Anaconda: Documents/Anaconda.md
-      - Python-3.14.3: Documents/Python-Offline.md
-      - OpenMPI: Documents/OpenMpi.md
-      - METIS: Documents/Metis.md
-      - SU2 : Documents/SU2_Installation.md
+      - Important Note: Documents/Installation/Overview.md
+      - Anaconda: Documents/Installation/Anaconda.md
+      - Python-3.14.3: Documents/Installation/Python-Offline.md
+      - OpenMPI: Documents/Installation/OpenMpi.md
+      - METIS: Documents/Installation/Metis.md
+      - SU2 : Documents/Installation/SU2_Installation.md
       - OpenMPI-UCX : Documents/Installation/Openmpi-ucx.md
+      - Intel Toolkit : Documents/Installation/Intel-toolkit.md
 
   - Contact: Home/contact.md
+
