@@ -13,6 +13,8 @@ theme:
     - navigation.expand
     - navigation.path
     - navigation.prune
+    - search.suggest
+    - search.highlight
 
   palette:
     # Palette toggle for automatic mode
@@ -49,6 +51,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 plugins:
   - privacy
+  - search 
 
  
 nav:
@@ -63,25 +66,20 @@ nav:
       - Projects: Home/projects.md
       
       
-      
-
   - Documents:
       - Important Note : Documents/index.md
-      - Anaconda: Documents/Anaconda.md
+      - Bright Cluster Manager : Documents/brightclustermanager.md
       - GitHub Pages CI/CD: Documents/GitHub_Pages_MkDocs.md
       - Hyperthreading: Documents/hyperthreading.md
       - Linux Commands: Documents/Linux_commands.md
       - LVM: Documents/Logical Volume Manager (LVM).md
       - Local Repo: Documents/Local_repo.md
-      - METIS: Documents/Metis.md
       - What is module file : Documents/Module-File.md
       - NFS : Documents/NFS.md
-      - OpenMPI: Documents/OpenMpi.md
       - PIP: Documents/PIP.md
-      - Python-3.14.3: Documents/Python-Offline.md
       - Proxy: Documents/Proxy.md            
       - Slurm Basics: Documents/Slurm.md
-      - SU2 : Documents/SU2_Installation.md
+      - test : Documents/test.md
       
       
       
@@ -101,5 +99,12 @@ nav:
       - Memory issue : Troubleshooting/Memory issue.md
       - Processor : Troubleshooting/Processor-replaceing.md
 
-      
+  - Installation:
+      - Anaconda: Documents/Anaconda.md
+      - Python-3.14.3: Documents/Python-Offline.md
+      - OpenMPI: Documents/OpenMpi.md
+      - METIS: Documents/Metis.md
+      - SU2 : Documents/SU2_Installation.md
+      - OpenMPI-UCX : Documents/Installation/Openmpi-ucx.md
+
   - Contact: Home/contact.md
