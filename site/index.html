@@ -131,7 +131,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
@@ -141,9 +141,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
-      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
@@ -155,6 +155,48 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
     
     
   </nav>
@@ -214,7 +256,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="Documents/GitHub_Pages_MkDocs/" class="md-tabs__link">
+        <a href="Documents/" class="md-tabs__link">
           
   
   
@@ -243,6 +285,65 @@
         </a>
       </li>
     
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="Documents/Installation/Overview/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="Quiz/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Home/contact/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
   
 
       
@@ -396,10 +497,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#navigation" class="md-nav__link">
+  <a href="#contact-me" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Navigation
+        Contact Me
       
     </span>
   </a>
@@ -494,7 +595,7 @@
   
   
   
-    <a href="Documents/GitHub_Pages_MkDocs/" class="md-nav__link">
+    <a href="Documents/" class="md-nav__link">
       
   
   
@@ -573,6 +674,139 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="Documents/Installation/Overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="Quiz/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Home/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -644,10 +878,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#navigation" class="md-nav__link">
+  <a href="#contact-me" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Navigation
+        Contact Me
       
     </span>
   </a>
@@ -679,10 +913,11 @@
 
 
 
+<p><img alt="Home Image" src="assets/index.png" /></p>
 <h1 id="ayyappaswamy-eethakota">Ayyappaswamy Eethakota<a class="headerlink" href="#ayyappaswamy-eethakota" title="Permanent link">&para;</a></h1>
-<p>Linux Systems Administrator and High-Performance Computing (HPC) Engineer with
-hands-on experience supporting large-scale, production-grade HPC environments
-for government and enterprise research workloads.</p>
+<p><strong>Linux Systems Administrator</strong> and <strong>High-Performance Computing (HPC) Engineer</strong> with
+hands-on experience supporting <strong>large-scale</strong>, production-grade HPC environments
+for <strong>government</strong> and <strong>enterprise</strong> research workloads.</p>
 <p>This site documents my professional experience, technical skills, and operational
 knowledge gained while working on multi-petaflop HPC infrastructure, GPU-accelerated
 clusters, high-speed InfiniBand networks, and enterprise Linux systems.</p>
@@ -690,42 +925,63 @@ clusters, high-speed InfiniBand networks, and enterprise Linux systems.</p>
 <h2 id="professional-overview"><strong>Professional Overview</strong><a class="headerlink" href="#professional-overview" title="Permanent link">&para;</a></h2>
 <p>I support and operate large-scale Linux and HPC environments used for mission-critical
 research and engineering workloads. My responsibilities include cluster administration,
-job scheduling, performance benchmarking, monitoring, automation, and incident
-management across CPU and GPU-based systems.</p>
+job scheduling, monitoring, automation, and incident management across CPU and GPU-based systems.</p>
 <p>I have contributed to the deployment and sustained operation of India’s multi-petaflops
-HPC infrastructure, supporting environments with over 1,200 compute nodes and
+HPC infrastructure, supporting environments with over 1,300+ compute nodes and
 NVIDIA H100 GPU accelerators.</p>
 <hr />
 <h2 id="areas-of-work"><strong>Areas of Work</strong><a class="headerlink" href="#areas-of-work" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Linux system administration in multi-node HPC environments  </li>
-<li>HPC cluster operations using NVIDIA Bright Cluster Manager  </li>
-<li>Workload scheduling and execution using PBS Pro and Slurm  </li>
-<li>GPU-enabled compute platforms and NVIDIA software stack  </li>
-<li>High-speed InfiniBand (400 Gb/s) networking  </li>
-<li>Performance benchmarking using HPL, LINPACK, and HPCC  </li>
-<li>Automation using shell scripting  </li>
-<li>Hardware, firmware, and datacenter operations  </li>
-<li>24×7 L2 production support and incident handling  </li>
-</ul>
+<p><strong>Linux System Administration</strong>:
+Managing and maintaining Linux systems across many computers, ensuring they run smoothly, are secure, and are kept up-to-date.</p>
+<p><strong>HPC Cluster Management</strong>:
+Setting up and managing large clusters of computers used for high-performance computing (HPC), using tools like Bright Cluster Manager.</p>
+<p><strong>Workload Scheduling and Management</strong>:
+Using job schedulers such as PBS Pro and Slurm to manage and schedule tasks on the system, ensuring tasks run efficiently without delays or failures.</p>
+<p><strong>PBS Pro Job Scheduling and Management</strong>:
+Configuring and managing PBS Pro for job scheduling in high-performance computing environments, including creating job queues, monitoring job execution, troubleshooting job failures, optimizing resource allocation, and ensuring efficient workload distribution across compute nodes.</p>
+<p><strong>Hardware Troubleshooting</strong>:
+Identifying and fixing hardware issues like CPU failures, memory problems, network card faults, and other hardware-related issues in large systems.</p>
+<p><strong>Software Installation</strong> and <strong>Configuration</strong>:
+Installing both commercial and open-source software applications, configuring them correctly, and troubleshooting any issues that arise, including job scheduling problems.</p>
+<p><strong>Network Management</strong>:
+Ensuring that all computers in the cluster can communicate properly with each other, setting up InfiniBand networks, and solving any network-related issues.</p>
+<p><strong>System Monitoring and Performance Tuning</strong>:
+Monitoring the performance of systems and clusters, identifying areas that can be improved, and applying solutions to increase system performance and reliability.</p>
+<p><strong>Security Management</strong>:
+Applying security measures like firewalls, access controls, and system updates to keep the system secure from unauthorized access and attacks.</p>
+<p><strong>Automation and Scripting:</strong>
+Writing simple scripts to automate tasks like software installation, system checks, and data backups, making processes faster and more efficient.</p>
+<p><strong>Lustre File System Management and Troubleshooting</strong>:
+Managing and maintaining the Lustre File System to ensure high-performance storage across multiple nodes, including setting up, troubleshooting issues, tuning performance, and ensuring data integrity and accessibility.</p>
+<p><strong>Mellanox UFM (Unified Fabric Manager) Monitoring</strong>:
+Setting up and managing Mellanox UFM to monitor and manage high-speed InfiniBand networks in HPC environments, ensuring optimal network performance, diagnosing and resolving network-related issues, and maintaining fabric health across multiple nodes and switches.</p>
+<p><strong>Dell OpenManage Enterprise (OME) Management:</strong>
+Managing Dell OpenManage Enterprise (OME) to monitor and manage server health, perform firmware updates, and troubleshoot hardware issues in a large-scale environment, ensuring the stability and performance of Dell servers across the data center.</p>
+<p><strong>HPL Benchmarking and Performance Tuning:</strong>
+Running and analyzing HPL (High Performance Linpack) benchmarks to evaluate the performance of HPC systems, identifying bottlenecks, and fine-tuning system configurations to maximize computational efficiency and achieve optimal performance in scientific and engineering workloads.</p>
+<p><strong>24×7  Production Support and Incident Management</strong>:
+Providing continuous L2 support for production systems, including monitoring system health, diagnosing and resolving hardware and software issues, managing incidents, and ensuring minimal downtime in mission-critical environments.</p>
 <hr />
 <h2 id="operational-knowledge-base"><strong>Operational Knowledge Base</strong><a class="headerlink" href="#operational-knowledge-base" title="Permanent link">&para;</a></h2>
-<p>This site includes a detailed collection of real-world operational issues and
-troubleshooting scenarios encountered in production environments, such as:</p>
-<ul>
-<li>User access, SSH, and network connectivity issues  </li>
-<li>Job scheduling, queue, and execution failures  </li>
-<li>Benchmarking and performance validation errors  </li>
-<li>GPU driver, CUDA, and accelerator-related issues  </li>
-<li>Cluster management and licensing problems  </li>
-<li>InfiniBand fabric and communication issues  </li>
-<li>Hardware-level faults (disk, NIC, DIMM, CPU)  </li>
-<li>Software installation and compilation errors  </li>
-</ul>
-<p>These scenarios are documented to reflect practical problem-solving approaches
-used in enterprise HPC operations.</p>
+<p>In my work with HPC environments, I’ve encountered and resolved a wide range of operational challenges. Below are some of the key areas where I apply my expertise:</p>
+<p><strong>Cluster Access Problems:</strong>
+Diagnosing and resolving issues related to SSH connectivity, user access permissions, and network configurations, ensuring seamless access to cluster nodes for users and administrators.</p>
+<p><strong>Job Scheduling Issues:</strong>
+Troubleshooting job scheduling failures in PBS Pro and Slurm, addressing problems with job queues, resource allocation, and node communication. I resolve queue stalls, job execution failures, and optimize job submissions for better resource utilization.</p>
+<p><strong>Application Installation and Troubleshooting:</strong>
+Managing the installation and configuration of both commercial and open-source applications in high-performance computing environments. Troubleshooting installation issues and ensuring correct dependencies for smooth software setup and operation.</p>
+<p><strong>Driver Installation:</strong>
+Handling the installation and troubleshooting of hardware drivers for components like GPUs, network cards, and accelerators, with a focus on resolving conflicts, ensuring compatibility, and setting up CUDA and NVIDIA drivers.</p>
+<p><strong>Library Installation:</strong>
+Installing and configuring critical libraries like MPI, CUDA, and OpenCL for scientific applications. I troubleshoot dependencies and library conflicts, ensuring proper linking for optimal application performance.</p>
+<p><strong>System Resource Management and Optimization:</strong>
+Identifying resource bottlenecks and optimizing system configurations to ensure efficient utilization of CPU, memory, storage, and network resources. I’ve tackled issues related to overutilized resources, improving cluster performance through careful configuration adjustments.</p>
+<p><strong>Network Configuration and Troubleshooting:</strong>
+Resolving network-related issues like slow communication, InfiniBand fabric issues, and latency between nodes. This includes configuring switches, ensuring proper fabric topology, and diagnosing network disruptions to keep data flow uninterrupted.</p>
+<p><strong>Hardware Failures and Recovery:</strong>
+Handling hardware-level failures such as disk failures, DIMM issues, CPU malfunctions, and resolving hardware faults through hardware replacements or configuration changes. I also develop failover strategies and data recovery plans to minimize system downtime.</p>
 <hr />
-<h2 id="purpose-of-this-site">Purpose of This Site<a class="headerlink" href="#purpose-of-this-site" title="Permanent link">&para;</a></h2>
+<h2 id="purpose-of-this-site"><strong>Purpose of This Site</strong><a class="headerlink" href="#purpose-of-this-site" title="Permanent link">&para;</a></h2>
 <p>The purpose of this documentation is to:</p>
 <ul>
 <li>Present my professional background in a structured manner  </li>
@@ -733,18 +989,12 @@ used in enterprise HPC operations.</p>
 <li>Serve as a personal technical knowledge base  </li>
 <li>Support interview discussions and technical evaluations  </li>
 </ul>
+<h2 id="contact-me">Contact Me<a class="headerlink" href="#contact-me" title="Permanent link">&para;</a></h2>
+<p><a href="mailto:eethakotaayyappaswamy@gmail.com" style="font-size: 32px; margin-right: 20px;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg></span></a>
+<a href="https://www.linkedin.com/in/ayyappaswamy-eethakota-ab3834339" style="font-size: 32px; margin-right: 20px;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg></span></a>
+<a href="tel:+919652065688" style="font-size: 32px; margin-right: 20px;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.32.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02z"/></svg></span></a> </p>
+<p><a class="md-button md-button--primary" download="download" href="/assets/Ayyappaswamy_Resume.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V8zm-2 17-4-4h2.5v-3h3v3H16zm1-10V3.5L18.5 9z"/></svg></span> Download Resume</a></p>
 <hr />
-<h2 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">&para;</a></h2>
-<p>Use the navigation menu to explore detailed sections covering:</p>
-<ul>
-<li>Professional Overview and Experience  </li>
-<li>Technical Skills  </li>
-<li>Machines, Hardware, and Networks  </li>
-<li>Projects and Contributions  </li>
-<li>Roles and Responsibilities  </li>
-<li>HPC Operational Issues and Troubleshooting  </li>
-<li>Education and Contact Information  </li>
-</ul>
 
 
 
@@ -794,7 +1044,7 @@ used in enterprise HPC operations.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
