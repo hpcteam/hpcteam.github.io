@@ -1,0 +1,31 @@
+# Linux Quiz - Select Type
+
+<div style="text-align:center; margin-top:50px;">
+
+  <h2>Select Quiz Type</h2>
+
+  <div style="display:flex; justify-content:center; gap:40px; margin-top:40px;">
+
+    <div onclick="goToMCQ()" style="width:250px; padding:30px; background:#1e3c72; color:white; border-radius:10px; cursor:pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s;">
+      <h3>Multiple Choice</h3>
+      <p>Answer Linux questions by selecting correct options.</p>
+    </div>
+
+    <div onclick="goToText()" style="width:250px; padding:30px; background:#2a5298; color:white; border-radius:10px; cursor:pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s;">
+      <h3>Type Answer</h3>
+      <p>Type your answer manually for Linux questions.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function goToMCQ() {
+  window.location.href = "page1.html";
+}
+
+function goToText() {
+  window.location.href = "linux-text.html";
+}
+</script>
+

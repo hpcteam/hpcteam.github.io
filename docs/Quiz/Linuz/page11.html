@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux MCQ Quiz - Page 11</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 20px; }
+    h2 { text-align: center; margin-bottom: 30px; }
+    .question { margin-bottom: 25px; background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+    .options { margin-top: 10px; }
+    .options label { display: block; padding: 5px 10px; border-radius: 6px; cursor: pointer; transition: 0.2s; }
+    .options input[type="radio"] { margin-right: 10px; }
+    .options label:hover { background-color: #e0f0ff; }
+    button { display: block; margin: 30px auto; padding: 12px 25px; font-size: 16px; background-color: #1e90ff; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    #result { display: none; text-align: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<h2>Linux MCQ Quiz - Page 11</h2>
+
+<form id="mcqForm11">
+  <!-- Question 101 -->
+  <div class="question">
+    <p>101. Which command is used to change the permissions of a file or directory?</p>
+    <div class="options">
+      <label><input type="radio" name="q101" value="A">A) chmod</label><br>
+      <label><input type="radio" name="q101" value="B">B) chown</label><br>
+      <label><input type="radio" name="q101" value="C">C) chgrp</label><br>
+      <label><input type="radio" name="q101" value="D">D) setperm</label><br>
+    </div>
+  </div>
+
+  <!-- Question 102 -->
+  <div class="question">
+    <p>102. Which command is used to see the history of commands entered in the terminal?</p>
+    <div class="options">
+      <label><input type="radio" name="q102" value="A">A) history</label><br>
+      <label><input type="radio" name="q102" value="B">B) last</label><br>
+      <label><input type="radio" name="q102" value="C">C) log</label><br>
+      <label><input type="radio" name="q102" value="D">D) commandlog</label><br>
+    </div>
+  </div>
+
+  <!-- Question 103 -->
+  <div class="question">
+    <p>103. Which command is used to view the system's uptime?</p>
+    <div class="options">
+      <label><input type="radio" name="q103" value="A">A) uptime</label><br>
+      <label><input type="radio" name="q103" value="B">B) top</label><br>
+      <label><input type="radio" name="q103" value="C">C) sysinfo</label><br>
+      <label><input type="radio" name="q103" value="D">D) load</label><br>
+    </div>
+  </div>
+
+  <!-- Question 104 -->
+  <div class="question">
+    <p>104. Which command is used to check memory usage in Linux?</p>
+    <div class="options">
+      <label><input type="radio" name="q104" value="A">A) free</label><br>
+      <label><input type="radio" name="q104" value="B">B) mem</label><br>
+      <label><input type="radio" name="q104" value="C">C) top</label><br>
+      <label><input type="radio" name="q104" value="D">D) df</label><br>
+    </div>
+  </div>
+
+  <!-- Question 105 -->
+  <div class="question">
+    <p>105. Which command is used to list all active processes in Linux?</p>
+    <div class="options">
+      <label><input type="radio" name="q105" value="A">A) ps</label><br>
+      <label><input type="radio" name="q105" value="B">B) top</label><br>
+      <label><input type="radio" name="q105" value="C">C) proc</label><br>
+      <label><input type="radio" name="q105" value="D">D) task</label><br>
+    </div>
+  </div>
+
+  <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+</form>
+
+<!-- Popup -->
+<div id="popup">
+  <p id="scoreText"></p>
+  <button id="nextButton" onclick="nextPage()">Next Page</button>
+</div>
+
+<script>
+  function submitQuiz() {
+    let score = 0;
+    const correctAnswers = {
+      q101: "A", q102: "A", q103: "A", q104: "A", q105: "A"
+    };
+
+    for (let i = 101; i <= 105; i++) { 
+      const selectedAnswer = document.querySelector(`input[name=q${i}]:checked`);
+      if (selectedAnswer && selectedAnswer.value === correctAnswers[`q${i}`]) {
+        score++;
+      }
+    }
+
+    // Show the result popup
+    document.getElementById("scoreText").textContent = `You scored ${score} out of 5 questions!`;
+    document.getElementById("popup").style.display = "block";
+    document.querySelector("button").style.display = "none";  // Hide the submit button
+  }
+
+  function nextPage() {
+    // Redirect to the next page (e.g., Page 12)
+    window.location.href = 'page12.html'; // Ensure this page exists and is correctly named
+  }
+</script>
+
+</body>
+</html>
+

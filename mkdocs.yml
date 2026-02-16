@@ -80,6 +80,7 @@ nav:
       - Proxy: Documents/Proxy.md            
       - Slurm Basics: Documents/Slurm.md
       - test : Documents/test.md
+      - HWClock : Documents/hwclock.md
       
       - Lustre File System:
           - Lustre: Documents/Lustre.md
@@ -95,6 +96,7 @@ nav:
       - Power Supply Unit (PSU) : Troubleshooting/Power Supply Unit.md
       - Memory issue : Troubleshooting/Memory issue.md
       - Processor : Troubleshooting/Processor-replaceing.md
+    
 
   - Installation:
       - Important Note: Documents/Installation/Overview.md
@@ -106,6 +108,10 @@ nav:
       - OpenMPI-UCX : Documents/Installation/Openmpi-ucx.md
       - Intel Toolkit : Documents/Installation/Intel-toolkit.md
       - OpenPbs-23.06.06 : Documents/Installation/OpenPBS.md
+
+
+  - Quiz :
+      -Quiz : Quiz/index.html
 
   - Contact: Home/contact.md
 

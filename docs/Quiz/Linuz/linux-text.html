@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux Type Answer Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 20px; }
+    h2 { text-align: center; margin-bottom: 30px; }
+    .question { margin-bottom: 25px; background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+    textarea { width: 100%; height: 100px; padding: 10px; border-radius: 6px; }
+    button { display: block; margin: 30px auto; padding: 12px 25px; font-size: 16px; background-color: #1e90ff; color: white; border: none; border-radius: 6px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<h2>Linux Type Answer Quiz</h2>
+
+<form id="typeForm">
+  
+  <!-- Question 1 -->
+  <div class="question">
+    <p>1. Which command is used to list files in a directory in Linux?</p>
+    <textarea name="q1_answer" placeholder="Type your answer here..."></textarea><br>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="question">
+    <p>2. What is the default shell in most Linux distributions?</p>
+    <textarea name="q2_answer" placeholder="Type your answer here..."></textarea><br>
+  </div>
+
+  <!-- Continue for questions 3-10 -->
+
+  <button type="button" onclick="submitAnswers()">Submit Answers</button>
+</form>
+
+<script>
+  function submitAnswers() {
+    let answers = {
+      q1: "ls",  // Correct answer for question 1
+      q2: "bash",  // Correct answer for question 2
+      // Continue for q3, q4, ... q10
+    };
+
+    let score = 0;
+    for (let i = 1; i <= 10; i++) {
+      let answer = document.querySelector(`textarea[name=q${i}_answer]`).value.trim();
+      if (answer.toLowerCase() === answers[`q${i}`].toLowerCase()) {
+        score++;
+      }
+    }
+
+    alert("You scored " + score + " out of 10!");
+  }
+</script>
+
+</body>
+</html>
+

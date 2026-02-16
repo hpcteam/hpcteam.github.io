@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux MCQ Quiz - Page 1</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 20px; }
+    h2 { text-align: center; margin-bottom: 30px; }
+    .question { margin-bottom: 25px; background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+    .options { margin-top: 10px; }
+    .options label { display: block; padding: 5px 10px; border-radius: 6px; cursor: pointer; transition: 0.2s; }
+    .options input[type="radio"] { margin-right: 10px; }
+    .options label:hover { background-color: #e0f0ff; }
+    button { display: block; margin: 30px auto; padding: 12px 25px; font-size: 16px; background-color: #1e90ff; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    #popup button {
+      padding: 10px 20px;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Linux MCQ Quiz - Part 1</h2>
+
+<form id="mcqForm1">
+  <!-- Question 1 -->
+  <div class="question">
+    <p>1. Which command is used to list files in a directory in Linux?</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="A">A) ls</label><br>
+      <label><input type="radio" name="q1" value="B">B) cd</label><br>
+      <label><input type="radio" name="q1" value="C">C) pwd</label><br>
+      <label><input type="radio" name="q1" value="D">D) mkdir</label><br>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="question">
+    <p>2. What is the default shell in most Linux distributions?</p>
+    <div class="options">
+      <label><input type="radio" name="q2" value="A">A) csh</label><br>
+      <label><input type="radio" name="q2" value="B">B) bash</label><br>
+      <label><input type="radio" name="q2" value="C">C) ksh</label><br>
+      <label><input type="radio" name="q2" value="D">D) sh</label><br>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="question">
+    <p>3. Which command is used to change file permissions?</p>
+    <div class="options">
+      <label><input type="radio" name="q3" value="A">A) chmod</label><br>
+      <label><input type="radio" name="q3" value="B">B) chown</label><br>
+      <label><input type="radio" name="q3" value="C">C) ls</label><br>
+      <label><input type="radio" name="q3" value="D">D) passwd</label><br>
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="question">
+    <p>4. What does the `grep` command do?</p>
+    <div class="options">
+      <label><input type="radio" name="q4" value="A">A) Changes directory</label><br>
+      <label><input type="radio" name="q4" value="B">B) Searches text in files</label><br>
+      <label><input type="radio" name="q4" value="C">C) Displays disk usage</label><br>
+      <label><input type="radio" name="q4" value="D">D) Moves files</label><br>
+    </div>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="question">
+    <p>5. Which symbol is used to redirect output to a file, overwriting existing content?</p>
+    <div class="options">
+      <label><input type="radio" name="q5" value="A">A) >></label><br>
+      <label><input type="radio" name="q5" value="B">B) ></label><br>
+      <label><input type="radio" name="q5" value="C">C) <</label><br>
+      <label><input type="radio" name="q5" value="D">D) |</label><br>
+    </div>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="question">
+    <p>6. How do you check the current working directory?</p>
+    <div class="options">
+      <label><input type="radio" name="q6" value="A">A) pwd</label><br>
+      <label><input type="radio" name="q6" value="B">B) ls</label><br>
+      <label><input type="radio" name="q6" value="C">C) whoami</label><br>
+      <label><input type="radio" name="q6" value="D">D) cd</label><br>
+    </div>
+  </div>
+
+  <!-- Question 7 -->
+  <div class="question">
+    <p>7. Which command is used to display running processes?</p>
+    <div class="options">
+      <label><input type="radio" name="q7" value="A">A) ps</label><br>
+      <label><input type="radio" name="q7" value="B">B) top</label><br>
+      <label><input type="radio" name="q7" value="C">C) jobs</label><br>
+      <label><input type="radio" name="q7" value="D">D) All of the above</label><br>
+    </div>
+  </div>
+
+  <!-- Question 8 -->
+  <div class="question">
+    <p>8. Which command is used to create a new directory?</p>
+    <div class="options">
+      <label><input type="radio" name="q8" value="A">A) mkdir</label><br>
+      <label><input type="radio" name="q8" value="B">B) rmdir</label><br>
+      <label><input type="radio" name="q8" value="C">C) touch</label><br>
+      <label><input type="radio" name="q8" value="D">D) nano</label><br>
+    </div>
+  </div>
+
+  <!-- Question 9 -->
+  <div class="question">
+    <p>9. Which file contains user account information in Linux?</p>
+    <div class="options">
+      <label><input type="radio" name="q9" value="A">A) /etc/shadow</label><br>
+      <label><input type="radio" name="q9" value="B">B) /etc/passwd</label><br>
+      <label><input type="radio" name="q9" value="C">C) /etc/group</label><br>
+      <label><input type="radio" name="q9" value="D">D) /home</label><br>
+    </div>
+  </div>
+
+  <!-- Question 10 -->
+  <div class="question">
+    <p>10. Which command is used to display the last lines of a file?</p>
+    <div class="options">
+      <label><input type="radio" name="q10" value="A">A) head</label><br>
+      <label><input type="radio" name="q10" value="B">B) tail</label><br>
+      <label><input type="radio" name="q10" value="C">C) cat</label><br>
+      <label><input type="radio" name="q10" value="D">D) less</label><br>
+    </div>
+  </div>
+
+  <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+</form>
+
+<!-- Popup -->
+<div id="popup">
+  <p id="scoreText"></p>
+  <button id="nextButton" onclick="nextPage()">Continue to Next Set</button>
+</div>
+
+<script>
+  function submitQuiz() {
+    let score = 0;
+    const correctAnswers = {
+      q1: "A", q2: "B", q3: "A", q4: "B", q5: "B", q6: "A", q7: "D", q8: "A", q9: "B", q10: "B"
+    };
+
+    for (let i = 1; i <= 10; i++) { // Loop through all 10 questions
+      const selectedAnswer = document.querySelector(`input[name=q${i}]:checked`);
+      if (selectedAnswer && selectedAnswer.value === correctAnswers[`q${i}`]) {
+        score++;
+      }
+    }
+
+    // Show the result popup
+    document.getElementById("scoreText").textContent = `You scored ${score} out of 10 questions!`;
+    document.getElementById("popup").style.display = "block";
+    document.querySelector("button").style.display = "none";  // Hide the submit button
+  }
+
+  function nextPage() {
+    // Redirect to the next page (e.g., Page 2)
+    window.location.href = 'page2.html'; // Ensure this page exists and is correctly named
+  }
+</script>
+
+</body>
+</html>
+

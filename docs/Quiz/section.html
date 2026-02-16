@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Section - HPC Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h2#welcomeText {
+      margin-top: 40px;
+      font-size: 28px;
+      color: #333;
+    }
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 150px);
+      gap: 25px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .section-box {
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+      padding: 10px;
+    }
+    .section-box:hover { transform: scale(1.05); }
+    .box1 { background-color: #1e90ff; }
+    .box2 { background-color: #ff7f50; }
+    .box3 { background-color: #32cd32; }
+    .box4 { background-color: #8a2be2; }
+    .box5 { background-color: #ff1493; }
+    .box6 { background-color: #ff8c00; }
+    .box7 { background-color: #20b2aa; }
+    .box8 { background-color: #dc143c; }
+    .box9 { background-color: #2f4f4f; }
+    .box10 { background-color: #6a5acd; }
+    .section-box.selected { border: 4px solid black; }
+    .submit-btn {
+      padding: 12px 30px;
+      font-size: 16px;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 id="welcomeText"></h2>
+
+  <div class="section-grid">
+    <div class="section-box box1" onclick="selectSection(this)">Linux</div>
+    <div class="section-box box2" onclick="selectSection(this)">Bright Cluster Manager</div>
+    <div class="section-box box3" onclick="selectSection(this)">PBS</div>
+    <div class="section-box box4" onclick="selectSection(this)">Lustre File System</div>
+    <div class="section-box box5" onclick="selectSection(this)">Section 5</div>
+    <div class="section-box box6" onclick="selectSection(this)">Section 6</div>
+    <div class="section-box box7" onclick="selectSection(this)">Section 7</div>
+    <div class="section-box box8" onclick="selectSection(this)">Section 8</div>
+    <div class="section-box box9" onclick="selectSection(this)">Section 9</div>
+    <div class="section-box box10" onclick="selectSection(this)">Section 10</div>
+  </div>
+
+  <button onclick="submitSection()" class="submit-btn">Submit</button>
+
+  <script>
+    let selectedSection = "";
+
+    // Display stored username
+    let name = localStorage.getItem("username");
+    if (name) {
+      document.getElementById("welcomeText").innerText = "Hello, " + name + " 👋";
+    } else {
+      document.getElementById("welcomeText").innerText = "Hello! 👋";
+    }
+
+    function selectSection(element) {
+      document.querySelectorAll(".section-box").forEach(box => box.classList.remove("selected"));
+      element.classList.add("selected");
+      selectedSection = element.innerText;
+    }
+
+    function submitSection() {
+      if (selectedSection === "") {
+        alert("Please select a section");
+        return;
+      }
+
+      localStorage.setItem("section", selectedSection);
+
+      switch (selectedSection) {
+        case "Linux":
+          window.location.href = "Linuz/linux-quiz.html";
+          break;
+        case "Bright Cluster Manager":
+          window.location.href = "bright-quiz.html";
+          break;
+        case "PBS":
+          window.location.href = "pbs-quiz.html";
+          break;
+        case "Lustre File System":
+          window.location.href = "lustre-quiz.html";
+          break;
+        default:
+          window.location.href = "generic-quiz.html";
+          break;
+      }
+    }
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux MCQ Quiz - Page 12</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 20px; }
+    h2 { text-align: center; margin-bottom: 30px; }
+    .question { margin-bottom: 25px; background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+    .options { margin-top: 10px; }
+    .options label { display: block; padding: 5px 10px; border-radius: 6px; cursor: pointer; transition: 0.2s; }
+    .options input[type="radio"] { margin-right: 10px; }
+    .options label:hover { background-color: #e0f0ff; }
+    button { display: block; margin: 30px auto; padding: 12px 25px; font-size: 16px; background-color: #1e90ff; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    #result { display: none; text-align: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<h2>Linux MCQ Quiz - Page 12</h2>
+
+<form id="mcqForm12">
+  <!-- Question 111 -->
+  <div class="question">
+    <p>111. Which command is used to show information about the network interfaces?</p>
+    <div class="options">
+      <label><input type="radio" name="q111" value="A">A) ifconfig</label><br>
+      <label><input type="radio" name="q111" value="B">B) netstat</label><br>
+      <label><input type="radio" name="q111" value="C">C) iwconfig</label><br>
+      <label><input type="radio" name="q111" value="D">D) netconfig</label><br>
+    </div>
+  </div>
+
+  <!-- Question 112 -->
+  <div class="question">
+    <p>112. Which command is used to display the routing table?</p>
+    <div class="options">
+      <label><input type="radio" name="q112" value="A">A) route</label><br>
+      <label><input type="radio" name="q112" value="B">B) netstat</label><br>
+      <label><input type="radio" name="q112" value="C">C) ip route</label><br>
+      <label><input type="radio" name="q112" value="D">D) traceroute</label><br>
+    </div>
+  </div>
+
+  <!-- Question 113 -->
+  <div class="question">
+    <p>113. Which command is used to restart the network service?</p>
+    <div class="options">
+      <label><input type="radio" name="q113" value="A">A) systemctl restart network</label><br>
+      <label><input type="radio" name="q113" value="B">B) restart network</label><br>
+      <label><input type="radio" name="q113" value="C">C) ifdown && ifup</label><br>
+      <label><input type="radio" name="q113" value="D">D) restart service network</label><br>
+    </div>
+  </div>
+
+  <!-- Question 114 -->
+  <div class="question">
+    <p>114. Which command is used to trace the route packets take to a network host?</p>
+    <div class="options">
+      <label><input type="radio" name="q114" value="A">A) traceroute</label><br>
+      <label><input type="radio" name="q114" value="B">B) route</label><br>
+      <label><input type="radio" name="q114" value="C">C) netstat</label><br>
+      <label><input type="radio" name="q114" value="D">D) ping</label><br>
+    </div>
+  </div>
+
+  <!-- Question 115 -->
+  <div class="question">
+    <p>115. Which command is used to restart the Apache service in Linux?</p>
+    <div class="options">
+      <label><input type="radio" name="q115" value="A">A) systemctl restart apache2</label><br>
+      <label><input type="radio" name="q115" value="B">B) service apache2 restart</label><br>
+      <label><input type="radio" name="q115" value="C">C) apachectl restart</label><br>
+      <label><input type="radio" name="q115" value="D">D) apache restart</label><br>
+    </div>
+  </div>
+
+  <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+</form>
+
+<!-- Popup -->
+<div id="popup">
+  <p id="scoreText"></p>
+  <button id="nextButton" onclick="nextPage()">Next Page</button>
+</div>
+
+<script>
+  function submitQuiz() {
+    let score = 0;
+    const correctAnswers = {
+      q111: "A", q112: "A", q113: "A", q114: "A", q115: "A"
+    };
+
+    for (let i = 111; i <= 115; i++) { 
+      const selectedAnswer = document.querySelector(`input[name=q${i}]:checked`);
+      if (selectedAnswer && selectedAnswer.value === correctAnswers[`q${i}`]) {
+        score++;
+      }
+    }
+
+    // Show the result popup
+    document.getElementById("scoreText").textContent = `You scored ${score} out of 5 questions!`;
+    document.getElementById("popup").style.display = "block";
+    document.querySelector("button").style.display = "none";  // Hide the submit button
+  }
+
+  function nextPage() {
+    // Redirect to the next page (e.g., Page 13)
+    window.location.href = 'page13.html'; // Ensure this page exists and is correctly named
+  }
+</script>
+
+</body>
+</html>
+
