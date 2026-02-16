@@ -111,7 +111,7 @@ nav:
 
 
   - Quiz:
-      - Quiz: Quiz/index.md
+      - Quiz: Quiz/index.html
 
 
   - Contact: Home/contact.md
