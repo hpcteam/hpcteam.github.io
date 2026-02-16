@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simple Text Quiz - Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.question {
+  background: #ffffff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+button {
+  display: block;
+  margin: 25px auto;
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<h2>Simple Text Quiz (Testing)</h2>
+
+<form>
+
+<div class="question">
+  <p>1. Type <b>yes</b></p>
+  <input type="text" id="q1">
+</div>
+
+<div class="question">
+  <p>2. Type <b>linux</b></p>
+  <input type="text" id="q2">
+</div>
+
+<div class="question">
+  <p>3. Type number <b>1</b></p>
+  <input type="text" id="q3">
+</div>
+
+<button type="button" onclick="submitTest()">Submit</button>
+
+</form>
+
+<div id="popup">
+  <div id="resultText"></div>
+  <button onclick="goNext()">OK</button>
+</div>
+
+<script>
+function clean(val) {
+  return val.trim().toLowerCase();
+}
+
+function submitTest() {
+  const answers = {
+    q1: "yes",
+    q2: "linux",
+    q3: "1"
+  };
+
+  let score = 0;
+  let result = "";
+
+  for (let i = 1; i <= 3; i++) {
+    let user = clean(document.getElementById("q"+i).value);
+    let correct = answers["q"+i];
+
+    if (user === correct) {
+      score++;
+    } else {
+      result += `<p>❌ Question ${i} wrong<br>
+      Correct: <b>${correct}</b></p>`;
+    }
+  }
+
+  document.getElementById("resultText").innerHTML =
+    `<h3>Your Score: ${score}/3</h3>` +
+    (result ? "<hr>" + result : "<p>🎉 All correct!</p>");
+
+  document.getElementById("popup").style.display = "block";
+}
+
+function goNext() {
+  window.location.href = "linux-text4.html";  // change if needed
+}
+</script>
+
+</body>
+</html>
