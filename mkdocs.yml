@@ -110,7 +110,9 @@ nav:
       - OpenPbs-23.06.06 : Documents/Installation/OpenPBS.md
 
 
-  - Quiz : Quiz/index.md
+  - Quiz:
+      - Quiz: Quiz/index.md
+
 
   - Contact: Home/contact.md
 
