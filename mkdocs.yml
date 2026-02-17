@@ -108,6 +108,10 @@ nav:
       - OpenMPI-UCX : Documents/Installation/Openmpi-ucx.md
       - Intel Toolkit : Documents/Installation/Intel-toolkit.md
       - OpenPbs-23.06.06 : Documents/Installation/OpenPBS.md
+      - GCC : Documents/Installation/gcc.md
+      - GMP : Documents/Installation/gmp.md
+      - MPC : Documents/Installation/mpc.md
+      - MPFR : Documents/Installation/mpfr.md
 
 
   - Quiz:
