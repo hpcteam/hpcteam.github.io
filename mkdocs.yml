@@ -79,8 +79,9 @@ nav:
       - PIP: Documents/PIP.md
       - Proxy: Documents/Proxy.md            
       - Slurm Basics: Documents/Slurm.md
+      - RPM BUILD FROM SOURCODE : Documents/RPM-BUILD_SOURE_CODE.md
       - test : Documents/test.md
-      - HWClock : Documents/hwclock.md
+      
       
       - Lustre File System:
           - Lustre: Documents/Lustre.md
@@ -96,6 +97,7 @@ nav:
       - Power Supply Unit (PSU) : Troubleshooting/Power Supply Unit.md
       - Memory issue : Troubleshooting/Memory issue.md
       - Processor : Troubleshooting/Processor-replaceing.md
+      
     
 
   - Installation:
@@ -112,7 +114,7 @@ nav:
       - GMP : Documents/Installation/gmp.md
       - MPC : Documents/Installation/mpc.md
       - MPFR : Documents/Installation/mpfr.md
-
+      - HWClock : Documents/Installation/hwclock.md
 
   - Quiz:
       - Quiz: Quiz/index.html
