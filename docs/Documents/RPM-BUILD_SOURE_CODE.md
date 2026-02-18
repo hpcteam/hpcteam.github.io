@@ -7,7 +7,7 @@ This document describes how I installed and configured `rpmbuild` from source, s
 - **Tested on Laptop**: The setup and build process described in this document were tested on my personal laptop. For larger-scale or multi-node environments, additional configuration and testing are required to ensure compatibility.
 - **Build Dependencies**: During the process, I encountered dependency issues that were resolved by installing the required `-devel` packages. Ensure all dependencies are checked before starting the build process.
 
-## 📌 What is `rpmbuild`?
+##  What is `rpmbuild`?
 
 **`rpmbuild`** is a Linux tool used to **create RPM packages from source code**.
 
@@ -22,7 +22,7 @@ These RPM files can then be installed, upgraded, or removed using standard packa
 
 ---
 
-## 📌 Why RPM Packages Are Used
+##  Why RPM Packages Are Used
 
 On **Rocky Linux**, **RHEL**, and **CentOS**, software is managed using **RPM packages**.
 
@@ -38,7 +38,7 @@ RPM packages help to:
 
 ---
 
-## 📌 Problems Without `rpmbuild`
+##  Problems Without `rpmbuild`
 
 If software is installed directly from source using:
 
