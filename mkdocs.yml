@@ -80,6 +80,7 @@ nav:
       - Proxy: Documents/Proxy.md            
       - Slurm Basics: Documents/Slurm.md
       - RPM BUILD FROM SOURCODE : Documents/RPM-BUILD_SOURE_CODE.md
+      - Job-Query : Documents/Jobs-query.md
       - test : Documents/test.md
       
       
