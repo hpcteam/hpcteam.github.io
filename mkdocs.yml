@@ -109,6 +109,7 @@ nav:
       - METIS: Documents/Installation/Metis.md
       - SU2 : Documents/Installation/SU2_Installation.md
       - OpenMPI-UCX : Documents/Installation/Openmpi-ucx.md
+      - OpenFOAM : Documents/Installation/OPEN-FOAM.md
       - Intel Toolkit : Documents/Installation/Intel-toolkit.md
       - OpenPbs-23.06.06 : Documents/Installation/OpenPBS.md
       - GCC : Documents/Installation/gcc.md
