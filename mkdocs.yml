@@ -117,6 +117,14 @@ nav:
       - MPC : Documents/Installation/mpc.md
       - MPFR : Documents/Installation/mpfr.md
       - HWClock : Documents/Installation/hwclock.md
+      - HPL : Documents/Installation/hpl.md
+      - HPCG : Documents/Installation/hpcg.md
+      - QE : Documents/Installation/qe.md
+      - LAMMPS :
+        - Theory : Documents/Installation/lammps/theory.md
+        - CPU Installation : Documents/Installation/lammps/cpu-installation.md
+        - GPU Installation : Documents/Installation/lammps/gpu-installation.md
+
 
   - Quiz:
       - Quiz: Quiz/index.html
