@@ -1,0 +1,2062 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../Power%20Drain/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Hardware Troubleshooting - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hardware-troubleshooting-hpc-data-center-nodes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hardware Troubleshooting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Home/Professional-Summary/" class="md-tabs__link">
+          
+  
+  
+  Profile
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Documents/" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Documents/Installation/Overview/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Quiz/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Home/contact/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Home/Professional-Summary/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Documents/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-identify-scope-and-impact-using-ome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Identify Scope and Impact (Using OME)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Identify Scope and Impact (Using OME)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determine-the-level-of-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determine the Level of Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-check-workload-manager-status-pbs-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Check Workload Manager Status (PBS Pro)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Check Workload Manager Status (PBS Pro)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-can-identify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Can Identify
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-handling-nodes-with-running-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Handling Nodes with Running Jobs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Handling Nodes with Running Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#put-node-in-offline-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Put Node in Offline Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-check-cluster-health-status-bright-cluster-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Check Cluster Health Status (Bright Cluster Manager)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Check Cluster Health Status (Bright Cluster Manager)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-cmsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using cmsh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-centralized-hardware-alert-check-ome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Centralized Hardware Alert Check (OME)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Centralized Hardware Alert Check (OME)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ome-provides-alerts-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OME Provides Alerts For
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-idrac-access-for-node-level-diagnosis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. iDRAC Access for Node-Level Diagnosis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. iDRAC Access for Node-Level Diagnosis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-idrac-you-can-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using iDRAC, You Can Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-power-drain-cold-power-reset-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Power Drain (Cold Power Reset) Procedure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Power Drain (Cold Power Reset) Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-log-collection-via-idrac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Log Collection via iDRAC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Log Collection via iDRAC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-power-drain-procedure-system-mute-off-rpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Power Drain Procedure (System Mute / OFF-RPM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Power Drain Procedure (System Mute / OFF-RPM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-power-on-and-recheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Power-On and Recheck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-common-hardware-troubleshooting-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Common Hardware Troubleshooting Scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Common Hardware Troubleshooting Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ram-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAM Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infiniband-ib-cable-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InfiniBand (IB) Cable Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psu-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PSU Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idrac-access-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iDRAC Access Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fan-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fan Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-final-step-node-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Final Step – Node Recovery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Power%20Drain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power Drain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Power%20Supply%20Unit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power Supply Unit (PSU)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Memory%20issue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory issue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Processor-replaceing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Processor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Documents/Installation/Overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Quiz/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-identify-scope-and-impact-using-ome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Identify Scope and Impact (Using OME)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Identify Scope and Impact (Using OME)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determine-the-level-of-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determine the Level of Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-check-workload-manager-status-pbs-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Check Workload Manager Status (PBS Pro)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Check Workload Manager Status (PBS Pro)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-can-identify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Can Identify
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-handling-nodes-with-running-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Handling Nodes with Running Jobs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Handling Nodes with Running Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#put-node-in-offline-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Put Node in Offline Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-check-cluster-health-status-bright-cluster-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Check Cluster Health Status (Bright Cluster Manager)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Check Cluster Health Status (Bright Cluster Manager)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-cmsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using cmsh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-centralized-hardware-alert-check-ome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Centralized Hardware Alert Check (OME)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Centralized Hardware Alert Check (OME)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ome-provides-alerts-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OME Provides Alerts For
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-idrac-access-for-node-level-diagnosis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. iDRAC Access for Node-Level Diagnosis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. iDRAC Access for Node-Level Diagnosis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-idrac-you-can-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using iDRAC, You Can Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-power-drain-cold-power-reset-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Power Drain (Cold Power Reset) Procedure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Power Drain (Cold Power Reset) Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-log-collection-via-idrac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Log Collection via iDRAC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Log Collection via iDRAC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-power-drain-procedure-system-mute-off-rpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Power Drain Procedure (System Mute / OFF-RPM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Power Drain Procedure (System Mute / OFF-RPM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-power-on-and-recheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Power-On and Recheck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-common-hardware-troubleshooting-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Common Hardware Troubleshooting Scenarios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Common Hardware Troubleshooting Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ram-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAM Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infiniband-ib-cable-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InfiniBand (IB) Cable Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psu-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PSU Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idrac-access-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iDRAC Access Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CPU Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fan-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fan Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-final-step-node-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Final Step – Node Recovery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hardware-troubleshooting-hpc-data-center-nodes"><strong>Hardware Troubleshooting – HPC / Data Center Nodes</strong><a class="headerlink" href="#hardware-troubleshooting-hpc-data-center-nodes" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-identify-scope-and-impact-using-ome">1. Identify Scope and Impact (Using OME)<a class="headerlink" href="#1-identify-scope-and-impact-using-ome" title="Permanent link">&para;</a></h2>
+<p>Before taking any action, clearly identify the <strong>scope and impact</strong> of the issue.</p>
+<h3 id="determine-the-level-of-impact">Determine the Level of Impact<a class="headerlink" href="#determine-the-level-of-impact" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Node-level</strong> issue</li>
+<li><strong>Rack-level</strong> issue</li>
+<li><strong>Cluster-level</strong> issue</li>
+<li>Check whether <strong>running jobs</strong> are impacted</li>
+</ul>
+<p>⚠️ <strong>Important:</strong>
+If jobs are running on the node, <strong>do not touch the node</strong> until jobs are completed.</p>
+<hr />
+<h2 id="2-check-workload-manager-status-pbs-pro">2. Check Workload Manager Status (PBS Pro)<a class="headerlink" href="#2-check-workload-manager-status-pbs-pro" title="Permanent link">&para;</a></h2>
+<p>First, verify node and job status from the scheduler.</p>
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">qstat -aw
+pbsnodes -aSj | grep &lt;node-hostname&gt;
+</code></pre>
+<h3 id="what-you-can-identify">What You Can Identify<a class="headerlink" href="#what-you-can-identify" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Node state (free, busy, offline)</li>
+<li>Jobs running on the node</li>
+<li>Job owner and job ID</li>
+</ul>
+<hr />
+<h2 id="3-handling-nodes-with-running-jobs">3. Handling Nodes with Running Jobs<a class="headerlink" href="#3-handling-nodes-with-running-jobs" title="Permanent link">&para;</a></h2>
+<p>If the node is hosting any jobs:</p>
+<ol>
+<li><strong>Do not troubleshoot immediately</strong></li>
+<li>Wait until job completion</li>
+<li>Inform the <strong>respective users / higher authorities</strong></li>
+<li>After job completion, proceed with troubleshooting</li>
+</ol>
+<h3 id="put-node-in-offline-mode">Put Node in Offline Mode<a class="headerlink" href="#put-node-in-offline-mode" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">pbsnodes -o &lt;node-hostname&gt; -C &quot;hardware issue&quot;
+</code></pre>
+<p>✔ This prevents new jobs from being scheduled on the node.</p>
+<hr />
+<h2 id="4-check-cluster-health-status-bright-cluster-manager">4. Check Cluster Health Status (Bright Cluster Manager)<a class="headerlink" href="#4-check-cluster-health-status-bright-cluster-manager" title="Permanent link">&para;</a></h2>
+<p>Use <strong>Bright Cluster Manager (BCM)</strong> to verify node health.</p>
+<h3 id="using-cmsh">Using <code>cmsh</code><a class="headerlink" href="#using-cmsh" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">cmsh
+device use &lt;node-hostname&gt;
+status
+</code></pre>
+<p>Or:</p>
+<pre><code class="language-bash">cmsh
+device list | grep &lt;node-hostname&gt;
+</code></pre>
+<h3 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Identify node health status</li>
+<li>Detect cluster-wide issues</li>
+</ul>
+<hr />
+<h2 id="5-centralized-hardware-alert-check-ome">5. Centralized Hardware Alert Check (OME)<a class="headerlink" href="#5-centralized-hardware-alert-check-ome" title="Permanent link">&para;</a></h2>
+<p><strong>OpenManage Enterprise (OME)</strong> acts as the <strong>single source of truth</strong> for Dell server hardware issues.</p>
+<h3 id="ome-provides-alerts-for">OME Provides Alerts For<a class="headerlink" href="#ome-provides-alerts-for" title="Permanent link">&para;</a></h3>
+<ul>
+<li>CPU</li>
+<li>DIMM (Memory)</li>
+<li>PSU</li>
+<li>FAN</li>
+<li>Thermal warnings</li>
+<li>Power supply redundancy</li>
+<li>Firmware mismatches</li>
+<li>Lifecycle controller logs</li>
+</ul>
+<hr />
+<h2 id="6-idrac-access-for-node-level-diagnosis">6. iDRAC Access for Node-Level Diagnosis<a class="headerlink" href="#6-idrac-access-for-node-level-diagnosis" title="Permanent link">&para;</a></h2>
+<p>Using OME, access the <strong>iDRAC console</strong> of the affected node.</p>
+<h3 id="using-idrac-you-can-check">Using iDRAC, You Can Check<a class="headerlink" href="#using-idrac-you-can-check" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PSU status</li>
+<li>Fan status</li>
+<li>Inlet temperature</li>
+<li>Fan RPMs</li>
+<li>Node-level patterns</li>
+<li>Port status</li>
+<li>Power consumption status</li>
+<li>Sensor health</li>
+<li>System event logs (SEL)</li>
+</ul>
+<p>📌 <strong>Tip:</strong>
+If multiple nodes in the same rack show failures, immediately suspect:</p>
+<ul>
+<li>Power issues</li>
+<li>Cooling issues</li>
+</ul>
+<hr />
+<h2 id="7-power-drain-cold-power-reset-procedure">7. Power Drain (Cold Power Reset) Procedure<a class="headerlink" href="#7-power-drain-cold-power-reset-procedure" title="Permanent link">&para;</a></h2>
+<p>A power drain is recommended after identifying hardware issues.</p>
+<h3 id="best-practice">Best Practice<a class="headerlink" href="#best-practice" title="Permanent link">&para;</a></h3>
+<p>Always <strong>collect logs first</strong> before performing a power drain.</p>
+<hr />
+<h2 id="8-log-collection-via-idrac">8. Log Collection via iDRAC<a class="headerlink" href="#8-log-collection-via-idrac" title="Permanent link">&para;</a></h2>
+<h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Login to iDRAC console</li>
+<li>Navigate to <strong>Maintenance → SupportAssist</strong></li>
+<li>Click <strong>Start Log Collection</strong></li>
+<li>Save logs for analysis or Dell support</li>
+</ol>
+<hr />
+<h2 id="9-power-drain-procedure-system-mute-off-rpm">9. Power Drain Procedure (System Mute / OFF-RPM)<a class="headerlink" href="#9-power-drain-procedure-system-mute-off-rpm" title="Permanent link">&para;</a></h2>
+<h3 id="steps_1">Steps<a class="headerlink" href="#steps_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Remove <strong>network cables</strong></p>
+</li>
+<li>
+<p>PowerSync cable</p>
+</li>
+<li>InfiniBand (IB) cable</li>
+<li>iDRAC cable</li>
+<li>Remove <strong>power cables from both PSUs</strong></li>
+<li>Remove any additional power cables (if connected)</li>
+<li>
+<p>Press and hold the <strong>power button for 2–5 minutes</strong></p>
+</li>
+<li>
+<p>This drains residual power completely</p>
+</li>
+</ol>
+<hr />
+<h2 id="10-power-on-and-recheck">10. Power-On and Recheck<a class="headerlink" href="#10-power-on-and-recheck" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Reconnect <strong>all cables</strong></li>
+<li>Power ON the server</li>
+<li>Re-collect logs</li>
+<li>Observe iDRAC alerts</li>
+<li>If issue persists, <strong>raise a Dell support case</strong> with logs</li>
+</ol>
+<hr />
+<h2 id="11-common-hardware-troubleshooting-scenarios">11. Common Hardware Troubleshooting Scenarios<a class="headerlink" href="#11-common-hardware-troubleshooting-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="ram-issue">RAM Issue<a class="headerlink" href="#ram-issue" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pop-up error in iDRAC</li>
+<li>Scenario 1: Remove faulty DIMM</li>
+<li>Scenario 2: Swap DIMM position</li>
+<li>Replace DIMM if issue persists</li>
+</ul>
+<hr />
+<h3 id="infiniband-ib-cable-issue">InfiniBand (IB) Cable Issue<a class="headerlink" href="#infiniband-ib-cable-issue" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Try a different cable</li>
+<li>Perform power drain</li>
+<li>If issue persists, replace IB cable</li>
+</ul>
+<hr />
+<h3 id="psu-issue">PSU Issue<a class="headerlink" href="#psu-issue" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Swap PSU positions</li>
+<li>Check redundancy status</li>
+<li>Replace PSU if issue persists</li>
+</ul>
+<hr />
+<h3 id="idrac-access-issue">iDRAC Access Issue<a class="headerlink" href="#idrac-access-issue" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Reset iDRAC</li>
+<li>Check BIOS/iDRAC settings</li>
+<li>Replace iDRAC card if required</li>
+</ul>
+<hr />
+<h3 id="cpu-issue">CPU Issue<a class="headerlink" href="#cpu-issue" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Boot server with <strong>1 CPU / 1 RAM</strong></li>
+<li>Identify faulty CPU</li>
+<li>Proceed with replacement</li>
+</ul>
+<hr />
+<h3 id="fan-issue">Fan Issue<a class="headerlink" href="#fan-issue" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Swap fan positions</li>
+<li>If issue follows the fan → replace fan</li>
+</ul>
+<hr />
+<h2 id="12-final-step-node-recovery">12. Final Step – Node Recovery<a class="headerlink" href="#12-final-step-node-recovery" title="Permanent link">&para;</a></h2>
+<p>Once the issue is resolved:</p>
+<pre><code class="language-bash">pbsnodes -r &lt;node-hostname&gt;
+</code></pre>
+<p>✔ Node is now available for scheduling jobs.</p>
+<hr />
+<h2 id="13-best-practices">13. Best Practices<a class="headerlink" href="#13-best-practices" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Always check <strong>scheduler status first</strong></li>
+<li>Never disturb nodes with running jobs</li>
+<li>Use <strong>OME as the authoritative source</strong></li>
+<li>Collect logs <strong>before</strong> power drain</li>
+<li>Follow systematic isolation (swap &amp; test)</li>
+<li>Escalate to Dell support with logs if required</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

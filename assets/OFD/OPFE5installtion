@@ -1,0 +1,73 @@
+download the soure code both sourecode and third party directory 
+
+extrat the soure code and check files are extarted or not 
+
+cd openfoam directory 
+where we can find the etc/bashrc file 
+
+as per our system and our requirements we have to assign or we have to made changes in bash file 
+
+after made changes in bashrc file we need to source the openfoam 
+
+source etc/bashrc (explan this step what it will do)
+after sourcing the bashrc it will show the currect status if the openfoam is compiled or not 
+if openfoam not compiled it will show that openfoam not complied 
+if it complied it does nt show any thing 
+we need to chech the changes in bashrc file 
+
+for that 
+
+echo $WM_PROJECT_DIR
+
+echo $WM_PROJECT_USER_DIR  
+echo $WM_THIRD_PARTY_DIR
+
+
+and command 
+
+give cd 
+
+then command foam if it directory the openfoam installtion directory is coorect
+
+then foamInstalltiontest coomand this will tell the installtion status 
+
+all this test passed means everything set to start to compilation
+
+there two types compliations 
+
+1.stat the openfoam directory ./allwake command 
+this will start  the compilation openfoam it will take lost of time, it wi fully based on the system resoureces 
+
+2.second senario is 
+this is personly i tested on my personal machine not in cluster level 
+
+go to the Thrtyparty directory 
+
+where you can see the make files of different libarys,
+it is better compliating librarys is third party directory the go for the Openfoam 
+
+in thried party directory start the installting and compling library using ./ALLwmke command 
+
+this will also take lot of time plese be paitnest
+
+if you observe the logs we can see any library is msiing or getting error 
+
+we can compile that library useing makelibaryname (which is present in third party dirctory)
+
+in this senario we can face the different errors 
+like source code missing 
+source code ha=ving different name 
+haveing different version 
+like this more kind of errors will come 
+
+we can download the source code place in resoectiive (soures)directory then start the compilation 
+
+after compilation we se the installtion status of each libary 
+
+after compilation thired party rember the we need to soure etc/bashrc file again to reflect the chnages we made 
+
+then start the compilation of Openfoam 
+go to the directory Openfoam version directory 
+./Allwamke -j -s -a -l 
+
+it will take lot of time based on system resoureces 

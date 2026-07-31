@@ -1,0 +1,2242 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Overview/">
+      
+      
+        <link rel="next" href="../Python-Offline/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Anaconda - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#anaconda-a-comprehensive-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Anaconda
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Home/Professional-Summary/" class="md-tabs__link">
+          
+  
+  
+  Profile
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Overview/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Quiz/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Home/contact/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Home/Professional-Summary/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Note
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-anaconda-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Anaconda Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Anaconda Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps-to-install-anaconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps to Install Anaconda:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-activating-and-deactivating-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Activating and Deactivating Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Activating and Deactivating Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activating-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activating an Environment:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deactivating-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deactivating an Environment:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-checking-existing-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Checking Existing Environments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-creating-new-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Creating New Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Creating New Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-environment-with-internet-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating an Environment (With Internet Access):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-environment-without-internet-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating an Environment (Without Internet Access):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-creating-an-environment-with-a-specific-python-version-using-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Creating an Environment with a Specific Python Version Using internet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cloning-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Cloning an Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-removing-an-environment-and-its-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Removing an Environment and Its Packages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Removing an Environment and Its Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#removing-specific-packages-from-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing Specific Packages from an Environment:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-the-entire-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing the Entire Environment:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-quick-reference-conda-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Quick Reference: Conda Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python-Offline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python-3.14.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    METIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SU2_Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SU2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openmpi-ucx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI-UCX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OPEN-FOAM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenFOAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Intel-toolkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intel Toolkit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenPBS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenPbs-23.06.06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP (Lightweight Directory Access Protocol)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XCAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpfr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPFR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hwclock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HWClock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpcg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_22" id="__nav_5_22_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAMMPS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LAMMPS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/cpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/gpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Quiz/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Home/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-anaconda-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Anaconda Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Anaconda Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps-to-install-anaconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps to Install Anaconda:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-activating-and-deactivating-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Activating and Deactivating Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Activating and Deactivating Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activating-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activating an Environment:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deactivating-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deactivating an Environment:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-checking-existing-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Checking Existing Environments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-creating-new-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Creating New Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Creating New Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-environment-with-internet-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating an Environment (With Internet Access):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-environment-without-internet-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating an Environment (Without Internet Access):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-creating-an-environment-with-a-specific-python-version-using-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Creating an Environment with a Specific Python Version Using internet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cloning-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Cloning an Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-removing-an-environment-and-its-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Removing an Environment and Its Packages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Removing an Environment and Its Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#removing-specific-packages-from-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing Specific Packages from an Environment:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-the-entire-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing the Entire Environment:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-quick-reference-conda-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Quick Reference: Conda Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Overview/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Installation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="anaconda-a-comprehensive-guide">Anaconda: A Comprehensive Guide<a class="headerlink" href="#anaconda-a-comprehensive-guide" title="Permanent link">&para;</a></h1>
+<p>Anaconda is an open-source distribution for Python and R, primarily used in data science, machine learning, and scientific computing. It simplifies package management, environment management, and provides a suite of tools for working on data science projects.</p>
+<hr />
+<h2 id="1-anaconda-installation">1. <strong>Anaconda Installation</strong><a class="headerlink" href="#1-anaconda-installation" title="Permanent link">&para;</a></h2>
+<p>To get started with Anaconda, you need to first install it on your system.</p>
+<h3 id="steps-to-install-anaconda">Steps to Install Anaconda:<a class="headerlink" href="#steps-to-install-anaconda" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Download Anaconda</strong><br />
+   Visit <a href="https://repo.anaconda.com/archive/">Anaconda's download page</a> and download the appropriate version for your operating system.</p>
+</li>
+<li>
+<p><strong>Run the Installer</strong><br />
+   Move the downloaded file to your directory and run the installer. For Linux, the command is:</p>
+</li>
+</ol>
+<pre><code>bash Anaconda3-2024.10-1-Linux-x86_64.sh
+</code></pre>
+<ol>
+<li>
+<p><strong>Accept the License</strong>
+   Type <code>yes</code> to accept the license agreement.</p>
+</li>
+<li>
+<p><strong>Complete the Installation</strong>
+   Once installed, exit the terminal and log out to initialize the base environment.</p>
+</li>
+</ol>
+<p><img alt="shcommnad" src="/assets/anaconda/sh-Anaconda.png" />
+   <img alt="license-accept" src="/assets/anaconda/license-accpect.png" />
+   <img alt="location" src="/assets/anaconda/Location.png" />
+   <img alt="installation-finished" src="/assets/anaconda/installationfinished.png" /></p>
+<hr />
+<h2 id="2-activating-and-deactivating-environments">2. <strong>Activating and Deactivating Environments</strong><a class="headerlink" href="#2-activating-and-deactivating-environments" title="Permanent link">&para;</a></h2>
+<h3 id="activating-an-environment">Activating an Environment:<a class="headerlink" href="#activating-an-environment" title="Permanent link">&para;</a></h3>
+<p>To work within a specific environment, you need to activate it:</p>
+<pre><code class="language-bash">conda activate &lt;env_name&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">conda activate base
+</code></pre>
+<p><img alt="conda-activate" src="/assets/anaconda/conda%20activate.png" /></p>
+<h3 id="deactivating-an-environment">Deactivating an Environment:<a class="headerlink" href="#deactivating-an-environment" title="Permanent link">&para;</a></h3>
+<p>Once done, you can deactivate the environment:</p>
+<pre><code class="language-bash">conda deactivate
+</code></pre>
+<p><img alt="conda-deactivate" src="/assets/anaconda/conda%20deactivate%20-new-env.png" /></p>
+<hr />
+<h2 id="3-checking-existing-environments">3. <strong>Checking Existing Environments</strong><a class="headerlink" href="#3-checking-existing-environments" title="Permanent link">&para;</a></h2>
+<p>To see a list of all existing environments on your system:</p>
+<pre><code class="language-bash">conda env list
+</code></pre>
+<p>Or:</p>
+<pre><code class="language-bash">conda info --envs
+</code></pre>
+<p><img alt="conda-deactivate" src="/assets/anaconda/envlist.png" />
+This will show all environments along with their paths.</p>
+<hr />
+<h2 id="4-creating-new-environments">4. <strong>Creating New Environments</strong><a class="headerlink" href="#4-creating-new-environments" title="Permanent link">&para;</a></h2>
+<h3 id="creating-an-environment-with-internet-access">Creating an Environment (With Internet Access):<a class="headerlink" href="#creating-an-environment-with-internet-access" title="Permanent link">&para;</a></h3>
+<p>To create a new environment called <code>env_conda</code>, use the following command:</p>
+<pre><code class="language-bash">conda create --name env_conda
+</code></pre>
+<p><img alt="creating-env" src="/assets/anaconda/creating-env-with-internet.png" /></p>
+<h3 id="creating-an-environment-without-internet-access">Creating an Environment (Without Internet Access):<a class="headerlink" href="#creating-an-environment-without-internet-access" title="Permanent link">&para;</a></h3>
+<p>If you're working in an offline environment and need to install packages from previously downloaded files, you can create an environment without needing internet access:</p>
+<pre><code class="language-bash">conda create --name env_conda --offline
+</code></pre>
+<h2 id="_1"><img alt="creating-env-with-pyhton-version" src="/assets/anaconda/new-env.png" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="5-creating-an-environment-with-a-specific-python-version-using-internet">5. <strong>Creating an Environment with a Specific Python Version</strong> Using internet<a class="headerlink" href="#5-creating-an-environment-with-a-specific-python-version-using-internet" title="Permanent link">&para;</a></h2>
+<p>To create an environment with a specific version of Python (for example, Python 3.9):</p>
+<pre><code class="language-bash">conda create --name compute-env python=3.9 
+</code></pre>
+<p><img alt="creating-env-with-pyhton-version" src="/assets/anaconda/creating-new-env-with-pysthonversin-with-internet.png" /></p>
+<p>For conformation check the Python version in newly creating env</p>
+<p><img alt="creating-env-with-pyhton-version" src="/assets/anaconda/python3-versioncheck.png" /></p>
+<p>To create an environment with a specific version of Python (for example, Python 3.11):</p>
+<pre><code class="language-bash">conda create --name ai-env python=3.11 --offline
+</code></pre>
+<p><img alt="creating-env-with-pyhton-version" src="/assets/anaconda/creating-env-with-pyhton-version.png" />
+<img alt="creating-env-with-pyhton-version" src="/assets/anaconda/creating-env-with-pyhton-version-completed.png" />
+For conformation check the Python version in newly creating env</p>
+<h2 id="_2"><img alt="creating-env-with-pyhton-version" src="/assets/anaconda/creating-env-with-pyhton-version-check.png" /><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="6-cloning-an-environment">6. <strong>Cloning an Environment</strong><a class="headerlink" href="#6-cloning-an-environment" title="Permanent link">&para;</a></h2>
+<p>If you want to clone an existing environment into a new one:</p>
+<pre><code class="language-bash">conda create --name &lt;new_env_name&gt; --clone &lt;existing_env_name&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">conda create --name web-env --clone ai-env
+</code></pre>
+<p><img alt="clone-env" src="/assets/anaconda/cloneing-env.png" /></p>
+<p>This will create an exact copy of the environment, including all installed packages.</p>
+<hr />
+<h2 id="7-removing-an-environment-and-its-packages">7. <strong>Removing an Environment and Its Packages</strong><a class="headerlink" href="#7-removing-an-environment-and-its-packages" title="Permanent link">&para;</a></h2>
+<h3 id="removing-specific-packages-from-an-environment">Removing Specific Packages from an Environment:<a class="headerlink" href="#removing-specific-packages-from-an-environment" title="Permanent link">&para;</a></h3>
+<p>To remove a specific package from an environment, use:</p>
+<p>Activate the env </p>
+<pre><code class="language-bash">pip uninstall &lt;package_name&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">pip uninstall pandas
+</code></pre>
+<p><img alt="removing-lib" src="/assets/anaconda/removing-library.png" /></p>
+<h3 id="removing-the-entire-environment">Removing the Entire Environment:<a class="headerlink" href="#removing-the-entire-environment" title="Permanent link">&para;</a></h3>
+<p>To remove an environment along with all its data and packages:</p>
+<pre><code class="language-bash">conda remove --name &lt;env_name&gt; --all
+</code></pre>
+<p>This will delete the environment <code>env_conda</code> and all installed packages within it.
+<img alt="removing-env" src="/assets/anaconda/removing%20the%20env%20witll%20all%20packges.png" /></p>
+<hr />
+<h2 id="8-quick-reference-conda-commands">8. <strong>Quick Reference: Conda Commands</strong><a class="headerlink" href="#8-quick-reference-conda-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Task</strong></th>
+<th><strong>Command</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Activate environment</strong></td>
+<td><strong><code>conda activate &lt;env&gt;</code></strong></td>
+<td><code>conda activate py39env</code></td>
+</tr>
+<tr>
+<td><strong>Deactivate environment</strong></td>
+<td><strong><code>conda deactivate</code></strong></td>
+<td><code>conda deactivate</code></td>
+</tr>
+<tr>
+<td><strong>Create environment</strong></td>
+<td><strong><code>conda create --name &lt;env&gt;</code></strong></td>
+<td><code>conda create --name env_conda</code></td>
+</tr>
+<tr>
+<td><strong>Create with Python version</strong></td>
+<td><strong><code>conda create --name &lt;env&gt; python=3.x</code></strong></td>
+<td><code>conda create --name py39env python=3.9</code></td>
+</tr>
+<tr>
+<td><strong>Clone environment</strong></td>
+<td><strong><code>conda create --name &lt;new&gt; --clone &lt;existing&gt;</code></strong></td>
+<td><code>conda create --name cloneenv --clone py39env</code></td>
+</tr>
+<tr>
+<td><strong>Delete environment</strong></td>
+<td><strong><code>conda remove --name &lt;env&gt; --all</code></strong></td>
+<td><code>conda remove --name env_conda --all</code></td>
+</tr>
+<tr>
+<td><strong>Install package</strong></td>
+<td><strong><code>conda install -n &lt;env&gt; &lt;package&gt;</code></strong></td>
+<td><code>conda install -n py39env pandas</code></td>
+</tr>
+<tr>
+<td><strong>Remove package</strong></td>
+<td><strong><code>conda remove -n &lt;env&gt; &lt;package&gt;</code></strong></td>
+<td><code>conda remove -n py39env pandas</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

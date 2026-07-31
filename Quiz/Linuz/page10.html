@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux MCQ Quiz - Page 10</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 20px; }
+    h2 { text-align: center; margin-bottom: 30px; }
+    .question { margin-bottom: 25px; background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+    .options { margin-top: 10px; }
+    .options label { display: block; padding: 5px 10px; border-radius: 6px; cursor: pointer; transition: 0.2s; }
+    .options input[type="radio"] { margin-right: 10px; }
+    .options label:hover { background-color: #e0f0ff; }
+    button { display: block; margin: 30px auto; padding: 12px 25px; font-size: 16px; background-color: #1e90ff; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    #result { display: none; text-align: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<h2>Linux MCQ Quiz - Page 10</h2>
+
+<form id="mcqForm10">
+  <!-- Question 91 -->
+  <div class="question">
+    <p>91. Which command is used to create a new directory in Linux?</p>
+    <div class="options">
+      <label><input type="radio" name="q91" value="A">A) mkdir</label><br>
+      <label><input type="radio" name="q91" value="B">B) mkdir -p</label><br>
+      <label><input type="radio" name="q91" value="C">C) create</label><br>
+      <label><input type="radio" name="q91" value="D">D) newdir</label><br>
+    </div>
+  </div>
+
+  <!-- Question 92 -->
+  <div class="question">
+    <p>92. Which command is used to display the current working directory?</p>
+    <div class="options">
+      <label><input type="radio" name="q92" value="A">A) pwd</label><br>
+      <label><input type="radio" name="q92" value="B">B) dir</label><br>
+      <label><input type="radio" name="q92" value="C">C) cd</label><br>
+      <label><input type="radio" name="q92" value="D">D) ls</label><br>
+    </div>
+  </div>
+
+  <!-- Question 93 -->
+  <div class="question">
+    <p>93. Which command is used to check disk usage in Linux?</p>
+    <div class="options">
+      <label><input type="radio" name="q93" value="A">A) df</label><br>
+      <label><input type="radio" name="q93" value="B">B) du</label><br>
+      <label><input type="radio" name="q93" value="C">C) disk</label><br>
+      <label><input type="radio" name="q93" value="D">D) free</label><br>
+    </div>
+  </div>
+
+  <!-- Question 94 -->
+  <div class="question">
+    <p>94. Which command is used to display the contents of a file?</p>
+    <div class="options">
+      <label><input type="radio" name="q94" value="A">A) cat</label><br>
+      <label><input type="radio" name="q94" value="B">B) display</label><br>
+      <label><input type="radio" name="q94" value="C">C) open</label><br>
+      <label><input type="radio" name="q94" value="D">D) view</label><br>
+    </div>
+  </div>
+
+  <!-- Question 95 -->
+  <div class="question">
+    <p>95. Which command is used to kill a process in Linux?</p>
+    <div class="options">
+      <label><input type="radio" name="q95" value="A">A) kill</label><br>
+      <label><input type="radio" name="q95" value="B">B) stop</label><br>
+      <label><input type="radio" name="q95" value="C">C) terminate</label><br>
+      <label><input type="radio" name="q95" value="D">D) killall</label><br>
+    </div>
+  </div>
+
+  <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+</form>
+
+<!-- Popup -->
+<div id="popup">
+  <p id="scoreText"></p>
+  <button id="nextButton" onclick="nextPage()">Next Page</button>
+</div>
+
+<script>
+  function submitQuiz() {
+    let score = 0;
+    const correctAnswers = {
+      q91: "A", q92: "A", q93: "A", q94: "A", q95: "A"
+    };
+
+    for (let i = 91; i <= 95; i++) { 
+      const selectedAnswer = document.querySelector(`input[name=q${i}]:checked`);
+      if (selectedAnswer && selectedAnswer.value === correctAnswers[`q${i}`]) {
+        score++;
+      }
+    }
+
+    // Show the result popup
+    document.getElementById("scoreText").textContent = `You scored ${score} out of 5 questions!`;
+    document.getElementById("popup").style.display = "block";
+    document.querySelector("button").style.display = "none";  // Hide the submit button
+  }
+
+  function nextPage() {
+    // Redirect to the next page (e.g., Page 11)
+    window.location.href = 'page11.html'; // Ensure this page exists and is correctly named
+  }
+</script>
+
+</body>
+</html>
+

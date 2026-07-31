@@ -1,0 +1,3212 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../LDAP/">
+      
+      
+        <link rel="next" href="../gcc/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>XCAT - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentation-structure-for-xcat" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              XCAT
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Home/Professional-Summary/" class="md-tabs__link">
+          
+  
+  
+  Profile
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Overview/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Quiz/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Home/contact/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Home/Professional-Summary/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Note
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Anaconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python-Offline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python-3.14.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    METIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SU2_Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SU2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openmpi-ucx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI-UCX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OPEN-FOAM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenFOAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Intel-toolkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intel Toolkit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenPBS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenPbs-23.06.06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP (Lightweight Directory Access Protocol)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XCAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpfr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPFR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hwclock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HWClock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpcg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_22" id="__nav_5_22_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAMMPS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LAMMPS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/cpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/gpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Quiz/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Home/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Overview/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Installation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="documentation-structure-for-xcat">Documentation Structure for xCAT<a class="headerlink" href="#documentation-structure-for-xcat" title="Permanent link">&para;</a></h1>
+<hr />
+<h1 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h1>
+<p>xCAT (Extreme Cloud Administration Toolkit) is an open-source cluster management software designed to deploy, provision, and manage large-scale computing environments such as High Performance Computing (HPC) clusters and data centers.</p>
+<p>In HPC infrastructures, administrators often need to manage dozens or hundreds of compute nodes. Performing operating system installation, configuration, and maintenance manually on each node would be time-consuming and inefficient. xCAT solves this problem by providing centralized management from a single management node.</p>
+<p>xCAT automates several critical tasks required for cluster deployment and administration. These include network-based operating system installation using PXE boot, node configuration, software updates, and remote management of cluster nodes. By integrating services such as DHCP, TFTP, HTTP, and NFS, xCAT enables compute nodes to boot from the network and automatically install the required operating system and software stack.</p>
+<p>In a typical cluster architecture, a management node runs xCAT services and controls multiple compute nodes connected through a management network. When a compute node is powered on, it performs a PXE boot, obtains network configuration from the DHCP server, downloads boot files from the TFTP server, and begins operating system installation provided by the management node.</p>
+<p>Because of its scalability, automation capabilities, and integration with enterprise Linux environments, xCAT is widely used in HPC clusters, research laboratories, and large-scale data center infrastructures.</p>
+<hr />
+<h1 id="2-architecture-overview">2. Architecture Overview<a class="headerlink" href="#2-architecture-overview" title="Permanent link">&para;</a></h1>
+<h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
+<p>The architecture of xCAT is designed to manage and provision large numbers of nodes in a cluster from a centralized system. It follows a management-based architecture, where one main system (management node) controls and deploys operating systems and configurations to multiple compute nodes through network services.</p>
+<p>In a typical HPC cluster environment, the xCAT architecture consists of several core components that work together to automate node provisioning, configuration, and management.</p>
+<hr />
+<h2 id="21-management-node">2.1. Management Node<a class="headerlink" href="#21-management-node" title="Permanent link">&para;</a></h2>
+<p>The Management Node (MN) is the central system where xCAT is installed and configured. It controls all cluster operations and maintains the configuration database for all nodes.</p>
+<h3 id="responsibilities-of-the-management-node">Responsibilities of the Management Node<a class="headerlink" href="#responsibilities-of-the-management-node" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Runs the xCAT management services</li>
+<li>Stores cluster configuration in the xCAT database</li>
+<li>Provides OS images for node deployment</li>
+<li>Controls network boot services</li>
+<li>Executes commands across multiple nodes</li>
+<li>Manages node definitions and attributes</li>
+</ul>
+<p>The management node typically runs several system services such as:</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DHCP</td>
+<td>Assigns IP addresses to compute nodes</td>
+</tr>
+<tr>
+<td>TFTP</td>
+<td>Provides boot files for PXE boot</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>Provides OS installation files</td>
+</tr>
+<tr>
+<td>NFS</td>
+<td>Shares filesystems with nodes</td>
+</tr>
+<tr>
+<td>xcatd</td>
+<td>Main xCAT daemon that handles commands</td>
+</tr>
+</tbody>
+</table>
+<p>All cluster administration commands are executed from the management node.</p>
+<hr />
+<h2 id="22-compute-nodes">2.2. Compute Nodes<a class="headerlink" href="#22-compute-nodes" title="Permanent link">&para;</a></h2>
+<p>Compute Nodes are the systems that perform the actual computational workloads in the cluster. These nodes are managed by the management node using xCAT.</p>
+<p>Compute nodes usually do not require manual installation because xCAT automatically installs the operating system through network boot.</p>
+<h3 id="characteristics-of-compute-nodes">Characteristics of Compute Nodes<a class="headerlink" href="#characteristics-of-compute-nodes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Boot from the network using PXE</li>
+<li>Receive IP configuration from DHCP</li>
+<li>Download boot loader and kernel through TFTP</li>
+<li>Install OS from HTTP/NFS repository</li>
+<li>Register themselves with the management node</li>
+</ul>
+<p>Compute nodes can be categorized based on their roles:</p>
+<table>
+<thead>
+<tr>
+<th>Node Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compute Node</td>
+<td>Performs computation tasks</td>
+</tr>
+<tr>
+<td>Login Node</td>
+<td>Provides user access to the cluster</td>
+</tr>
+<tr>
+<td>GPU Node</td>
+<td>Contains GPUs for accelerated computing</td>
+</tr>
+<tr>
+<td>Storage Node</td>
+<td>Provides shared storage</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="23-service-node-optional">2.3. Service Node (Optional)<a class="headerlink" href="#23-service-node-optional" title="Permanent link">&para;</a></h2>
+<p>In large clusters, a Service Node (SN) may be used to distribute management tasks and reduce load on the management node.</p>
+<p>Service nodes act as intermediaries between the management node and compute nodes.</p>
+<h3 id="responsibilities-of-service-nodes">Responsibilities of Service Nodes<a class="headerlink" href="#responsibilities-of-service-nodes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Provide DHCP services</li>
+<li>Serve OS images</li>
+<li>Manage subsets of nodes</li>
+<li>Reduce network and CPU load on the management node</li>
+</ul>
+<p>This architecture improves scalability when clusters contain hundreds or thousands of nodes.</p>
+<hr />
+<h2 id="24-xcat-database">2.4. xCAT Database<a class="headerlink" href="#24-xcat-database" title="Permanent link">&para;</a></h2>
+<p>xCAT maintains a cluster configuration database that stores information about all nodes and their attributes.</p>
+<p>This database contains details such as:</p>
+<ul>
+<li>Node names</li>
+<li>MAC addresses</li>
+<li>IP addresses</li>
+<li>Operating system image</li>
+<li>Boot configuration</li>
+<li>Node roles</li>
+</ul>
+<p>Administrators interact with the database using commands such as:</p>
+<pre><code>lsdef
+mkdef
+chdef
+</code></pre>
+<p>These commands allow administrators to define and manage nodes in the cluster.</p>
+<hr />
+<h2 id="25-network-architecture">2.5. Network Architecture<a class="headerlink" href="#25-network-architecture" title="Permanent link">&para;</a></h2>
+<p>xCAT environments typically use multiple networks to separate cluster management traffic from user traffic.</p>
+<h3 id="management-network">Management Network<a class="headerlink" href="#management-network" title="Permanent link">&para;</a></h3>
+<p>The management network is used for cluster provisioning and internal communication.</p>
+<p>Functions of this network include:</p>
+<ul>
+<li>PXE boot</li>
+<li>OS installation</li>
+<li>Node configuration</li>
+<li>Cluster management commands</li>
+</ul>
+<h3 id="external-public-network">External / Public Network<a class="headerlink" href="#external-public-network" title="Permanent link">&para;</a></h3>
+<p>The external network allows users to access the cluster and submit jobs.</p>
+<hr />
+<h2 id="26-pxe-boot-workflow">2.6. PXE Boot Workflow<a class="headerlink" href="#26-pxe-boot-workflow" title="Permanent link">&para;</a></h2>
+<p>One of the most important features of xCAT is network-based operating system deployment using PXE boot.</p>
+<p>The process works as follows:</p>
+<ol>
+<li>A compute node powers on.</li>
+<li>The node sends a DHCP request on the network.</li>
+<li>The DHCP server running on the management node assigns an IP address.</li>
+<li>The DHCP response provides the location of the boot file.</li>
+<li>The compute node downloads the boot loader from the TFTP server.</li>
+<li>The boot loader loads the kernel and initrd.</li>
+<li>The operating system installation starts from the HTTP or NFS repository on the management node.</li>
+<li>The node completes installation and becomes part of the cluster.</li>
+</ol>
+<hr />
+<h2 id="27-xcat-command-framework">2.7. xCAT Command Framework<a class="headerlink" href="#27-xcat-command-framework" title="Permanent link">&para;</a></h2>
+<p>xCAT provides command-line tools that allow administrators to control multiple nodes simultaneously.</p>
+<p>Examples include:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nodels</td>
+<td>Lists nodes</td>
+</tr>
+<tr>
+<td>nodeset</td>
+<td>Sets boot state for nodes</td>
+</tr>
+<tr>
+<td>rpower</td>
+<td>Controls node power</td>
+</tr>
+<tr>
+<td>updatenode</td>
+<td>Updates nodes with configuration changes</td>
+</tr>
+<tr>
+<td>xdsh</td>
+<td>Runs commands on multiple nodes</td>
+</tr>
+</tbody>
+</table>
+<p>These commands allow administrators to manage large clusters efficiently.</p>
+<hr />
+<h2 id="28-boot-and-image-repository">2.8. Boot and Image Repository<a class="headerlink" href="#28-boot-and-image-repository" title="Permanent link">&para;</a></h2>
+<p>The management node stores operating system images that are deployed to compute nodes.</p>
+<p>These images are typically stored under directories such as:</p>
+<pre><code>/install
+/tftpboot
+</code></pre>
+<p>These directories contain:</p>
+<ul>
+<li>OS installation files</li>
+<li>Boot loaders</li>
+<li>Kernel images</li>
+<li>Initial RAM disks (initrd)</li>
+</ul>
+<p>When nodes boot through PXE, they retrieve these files from the management node.</p>
+<hr />
+<h2 id="29-scalability-of-xcat-architecture">2.9. Scalability of xCAT Architecture<a class="headerlink" href="#29-scalability-of-xcat-architecture" title="Permanent link">&para;</a></h2>
+<p>The architecture of xCAT is designed to scale from small clusters to very large HPC systems.</p>
+<p>Small clusters may use only:</p>
+<ul>
+<li>One management node</li>
+<li>Several compute nodes</li>
+</ul>
+<p>Large clusters may include:</p>
+<ul>
+<li>Management nodes</li>
+<li>Multiple service nodes</li>
+<li>Hundreds or thousands of compute nodes</li>
+<li>Dedicated storage nodes</li>
+<li>High-speed interconnect networks such as InfiniBand</li>
+</ul>
+<p>This scalable architecture allows xCAT to be used in research institutions, enterprise HPC environments, and large supercomputing facilities.</p>
+<hr />
+<h1 id="3-prerequisites">3. Prerequisites<a class="headerlink" href="#3-prerequisites" title="Permanent link">&para;</a></h1>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before installing and configuring xCAT, several system, network, and software components must be prepared. These prerequisites ensure that the cluster provisioning process, PXE boot, and automated node deployment work properly.</p>
+<p>The prerequisites can be grouped into the following categories:</p>
+<ul>
+<li>Hardware Requirements</li>
+<li>Operating System Requirements</li>
+<li>Network Configuration</li>
+<li>Required Services</li>
+<li>Required Software Packages</li>
+<li>System Configuration</li>
+</ul>
+<hr />
+<h2 id="31-hardware-requirements">3.1. Hardware Requirements<a class="headerlink" href="#31-hardware-requirements" title="Permanent link">&para;</a></h2>
+<p>A basic xCAT cluster requires at least one management node and one or more compute nodes.</p>
+<h3 id="management-node">Management Node<a class="headerlink" href="#management-node" title="Permanent link">&para;</a></h3>
+<p>The management node is the central system where xCAT is installed. It manages all compute nodes and provides required services for provisioning.</p>
+<p>Typical specifications</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Recommended Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>4 cores or higher</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>8 GB or more</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>200 GB or higher</td>
+</tr>
+<tr>
+<td>Network Interfaces</td>
+<td>Minimum 2 NICs</td>
+</tr>
+</tbody>
+</table>
+<p>Purpose of network interfaces</p>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>External Network Interface</td>
+<td>Used for user access and internet connectivity</td>
+</tr>
+<tr>
+<td>Management Network Interface</td>
+<td>Used for provisioning compute nodes</td>
+</tr>
+</tbody>
+</table>
+<p>The management node stores:</p>
+<ul>
+<li>OS installation images</li>
+<li>Boot files</li>
+<li>xCAT configuration database</li>
+<li>Cluster configuration data</li>
+</ul>
+<hr />
+<h3 id="compute-nodes">Compute Nodes<a class="headerlink" href="#compute-nodes" title="Permanent link">&para;</a></h3>
+<p>Compute nodes perform the actual computational workloads.</p>
+<p>Minimum requirements include:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>Multi-core processor</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>Depends on workload</td>
+</tr>
+<tr>
+<td>Network Card</td>
+<td>PXE boot capable</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>Optional (diskless nodes supported)</td>
+</tr>
+</tbody>
+</table>
+<p>Important requirement:</p>
+<p>The network interface must support PXE boot, because nodes receive their operating system through the network.</p>
+<hr />
+<h2 id="32-operating-system-requirements">3.2. Operating System Requirements<a class="headerlink" href="#32-operating-system-requirements" title="Permanent link">&para;</a></h2>
+<p>The management node must run a supported Linux distribution.</p>
+<p>Common operating systems used with xCAT include:</p>
+<ul>
+<li>Red Hat Enterprise Linux</li>
+<li>Rocky Linux</li>
+<li>CentOS</li>
+</ul>
+<p>Recommended installation type:</p>
+<ul>
+<li>Minimal Server Installation</li>
+<li>Static IP configuration</li>
+<li>Root access enabled</li>
+</ul>
+<p>After installing the operating system, repositories should be configured to install the required packages.</p>
+<hr />
+<h2 id="33-network-configuration">3.3. Network Configuration<a class="headerlink" href="#33-network-configuration" title="Permanent link">&para;</a></h2>
+<p>Proper network setup is essential for xCAT.</p>
+<p>Typically, two networks are used in HPC clusters.</p>
+<h3 id="management-network_1">Management Network<a class="headerlink" href="#management-network_1" title="Permanent link">&para;</a></h3>
+<p>This network is used for cluster provisioning.</p>
+<p>Functions include:</p>
+<ul>
+<li>PXE boot</li>
+<li>Node installation</li>
+<li>Cluster management communication</li>
+</ul>
+<p>Example configuration:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network</td>
+<td>192.168.1.0/24</td>
+</tr>
+<tr>
+<td>Management Node IP</td>
+<td>192.168.1.1</td>
+</tr>
+<tr>
+<td>Node IP Range</td>
+<td>192.168.1.100 – 192.168.1.200</td>
+</tr>
+</tbody>
+</table>
+<p>All compute nodes must be connected to this network.</p>
+<hr />
+<h3 id="external-network">External Network<a class="headerlink" href="#external-network" title="Permanent link">&para;</a></h3>
+<p>This network allows users to access the cluster.</p>
+<p>Typical uses:</p>
+<ul>
+<li>SSH access</li>
+<li>job submission</li>
+<li>external connectivity</li>
+</ul>
+<p>Example:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network</td>
+<td>10.2.6.0/24</td>
+</tr>
+<tr>
+<td>Gateway</td>
+<td>10.2.6.1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="34-required-network-services">3.4. Required Network Services<a class="headerlink" href="#34-required-network-services" title="Permanent link">&para;</a></h2>
+<p>Several services must run on the management node to support node provisioning.</p>
+<h3 id="dhcp-service">DHCP Service<a class="headerlink" href="#dhcp-service" title="Permanent link">&para;</a></h3>
+<p>DHCP assigns IP addresses to compute nodes during boot.</p>
+<p>Common package:</p>
+<pre><code>dhcp-server
+</code></pre>
+<p>Functions:</p>
+<ul>
+<li>Assign IP addresses</li>
+<li>Provide boot file location</li>
+<li>Specify the next boot server</li>
+</ul>
+<p>Without DHCP, nodes cannot receive network configuration.</p>
+<hr />
+<h3 id="tftp-service">TFTP Service<a class="headerlink" href="#tftp-service" title="Permanent link">&para;</a></h3>
+<p>TFTP transfers boot files required during PXE boot.</p>
+<p>Common package:</p>
+<pre><code>tftp-server
+</code></pre>
+<p>Boot files are usually stored in:</p>
+<pre><code>/tftpboot
+</code></pre>
+<p>Files include:</p>
+<ul>
+<li>PXE boot loader</li>
+<li>kernel</li>
+<li>initrd</li>
+</ul>
+<hr />
+<h3 id="http-server">HTTP Server<a class="headerlink" href="#http-server" title="Permanent link">&para;</a></h3>
+<p>An HTTP server is used to provide operating system installation files.</p>
+<p>Common web server used:</p>
+<ul>
+<li>Apache HTTP Server</li>
+</ul>
+<p>Package:</p>
+<pre><code>httpd
+</code></pre>
+<p>OS images are usually stored in:</p>
+<pre><code>/install
+</code></pre>
+<p>Compute nodes download installation files from this location.</p>
+<hr />
+<h3 id="nfs-server-optional">NFS Server (Optional)<a class="headerlink" href="#nfs-server-optional" title="Permanent link">&para;</a></h3>
+<p>Network File System can be used to share files between cluster nodes.</p>
+<p>Package:</p>
+<pre><code>nfs-utils
+</code></pre>
+<p>Common uses:</p>
+<ul>
+<li>shared software directories</li>
+<li>shared user data</li>
+<li>shared cluster tools</li>
+</ul>
+<hr />
+<h2 id="35-required-xcat-software-packages">3.5. Required xCAT Software Packages<a class="headerlink" href="#35-required-xcat-software-packages" title="Permanent link">&para;</a></h2>
+<p>After preparing the system repositories, the xCAT packages must be installed.</p>
+<p>Main package:</p>
+<pre><code>xCAT
+</code></pre>
+<p>This installs several components:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xcatd</td>
+<td>Main xCAT daemon</td>
+</tr>
+<tr>
+<td>xCAT database</td>
+<td>Stores node configuration</td>
+</tr>
+<tr>
+<td>provisioning tools</td>
+<td>OS deployment utilities</td>
+</tr>
+<tr>
+<td>node management tools</td>
+<td>Cluster administration commands</td>
+</tr>
+</tbody>
+</table>
+<p>Once installed, the xCAT daemon must be started.</p>
+<hr />
+<h2 id="36-required-directory-structure">3.6. Required Directory Structure<a class="headerlink" href="#36-required-directory-structure" title="Permanent link">&para;</a></h2>
+<p>The management node must contain directories used for provisioning.</p>
+<p>Important directories include:</p>
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/install</td>
+<td>Stores OS installation images</td>
+</tr>
+<tr>
+<td>/tftpboot</td>
+<td>Stores PXE boot files</td>
+</tr>
+<tr>
+<td>/etc/xcat</td>
+<td>xCAT configuration files</td>
+</tr>
+<tr>
+<td>/var/lib/xcat</td>
+<td>xCAT database</td>
+</tr>
+</tbody>
+</table>
+<p>These directories are automatically used during node provisioning.</p>
+<hr />
+<h2 id="37-time-synchronization">3.7. Time Synchronization<a class="headerlink" href="#37-time-synchronization" title="Permanent link">&para;</a></h2>
+<p>All cluster nodes should have synchronized time.</p>
+<p>Time synchronization prevents issues with:</p>
+<ul>
+<li>logging</li>
+<li>authentication</li>
+<li>job scheduling</li>
+</ul>
+<p>Common services include:</p>
+<ul>
+<li>Chrony</li>
+<li>Network Time Protocol</li>
+</ul>
+<hr />
+<h2 id="38-security-configuration">3.8. Security Configuration<a class="headerlink" href="#38-security-configuration" title="Permanent link">&para;</a></h2>
+<p>Some security features may interfere with provisioning and need adjustment.</p>
+<h3 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">&para;</a></h3>
+<p>The firewall must allow the following services:</p>
+<ul>
+<li>DHCP</li>
+<li>TFTP</li>
+<li>HTTP</li>
+<li>NFS (if used)</li>
+</ul>
+<h3 id="selinux">SELinux<a class="headerlink" href="#selinux" title="Permanent link">&para;</a></h3>
+<p>SELinux may need to be configured or temporarily disabled during installation.</p>
+<p>Example:</p>
+<pre><code>setenforce 0
+</code></pre>
+<hr />
+<h2 id="39-bios-configuration-for-compute-nodes">3.9. BIOS Configuration for Compute Nodes<a class="headerlink" href="#39-bios-configuration-for-compute-nodes" title="Permanent link">&para;</a></h2>
+<p>Compute nodes must be configured to support network boot.</p>
+<p>Required BIOS settings:</p>
+<ul>
+<li>Enable PXE Boot</li>
+<li>Set Network Boot as First Boot Device</li>
+<li>Configure UEFI or Legacy Boot mode</li>
+</ul>
+<p>Without these settings, compute nodes cannot boot from the network.</p>
+<hr />
+<h1 id="4-installation-and-initial-configuration">4. Installation and Initial Configuration<a class="headerlink" href="#4-installation-and-initial-configuration" title="Permanent link">&para;</a></h1>
+<hr />
+<h1 id="41-preparing-the-management-node">4.1 Preparing the Management Node<a class="headerlink" href="#41-preparing-the-management-node" title="Permanent link">&para;</a></h1>
+<p>Before installing xCAT, the management node must be prepared with a properly configured operating system and required system settings.</p>
+<h3 id="411-install-the-operating-system">4.1.1 Install the Operating System<a class="headerlink" href="#411-install-the-operating-system" title="Permanent link">&para;</a></h3>
+<p>Install a supported Linux distribution on the management node.</p>
+<p>Commonly used operating systems include:</p>
+<ul>
+<li>Red Hat Enterprise Linux</li>
+<li>Rocky Linux</li>
+</ul>
+<p>Recommended installation type:</p>
+<ul>
+<li>Minimal installation</li>
+<li>Static IP configuration</li>
+<li>Root access enabled</li>
+</ul>
+<hr />
+<h3 id="412-configure-network-interfaces">4.1.2 Configure Network Interfaces<a class="headerlink" href="#412-configure-network-interfaces" title="Permanent link">&para;</a></h3>
+<p>The management node must have a properly configured <strong>static IP address</strong> for the management network. This IP address will be used by services such as DHCP, TFTP, and HTTP for node provisioning in xCAT.</p>
+<p>Two common methods can be used to configure a static IP address.</p>
+<hr />
+<h4 id="option-1-configure-static-ip-using-nmcli">Option 1: Configure Static IP using <code>nmcli</code><a class="headerlink" href="#option-1-configure-static-ip-using-nmcli" title="Permanent link">&para;</a></h4>
+<p>Identify the network interface:</p>
+<pre><code class="language-bash">nmcli device status
+</code></pre>
+<p>Configure the static IP address:</p>
+<pre><code class="language-bash">nmcli connection modify eth1 ipv4.addresses 192.168.1.1/24
+nmcli connection modify eth1 ipv4.gateway 192.168.1.254
+nmcli connection modify eth1 ipv4.method manual
+nmcli connection modify eth1 connection.autoconnect yes
+</code></pre>
+<p>Restart the network connection:</p>
+<pre><code class="language-bash">nmcli connection down eth1
+nmcli connection up eth1
+</code></pre>
+<p>Verify the configuration:</p>
+<pre><code class="language-bash">ip addr show eth1
+</code></pre>
+<hr />
+<h4 id="option-2-configure-static-ip-by-editing-network-script">Option 2: Configure Static IP by Editing Network Script<a class="headerlink" href="#option-2-configure-static-ip-by-editing-network-script" title="Permanent link">&para;</a></h4>
+<p>Edit the interface configuration file:</p>
+<pre><code class="language-bash">vi /etc/sysconfig/network-scripts/ifcfg-eth1
+</code></pre>
+<p>Example configuration:</p>
+<pre><code class="language-bash">TYPE=Ethernet
+BOOTPROTO=none
+NAME=eth1
+DEVICE=eth1
+ONBOOT=yes
+IPADDR=192.168.1.1
+PREFIX=24
+GATEWAY=192.168.1.254
+DNS1=8.8.8.8
+</code></pre>
+<p>Restart the network service:</p>
+<pre><code class="language-bash">systemctl restart NetworkManager
+</code></pre>
+<p>Verify the IP address:</p>
+<pre><code class="language-bash">ip addr
+</code></pre>
+<hr />
+<h3 id="413-configure-hostname-and-dns-name">4.1.3 Configure Hostname and DNS Name<a class="headerlink" href="#413-configure-hostname-and-dns-name" title="Permanent link">&para;</a></h3>
+<p>Set the hostname of the management node. It is recommended to configure a <strong>Fully Qualified Domain Name (FQDN)</strong> for proper cluster identification.</p>
+<p>Example hostname:</p>
+<pre><code>mgmt.cluster.com
+</code></pre>
+<p>Set the hostname using the following command:</p>
+<pre><code class="language-bash">hostnamectl set-hostname mgmt.cluster.com
+</code></pre>
+<p>Verify the hostname:</p>
+<pre><code class="language-bash">hostnamectl
+</code></pre>
+<p>Update the hosts file if required:</p>
+<pre><code class="language-bash">vi /etc/hosts
+</code></pre>
+<p>Example entry:</p>
+<pre><code class="language-bash">192.168.1.1   mgmt.cluster.com   mgmt
+</code></pre>
+<p>This ensures proper hostname resolution within the cluster environment.</p>
+<hr />
+<h3 id="414-update-system-packages-or-configure-local-repository">4.1.4 Update System Packages or Configure Local Repository<a class="headerlink" href="#414-update-system-packages-or-configure-local-repository" title="Permanent link">&para;</a></h3>
+<p>Before installing xCAT, ensure that all required system libraries and dependencies are available.</p>
+<p>If the management node has <strong>internet connectivity</strong>, update the system packages:</p>
+<pre><code class="language-bash">dnf update -y
+</code></pre>
+<p>This ensures that all system libraries and dependencies are updated to the latest version.</p>
+<p>If the management node <strong>does not have internet access</strong>, configure a <strong>local repository</strong> using a mounted operating system ISO or internal repository server. This allows required packages to be installed without internet connectivity.</p>
+<p>Local repositories are commonly used in <strong>secure HPC environments and offline clusters</strong>.</p>
+<h3 id="415-disable-selinux">4.1.5 Disable SELinux<a class="headerlink" href="#415-disable-selinux" title="Permanent link">&para;</a></h3>
+<p>Some provisioning services may fail if SELinux policies block them.</p>
+<p>Temporarily disable SELinux:</p>
+<pre><code>setenforce 0
+</code></pre>
+<p>To disable permanently:</p>
+<p>Edit the configuration file:</p>
+<pre><code>/etc/selinux/config
+</code></pre>
+<p>Change:</p>
+<pre><code>SELINUX=enforcing
+</code></pre>
+<p>to</p>
+<pre><code>SELINUX=disabled
+</code></pre>
+<h2 id="reboot-need-to-reflecting-this-change">Reboot need to reflecting this change<a class="headerlink" href="#reboot-need-to-reflecting-this-change" title="Permanent link">&para;</a></h2>
+<h3 id="416-configure-firewall-rules">4.1.6 Configure Firewall Rules<a class="headerlink" href="#416-configure-firewall-rules" title="Permanent link">&para;</a></h3>
+<p>The firewall configuration depends on the cluster environment requirements when deploying xCAT.</p>
+<p>If the cluster environment <strong>requires the firewall to remain enabled</strong>, then necessary services must be allowed through the firewall so that node provisioning services can function properly.</p>
+<p>Required services include:</p>
+<ul>
+<li>DHCP</li>
+<li>TFTP</li>
+<li>HTTP</li>
+<li>NFS (if used)</li>
+</ul>
+<p>Add the required firewall rules:</p>
+<pre><code class="language-bash">firewall-cmd --permanent --add-service=dhcp
+firewall-cmd --permanent --add-service=tftp
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=nfs
+</code></pre>
+<p>Reload the firewall configuration:</p>
+<pre><code class="language-bash">firewall-cmd --reload
+</code></pre>
+<p>Verify the active firewall rules:</p>
+<pre><code class="language-bash">firewall-cmd --list-all
+</code></pre>
+<p>If the cluster environment <strong>does not require firewall protection</strong>, the firewall service can be disabled.</p>
+<p>Stop the firewall service:</p>
+<pre><code class="language-bash">systemctl stop firewalld
+</code></pre>
+<p>Disable it at system startup:</p>
+<pre><code class="language-bash">systemctl disable firewalld
+</code></pre>
+<hr />
+<h3 id="417-verify-repository-configuration">4.1.7 Verify Repository Configuration<a class="headerlink" href="#417-verify-repository-configuration" title="Permanent link">&para;</a></h3>
+<p>Before installing xCAT, verify that the required repositories are configured correctly on the management node.</p>
+<p>Run the following command:</p>
+<pre><code class="language-bash">dnf repolist
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">yum repolist
+</code></pre>
+<p>The output should list the required repositories, including:</p>
+<ul>
+<li>BaseOS</li>
+<li>AppStream</li>
+<li>xcat-core</li>
+<li>xcat-dep</li>
+</ul>
+<p>Example expected output:</p>
+<pre><code>repo id          repo name
+BaseOS           BaseOS Repository
+AppStream        AppStream Repository
+xcat-core        xCAT Core Repository
+xcat-dep         xCAT Dependencies Repository
+</code></pre>
+<p>If these repositories are listed, the system is ready to install xCAT packages. If not, the repositories must be configured before proceeding with the installation.</p>
+<hr />
+<h2 id="5-installation-of-xcat">5. Installation of xCAT<a class="headerlink" href="#5-installation-of-xcat" title="Permanent link">&para;</a></h2>
+<p>This section explains the installation procedure of xCAT on the management node.</p>
+<p>After configuring the system prerequisites and repositories, the xCAT packages can be installed using the package manager.</p>
+<hr />
+<h3 id="51-install-xcat-packages">5.1 Install xCAT Packages<a class="headerlink" href="#51-install-xcat-packages" title="Permanent link">&para;</a></h3>
+<p>Install the xCAT software using the system package manager.</p>
+<p>Using <strong>dnf</strong>:</p>
+<pre><code class="language-bash">dnf install xCAT -y
+</code></pre>
+<p>or using <strong>yum</strong>:</p>
+<pre><code class="language-bash">yum install xCAT -y
+</code></pre>
+<p>After executing the command, the system will begin downloading and installing the required packages.</p>
+<hr />
+<h3 id="52-wait-for-required-package-installation">5.2 Wait for Required Package Installation<a class="headerlink" href="#52-wait-for-required-package-installation" title="Permanent link">&para;</a></h3>
+<p>During the installation process, several dependent packages will also be installed automatically. This process may take some time depending on system performance and repository speed.</p>
+<p>The installation includes multiple xCAT components and utilities required for cluster provisioning and management.</p>
+<hr />
+<h3 id="53-resolve-dependency-errors-if-any">5.3 Resolve Dependency Errors (If Any)<a class="headerlink" href="#53-resolve-dependency-errors-if-any" title="Permanent link">&para;</a></h3>
+<p>If any errors occur during installation, such as <strong>missing dependency errors</strong>, it usually means that the required repositories are not configured correctly.</p>
+<p>In such cases:</p>
+<ul>
+<li>Verify repository configuration using:</li>
+</ul>
+<pre><code class="language-bash">dnf repolist
+</code></pre>
+<ul>
+<li>Ensure that the following repositories are available:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BaseOS</td>
+<td>Base operating system packages</td>
+</tr>
+<tr>
+<td>AppStream</td>
+<td>Application libraries</td>
+</tr>
+<tr>
+<td>xcat-core</td>
+<td>Core xCAT packages</td>
+</tr>
+<tr>
+<td>xcat-dep</td>
+<td>xCAT dependency packages</td>
+</tr>
+</tbody>
+</table>
+<p>If any repository is missing, configure the required repository and run the installation command again.</p>
+<hr />
+<h3 id="54-verify-installed-services">5.4 Verify Installed Services<a class="headerlink" href="#54-verify-installed-services" title="Permanent link">&para;</a></h3>
+<p>After the installation completes, several required services are installed automatically along with xCAT.</p>
+<p>Important services include:</p>
+<ul>
+<li>DHCP service</li>
+<li>HTTP service</li>
+<li>xCAT daemon</li>
+</ul>
+<p>Check the status of these services:</p>
+<pre><code class="language-bash">systemctl status dhcpd
+</code></pre>
+<pre><code class="language-bash">systemctl status httpd
+</code></pre>
+<pre><code class="language-bash">systemctl status xcatd
+</code></pre>
+<p>If the services are installed correctly, they should appear in the system service list.</p>
+<hr />
+<h3 id="55-verify-xcat-installation">5.5 Verify xCAT Installation<a class="headerlink" href="#55-verify-xcat-installation" title="Permanent link">&para;</a></h3>
+<p>After installation, verify that xCAT commands are available in the system environment.</p>
+<p>Load the xCAT environment variables:</p>
+<pre><code class="language-bash">source /etc/profile.d/xcat.sh
+</code></pre>
+<p>Check the xCAT version using:</p>
+<pre><code class="language-bash">lsdef -v
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">lsdef --version
+</code></pre>
+<h3 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h3>
+<p>After loading the xCAT environment and running the version command, the system should display the installed version of xCAT.</p>
+<pre><code class="language-bash">[root@mgmt ~]# lsdef -v
+lsdef - Version 2.17.0 (git commit 2960b0e9f948abf4af8ce6c1f459191649883f15, built Wed Nov 13 15:34:26 CET 2024)
+</code></pre>
+<p>This confirms that the xCAT installation has been completed successfully and the system is ready for further configuration and node provisioning.</p>
+<hr />
+<h2 id="6-initial-cluster-service-verification-and-dhcp-configuration">6. Initial Cluster Service Verification and DHCP Configuration<a class="headerlink" href="#6-initial-cluster-service-verification-and-dhcp-configuration" title="Permanent link">&para;</a></h2>
+<p>After installing xCAT, the next step is to verify that the <strong>management node is properly configured for cluster operations</strong>. Before configuring DHCP and other provisioning services, it is recommended to check the health status of the xCAT management node.</p>
+<hr />
+<h3 id="61-verify-xcat-management-node-status">6.1 Verify xCAT Management Node Status<a class="headerlink" href="#61-verify-xcat-management-node-status" title="Permanent link">&para;</a></h3>
+<p>The <code>xcatprobe</code> command is used to check whether the <strong>cluster management node is correctly configured and ready for production use</strong>.</p>
+<p>Run the following command:</p>
+<pre><code class="language-bash">xcatprobe xcatmn
+</code></pre>
+<p>This command performs a series of validation checks on the management node, including:</p>
+<ul>
+<li>xCAT daemon status</li>
+<li>xCAT configuration tables</li>
+<li>Provisioning network configuration</li>
+<li>Required system services</li>
+<li>Directory configuration</li>
+<li>Security settings</li>
+<li>Disk space availability</li>
+</ul>
+<hr />
+<h3 id="example-output_1">Example Output<a class="headerlink" href="#example-output_1" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">[root@mgmt ~]# xcatprobe xcatmn
+[mn]: Checking all xCAT daemons are running... [ OK ]
+[mn]: Checking xcatd can receive command request... [ OK ]
+[mn]: Checking 'site' table is configured... [ OK ]
+[mn]: Checking provision network is configured... [ OK ]
+[mn]: Checking HTTP service is configured... [ OK ]
+[mn]: Checking TFTP service is configured... [ OK ]
+[mn]: Checking DNS service is configured... [ OK ]
+[mn]: Checking DHCP service is configured... [ OK ]
+[mn]: Checking NTP service is configured... [ OK ]
+[mn]: Checking firewall is disabled... [ OK ]
+[mn]: Checking minimum disk space for xCAT... [ OK ]
+=================================== SUMMARY ====================================
+[MN]: Checking on MN... [ OK ]
+</code></pre>
+<hr />
+<h3 id="62-purpose-of-the-xcatprobe-check">6.2 Purpose of the <code>xcatprobe</code> Check<a class="headerlink" href="#62-purpose-of-the-xcatprobe-check" title="Permanent link">&para;</a></h3>
+<p>The <code>xcatprobe xcatmn</code> command verifies whether the <strong>management node is ready for cluster provisioning</strong>. It ensures that the required services and configurations are properly set.</p>
+<p>Important checks performed include:</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xcatd daemon</td>
+<td>Confirms xCAT service is running</td>
+</tr>
+<tr>
+<td>site table</td>
+<td>Verifies cluster configuration</td>
+</tr>
+<tr>
+<td>Provision network</td>
+<td>Ensures management network is configured</td>
+</tr>
+<tr>
+<td>HTTP service</td>
+<td>Provides OS installation files</td>
+</tr>
+<tr>
+<td>TFTP service</td>
+<td>Provides PXE boot files</td>
+</tr>
+<tr>
+<td>DHCP service</td>
+<td>Assigns IP addresses to nodes</td>
+</tr>
+<tr>
+<td>DNS service</td>
+<td>Resolves node hostnames</td>
+</tr>
+<tr>
+<td>NTP service</td>
+<td>Synchronizes time across cluster</td>
+</tr>
+<tr>
+<td>Disk space</td>
+<td>Ensures enough storage for OS images</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="63-handling-warning-messages">6.3 Handling Warning Messages<a class="headerlink" href="#63-handling-warning-messages" title="Permanent link">&para;</a></h3>
+<p>Sometimes the command may display <strong>warning messages</strong>, for example:</p>
+<pre><code>No interface provided by '-i' option, detected 'site' table IP attribute
+</code></pre>
+<p>This warning occurs when the interface is not explicitly specified during the check. It usually does not affect cluster functionality if the detected IP address is correct.</p>
+<hr />
+<h3 id="64-next-configuration-steps">6.4 Next Configuration Steps<a class="headerlink" href="#64-next-configuration-steps" title="Permanent link">&para;</a></h3>
+<p>After verifying the management node status, the next step is to configure the <strong>cluster provisioning services</strong> required for node deployment.</p>
+<p>These services will be configured step by step in the following sections:</p>
+<ol>
+<li>DHCP configuration</li>
+<li>TFTP configuration</li>
+<li>HTTP configuration</li>
+<li>DNS configuration</li>
+<li>Time synchronization service</li>
+</ol>
+<p>These services work together to enable <strong>PXE-based operating system installation for compute nodes</strong> in the cluster environment.</p>
+<hr />
+<p><strong>6.5 DHCP Configuration for PXE Boot</strong></p>
+<h3 id="65-dhcp-configuration-for-pxe-boot">6.5 DHCP Configuration for PXE Boot<a class="headerlink" href="#65-dhcp-configuration-for-pxe-boot" title="Permanent link">&para;</a></h3>
+<p>In an xCAT cluster environment, the <strong>DHCP service</strong> is required to enable <strong>network boot (PXE boot)</strong> for compute nodes. When a compute node starts, it sends a DHCP request to obtain network configuration such as an IP address and boot information.</p>
+<p>The DHCP server provides the following information to the node:</p>
+<ul>
+<li>IP address  </li>
+<li>subnet information  </li>
+<li>next boot server  </li>
+<li>PXE boot file location  </li>
+</ul>
+<p>This allows the node to download boot files from the management node and start the operating system installation using entity["software","xCAT","Extreme Cloud Administration Toolkit"].</p>
+<hr />
+<h3 id="configure-dhcp-interface-in-xcat">Configure DHCP Interface in xCAT<a class="headerlink" href="#configure-dhcp-interface-in-xcat" title="Permanent link">&para;</a></h3>
+<p>First, configure which <strong>network interface on the management node</strong> will provide DHCP services for provisioning.</p>
+<p>Run the following command:</p>
+<pre><code class="language-bash">chdef -t site dhcpinterfaces=&quot;eth1&quot;
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>chdef</code> – Used to modify xCAT configuration tables  </li>
+<li><code>-t site</code> – Specifies the <strong>site table</strong> in the xCAT database  </li>
+<li><code>dhcpinterfaces="eth1"</code> – Defines the network interface used by the DHCP server  </li>
+</ul>
+<p>This configuration tells xCAT to use <strong>interface <code>eth1</code></strong> to serve DHCP requests for compute nodes during PXE boot.</p>
+<hr />
+<h3 id="important-note-about-ipv6">Important Note About IPv6<a class="headerlink" href="#important-note-about-ipv6" title="Permanent link">&para;</a></h3>
+<p>In some environments, the system may automatically detect and configure <strong>IPv6 addresses</strong>. However, for most HPC cluster deployments it is recommended to use <strong>IPv4 addresses</strong> for provisioning networks.</p>
+<p>Therefore, it is better to explicitly configure the <strong>IPv4 management interface</strong> to avoid conflicts with IPv6 addresses.</p>
+<hr />
+<h3 id="verify-dhcp-interface-configuration">Verify DHCP Interface Configuration<a class="headerlink" href="#verify-dhcp-interface-configuration" title="Permanent link">&para;</a></h3>
+<p>After setting the DHCP interface, verify that the configuration is correctly stored in the xCAT database.</p>
+<p>Run the following command:</p>
+<pre><code class="language-bash">tabdump site | grep dhcpinterfaces
+</code></pre>
+<p>Expected output example:</p>
+<pre><code>dhcpinterfaces=eth1
+</code></pre>
+<p>This confirms that the DHCP service will operate on the specified interface.</p>
+<hr />
+<h3 id="regenerate-dns-configuration">Regenerate DNS Configuration<a class="headerlink" href="#regenerate-dns-configuration" title="Permanent link">&para;</a></h3>
+<p>If the system incorrectly detects <strong>IPv6 entries or disabled values</strong>, regenerate the DNS configuration to ensure correct host resolution.</p>
+<p>Run the following commands:</p>
+<pre><code class="language-bash">makedns -n
+</code></pre>
+<pre><code class="language-bash">makedns -a
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>makedns -n</code> – Generates DNS configuration entries  </li>
+<li><code>makedns -a</code> – Applies the DNS configuration to the system  </li>
+</ul>
+<p>These commands update the DNS configuration based on the current xCAT database settings.</p>
+<p>You’re right to question it. <strong>Yes — the previous two points are mostly the same</strong>, because both used the <code>network</code> table and <code>dynamicrange</code>. In good documentation, they should be <strong>separated clearly</strong>:</p>
+<ul>
+<li>One point → <strong>Define the provisioning network</strong></li>
+<li>Another point → <strong>Define the DHCP IP range</strong></li>
+</ul>
+<p>Let me correct it so your document is clean and professional.</p>
+<hr />
+<h2 id="66-configure-provisioning-network-in-xcat">6.6 Configure Provisioning Network in xCAT<a class="headerlink" href="#66-configure-provisioning-network-in-xcat" title="Permanent link">&para;</a></h2>
+<p>In xCAT, the provisioning network must be defined in the <strong>xCAT network table</strong>. This network is used by the management node to communicate with compute nodes during PXE boot and operating system deployment.</p>
+<p>Configure the provisioning network using the following command:</p>
+<pre><code class="language-bash">chdef -t network netname=provnet net=172.18.0.0 mask=255.255.255.0 mgtifname=eth1 gateway=172.18.0.1
+</code></pre>
+<h3 id="explanation">Explanation<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>netname</code></td>
+<td>Name of the provisioning network</td>
+</tr>
+<tr>
+<td><code>net</code></td>
+<td>Network address</td>
+</tr>
+<tr>
+<td><code>mask</code></td>
+<td>Subnet mask</td>
+</tr>
+<tr>
+<td><code>mgtifname</code></td>
+<td>Interface used by the management node</td>
+</tr>
+<tr>
+<td><code>gateway</code></td>
+<td>Gateway of the provisioning network</td>
+</tr>
+</tbody>
+</table>
+<p>Verify the configuration:</p>
+<pre><code class="language-bash">lsdef -t network
+</code></pre>
+<p>This confirms that the provisioning network is registered in the xCAT database.</p>
+<hr />
+<h2 id="67-configure-dhcp-ip-range-for-compute-nodes">6.7 Configure DHCP IP Range for Compute Nodes<a class="headerlink" href="#67-configure-dhcp-ip-range-for-compute-nodes" title="Permanent link">&para;</a></h2>
+<p>After defining the provisioning network, configure the <strong>dynamic IP address range</strong> that will be assigned to compute nodes during PXE boot.</p>
+<p>Use the following command:</p>
+<pre><code class="language-bash">chdef -t network provnet dynamicrange=172.18.0.100-172.18.0.200
+</code></pre>
+<h3 id="explanation_1">Explanation<a class="headerlink" href="#explanation_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>provnet</code></td>
+<td>Name of the network created earlier</td>
+</tr>
+<tr>
+<td><code>dynamicrange</code></td>
+<td>IP address range used by DHCP</td>
+</tr>
+</tbody>
+</table>
+<p>Example allocation:</p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Example IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Management Node</td>
+<td>172.18.0.2</td>
+</tr>
+<tr>
+<td>Compute Nodes</td>
+<td>172.18.0.100 – 172.18.0.200</td>
+</tr>
+</tbody>
+</table>
+<p>Verify the range:</p>
+<pre><code class="language-bash">lsdef -t network provnet
+</code></pre>
+<h2 id="68-generate-and-apply-dhcp-configuration">6.8 Generate and Apply DHCP Configuration<a class="headerlink" href="#68-generate-and-apply-dhcp-configuration" title="Permanent link">&para;</a></h2>
+<p>After defining the provisioning network and IP range in xCAT, the next step is to generate the <strong>DHCP server configuration file</strong>.
+xCAT automatically creates the DHCP configuration based on the values stored in its database tables.</p>
+<p>This is done using the <code>makedhcp</code> command.</p>
+<hr />
+<h3 id="generate-dhcp-configuration">Generate DHCP Configuration<a class="headerlink" href="#generate-dhcp-configuration" title="Permanent link">&para;</a></h3>
+<p>Run the following command to generate the DHCP configuration:</p>
+<pre><code class="language-bash">makedhcp -n
+</code></pre>
+<p><strong>Explanation</strong></p>
+<ul>
+<li><code>makedhcp</code> → xCAT command used to generate DHCP configuration</li>
+<li><code>-n</code> → Generates the DHCP configuration file but does not apply it yet</li>
+</ul>
+<p>This command reads the <strong>network table, node definitions, and site configuration</strong> from the xCAT database and generates the required DHCP configuration.</p>
+<hr />
+<h3 id="apply-dhcp-configuration">Apply DHCP Configuration<a class="headerlink" href="#apply-dhcp-configuration" title="Permanent link">&para;</a></h3>
+<p>After generating the configuration, apply it using:</p>
+<pre><code class="language-bash">makedhcp -a
+</code></pre>
+<p><strong>Explanation</strong></p>
+<ul>
+<li><code>-a</code> → Applies the generated DHCP configuration to the system</li>
+</ul>
+<p>This step updates the DHCP server configuration file typically located at:</p>
+<pre><code>/etc/dhcp/dhcpd.conf
+</code></pre>
+<hr />
+<h3 id="restart-the-dhcp-service">Restart the DHCP Service<a class="headerlink" href="#restart-the-dhcp-service" title="Permanent link">&para;</a></h3>
+<p>After applying the configuration, restart the DHCP service:</p>
+<pre><code class="language-bash">systemctl restart dhcpd
+</code></pre>
+<p>Enable the service to start automatically during system boot:</p>
+<pre><code class="language-bash">systemctl enable dhcpd
+</code></pre>
+<hr />
+<h3 id="verify-dhcp-service-status">Verify DHCP Service Status<a class="headerlink" href="#verify-dhcp-service-status" title="Permanent link">&para;</a></h3>
+<p>Check whether the DHCP service is running correctly:</p>
+<pre><code class="language-bash">systemctl status dhcpd
+</code></pre>
+<p>If the service is running successfully, the management node is now ready to assign <strong>IP addresses to compute nodes during PXE boot</strong>.</p>
+<hr />
+<h3 id="purpose-of-dhcp-in-xcat">Purpose of DHCP in xCAT<a class="headerlink" href="#purpose-of-dhcp-in-xcat" title="Permanent link">&para;</a></h3>
+<p>The DHCP service plays an important role in cluster provisioning:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Assign IP Address</td>
+<td>Provides IP addresses to compute nodes</td>
+</tr>
+<tr>
+<td>Provide Boot Server</td>
+<td>Specifies the management node as the boot server</td>
+</tr>
+<tr>
+<td>Provide Boot File</td>
+<td>Provides the PXE boot loader</td>
+</tr>
+<tr>
+<td>Enable PXE Boot</td>
+<td>Allows nodes to boot from the network</td>
+</tr>
+</tbody>
+</table>
+<p>With DHCP configured, compute nodes can now receive network configuration and start the <strong>PXE-based operating system installation process</strong>.</p>
+<h2 id="after-configuring-the-dhcp-interface-and-verifying-the-site-table-the-next-step-is-to-configure-the-dhcp-server-settings-such-as-ip-ranges-next-server-and-boot-files-for-compute-node-provisioning">After configuring the DHCP interface and verifying the site table, the next step is to configure the <strong>DHCP server settings such as IP ranges, next-server, and boot files</strong> for compute node provisioning.<a class="headerlink" href="#after-configuring-the-dhcp-interface-and-verifying-the-site-table-the-next-step-is-to-configure-the-dhcp-server-settings-such-as-ip-ranges-next-server-and-boot-files-for-compute-node-provisioning" title="Permanent link">&para;</a></h2>
+<p>Good catch. In a properly configured <strong>xCAT management node</strong>, you usually <strong>do not manually install a separate TFTP server</strong> because xCAT already handles the <strong>TFTP service internally through xcatd</strong>. Your documentation should reflect that clearly.</p>
+<p>Here is the corrected section you can place in your document.</p>
+<hr />
+<h1 id="7-tftp-service-in-xcat">7. TFTP Service in xCAT<a class="headerlink" href="#7-tftp-service-in-xcat" title="Permanent link">&para;</a></h1>
+<p>In an xCAT cluster environment, the <strong>TFTP service is used during the PXE boot process</strong> to transfer boot files from the management node to compute nodes.</p>
+<p>Unlike a traditional setup, there is <strong>no need to manually install or configure a separate TFTP server</strong>, because xCAT automatically manages the required TFTP functionality.</p>
+<p>During xCAT installation, the necessary boot infrastructure and services are configured automatically.</p>
+<hr />
+<h3 id="verify-tftp-port-usage">Verify TFTP Port Usage<a class="headerlink" href="#verify-tftp-port-usage" title="Permanent link">&para;</a></h3>
+<p>To verify that the TFTP service is already active, check the listening ports on the system:</p>
+<pre><code class="language-bash">lsof -i :69
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">netstat -tulnp | grep 69
+</code></pre>
+<p>Example output may show that the port is being used by the xCAT service:</p>
+<pre><code>xcatd   1234 root   UDP   *:69
+</code></pre>
+<p>This indicates that the <strong>TFTP service is already handled by xCAT</strong>.</p>
+<hr />
+<h3 id="verify-tftp-directory">Verify TFTP Directory<a class="headerlink" href="#verify-tftp-directory" title="Permanent link">&para;</a></h3>
+<p>The PXE boot files used by xCAT are stored in the following directory:</p>
+<pre><code>/tftpboot
+</code></pre>
+<p>You can verify the directory contents using:</p>
+<pre><code class="language-bash">ls /tftpboot
+</code></pre>
+<p>Typical directories include:</p>
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pxelinux.cfg</td>
+<td>PXE configuration files</td>
+</tr>
+<tr>
+<td>xcat</td>
+<td>xCAT boot configuration</td>
+</tr>
+<tr>
+<td>kernels</td>
+<td>Kernel images used during node boot</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="role-of-tftp-in-node-provisioning">Role of TFTP in Node Provisioning<a class="headerlink" href="#role-of-tftp-in-node-provisioning" title="Permanent link">&para;</a></h3>
+<p>During node provisioning the workflow is:</p>
+<ol>
+<li>Compute node sends a <strong>DHCP request</strong></li>
+<li>DHCP server returns <strong>boot server and boot file</strong></li>
+<li>Node contacts the <strong>TFTP service on the management node</strong></li>
+<li>Boot loader is downloaded</li>
+<li>Kernel and initrd are loaded</li>
+<li>Operating system installation starts</li>
+</ol>
+<p>Add this as another subsection in your documentation.</p>
+<hr />
+<h2 id="71-required-boot-packages-for-pxeuefi-provisioning">7.1 Required Boot Packages for PXE/UEFI Provisioning<a class="headerlink" href="#71-required-boot-packages-for-pxeuefi-provisioning" title="Permanent link">&para;</a></h2>
+<p>For successful node provisioning in xCAT, some <strong>boot-related packages must be available on the management node</strong>. These packages provide the necessary boot loaders and images required for both <strong>BIOS and UEFI based systems</strong>.</p>
+<p>The important packages include:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>grub2-efi-x64</code></td>
+<td>Provides the GRUB2 bootloader for UEFI-based systems</td>
+</tr>
+<tr>
+<td><code>shim</code></td>
+<td>Secure boot loader used in UEFI environments</td>
+</tr>
+<tr>
+<td><code>ipxe-bootimages-x86</code></td>
+<td>Provides iPXE boot images used for network booting</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="install-required-boot-packages">Install Required Boot Packages<a class="headerlink" href="#install-required-boot-packages" title="Permanent link">&para;</a></h3>
+<p>If these packages are not already installed, install them using:</p>
+<pre><code class="language-bash">dnf install grub2-efi-x64 shim ipxe-bootimages-x86 -y
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">yum install grub2-efi-x64 shim ipxe-bootimages-x86 -y
+</code></pre>
+<hr />
+<h3 id="why-these-packages-are-important">Why These Packages Are Important<a class="headerlink" href="#why-these-packages-are-important" title="Permanent link">&para;</a></h3>
+<p>During PXE boot, compute nodes require a <strong>boot loader compatible with their firmware type</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>System Type</th>
+<th>Boot Loader Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legacy BIOS</td>
+<td>pxelinux / iPXE</td>
+</tr>
+<tr>
+<td>UEFI Systems</td>
+<td>GRUB2 EFI + shim</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>ipxe-bootimages-x86</code> package provides the <strong>network boot images</strong>, while <code>grub2-efi-x64</code> and <code>shim</code> enable <strong>UEFI-based node booting</strong>.</p>
+<p>These components ensure that both <strong>legacy BIOS nodes and modern UEFI nodes</strong> can boot successfully during cluster provisioning.</p>
+<h2 id="72-purpose-of-boot-packages">7.2 Purpose of Boot Packages<a class="headerlink" href="#72-purpose-of-boot-packages" title="Permanent link">&para;</a></h2>
+<p>These packages enable compute nodes to boot depending on the system firmware type.</p>
+<p>System Type Boot Method
+Legacy BIOS Systems PXE / iPXE boot
+UEFI Systems    GRUB2 EFI with shim</p>
+<p>The ipxe-bootimages-x86 package provides the network boot images, while grub2-efi-x64 and shim support UEFI-based node booting.</p>
+<p>These components ensure that both BIOS and UEFI based compute nodes can boot successfully during the provisioning process.</p>
+<h1 id="8-os-image-import-and-node-provisioning">8. OS Image Import and Node Provisioning<a class="headerlink" href="#8-os-image-import-and-node-provisioning" title="Permanent link">&para;</a></h1>
+<p>After completing the configuration of services such as DHCP, TFTP, and required boot packages, the next step in the cluster setup is to import the operating system image and provision compute nodes.</p>
+<p>In xCAT, node provisioning is performed by importing the OS installation media into the management node and configuring compute nodes to boot through PXE.</p>
+<p>The overall provisioning workflow includes the following steps:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import OS Image</td>
+<td>Copy the OS installation media to the management node</td>
+</tr>
+<tr>
+<td>Define Compute Nodes</td>
+<td>Add node definitions in the xCAT database</td>
+</tr>
+<tr>
+<td>Configure Boot State</td>
+<td>Set nodes to boot in installation mode</td>
+</tr>
+<tr>
+<td>Start Installation</td>
+<td>Begin OS installation through PXE boot</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="81-importing-the-operating-system-image">8.1 Importing the Operating System Image<a class="headerlink" href="#81-importing-the-operating-system-image" title="Permanent link">&para;</a></h1>
+<p>The operating system installation files must be copied to the management node so that compute nodes can access them during installation.</p>
+<p>Insert the OS installation media (ISO or mounted image) and use the following command:</p>
+<pre><code class="language-bash">copycds &lt;path-to-mounted-iso&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">copycds /mnt
+</code></pre>
+<p>This command imports the OS image into the xCAT installation directory, typically:</p>
+<pre><code>/install
+</code></pre>
+<p>During this process, xCAT automatically extracts the installation files and prepares them for network-based deployment.</p>
+<hr />
+<h1 id="82-verify-imported-os-images">8.2 Verify Imported OS Images<a class="headerlink" href="#82-verify-imported-os-images" title="Permanent link">&para;</a></h1>
+<p>After importing the operating system, verify that the image has been successfully added.</p>
+<p>Use the following command:</p>
+<pre><code class="language-bash">lsdef -t osimage
+</code></pre>
+<p>Example output:</p>
+<pre><code>rhels9.2-x86_64-install-compute
+</code></pre>
+<p>This confirms that the operating system image is available for provisioning compute nodes.</p>
+<hr />
+<h1 id="83-define-compute-nodes">8.3 Define Compute Nodes<a class="headerlink" href="#83-define-compute-nodes" title="Permanent link">&para;</a></h1>
+<p>Before provisioning nodes, each compute node must be defined in the xCAT database.</p>
+<p>Use the following command:</p>
+<pre><code class="language-bash">mkdef -t node cn001 groups=compute ip=172.18.0.101 mac=XX:XX:XX:XX:XX:XX
+</code></pre>
+<p>Explanation:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cn001</code></td>
+<td>Name of the compute node</td>
+</tr>
+<tr>
+<td><code>groups</code></td>
+<td>Node group classification</td>
+</tr>
+<tr>
+<td><code>ip</code></td>
+<td>IP address assigned to the node</td>
+</tr>
+<tr>
+<td><code>mac</code></td>
+<td>MAC address of the compute node interface</td>
+</tr>
+</tbody>
+</table>
+<p>Verify node definition:</p>
+<pre><code class="language-bash">lsdef cn001
+</code></pre>
+<hr />
+<h1 id="84-set-node-boot-state">8.4 Set Node Boot State<a class="headerlink" href="#84-set-node-boot-state" title="Permanent link">&para;</a></h1>
+<p>To prepare the compute node for installation, configure the boot state using the <code>nodeset</code> command.</p>
+<pre><code class="language-bash">nodeset cn001 osimage=&lt;osimage-name&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">nodeset cn001 osimage=rhels9.2-x86_64-install-compute
+</code></pre>
+<p>This command configures the compute node to boot into installation mode using the specified OS image.</p>
+<hr />
+<h1 id="85-start-node-provisioning">8.5 Start Node Provisioning<a class="headerlink" href="#85-start-node-provisioning" title="Permanent link">&para;</a></h1>
+<p>After setting the boot state, start the provisioning process using:</p>
+<pre><code class="language-bash">rinstall cn001
+</code></pre>
+<p>This command initiates the remote installation of the operating system on the compute node.</p>
+<p>During this process:</p>
+<ol>
+<li>The node sends a <strong>DHCP request</strong></li>
+<li>DHCP provides <strong>network configuration and boot information</strong></li>
+<li>The node downloads boot files using <strong>TFTP</strong></li>
+<li>Installation files are accessed from the <strong>HTTP server</strong></li>
+<li>The operating system installation begins automatically</li>
+</ol>
+<hr />
+<h1 id="86-monitor-provisioning-process">8.6 Monitor Provisioning Process<a class="headerlink" href="#86-monitor-provisioning-process" title="Permanent link">&para;</a></h1>
+<p>You can monitor the provisioning process using the following commands:</p>
+<p>Check node status:</p>
+<pre><code class="language-bash">nodestat cn001
+</code></pre>
+<p>Check xCAT logs:</p>
+<pre><code class="language-bash">tail -f /var/log/xcat/cluster.log
+</code></pre>
+<p>These logs help identify provisioning progress or troubleshoot installation issues.</p>
+<hr />
+<h1 id="87-verify-node-after-installation">8.7 Verify Node After Installation<a class="headerlink" href="#87-verify-node-after-installation" title="Permanent link">&para;</a></h1>
+<p>Once the installation is complete, verify that the compute node is accessible.</p>
+<p>Test connectivity:</p>
+<pre><code class="language-bash">ping cn001
+</code></pre>
+<p>Check remote command execution:</p>
+<pre><code class="language-bash">rpower cn001 stat
+</code></pre>
+<p>If the node responds successfully, the provisioning process has completed correctly.</p>
+<h1 id="9-xcat-command-cheat-sheet">9. xCAT Command Cheat Sheet<a class="headerlink" href="#9-xcat-command-cheat-sheet" title="Permanent link">&para;</a></h1>
+<p>This section provides commonly used commands in xCAT for managing cluster configuration, defining nodes, and verifying settings.</p>
+<hr />
+<h1 id="91-chdef-command-change-definition">9.1 <code>chdef</code> Command (Change Definition)<a class="headerlink" href="#91-chdef-command-change-definition" title="Permanent link">&para;</a></h1>
+<p>The <code>chdef</code> command is used to <strong>modify existing objects</strong> in the xCAT database such as nodes, networks, or site configurations.</p>
+<h3 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">chdef &lt;object-name&gt; &lt;attribute&gt;=&lt;value&gt;
+</code></pre>
+<h3 id="common-examples">Common Examples<a class="headerlink" href="#common-examples" title="Permanent link">&para;</a></h3>
+<p><strong>Set DHCP interface</strong></p>
+<pre><code class="language-bash">chdef -t site dhcpinterfaces=&quot;eth1&quot;
+</code></pre>
+<p><strong>Define provisioning network</strong></p>
+<pre><code class="language-bash">chdef -t network netname=provnet net=172.18.0.0 mask=255.255.255.0 gateway=172.18.0.1 mgtifname=eth1
+</code></pre>
+<p><strong>Configure DHCP IP range</strong></p>
+<pre><code class="language-bash">chdef -t network provnet dynamicrange=172.18.0.100-172.18.0.200
+</code></pre>
+<p><strong>Modify node IP</strong></p>
+<pre><code class="language-bash">chdef cn001 ip=172.18.0.101
+</code></pre>
+<p><strong>Assign node to group</strong></p>
+<pre><code class="language-bash">chdef cn001 groups=compute
+</code></pre>
+<hr />
+<h1 id="92-mkdef-command-make-definition">9.2 <code>mkdef</code> Command (Make Definition)<a class="headerlink" href="#92-mkdef-command-make-definition" title="Permanent link">&para;</a></h1>
+<p>The <code>mkdef</code> command is used to <strong>create new objects</strong> in the xCAT database such as compute nodes or node groups.</p>
+<h3 id="syntax_1">Syntax<a class="headerlink" href="#syntax_1" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">mkdef -t node &lt;node-name&gt; &lt;attribute&gt;=&lt;value&gt;
+</code></pre>
+<h3 id="common-examples_1">Common Examples<a class="headerlink" href="#common-examples_1" title="Permanent link">&para;</a></h3>
+<p><strong>Create a compute node</strong></p>
+<pre><code class="language-bash">mkdef -t node cn001 ip=172.18.0.101 mac=AA:BB:CC:DD:EE:FF groups=compute
+</code></pre>
+<p><strong>Create multiple nodes</strong></p>
+<pre><code class="language-bash">mkdef -t node cn[001-010] groups=compute
+</code></pre>
+<p><strong>Create a node group</strong></p>
+<pre><code class="language-bash">mkdef -t group compute
+</code></pre>
+<hr />
+<h1 id="93-lsdef-command-list-definition">9.3 <code>lsdef</code> Command (List Definition)<a class="headerlink" href="#93-lsdef-command-list-definition" title="Permanent link">&para;</a></h1>
+<p>The <code>lsdef</code> command is used to <strong>display object definitions</strong> stored in the xCAT database.</p>
+<h3 id="syntax_2">Syntax<a class="headerlink" href="#syntax_2" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">lsdef &lt;object-name&gt;
+</code></pre>
+<h3 id="common-examples_2">Common Examples<a class="headerlink" href="#common-examples_2" title="Permanent link">&para;</a></h3>
+<p><strong>View specific node configuration</strong></p>
+<pre><code class="language-bash">lsdef cn001
+</code></pre>
+<p><strong>List all defined nodes</strong></p>
+<pre><code class="language-bash">lsdef -t node
+</code></pre>
+<p><strong>List network configuration</strong></p>
+<pre><code class="language-bash">lsdef -t network
+</code></pre>
+<p><strong>List OS images</strong></p>
+<pre><code class="language-bash">lsdef -t osimage
+</code></pre>
+<p><strong>Check xCAT version</strong></p>
+<pre><code class="language-bash">lsdef -v
+</code></pre>
+<p>Example output:</p>
+<pre><code>lsdef - Version 2.17.0
+</code></pre>
+<hr />
+<h1 id="94-useful-supporting-commands">9.4 Useful Supporting Commands<a class="headerlink" href="#94-useful-supporting-commands" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tabdump site</code></td>
+<td>View site configuration</td>
+</tr>
+<tr>
+<td><code>makedhcp -n</code></td>
+<td>Generate DHCP configuration</td>
+</tr>
+<tr>
+<td><code>makedhcp -a</code></td>
+<td>Apply DHCP configuration</td>
+</tr>
+<tr>
+<td><code>nodeset</code></td>
+<td>Set node boot state</td>
+</tr>
+<tr>
+<td><code>rinstall</code></td>
+<td>Start remote installation</td>
+</tr>
+<tr>
+<td><code>nodestat</code></td>
+<td>Check node provisioning status</td>
+</tr>
+<tr>
+<td><code>xcatprobe xcatmn</code></td>
+<td>Verify management node configuration</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="10-node-provisioning">10. Node Provisioning<a class="headerlink" href="#10-node-provisioning" title="Permanent link">&para;</a></h1>
+<p>Explain PXE boot installation.</p>
+<p>Steps:</p>
+<ol>
+<li>Node boots</li>
+<li>DHCP gives IP</li>
+<li>TFTP loads boot file</li>
+<li>OS installation starts</li>
+</ol>
+<hr />
+<h1 id="11-useful-xcat-commands">11. Useful xCAT Commands<a class="headerlink" href="#11-useful-xcat-commands" title="Permanent link">&para;</a></h1>
+<p>Example table:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nodels</td>
+<td>list nodes</td>
+</tr>
+<tr>
+<td>lsdef</td>
+<td>show node definitions</td>
+</tr>
+<tr>
+<td>rpower</td>
+<td>power control</td>
+</tr>
+<tr>
+<td>nodeset</td>
+<td>set boot method</td>
+</tr>
+<tr>
+<td>updatenode</td>
+<td>update nodes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="12-troubleshooting">12. Troubleshooting<a class="headerlink" href="#12-troubleshooting" title="Permanent link">&para;</a></h1>
+<p>Include real problems you faced.</p>
+<p>Example:</p>
+<h3 id="pxe-boot-failure">PXE Boot Failure<a class="headerlink" href="#pxe-boot-failure" title="Permanent link">&para;</a></h3>
+<p>Check:</p>
+<pre><code>systemctl status dhcpd
+systemctl status tftp
+systemctl status httpd
+</code></pre>
+<h3 id="boot-files-missing">Boot Files Missing<a class="headerlink" href="#boot-files-missing" title="Permanent link">&para;</a></h3>
+<p>Check:</p>
+<pre><code>/tftpboot
+</code></pre>
+<hr />
+<h1 id="13-gui-access-optional">13. GUI Access (Optional)<a class="headerlink" href="#13-gui-access-optional" title="Permanent link">&para;</a></h1>
+<p>Explain xCAT Web UI if you installed it.</p>
+<p>Explain:</p>
+<ul>
+<li>how to access</li>
+<li>port</li>
+<li>login</li>
+</ul>
+<hr />
+<h1 id="14-conclusion">14. Conclusion<a class="headerlink" href="#14-conclusion" title="Permanent link">&para;</a></h1>
+<p>Explain what you achieved.</p>
+<p>Example:</p>
+<ul>
+<li>Successfully configured xCAT environment</li>
+<li>Enabled PXE boot</li>
+<li>Deployed compute nodes automatically</li>
+</ul>
+<hr />
+<h1 id="pro-tip-important">Pro Tip (Important)<a class="headerlink" href="#pro-tip-important" title="Permanent link">&para;</a></h1>
+<p>Do NOT just write commands.</p>
+<p>Write like this:</p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p>Step: Start TFTP Service</p>
+<pre><code>systemctl enable tftp
+systemctl start tftp
+</code></pre>
+<p>Explanation:</p>
+<p>TFTP service is used to provide boot files to compute nodes during PXE boot.</p>
+<hr />
+<h1 id="optional-advanced-sections-very-good-for-hpc">Optional Advanced Sections (Very Good for HPC)<a class="headerlink" href="#optional-advanced-sections-very-good-for-hpc" title="Permanent link">&para;</a></h1>
+<p>You can add later:</p>
+<ul>
+<li>Diskless nodes</li>
+<li>GPU node provisioning</li>
+<li>InfiniBand configuration</li>
+<li>Integration with Mellanox Unified Fabric Manager</li>
+</ul>
+<p>If you want, I can also help you create a <strong>complete professional xCAT documentation template (MkDocs ready)</strong> so you can directly paste it into your docs.</p>
+<p>It will look like <strong>real HPC deployment documentation</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

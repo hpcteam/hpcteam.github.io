@@ -1,0 +1,2417 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Slurm/">
+      
+      
+        <link rel="next" href="../Jobs-query/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>RPM BUILD FROM SOURCODE - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#important-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RPM BUILD FROM SOURCODE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Home/Professional-Summary/" class="md-tabs__link">
+          
+  
+  
+  Profile
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Installation/Overview/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Quiz/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Home/contact/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Home/Professional-Summary/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Note
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brightclustermanager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bright Cluster Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GitHub_Pages_MkDocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Pages CI/CD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyperthreading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hyperthreading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logical%20Volume%20Manager%20%28LVM%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Local_repo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Repo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module-File/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is module file
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NFS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NFS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PIP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PIP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slurm Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPM BUILD FROM SOURCODE
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPM BUILD FROM SOURCODE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is rpmbuild?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is rpmbuild?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-simple-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In simple words:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-rpm-packages-are-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why RPM Packages Are Used
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problems-without-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problems Without rpmbuild
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-use-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Why Use rpmbuild
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Why Use rpmbuild">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-it-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it is needed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of rpmbuild
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-required-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Install Required Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Install Required Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-verify-rpmbuild-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Verify rpmbuild Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-rpm-build-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create RPM Build Directory Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Create RPM Build Directory Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#created-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Created structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-download-slurm-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Download Slurm Source Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-extract-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Extract Source Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-copy-slurm-spec-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Copy Slurm SPEC File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-run-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Run rpmbuild
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-the-build-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why the Build Failed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-install-slurm-build-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Install Slurm Build Dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Install Slurm Build Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-run-rpmbuild-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Run rpmbuild Again
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Run rpmbuild Again">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-internally-during-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens internally during rpmbuild
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-generated-rpm-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Generated RPM Packages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Generated RPM Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-rpms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example RPMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Jobs-query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Job-Query
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_16" id="__nav_3_16_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lustre File System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_16">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lustre File System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lustre/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lustre
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lustre-installtion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17" id="__nav_3_17_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scripts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scripts/run.sh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Run Script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../Installation/Overview/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../Quiz/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Home/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is rpmbuild?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is rpmbuild?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-simple-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In simple words:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-rpm-packages-are-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why RPM Packages Are Used
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problems-without-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problems Without rpmbuild
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-use-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Why Use rpmbuild
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Why Use rpmbuild">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-it-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it is needed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benefits-of-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of rpmbuild
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-required-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Install Required Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Install Required Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-verify-rpmbuild-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Verify rpmbuild Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-rpm-build-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create RPM Build Directory Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Create RPM Build Directory Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#created-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Created structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-download-slurm-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Download Slurm Source Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-extract-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Extract Source Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-copy-slurm-spec-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Copy Slurm SPEC File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-run-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Run rpmbuild
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-the-build-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why the Build Failed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-install-slurm-build-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Install Slurm Build Dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Install Slurm Build Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-run-rpmbuild-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Run rpmbuild Again
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Run rpmbuild Again">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-internally-during-rpmbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens internally during rpmbuild
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-generated-rpm-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Generated RPM Packages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Generated RPM Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-rpms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example RPMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Documents
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>RPM BUILD FROM SOURCODE</h1>
+
+<h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link">&para;</a></h2>
+<p>This document describes how I installed and configured <code>rpmbuild</code> from source, set up the necessary environment for building RPM packages, and successfully built an RPM for Slurm. The steps outlined here were part of my self-learning journey to enhance my skills in RPM package creation and cluster management.</p>
+<ul>
+<li><strong>Self-learning Focus</strong>: This guide is designed for self-learning and improving my skills in RPM packaging and system administration. It is not intended for deployment in production environments without further testing and adjustments.</li>
+<li><strong>Tested on Laptop</strong>: The setup and build process described in this document were tested on my personal laptop. For larger-scale or multi-node environments, additional configuration and testing are required to ensure compatibility.</li>
+<li><strong>Build Dependencies</strong>: During the process, I encountered dependency issues that were resolved by installing the required <code>-devel</code> packages. Ensure all dependencies are checked before starting the build process.</li>
+</ul>
+<h2 id="what-is-rpmbuild">What is <code>rpmbuild</code>?<a class="headerlink" href="#what-is-rpmbuild" title="Permanent link">&para;</a></h2>
+<p><strong><code>rpmbuild</code></strong> is a Linux tool used to <strong>create RPM packages from source code</strong>.</p>
+<h3 id="in-simple-words">In simple words:<a class="headerlink" href="#in-simple-words" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong><code>rpmbuild</code> converts source code into <code>.rpm</code> files</strong></p>
+</blockquote>
+<p>These RPM files can then be installed, upgraded, or removed using standard package managers like:</p>
+<ul>
+<li><code>dnf</code></li>
+<li><code>rpm</code></li>
+</ul>
+<hr />
+<h2 id="why-rpm-packages-are-used">Why RPM Packages Are Used<a class="headerlink" href="#why-rpm-packages-are-used" title="Permanent link">&para;</a></h2>
+<p>On <strong>Rocky Linux</strong>, <strong>RHEL</strong>, and <strong>CentOS</strong>, software is managed using <strong>RPM packages</strong>.</p>
+<p><strong>RPM</strong> stands for <strong>Red Hat Package Manager</strong>.</p>
+<p>RPM packages help to:</p>
+<ul>
+<li>Install software easily</li>
+<li>Track installed versions</li>
+<li>Remove software cleanly</li>
+<li>Upgrade software safely</li>
+<li>Manage dependencies automatically</li>
+</ul>
+<hr />
+<h2 id="problems-without-rpmbuild">Problems Without <code>rpmbuild</code><a class="headerlink" href="#problems-without-rpmbuild" title="Permanent link">&para;</a></h2>
+<p>If software is installed directly from source using:</p>
+<pre><code class="language-bash">./configure
+make
+make install
+</code></pre>
+<p>It creates several issues:</p>
+<p>❌ No record of installed files</p>
+<p>❌ Difficult to uninstall</p>
+<p>❌ Hard to upgrade</p>
+<p>❌ Not suitable for multiple systems</p>
+<p>❌ No dependency tracking</p>
+<p>This approach is <strong>not recommended</strong> for production or cluster environments.</p>
+<hr />
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
+<p>In RHEL-based systems like <strong>Rocky Linux</strong>, software distribution is done using <strong>RPM packages</strong>.
+The <code>rpmbuild</code> tool is used to convert <strong>source code</strong> into <strong>RPM files</strong> that follow system standards.</p>
+<p>This document explains step by step how to:</p>
+<ul>
+<li>Set up an RPM build environment</li>
+<li>Build RPMs using <code>rpmbuild</code></li>
+<li>Understand build dependency failures</li>
+<li>Successfully generate <strong>Slurm RPM packages</strong></li>
+</ul>
+<hr />
+<h2 id="2-why-use-rpmbuild">2. Why Use <code>rpmbuild</code><a class="headerlink" href="#2-why-use-rpmbuild" title="Permanent link">&para;</a></h2>
+<h3 id="why-it-is-needed">Why it is needed<a class="headerlink" href="#why-it-is-needed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Manual source installations are hard to manage</li>
+<li>No clean uninstall or upgrade path</li>
+<li>Difficult to deploy across multiple nodes</li>
+</ul>
+<h3 id="benefits-of-rpmbuild">Benefits of <code>rpmbuild</code><a class="headerlink" href="#benefits-of-rpmbuild" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Standard package management</li>
+<li>Clean install and uninstall</li>
+<li>Version tracking</li>
+<li>Easy cluster-wide deployment (HPC-friendly)</li>
+</ul>
+<hr />
+<h2 id="3-install-required-tools">3. Install Required Tools<a class="headerlink" href="#3-install-required-tools" title="Permanent link">&para;</a></h2>
+<h3 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h3>
+<p>To prepare the system for building RPMs from source code.</p>
+<pre><code class="language-bash">dnf install rpm-build rpmdevtools gcc make autoconf automake libtool wget tar
+</code></pre>
+<p><img alt="Installing rpm-build tools" src="/assets/source-rpm/yuminstall.png" /></p>
+<hr />
+<h2 id="4-verify-rpmbuild-installation">4. Verify <code>rpmbuild</code> Installation<a class="headerlink" href="#4-verify-rpmbuild-installation" title="Permanent link">&para;</a></h2>
+<p>Ensure <code>rpmbuild</code> is installed and available.</p>
+<pre><code class="language-bash">rpm -qa | grep rpm-build
+</code></pre>
+<p><img alt="Checking rpm-build installation" src="/assets/source-rpm/checking-rpm-build-installed-or-not.png" /></p>
+<hr />
+<h2 id="5-create-rpm-build-directory-structure">5. Create RPM Build Directory Structure<a class="headerlink" href="#5-create-rpm-build-directory-structure" title="Permanent link">&para;</a></h2>
+<p><code>rpmbuild</code> requires a <strong>standard directory layout</strong> to work correctly.</p>
+<pre><code class="language-bash">rpmdev-setuptree
+</code></pre>
+<h3 id="created-structure">Created structure<a class="headerlink" href="#created-structure" title="Permanent link">&para;</a></h3>
+<pre><code class="language-text">~/rpmbuild/
+├── BUILD
+├── RPMS
+├── SOURCES
+├── SPECS
+└── SRPMS
+</code></pre>
+<p><img alt="rpmdev setuptree" src="/assets/source-rpm/rpmdev-setuptree.png" /></p>
+<hr />
+<h2 id="6-download-slurm-source-code">6. Download Slurm Source Code<a class="headerlink" href="#6-download-slurm-source-code" title="Permanent link">&para;</a></h2>
+<p>RPM packages are always built from <strong>source archives</strong>.</p>
+<pre><code class="language-bash">wget https://download.schedmd.com/slurm/slurm-24.11.7.tar.bz2
+</code></pre>
+<p>Move the source archive to the SOURCES directory:</p>
+<pre><code class="language-bash">mv slurm-24.11.7.tar.bz2 ~/rpmbuild/SOURCES/
+</code></pre>
+<p><img alt="Downloading Slurm source code" src="/assets/source-rpm/downloading sourecode.png" /></p>
+<hr />
+<h2 id="7-extract-source-code">7. Extract Source Code<a class="headerlink" href="#7-extract-source-code" title="Permanent link">&para;</a></h2>
+<p>Verify the contents of the source archive before building.</p>
+<pre><code class="language-bash">cd ~/rpmbuild/SOURCES
+tar xf slurm-24.11.7.tar.bz2
+ls
+</code></pre>
+<p><img alt="Extracting source archive" src="/assets/source-rpm/tar extract.png" /></p>
+<hr />
+<h2 id="8-copy-slurm-spec-file">8. Copy Slurm SPEC File<a class="headerlink" href="#8-copy-slurm-spec-file" title="Permanent link">&para;</a></h2>
+<p>The <strong>SPEC file</strong> controls the entire RPM build process.</p>
+<pre><code class="language-bash">cp slurm-24.11.7/slurm.spec ~/rpmbuild/SPECS/
+</code></pre>
+<p><img alt="Copying spec file" src="/assets/source-rpm/cpoing.specfile.png" /></p>
+<hr />
+<h2 id="9-run-rpmbuild">9. Run <code>rpmbuild</code><a class="headerlink" href="#9-run-rpmbuild" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">cd ~/rpmbuild/SPECS
+rpmbuild -ba slurm.spec
+</code></pre>
+<p>The build fails due to <strong>missing build dependencies</strong>.</p>
+<p><img alt="rpmbuild failed" src="/assets/source-rpm/rpmbuild-faild.png" /></p>
+<hr />
+<h2 id="why-the-build-failed">Why the Build Failed<a class="headerlink" href="#why-the-build-failed" title="Permanent link">&para;</a></h2>
+<p><code>rpmbuild</code> checks the <strong>BuildRequires</strong> section in the SPEC file.</p>
+<p>If required <code>*-devel</code> packages are missing:</p>
+<ul>
+<li>The build stops immediately</li>
+<li>This prevents creating broken RPMs</li>
+</ul>
+<p>This behavior is <strong>expected and correct</strong>.</p>
+<hr />
+<h2 id="10-install-slurm-build-dependencies">10. Install Slurm Build Dependencies<a class="headerlink" href="#10-install-slurm-build-dependencies" title="Permanent link">&para;</a></h2>
+<h3 id="required-packages">Required packages<a class="headerlink" href="#required-packages" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>mariadb-devel</code></li>
+<li><code>munge-devel</code></li>
+<li><code>pam-devel</code></li>
+<li><code>readline-devel</code></li>
+</ul>
+<pre><code class="language-bash">dnf install mariadb-devel munge-devel pam-devel readline-devel
+</code></pre>
+<p><img alt="Installing build dependencies" src="/assets/source-rpm/installed-dependeces-for-source-pacaage.png" /></p>
+<hr />
+<h2 id="11-run-rpmbuild-again">11. Run <code>rpmbuild</code> Again<a class="headerlink" href="#11-run-rpmbuild-again" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">rpmbuild -ba slurm.spec
+</code></pre>
+<p><img alt="rpmbuild output" src="/assets/source-rpm/rpmbuild.png" /></p>
+<p><img alt="rpmbuild success" src="/assets/source-rpm/rpmbuild-final-sucess.png" /></p>
+<hr />
+<h3 id="what-happens-internally-during-rpmbuild">What happens internally during <code>rpmbuild</code><a class="headerlink" href="#what-happens-internally-during-rpmbuild" title="Permanent link">&para;</a></h3>
+<ol>
+<li><code>%prep</code> – Unpacks source code</li>
+<li><code>%build</code> – Compiles Slurm</li>
+<li><code>%install</code> – Installs files into buildroot</li>
+<li><code>%files</code> – Selects files for packaging</li>
+<li>RPM packages are generated</li>
+</ol>
+<hr />
+<h2 id="12-generated-rpm-packages">12. Generated RPM Packages<a class="headerlink" href="#12-generated-rpm-packages" title="Permanent link">&para;</a></h2>
+<h3 id="location">Location<a class="headerlink" href="#location" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">~/rpmbuild/RPMS/x86_64/
+</code></pre>
+<h3 id="example-rpms">Example RPMs<a class="headerlink" href="#example-rpms" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>slurm-24.11.7-1.el9.x86_64.rpm</code></li>
+<li><code>slurm-slurmd-24.11.7-1.el9.x86_64.rpm</code></li>
+<li><code>slurm-slurmctld-24.11.7-1.el9.x86_64.rpm</code></li>
+<li><code>slurm-slurmdbd-24.11.7-1.el9.x86_64.rpm</code></li>
+<li><code>slurm-devel-24.11.7-1.el9.x86_64.rpm</code></li>
+</ul>
+<p><img alt="RPMs created successfully" src="/assets/source-rpm/rpm-created.png" /></p>
+<hr />
+<h2 id="final-summary">Final Summary<a class="headerlink" href="#final-summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>rpmbuild</code> is the <strong>standard RPM build tool</strong> for RHEL-based systems</li>
+<li>It converts <strong>source code → RPM packages</strong></li>
+<li>SPEC file controls the entire process</li>
+<li>Dependency checks ensure safe and reliable builds</li>
+<li>This method is <strong>production-ready and HPC-friendly</strong></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

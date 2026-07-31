@@ -1,0 +1,3000 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../theory/">
+      
+      
+        <link rel="next" href="../gpu-installation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>CPU Installation - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lammps-installation-for-compute-nodes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CPU Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Home/Professional-Summary/" class="md-tabs__link">
+          
+  
+  
+  Profile
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Overview/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Quiz/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../Home/contact/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../Home/Professional-Summary/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Note
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Anaconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python-Offline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python-3.14.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Metis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    METIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SU2_Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SU2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Openmpi-ucx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI-UCX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OPEN-FOAM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenFOAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Intel-toolkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intel Toolkit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenPBS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenPbs-23.06.06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP (Lightweight Directory Access Protocol)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XCAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mpfr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPFR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwclock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HWClock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hpl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hpcg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hpcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_22" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_22" id="__nav_5_22_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAMMPS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_22_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LAMMPS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Installation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lammps-installation-for-compute-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LAMMPS Installation For compute-nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-cluster-software-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create Cluster Software Directory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Create Cluster Software Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-extract-lammps-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Extract LAMMPS Source
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Extract LAMMPS Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-build-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create Build Directory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Create Build Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configure-build-with-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configure Build with CMake
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configure Build with CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-cmake-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What CMake Does
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explanation-of-each-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation of Each Flag
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of Each Flag">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-d-cmake_install_prefixappslammps22jul2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D CMAKE_INSTALL_PREFIX=/apps/lammps/22Jul2025
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-build_mpion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D BUILD_MPI=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-build_ompon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D BUILD_OMP=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_moleculeon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_MOLECULE=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_kspaceon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_KSPACE=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_manybodyon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_MANYBODY=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_extra-computeon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_EXTRA-COMPUTE=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_extra-fixon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_EXTRA-FIX=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_extra-pairon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_EXTRA-PAIR=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-compile-lammps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Compile LAMMPS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Compile LAMMPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-install-lammps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Install LAMMPS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Install LAMMPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-installation-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why installation is needed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-add-lammps-to-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Add LAMMPS to PATH
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Add LAMMPS to PATH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this is needed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-configure-environment-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Configure Environment Script
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Configure Environment Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-useful" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is useful
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-the-script-does-internally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the script does internally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-it-permanent-for-all-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making it permanent for all users
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lammps-installation-test-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LAMMPS Installation Test Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LAMMPS Installation Test Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-file-used-for-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input File Used for Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../Quiz/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Home/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lammps-installation-for-compute-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LAMMPS Installation For compute-nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-cluster-software-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create Cluster Software Directory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Create Cluster Software Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-extract-lammps-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Extract LAMMPS Source
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Extract LAMMPS Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-build-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create Build Directory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Create Build Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configure-build-with-cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configure Build with CMake
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configure Build with CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-cmake-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What CMake Does
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explanation-of-each-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation of Each Flag
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of Each Flag">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-d-cmake_install_prefixappslammps22jul2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D CMAKE_INSTALL_PREFIX=/apps/lammps/22Jul2025
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-build_mpion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D BUILD_MPI=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-build_ompon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D BUILD_OMP=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_moleculeon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_MOLECULE=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_kspaceon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_KSPACE=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_manybodyon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_MANYBODY=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_extra-computeon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_EXTRA-COMPUTE=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_extra-fixon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_EXTRA-FIX=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-d-pkg_extra-pairon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -D PKG_EXTRA-PAIR=on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-compile-lammps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Compile LAMMPS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Compile LAMMPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-install-lammps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Install LAMMPS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Install LAMMPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-installation-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why installation is needed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-add-lammps-to-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Add LAMMPS to PATH
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Add LAMMPS to PATH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this is needed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-configure-environment-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Configure Environment Script
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Configure Environment Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-useful" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is useful
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-the-script-does-internally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the script does internally
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-it-permanent-for-all-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making it permanent for all users
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lammps-installation-test-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LAMMPS Installation Test Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LAMMPS Installation Test Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-file-used-for-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input File Used for Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Note
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../Overview/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Installation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../theory/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    LAMMPS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h2 id="lammps-installation-for-compute-nodes">LAMMPS Installation For compute-nodes<a class="headerlink" href="#lammps-installation-for-compute-nodes" title="Permanent link">&para;</a></h2>
+<p>This guide explains how to install <strong>LAMMPS</strong> on <strong>Red Hat Enterprise Linux (RHEL)</strong> for an HPC cluster environment with <strong>MPI and OpenMP</strong> support. Each step and flag is explained so administrators understand <em>why it is required</em>.</p>
+<hr />
+<h2 id="1-create-cluster-software-directory">1. Create Cluster Software Directory<a class="headerlink" href="#1-create-cluster-software-directory" title="Permanent link">&para;</a></h2>
+<p>Most HPC systems install applications in a <strong>shared filesystem</strong> so all compute nodes can access the same binaries.</p>
+<p>Typical locations:</p>
+<ul>
+<li><code>/apps</code></li>
+<li><code>/opt/apps</code></li>
+<li><code>/shared/software</code></li>
+</ul>
+<p>Command:</p>
+<pre><code class="language-bash">mkdir -p /apps/lammps
+cd /apps/lammps
+</code></pre>
+<h3 id="why-this-step-is-required">Why this step is required<a class="headerlink" href="#why-this-step-is-required" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mkdir -p</code></td>
+<td>Creates the directory structure for software installation</td>
+</tr>
+<tr>
+<td><code>/apps/lammps</code></td>
+<td>Central location so login nodes and compute nodes can access LAMMPS</td>
+</tr>
+</tbody>
+</table>
+<p>This structure also allows <strong>multiple LAMMPS versions</strong> to coexist.</p>
+<p>Example:</p>
+<pre><code>/apps/lammps/2024
+/apps/lammps/2025
+</code></pre>
+<hr />
+<h2 id="2-extract-lammps-source">2. Extract LAMMPS Source<a class="headerlink" href="#2-extract-lammps-source" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">tar -xvf lammps-22Jul2025.tar.gz
+cd lammps-22Jul2025
+</code></pre>
+<h3 id="why-this-step-is-required_1">Why this step is required<a class="headerlink" href="#why-this-step-is-required_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tar -xvf</code></td>
+<td>Extracts the compressed source code archive</td>
+</tr>
+</tbody>
+</table>
+<p>After extraction, the directory contains:</p>
+<pre><code>bench/      Benchmark inputs
+cmake/      Build configuration files
+examples/   Example simulations
+lib/        External libraries
+src/        Core LAMMPS source code
+</code></pre>
+<hr />
+<h2 id="3-create-build-directory">3. Create Build Directory<a class="headerlink" href="#3-create-build-directory" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">mkdir build
+cd build
+</code></pre>
+<h3 id="why-this-step-is-required_2">Why this step is required<a class="headerlink" href="#why-this-step-is-required_2" title="Permanent link">&para;</a></h3>
+<p>LAMMPS uses <strong>CMake out-of-source builds</strong>.</p>
+<p>Advantages:</p>
+<ul>
+<li>Keeps source code clean</li>
+<li>Allows multiple build configurations</li>
+<li>Easier upgrades and rebuilds</li>
+</ul>
+<p>Example:</p>
+<pre><code>lammps-22Jul2025/
+ ├── src
+ ├── cmake
+ └── build
+</code></pre>
+<p>The <code>build</code> directory will store:</p>
+<ul>
+<li>object files</li>
+<li>compiled binaries</li>
+<li>temporary build configuration</li>
+</ul>
+<hr />
+<h2 id="4-configure-build-with-cmake">4. Configure Build with CMake<a class="headerlink" href="#4-configure-build-with-cmake" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">cmake ../cmake \
+-D CMAKE_INSTALL_PREFIX=/apps/lammps/22Jul2025 \
+-D BUILD_MPI=on \
+-D BUILD_OMP=on \
+-D PKG_MOLECULE=on \
+-D PKG_KSPACE=on \
+-D PKG_MANYBODY=on \
+-D PKG_EXTRA-COMPUTE=on \
+-D PKG_EXTRA-FIX=on \
+-D PKG_EXTRA-PAIR=on
+</code></pre>
+<h3 id="what-cmake-does">What CMake Does<a class="headerlink" href="#what-cmake-does" title="Permanent link">&para;</a></h3>
+<p>CMake prepares the <strong>build configuration</strong> by:</p>
+<ul>
+<li>Detecting compilers</li>
+<li>Checking system libraries</li>
+<li>Enabling requested packages</li>
+<li>Generating Makefiles</li>
+</ul>
+<hr />
+<h1 id="explanation-of-each-flag">Explanation of Each Flag<a class="headerlink" href="#explanation-of-each-flag" title="Permanent link">&para;</a></h1>
+<h2 id="-d-cmake_install_prefixappslammps22jul2025"><code>-D CMAKE_INSTALL_PREFIX=/apps/lammps/22Jul2025</code><a class="headerlink" href="#-d-cmake_install_prefixappslammps22jul2025" title="Permanent link">&para;</a></h2>
+<p>Defines where the compiled software will be installed.</p>
+<p>Without this flag, CMake installs to:</p>
+<pre><code>/usr/local
+</code></pre>
+<p>Cluster administrators prefer custom paths so they can manage versions.</p>
+<p>Resulting structure:</p>
+<pre><code>/apps/lammps/22Jul2025
+ ├── bin
+ ├── lib
+ └── share
+</code></pre>
+<hr />
+<h2 id="-d-build_mpion"><code>-D BUILD_MPI=on</code><a class="headerlink" href="#-d-build_mpion" title="Permanent link">&para;</a></h2>
+<p>Enables <strong>MPI parallel execution</strong>.</p>
+<p>MPI allows simulations to run across multiple nodes.</p>
+<p>Example:</p>
+<pre><code>mpirun -np 64 lmp -in input.in
+</code></pre>
+<p>Without MPI:</p>
+<ul>
+<li>LAMMPS runs on <strong>one CPU only</strong></li>
+<li>Cannot scale to cluster workloads</li>
+</ul>
+<p>MPI is essential for:</p>
+<ul>
+<li>large atom simulations</li>
+<li>multi-node scaling</li>
+<li>production HPC workloads</li>
+</ul>
+<hr />
+<h2 id="-d-build_ompon"><code>-D BUILD_OMP=on</code><a class="headerlink" href="#-d-build_ompon" title="Permanent link">&para;</a></h2>
+<p>Enables <strong>OpenMP threading</strong>.</p>
+<p>OpenMP allows each MPI process to use <strong>multiple CPU cores</strong>.</p>
+<p>Example configuration:</p>
+<pre><code>MPI ranks: 8
+OpenMP threads per rank: 8
+Total cores used: 64
+</code></pre>
+<p>Benefits:</p>
+<ul>
+<li>better CPU utilization</li>
+<li>improved memory sharing</li>
+<li>faster performance on multi-core nodes</li>
+</ul>
+<hr />
+<h2 id="-d-pkg_moleculeon"><code>-D PKG_MOLECULE=on</code><a class="headerlink" href="#-d-pkg_moleculeon" title="Permanent link">&para;</a></h2>
+<p>Enables <strong>molecular topology features</strong>.</p>
+<p>Required for simulations containing:</p>
+<ul>
+<li>bonds</li>
+<li>angles</li>
+<li>dihedrals</li>
+</ul>
+<p>Without this package:</p>
+<p>LAMMPS cannot simulate:</p>
+<ul>
+<li>polymers</li>
+<li>biomolecules</li>
+<li>complex molecular systems</li>
+</ul>
+<hr />
+<h2 id="-d-pkg_kspaceon"><code>-D PKG_KSPACE=on</code><a class="headerlink" href="#-d-pkg_kspaceon" title="Permanent link">&para;</a></h2>
+<p>Enables <strong>long-range electrostatic solvers</strong>.</p>
+<p>Important for simulations involving:</p>
+<ul>
+<li>charged particles</li>
+<li>ionic systems</li>
+<li>biomolecules</li>
+</ul>
+<p>Algorithms included:</p>
+<ul>
+<li>PPPM</li>
+<li>Ewald</li>
+</ul>
+<p>These methods compute electrostatic forces efficiently.</p>
+<hr />
+<h2 id="-d-pkg_manybodyon"><code>-D PKG_MANYBODY=on</code><a class="headerlink" href="#-d-pkg_manybodyon" title="Permanent link">&para;</a></h2>
+<p>Adds <strong>many-body potential models</strong>.</p>
+<p>Examples:</p>
+<ul>
+<li>Tersoff</li>
+<li>Stillinger–Weber</li>
+<li>Embedded Atom Method</li>
+</ul>
+<p>Used in simulations of:</p>
+<ul>
+<li>semiconductors</li>
+<li>metals</li>
+<li>materials science</li>
+</ul>
+<hr />
+<h2 id="-d-pkg_extra-computeon"><code>-D PKG_EXTRA-COMPUTE=on</code><a class="headerlink" href="#-d-pkg_extra-computeon" title="Permanent link">&para;</a></h2>
+<p>Adds additional <strong>analysis calculations</strong>.</p>
+<p>Examples:</p>
+<ul>
+<li>stress tensors</li>
+<li>structural analysis</li>
+<li>advanced diagnostics</li>
+</ul>
+<p>Useful for research workloads.</p>
+<hr />
+<h2 id="-d-pkg_extra-fixon"><code>-D PKG_EXTRA-FIX=on</code><a class="headerlink" href="#-d-pkg_extra-fixon" title="Permanent link">&para;</a></h2>
+<p>Adds extra <strong>simulation control features</strong>.</p>
+<p>"Fix" commands control system behavior such as:</p>
+<ul>
+<li>thermostats</li>
+<li>constraints</li>
+<li>time integration</li>
+</ul>
+<p>Extra fixes expand simulation capabilities.</p>
+<hr />
+<h2 id="-d-pkg_extra-pairon"><code>-D PKG_EXTRA-PAIR=on</code><a class="headerlink" href="#-d-pkg_extra-pairon" title="Permanent link">&para;</a></h2>
+<p>Adds additional <strong>pair interaction potentials</strong>.</p>
+<p>These define how atoms interact.</p>
+<p>Examples include:</p>
+<ul>
+<li>Lennard-Jones variants</li>
+<li>Buckingham potentials</li>
+</ul>
+<p>More pair styles allow broader simulation types.</p>
+<hr />
+<h2 id="5-compile-lammps">5. Compile LAMMPS<a class="headerlink" href="#5-compile-lammps" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">make -j
+</code></pre>
+<h3 id="explanation">Explanation<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>make</code></td>
+<td>Compiles the source code</td>
+</tr>
+<tr>
+<td><code>-j</code></td>
+<td>Enables parallel compilation</td>
+</tr>
+</tbody>
+</table>
+<p>Parallel compilation significantly reduces build time.</p>
+<p>Example:</p>
+<pre><code>64-core node → compilation uses 64 threads
+</code></pre>
+<hr />
+<h2 id="6-install-lammps">6. Install LAMMPS<a class="headerlink" href="#6-install-lammps" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">make install
+</code></pre>
+<h3 id="why-installation-is-needed">Why installation is needed<a class="headerlink" href="#why-installation-is-needed" title="Permanent link">&para;</a></h3>
+<p>Compilation creates binaries in the <strong>build directory</strong>, but installation moves them to the final location.</p>
+<p>Installed files include:</p>
+<pre><code>/apps/lammps/22Jul2025/bin/lmp
+/apps/lammps/22Jul2025/share/lammps
+</code></pre>
+<p>This makes the program available to cluster users.</p>
+<hr />
+<h2 id="7-add-lammps-to-path">7. Add LAMMPS to PATH<a class="headerlink" href="#7-add-lammps-to-path" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">export PATH=/apps/lammps/22Jul2025/bin:$PATH
+</code></pre>
+<h3 id="why-this-is-needed">Why this is needed<a class="headerlink" href="#why-this-is-needed" title="Permanent link">&para;</a></h3>
+<p>PATH tells the shell where to find executables.</p>
+<p>Without modifying PATH, users must run:</p>
+<pre><code>/apps/lammps/22Jul2025/bin/lmp
+</code></pre>
+<p>After updating PATH, they can simply run:</p>
+<pre><code>lmp
+</code></pre>
+<hr />
+<h2 id="8-configure-environment-script">8. Configure Environment Script<a class="headerlink" href="#8-configure-environment-script" title="Permanent link">&para;</a></h2>
+<p>LAMMPS provides an environment script that helps users automatically load required variables such as <code>PATH</code> and <code>LD_LIBRARY_PATH</code>.</p>
+<p>To activate it for the current shell:</p>
+<pre><code class="language-bash">source /apps/lammps/22Jul2025/etc/profile.d/lammps.sh
+</code></pre>
+<h3 id="why-this-step-is-useful">Why this step is useful<a class="headerlink" href="#why-this-step-is-useful" title="Permanent link">&para;</a></h3>
+<p>This script ensures users can run the <code>lmp</code> command without specifying the full path.</p>
+<p>Without the script:</p>
+<pre><code>/apps/lammps/22Jul2025/bin/lmp
+</code></pre>
+<p>With the script:</p>
+<pre><code>lmp
+</code></pre>
+<h3 id="what-the-script-does-internally">What the script does internally<a class="headerlink" href="#what-the-script-does-internally" title="Permanent link">&para;</a></h3>
+<p>The script typically sets environment variables such as:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PATH</code></td>
+<td>Adds the LAMMPS binary directory so commands are globally accessible</td>
+</tr>
+<tr>
+<td><code>LD_LIBRARY_PATH</code></td>
+<td>Ensures required shared libraries can be found</td>
+</tr>
+</tbody>
+</table>
+<p>Example effect:</p>
+<pre><code class="language-bash">export PATH=/apps/lammps/22Jul2025/bin:$PATH
+</code></pre>
+<h3 id="making-it-permanent-for-all-users">Making it permanent for all users<a class="headerlink" href="#making-it-permanent-for-all-users" title="Permanent link">&para;</a></h3>
+<p>System administrators can enable it globally:</p>
+<pre><code class="language-bash">cp /apps/lammps/22Jul2025/etc/profile.d/lammps.sh /etc/profile.d/
+</code></pre>
+<p>Reload environment:</p>
+<pre><code class="language-bash">source /etc/profile
+</code></pre>
+<p>Now every user on the system can run:</p>
+<pre><code class="language-bash">lmp -h
+</code></pre>
+<hr />
+<h1 id="lammps-installation-test-documentation">LAMMPS Installation Test Documentation<a class="headerlink" href="#lammps-installation-test-documentation" title="Permanent link">&para;</a></h1>
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
+<p>This document records a <strong>basic functionality test of LAMMPS</strong> to confirm that the software runs correctly in <strong>parallel using MPI</strong>.</p>
+<p>The test verifies:
+- LAMMPS execution
+- MPI parallel processing
+- Successful completion of a simulation run</p>
+<hr />
+<h2 id="test-command">Test Command<a class="headerlink" href="#test-command" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">mpirun -np 16 lmp -in in.lj_16cores | tee 16_cores.log
+</code></pre>
+<p>Explanation:</p>
+<ul>
+<li><code>mpirun</code> → launches MPI jobs</li>
+<li><code>-np 16</code> → runs the job on <strong>16 CPU cores</strong></li>
+<li><code>lmp</code> → LAMMPS executable</li>
+<li><code>-in in.lj_16cores</code> → input script</li>
+<li><code>tee 16_cores.log</code> → saves output to a log file</li>
+</ul>
+<hr />
+<h2 id="input-file-used-for-testing">Input File Used for Testing<a class="headerlink" href="#input-file-used-for-testing" title="Permanent link">&para;</a></h2>
+<p>File: <code>in.lj_16cores</code></p>
+<pre><code># LAMMPS parallel test for 16 cores
+# Lennard-Jones example (used only for testing)
+
+units           lj
+dimension       3
+boundary        p p p
+atom_style      atomic
+
+lattice         fcc 0.8442
+region          box block 0 16 0 16 0 16
+create_box      1 box
+create_atoms    1 box
+
+mass            1 1.0
+
+pair_style      lj/cut 2.5
+pair_coeff      1 1 1.0 1.0 2.5
+
+neighbor        0.3 bin
+neigh_modify    delay 5
+
+velocity        all create 1.44 87287
+
+fix             1 all nve
+
+thermo          500
+thermo_style    custom step temp pe ke etotal press
+
+timestep        0.005
+run             20000
+</code></pre>
+<hr />
+<h2 id="test-output">Test Output<a class="headerlink" href="#test-output" title="Permanent link">&para;</a></h2>
+<p>LAMMPS started successfully:</p>
+<pre><code>LAMMPS (22 Jul 2025 - Update 3)
+</code></pre>
+<p>MPI processor layout:</p>
+<pre><code>2 by 2 by 4 MPI processor grid
+</code></pre>
+<p>Atoms created:</p>
+<pre><code>Created 16384 atoms
+</code></pre>
+<p>Simulation completed:</p>
+<pre><code>Loop time of 14.5137 on 16 procs for 20000 steps with 16384 atoms
+</code></pre>
+<p>CPU usage:</p>
+<pre><code>99.8% CPU use with 16 MPI tasks x 1 OpenMP threads
+</code></pre>
+<p>Total runtime:</p>
+<pre><code>Total wall time: 0:00:14
+</code></pre>
+<hr />
+<h2 id="result">Result<a class="headerlink" href="#result" title="Permanent link">&para;</a></h2>
+<p>The simulation completed successfully without errors. This confirms that:</p>
+<ul>
+<li>LAMMPS is installed correctly</li>
+<li>MPI parallel execution is functioning</li>
+<li>The system can run multi-core LAMMPS jobs</li>
+</ul>
+<hr />
+<h1 id="note">Note<a class="headerlink" href="#note" title="Permanent link">&para;</a></h1>
+<p>The input file used in this test is based on <strong>public LAMMPS example scripts available online</strong> and is used only for <strong>installation and functionality testing purposes</strong>.</p>
+<p>This work was performed <strong>only for skill development and learning purposes</strong> to build practical experience with LAMMPS installation, MPI execution, and multi-core simulation testing.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

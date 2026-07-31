@@ -1,0 +1,3255 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Intel-toolkit/">
+      
+      
+        <link rel="next" href="../LDAP/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>OpenPbs-23.06.06 - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openpbs-230606" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenPbs-23.06.06
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Home/Professional-Summary/" class="md-tabs__link">
+          
+  
+  
+  Profile
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Overview/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Quiz/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Home/contact/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Home/Professional-Summary/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Note
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Anaconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python-Offline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python-3.14.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    METIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SU2_Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SU2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openmpi-ucx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI-UCX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OPEN-FOAM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenFOAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Intel-toolkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intel Toolkit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenPbs-23.06.06
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenPbs-23.06.06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-download-and-extract-openpbs-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Download and Extract OpenPBS Source
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Download and Extract OpenPBS Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-install-required-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Install Required Dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Install Required Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-are-these-packages-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why are these packages required?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-and-configure-postgresql-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Install and Configure PostgreSQL (Required)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Install and Configure PostgreSQL (Required)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-install-postgresql-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Install PostgreSQL Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-initialize-postgresql-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Initialize PostgreSQL Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-start-and-enable-postgresql-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Start and Enable PostgreSQL Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-generate-build-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Generate Build Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Generate Build Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configure-openpbs-installation-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Configure OpenPBS Installation Path
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Configure OpenPBS Installation Path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-compile-openpbs-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Compile OpenPBS Source Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Compile OpenPBS Source Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-install-openpbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Install OpenPBS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Install OpenPBS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-run-openpbs-post-installation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Run OpenPBS Post-Installation Script
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Run OpenPBS Post-Installation Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-verify-pbs-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Verify PBS Configuration File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Verify PBS Configuration File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-configuration-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this configuration means
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-set-required-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Set Required Permissions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Set Required Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-load-pbs-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Load PBS Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Load PBS Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-start-and-restart-pbs-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Start and Restart PBS Services
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Start and Restart PBS Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-enable-pbs-mom-on-the-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Enable PBS MOM on the Node
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Enable PBS MOM on the Node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-add-node-to-the-pbs-pro-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Add Node to the PBS Pro Configuration:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Add Node to the PBS Pro Configuration:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-shows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this shows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-create-python-test-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Create Python Test Program
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Create Python Test Program">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-print_numberspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File: print_numbers.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-program-is-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this program is used
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-create-pbs-job-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Create PBS Job Script
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. Create PBS Job Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-runpbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File: run.pbs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-submit-the-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Submit the Job
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Submit the Job">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens here
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-monitor-job-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Monitor Job Output
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="18. Monitor Job Output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-confirms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this confirms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-enable-job-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Enable Job History
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19. Enable Job History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-submit-job-again-and-verify-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Submit Job Again and Verify History
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="20. Submit Job Again and Verify History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-confirms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this confirms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Result
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Result">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-line-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One-Line Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP (Lightweight Directory Access Protocol)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XCAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpfr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPFR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hwclock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HWClock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpcg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_22" id="__nav_5_22_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAMMPS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LAMMPS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/cpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/gpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Quiz/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Home/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-download-and-extract-openpbs-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Download and Extract OpenPBS Source
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Download and Extract OpenPBS Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-install-required-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Install Required Dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Install Required Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-are-these-packages-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why are these packages required?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-and-configure-postgresql-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Install and Configure PostgreSQL (Required)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Install and Configure PostgreSQL (Required)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-install-postgresql-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Install PostgreSQL Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-initialize-postgresql-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Initialize PostgreSQL Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-start-and-enable-postgresql-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Start and Enable PostgreSQL Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-generate-build-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Generate Build Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Generate Build Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configure-openpbs-installation-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Configure OpenPBS Installation Path
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Configure OpenPBS Installation Path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-compile-openpbs-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Compile OpenPBS Source Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Compile OpenPBS Source Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-install-openpbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Install OpenPBS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Install OpenPBS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-run-openpbs-post-installation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Run OpenPBS Post-Installation Script
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Run OpenPBS Post-Installation Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-verify-pbs-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Verify PBS Configuration File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Verify PBS Configuration File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-configuration-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this configuration means
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-set-required-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Set Required Permissions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Set Required Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-load-pbs-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Load PBS Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Load PBS Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-start-and-restart-pbs-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Start and Restart PBS Services
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Start and Restart PBS Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-enable-pbs-mom-on-the-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Enable PBS MOM on the Node
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Enable PBS MOM on the Node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-add-node-to-the-pbs-pro-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Add Node to the PBS Pro Configuration:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Add Node to the PBS Pro Configuration:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-shows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this shows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-create-python-test-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Create Python Test Program
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Create Python Test Program">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-print_numberspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File: print_numbers.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-program-is-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this program is used
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-create-pbs-job-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Create PBS Job Script
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. Create PBS Job Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-runpbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File: run.pbs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-submit-the-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Submit the Job
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Submit the Job">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens here
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-monitor-job-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. Monitor Job Output
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="18. Monitor Job Output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-confirms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this confirms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-enable-job-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. Enable Job History
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="19. Enable Job History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-step-is-required_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this step is required
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-submit-job-again-and-verify-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. Submit Job Again and Verify History
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="20. Submit Job Again and Verify History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-this-confirms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this confirms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Result
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Result">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-line-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One-Line Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Overview/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Installation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="openpbs-230606">OpenPBS 23.06.06<a class="headerlink" href="#openpbs-230606" title="Permanent link">&para;</a></h1>
+<p><strong>Source Installation on Rocky Linux 9</strong></p>
+<p>This document describes how <strong>I installed OpenPBS 23.06.06 from source</strong>, configured all required services, enabled compute functionality, and validated the setup by running a sample batch job.
+This document was <strong>created by me as part of my self-learning to improve my skills in HPC cluster administration</strong>.</p>
+<hr />
+<h2 id="1-download-and-extract-openpbs-source">1. Download and Extract OpenPBS Source<a class="headerlink" href="#1-download-and-extract-openpbs-source" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">tar xf openpbs-23.06.06.tar.gz
+cd openpbs-23.06.06
+ls
+</code></pre>
+<p><img alt="autogen.sh output" src="/assets/OpenPbs23/6.png" /></p>
+<h3 id="why-this-step-is-required">Why this step is required<a class="headerlink" href="#why-this-step-is-required" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Extracts the OpenPBS source archive</li>
+<li>Moves into the source directory</li>
+<li>Prepares the system for building OpenPBS from source</li>
+</ul>
+<hr />
+<h2 id="2-install-required-dependencies">2. Install Required Dependencies<a class="headerlink" href="#2-install-required-dependencies" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">sudo dnf install -y gcc make rpm-build libtool hwloc-devel \
+libX11-devel libXt-devel libedit-devel libical-devel \
+ncurses-devel perl postgresql-devel postgresql-contrib \
+python3-devel tcl-devel tk-devel swig expat-devel \
+openssl-devel libXext libXft autoconf automake gcc-c++ cjson-devel
+</code></pre>
+<h3 id="why-are-these-packages-required">Why are these packages required?<a class="headerlink" href="#why-are-these-packages-required" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Compiler tools (<code>gcc</code>, <code>make</code>, <code>gcc-c++</code>) are required to build OpenPBS binaries</li>
+<li>Development libraries are needed for scheduler, server, and MOM components</li>
+<li>PostgreSQL development packages are required for database integration</li>
+<li>Missing packages will cause <code>configure</code> or <code>make</code> to fail</li>
+</ul>
+<p><img alt="Source directory" src="/assets/OpenPbs23/1.png" /></p>
+<hr />
+<h2 id="3-install-and-configure-postgresql-required">3. Install and Configure PostgreSQL (Required)<a class="headerlink" href="#3-install-and-configure-postgresql-required" title="Permanent link">&para;</a></h2>
+<p>OpenPBS uses <strong>PostgreSQL</strong> internally to store:</p>
+<ul>
+<li>Job information</li>
+<li>Scheduler data</li>
+<li>Accounting and history records</li>
+</ul>
+<hr />
+<h3 id="31-install-postgresql-packages">3.1 Install PostgreSQL Packages<a class="headerlink" href="#31-install-postgresql-packages" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">sudo dnf install -y postgresql-server postgresql-contrib
+</code></pre>
+<p><img alt="Dependencies" src="/assets/OpenPbs23/2.png" /></p>
+<hr />
+<h3 id="32-initialize-postgresql-database">3.2 Initialize PostgreSQL Database<a class="headerlink" href="#32-initialize-postgresql-database" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">sudo postgresql-setup --initdb
+</code></pre>
+<p><img alt="PostgreSQL install" src="/assets/OpenPbs23/3.png" /></p>
+<h3 id="why-this-step-is-required_1">Why this step is required<a class="headerlink" href="#why-this-step-is-required_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Creates the PostgreSQL data directory</li>
+<li>Mandatory before starting the PostgreSQL service</li>
+</ul>
+<hr />
+<h3 id="33-start-and-enable-postgresql-service">3.3 Start and Enable PostgreSQL Service<a class="headerlink" href="#33-start-and-enable-postgresql-service" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">sudo systemctl start postgresql
+sudo systemctl enable postgresql
+systemctl status postgresql
+</code></pre>
+<p><img alt="PostgreSQL initdb" src="/assets/OpenPbs23/4.png" /></p>
+<p><img alt="PostgreSQL status" src="/assets/OpenPbs23/5.png" /></p>
+<h3 id="why-this-step-is-required_2">Why this step is required<a class="headerlink" href="#why-this-step-is-required_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Starts PostgreSQL immediately</li>
+<li>Enables PostgreSQL on system boot</li>
+<li>OpenPBS server will not function if PostgreSQL is not running</li>
+</ul>
+<hr />
+<h2 id="4-generate-build-files">4. Generate Build Files<a class="headerlink" href="#4-generate-build-files" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">./autogen.sh
+</code></pre>
+<p><img alt="Configure output" src="/assets/OpenPbs23/7.png" /></p>
+<h3 id="why-this-step-is-required_3">Why this step is required<a class="headerlink" href="#why-this-step-is-required_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Generates the <code>configure</code> script</li>
+<li>Prepares Makefiles needed to compile OpenPBS</li>
+<li>Warnings during this step are normal</li>
+</ul>
+<hr />
+<h2 id="5-configure-openpbs-installation-path">5. Configure OpenPBS Installation Path<a class="headerlink" href="#5-configure-openpbs-installation-path" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">./configure --prefix=/opt/pbs
+</code></pre>
+<p><img alt="Make build" src="/assets/OpenPbs23/8.png" /></p>
+<h3 id="why-this-step-is-required_4">Why this step is required<a class="headerlink" href="#why-this-step-is-required_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Sets <code>/opt/pbs</code> as the OpenPBS installation directory</li>
+<li>Keeps OpenPBS separate from system binaries</li>
+<li>Recommended for production and HPC environments</li>
+</ul>
+<hr />
+<h2 id="6-compile-openpbs-source-code">6. Compile OpenPBS Source Code<a class="headerlink" href="#6-compile-openpbs-source-code" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">make
+</code></pre>
+<p><img alt="Make install" src="/assets/OpenPbs23/9.png" /></p>
+<h3 id="why-this-step-is-required_5">Why this step is required<a class="headerlink" href="#why-this-step-is-required_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Compiles all OpenPBS components:</p>
+</li>
+<li>
+<p>PBS Server</p>
+</li>
+<li>PBS Scheduler</li>
+<li>PBS MOM</li>
+<li>This step may take several minutes</li>
+</ul>
+<hr />
+<h2 id="7-install-openpbs">7. Install OpenPBS<a class="headerlink" href="#7-install-openpbs" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">make install
+</code></pre>
+<p><img alt="Postinstall" src="/assets/OpenPbs23/10.png" /></p>
+<h3 id="why-this-step-is-required_6">Why this step is required<a class="headerlink" href="#why-this-step-is-required_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Installs compiled binaries into <code>/opt/pbs</code></li>
+<li>Copies libraries, commands, and supporting files</li>
+</ul>
+<hr />
+<h2 id="8-run-openpbs-post-installation-script">8. Run OpenPBS Post-Installation Script<a class="headerlink" href="#8-run-openpbs-post-installation-script" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">sudo /opt/pbs/libexec/pbs_postinstall
+</code></pre>
+<p><img alt="pbs.conf" src="/assets/OpenPbs23/11.png" /></p>
+<h3 id="why-this-step-is-required_7">Why this step is required<a class="headerlink" href="#why-this-step-is-required_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Creates <code>/etc/pbs.conf</code></li>
+<li>Registers OpenPBS services</li>
+<li>Sets PBS home directory (<code>/var/spool/pbs</code>)</li>
+</ul>
+<hr />
+<h2 id="9-verify-pbs-configuration-file">9. Verify PBS Configuration File<a class="headerlink" href="#9-verify-pbs-configuration-file" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">cat /etc/pbs.conf
+</code></pre>
+<p><img alt="Permissions" src="/assets/OpenPbs23/12.png" /></p>
+<h3 id="what-this-configuration-means">What this configuration means<a class="headerlink" href="#what-this-configuration-means" title="Permanent link">&para;</a></h3>
+<pre><code class="language-text">PBS_SERVER=client
+PBS_START_SERVER=1
+PBS_START_SCHED=1
+PBS_START_COMM=1
+PBS_START_MOM=0
+PBS_EXEC=/opt/pbs
+PBS_HOME=/var/spool/pbs
+</code></pre>
+<ul>
+<li>
+<p>Node is configured as:</p>
+</li>
+<li>
+<p>PBS Server</p>
+</li>
+<li>PBS Scheduler</li>
+<li>PBS Communication daemon</li>
+<li>MOM is disabled initially</li>
+</ul>
+<hr />
+<h2 id="10-set-required-permissions">10. Set Required Permissions<a class="headerlink" href="#10-set-required-permissions" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">chmod 4755 /opt/pbs/sbin/pbs_rcp
+chmod 4755 /opt/pbs/sbin/pbs_iff
+</code></pre>
+<p><img alt="pbs.sh" src="/assets/OpenPbs23/13.png" />
+<img alt="PBS restart" src="/assets/OpenPbs23/14.png" /></p>
+<h3 id="why-this-step-is-required_8">Why this step is required<a class="headerlink" href="#why-this-step-is-required_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Required for secure job execution</li>
+<li>Prevents permission-related job launch failures</li>
+</ul>
+<hr />
+<h2 id="11-load-pbs-environment">11. Load PBS Environment<a class="headerlink" href="#11-load-pbs-environment" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">source /etc/profile.d/pbs.sh
+</code></pre>
+<p><img alt="PBS restart" src="/assets/OpenPbs23/18.png" /></p>
+<h3 id="why-this-step-is-required_9">Why this step is required<a class="headerlink" href="#why-this-step-is-required_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Loads PBS commands (<code>qsub</code>, <code>qstat</code>, <code>pbsnodes</code>)</li>
+<li>Required for users to interact with OpenPBS</li>
+</ul>
+<hr />
+<h2 id="12-start-and-restart-pbs-services">12. Start and Restart PBS Services<a class="headerlink" href="#12-start-and-restart-pbs-services" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">/etc/init.d/pbs start
+/etc/init.d/pbs restart
+</code></pre>
+<p><img alt="PBS restart" src="/assets/OpenPbs23/17.png" /></p>
+<h3 id="why-this-step-is-required_10">Why this step is required<a class="headerlink" href="#why-this-step-is-required_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Starts all PBS components</li>
+<li>Restart is required after configuration changes</li>
+</ul>
+<hr />
+<h2 id="13-enable-pbs-mom-on-the-node">13. Enable PBS MOM on the Node<a class="headerlink" href="#13-enable-pbs-mom-on-the-node" title="Permanent link">&para;</a></h2>
+<p>Edit <code>/etc/pbs.conf</code>:</p>
+<pre><code class="language-text">PBS_START_MOM=1
+</code></pre>
+<p><img alt="PBS restart" src="/assets/OpenPbs23/16.png" /></p>
+<p>Restart PBS:</p>
+<pre><code class="language-bash">/etc/init.d/pbs restart
+</code></pre>
+<p><img alt="Enable MOM" src="/assets/OpenPbs23/19 enable mom.png" /></p>
+<h3 id="why-this-step-is-required_11">Why this step is required<a class="headerlink" href="#why-this-step-is-required_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Enables compute (execution) functionality</li>
+<li>Without MOM, jobs cannot run</li>
+</ul>
+<hr />
+<h2 id="14-add-node-to-the-pbs-pro-configuration">14. Add Node to the PBS Pro Configuration:<a class="headerlink" href="#14-add-node-to-the-pbs-pro-configuration" title="Permanent link">&para;</a></h2>
+<p>First, you need to modify the PBS Pro configuration to recognize the new nodes.</p>
+<p>Edit the PBS Pro configuration file to include the new node:</p>
+<pre><code>qmgr -c &quot;create node &lt;node_name&gt;&quot;
+</code></pre>
+<p>Replace <node_name> with the hostname of the new node.</p>
+<p><img alt="Node details" src="/assets/OpenPbs23/addingnode01.png" /></p>
+<pre><code class="language-bash">pbsnodes -a
+</code></pre>
+<p><img alt="Node summary" src="/assets/OpenPbs23/addingnode02.png" /></p>
+<h3 id="what-this-shows">What this shows<a class="headerlink" href="#what-this-shows" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Displays summarized node information</li>
+<li>Useful for quick health checks</li>
+</ul>
+<hr />
+<h2 id="15-create-python-test-program">15. Create Python Test Program<a class="headerlink" href="#15-create-python-test-program" title="Permanent link">&para;</a></h2>
+<h3 id="file-print_numberspy">File: <code>print_numbers.py</code><a class="headerlink" href="#file-print_numberspy" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">#!/usr/bin/env python3
+import time
+
+for i in range(1000, 100001):
+    print(i, flush=True)
+    time.sleep(0.001)
+</code></pre>
+<p><img alt="Python script" src="/assets/OpenPbs23/input.png" /></p>
+<h3 id="why-this-program-is-used">Why this program is used<a class="headerlink" href="#why-this-program-is-used" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Simple workload to validate job execution</li>
+<li><code>flush=True</code> ensures real-time output</li>
+</ul>
+<hr />
+<h2 id="16-create-pbs-job-script">16. Create PBS Job Script<a class="headerlink" href="#16-create-pbs-job-script" title="Permanent link">&para;</a></h2>
+<h3 id="file-runpbs">File: <code>run.pbs</code><a class="headerlink" href="#file-runpbs" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">#!/bin/bash
+#PBS -N python_numbers
+#PBS -l select=1:ncpus=1
+#PBS -l walltime=01:00:00
+#PBS -j oe
+#PBS -q workq
+
+cd $PBS_O_WORKDIR
+python3 print_numbers.py &gt;&gt; python_numbers.log
+</code></pre>
+<p><img alt="PBS job script" src="/assets/OpenPbs23/run.pbs.png" /></p>
+<hr />
+<h2 id="17-submit-the-job">17. Submit the Job<a class="headerlink" href="#17-submit-the-job" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">qsub run.pbs
+</code></pre>
+<p><img alt="qsub" src="/assets/OpenPbs23/qsub.png" /></p>
+<h3 id="what-happens-here">What happens here<a class="headerlink" href="#what-happens-here" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Job is submitted to PBS scheduler</li>
+<li>Scheduler assigns a unique Job ID</li>
+</ul>
+<hr />
+<h2 id="18-monitor-job-output">18. Monitor Job Output<a class="headerlink" href="#18-monitor-job-output" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">tail -f python_numbers.log
+</code></pre>
+<p><img alt="Job output" src="/assets/OpenPbs23/tail-flog_monitor .png" /></p>
+<h3 id="what-this-confirms">What this confirms<a class="headerlink" href="#what-this-confirms" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Job is running correctly</li>
+<li>Output is generated in real time</li>
+</ul>
+<hr />
+<h2 id="19-enable-job-history">19. Enable Job History<a class="headerlink" href="#19-enable-job-history" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">qmgr -c &quot;set server job_history_enable = True&quot;
+</code></pre>
+<p><img alt="Enable history" src="/assets/OpenPbs23/enableing histrory.png" /></p>
+<h3 id="why-this-step-is-required_12">Why this step is required<a class="headerlink" href="#why-this-step-is-required_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Keeps completed job records</li>
+<li>Useful for auditing and troubleshooting</li>
+</ul>
+<p>Restart PBS:</p>
+<pre><code class="language-bash">/etc/init.d/pbs restart
+</code></pre>
+<p><img alt="Restart after history" src="/assets/OpenPbs23/afterenabling histrory restar the service.png" /></p>
+<hr />
+<h2 id="20-submit-job-again-and-verify-history">20. Submit Job Again and Verify History<a class="headerlink" href="#20-submit-job-again-and-verify-history" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">qsub run.pbs
+qstat -x
+</code></pre>
+<p><img alt="Job history" src="/assets/OpenPbs23/histrory achnges submoyed job again and check.png" /></p>
+<h3 id="what-this-confirms_1">What this confirms<a class="headerlink" href="#what-this-confirms_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Completed jobs remain visible</li>
+<li>Job history feature is working correctly</li>
+</ul>
+<hr />
+<h2 id="final-result">Final Result<a class="headerlink" href="#final-result" title="Permanent link">&para;</a></h2>
+<ul>
+<li>OpenPBS 23.06 installed from source</li>
+<li>PostgreSQL configured and running</li>
+<li>PBS Server, Scheduler, and MOM active</li>
+<li>Node registered and available</li>
+<li>Python batch job executed successfully</li>
+<li>Live output verified</li>
+<li>Job history enabled</li>
+</ul>
+<hr />
+<h3 id="one-line-summary">One-Line Summary<a class="headerlink" href="#one-line-summary" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Installed and configured OpenPBS 23.06 from source on Rocky Linux, integrated PostgreSQL, enabled MOM, submitted and monitored batch jobs, and validated job history as part of my self-learning in HPC administration.</p>
+</blockquote>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

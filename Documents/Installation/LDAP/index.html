@@ -1,0 +1,2019 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../OpenPBS/">
+      
+      
+        <link rel="next" href="../xcat/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>LDAP (Lightweight Directory Access Protocol) - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openldap-installation-and-configuration-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LDAP (Lightweight Directory Access Protocol)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Home/Professional-Summary/" class="md-tabs__link">
+          
+  
+  
+  Profile
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Overview/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Quiz/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Home/contact/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Home/Professional-Summary/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Note
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Anaconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python-Offline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python-3.14.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    METIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SU2_Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SU2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openmpi-ucx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI-UCX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OPEN-FOAM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenFOAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Intel-toolkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intel Toolkit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenPBS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenPbs-23.06.06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP (Lightweight Directory Access Protocol)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XCAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpfr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPFR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hwclock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HWClock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpcg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_22" id="__nav_5_22_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAMMPS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LAMMPS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/cpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/gpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Quiz/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Home/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Overview/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Installation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="openldap-installation-and-configuration-guide">OpenLDAP Installation and Configuration Guide<a class="headerlink" href="#openldap-installation-and-configuration-guide" title="Permanent link">&para;</a></h1>
+<hr />
+<h1 id="1-introduction-to-ldap">1. Introduction to LDAP<a class="headerlink" href="#1-introduction-to-ldap" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-ldap">What is LDAP?<a class="headerlink" href="#what-is-ldap" title="Permanent link">&para;</a></h2>
+<p>LDAP (Lightweight Directory Access Protocol) is a protocol used to access and manage directory information services over a network.</p>
+<p>A directory is a specialized database optimized for:</p>
+<ul>
+<li>Read-heavy operations</li>
+<li>Hierarchical data structure</li>
+<li>Fast lookups</li>
+</ul>
+<hr />
+<h2 id="what-ldap-can-do">What LDAP Can Do<a class="headerlink" href="#what-ldap-can-do" title="Permanent link">&para;</a></h2>
+<p>LDAP is mainly used for:</p>
+<ul>
+<li>Centralized authentication (users login across multiple systems)</li>
+<li>Storing user and group information</li>
+<li>Access control</li>
+<li>Integration with services (SSSD, NFS, HPC schedulers)</li>
+</ul>
+<p>In HPC environments:</p>
+<ul>
+<li>Single user identity across login, compute, GPU nodes</li>
+<li>Consistent UID/GID mapping</li>
+<li>Centralized user management</li>
+</ul>
+<hr />
+<h1 id="2-ldap-architecture">2. LDAP Architecture<a class="headerlink" href="#2-ldap-architecture" title="Permanent link">&para;</a></h1>
+<p>LDAP follows a tree structure called:</p>
+<p>👉 DIT (Directory Information Tree)</p>
+<p>Example:</p>
+<pre><code>dc=mycluster,dc=local
+ ├── ou=People
+ │    ├── uid=user1
+ │    └── uid=user2
+ └── ou=Group
+      └── cn=hpcusers
+</code></pre>
+<hr />
+<h2 id="key-terms">Key Terms<a class="headerlink" href="#key-terms" title="Permanent link">&para;</a></h2>
+<h3 id="dn-distinguished-name">DN (Distinguished Name)<a class="headerlink" href="#dn-distinguished-name" title="Permanent link">&para;</a></h3>
+<p>Full path to an object:</p>
+<pre><code>uid=user1,ou=People,dc=mycluster,dc=local
+</code></pre>
+<hr />
+<h3 id="dc-domain-component">DC (Domain Component)<a class="headerlink" href="#dc-domain-component" title="Permanent link">&para;</a></h3>
+<p>Represents domain name:</p>
+<pre><code>dc=mycluster,dc=local
+</code></pre>
+<hr />
+<h3 id="ou-organizational-unit">OU (Organizational Unit)<a class="headerlink" href="#ou-organizational-unit" title="Permanent link">&para;</a></h3>
+<p>Logical grouping:</p>
+<pre><code>ou=People
+ou=Group
+</code></pre>
+<hr />
+<h3 id="cn-common-name">CN (Common Name)<a class="headerlink" href="#cn-common-name" title="Permanent link">&para;</a></h3>
+<p>Name of object (group or general name):</p>
+<pre><code>cn=hpcusers
+</code></pre>
+<hr />
+<h3 id="uid">UID<a class="headerlink" href="#uid" title="Permanent link">&para;</a></h3>
+<p>User login name:</p>
+<pre><code>uid=user1
+</code></pre>
+<hr />
+<h1 id="3-installation-rhel-8">3. Installation (RHEL 8)<a class="headerlink" href="#3-installation-rhel-8" title="Permanent link">&para;</a></h1>
+<h2 id="required-packages">Required Packages<a class="headerlink" href="#required-packages" title="Permanent link">&para;</a></h2>
+<pre><code>yum install -y openldap openldap-servers openldap-clients
+</code></pre>
+<hr />
+<h2 id="start-service">Start Service<a class="headerlink" href="#start-service" title="Permanent link">&para;</a></h2>
+<pre><code>systemctl enable --now slapd
+systemctl status slapd
+</code></pre>
+<hr />
+<h1 id="4-initial-server-configuration">4. Initial Server Configuration<a class="headerlink" href="#4-initial-server-configuration" title="Permanent link">&para;</a></h1>
+<h2 id="set-root-password">Set Root Password<a class="headerlink" href="#set-root-password" title="Permanent link">&para;</a></h2>
+<pre><code>slappasswd
+</code></pre>
+<p>Copy generated hash.</p>
+<hr />
+<h2 id="configure-root-dn">Configure Root DN<a class="headerlink" href="#configure-root-dn" title="Permanent link">&para;</a></h2>
+<p>Create file:</p>
+<pre><code>vi root.ldif
+</code></pre>
+<pre><code>dn: olcDatabase={2}mdb,cn=config
+changetype: modify
+replace: olcSuffix
+olcSuffix: dc=mycluster,dc=local
+
+
+dn: olcDatabase={2}mdb,cn=config
+changetype: modify
+replace: olcRootDN
+olcRootDN: cn=admin,dc=mycluster,dc=local
+
+
+dn: olcDatabase={2}mdb,cn=config
+changetype: modify
+replace: olcRootPW
+olcRootPW: {SSHA}HASH
+</code></pre>
+<p>Apply:</p>
+<pre><code>ldapmodify -Y EXTERNAL -H ldapi:/// -f  root.ldif
+</code></pre>
+<hr />
+<h1 id="5-schema-configuration">5. Schema Configuration<a class="headerlink" href="#5-schema-configuration" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-schema">What is Schema?<a class="headerlink" href="#what-is-schema" title="Permanent link">&para;</a></h2>
+<p>Schema defines:</p>
+<ul>
+<li>Object classes</li>
+<li>Attributes</li>
+</ul>
+<p>Without schema:</p>
+<ul>
+<li>LDAP cannot understand user/group structure</li>
+</ul>
+<hr />
+<h2 id="important-schemas">Important Schemas<a class="headerlink" href="#important-schemas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Schema</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>core</td>
+<td>Base schema</td>
+</tr>
+<tr>
+<td>cosine</td>
+<td>Extra attributes</td>
+</tr>
+<tr>
+<td>inetorgperson</td>
+<td>User objects</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="load-required-schemas">Load Required Schemas<a class="headerlink" href="#load-required-schemas" title="Permanent link">&para;</a></h2>
+<pre><code>ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
+</code></pre>
+<hr />
+<h1 id="6-create-base-directory-dit">6. Create Base Directory (DIT)<a class="headerlink" href="#6-create-base-directory-dit" title="Permanent link">&para;</a></h1>
+<pre><code>vi base.ldif
+</code></pre>
+<pre><code>dn: dc=mycluster,dc=local
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: mycluster
+dc: mycluster
+
+
+dn: ou=People,dc=mycluster,dc=local
+objectClass: organizationalUnit
+ou: People
+
+
+dn: ou=Group,dc=mycluster,dc=local
+objectClass: organizationalUnit
+ou: Group
+</code></pre>
+<p>Apply:</p>
+<pre><code>ldapadd -x -D &quot;cn=admin,dc=mycluster,dc=local&quot; -W -f base.ldif
+</code></pre>
+<hr />
+<h1 id="7-create-group">7. Create Group<a class="headerlink" href="#7-create-group" title="Permanent link">&para;</a></h1>
+<pre><code>dn: cn=hpcusers,ou=Group,dc=mycluster,dc=local
+objectClass: top
+objectClass: posixGroup
+cn: hpcusers
+gidNumber: 10001
+</code></pre>
+<hr />
+<h1 id="8-create-user">8. Create User<a class="headerlink" href="#8-create-user" title="Permanent link">&para;</a></h1>
+<pre><code>dn: uid=user1,ou=People,dc=mycluster,dc=local
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: user1
+sn: user1
+uid: user1
+uidNumber: 10001
+gidNumber: 10001
+homeDirectory: /home/user1
+loginShell: /bin/bash
+userPassword: password123
+</code></pre>
+<hr />
+<h1 id="9-verification">9. Verification<a class="headerlink" href="#9-verification" title="Permanent link">&para;</a></h1>
+<h2 id="check-entries">Check entries<a class="headerlink" href="#check-entries" title="Permanent link">&para;</a></h2>
+<pre><code>ldapsearch -x -b &quot;dc=mycluster,dc=local&quot;
+</code></pre>
+<hr />
+<h1 id="10-client-configuration-sssd">10. Client Configuration (SSSD)<a class="headerlink" href="#10-client-configuration-sssd" title="Permanent link">&para;</a></h1>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<pre><code>yum install -y sssd sssd-ldap oddjob oddjob-mkhomedir
+</code></pre>
+<hr />
+<h2 id="configure">Configure<a class="headerlink" href="#configure" title="Permanent link">&para;</a></h2>
+<pre><code>vi /etc/sssd/sssd.conf
+</code></pre>
+<pre><code>[sssd]
+services = nss, pam
+config_file_version = 2
+domains = mycluster.local
+
+[domain/mycluster.local]
+id_provider = ldap
+auth_provider = ldap
+ldap_uri = ldap://ldap.mycluster.local
+ldap_search_base = dc=mycluster,dc=local
+ldap_id_use_start_tls = false
+ldap_tls_reqcert = never
+</code></pre>
+<hr />
+<h2 id="enable">Enable<a class="headerlink" href="#enable" title="Permanent link">&para;</a></h2>
+<pre><code>chmod 600 /etc/sssd/sssd.conf
+systemctl enable --now sssd
+</code></pre>
+<hr />
+<h1 id="11-testing">11. Testing<a class="headerlink" href="#11-testing" title="Permanent link">&para;</a></h1>
+<pre><code>id user1
+getent passwd user1
+su - user1
+</code></pre>
+<hr />
+<h1 id="12-hpc-integration-notes">12. HPC Integration Notes<a class="headerlink" href="#12-hpc-integration-notes" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Same LDAP used across all nodes</li>
+<li>UID/GID must be consistent</li>
+<li>Use shared home (NFS/Lustre)</li>
+<li>Integrate with scheduler (PBS/Slurm)</li>
+</ul>
+<hr />
+<h1 id="13-common-issues">13. Common Issues<a class="headerlink" href="#13-common-issues" title="Permanent link">&para;</a></h1>
+<ul>
+<li>LDIF formatting errors</li>
+<li>Missing schema</li>
+<li>TLS misconfiguration</li>
+<li>SSSD cache issues</li>
+</ul>
+<hr />
+<h1 id="14-tls-ssl-configuration">14. TLS (SSL) Configuration<a class="headerlink" href="#14-tls-ssl-configuration" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-tls-in-ldap">What is TLS in LDAP?<a class="headerlink" href="#what-is-tls-in-ldap" title="Permanent link">&para;</a></h2>
+<p>TLS (Transport Layer Security) is used to secure LDAP communication by encrypting data such as usernames and passwords.</p>
+<hr />
+<h2 id="why-tls-is-required">Why TLS is Required<a class="headerlink" href="#why-tls-is-required" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Prevents password exposure over network</li>
+<li>Secures authentication</li>
+<li>Required for production environments</li>
+</ul>
+<hr />
+<h2 id="types-of-secure-ldap">Types of Secure LDAP<a class="headerlink" href="#types-of-secure-ldap" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Port</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STARTTLS</td>
+<td>389</td>
+<td>Upgrades normal LDAP to secure</td>
+</tr>
+<tr>
+<td>LDAPS</td>
+<td>636</td>
+<td>Direct secure LDAP connection</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tls-configuration-steps-server">TLS Configuration Steps (Server)<a class="headerlink" href="#tls-configuration-steps-server" title="Permanent link">&para;</a></h2>
+<h3 id="1-generate-certificate">1. Generate Certificate<a class="headerlink" href="#1-generate-certificate" title="Permanent link">&para;</a></h3>
+<pre><code>mkdir -p /etc/openldap/certs
+cd /etc/openldap/certs
+openssl genrsa -out ldap.key 2048
+openssl req -new -x509 -key ldap.key -out ldap.crt -days 365
+</code></pre>
+<blockquote>
+<p>Common Name (CN) must match server hostname (e.g., ldap.mycluster.local)</p>
+</blockquote>
+<hr />
+<h3 id="2-set-permissions">2. Set Permissions<a class="headerlink" href="#2-set-permissions" title="Permanent link">&para;</a></h3>
+<pre><code>chown ldap:ldap ldap.*
+chmod 600 ldap.key
+</code></pre>
+<hr />
+<h3 id="3-configure-ldap-for-tls">3. Configure LDAP for TLS<a class="headerlink" href="#3-configure-ldap-for-tls" title="Permanent link">&para;</a></h3>
+<pre><code>vi tls.ldif
+</code></pre>
+<pre><code>dn: cn=config
+changetype: modify
+add: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/openldap/certs/ldap.crt
+-
+add: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/openldap/certs/ldap.key
+</code></pre>
+<p>Apply:</p>
+<pre><code>ldapmodify -Y EXTERNAL -H ldapi:/// -f tls.ldif
+</code></pre>
+<hr />
+<h3 id="4-restart-service">4. Restart Service<a class="headerlink" href="#4-restart-service" title="Permanent link">&para;</a></h3>
+<pre><code>systemctl restart slapd
+</code></pre>
+<hr />
+<h2 id="tls-configuration-client-sssd">TLS Configuration (Client - SSSD)<a class="headerlink" href="#tls-configuration-client-sssd" title="Permanent link">&para;</a></h2>
+<pre><code>vi /etc/sssd/sssd.conf
+</code></pre>
+<pre><code>ldap_uri = ldap://ldap.mycluster.local
+ldap_id_use_start_tls = true
+ldap_tls_reqcert = demand
+ldap_tls_cacert = /etc/openldap/certs/ldap.crt
+</code></pre>
+<hr />
+<h2 id="testing-tls">Testing TLS<a class="headerlink" href="#testing-tls" title="Permanent link">&para;</a></h2>
+<pre><code>ldapsearch -x -ZZ -H ldap://ldap.mycluster.local -b &quot;dc=mycluster,dc=local&quot;
+</code></pre>
+<hr />
+<h2 id="temporary-disable-tls-lab-only">Temporary Disable TLS (Lab Only)<a class="headerlink" href="#temporary-disable-tls-lab-only" title="Permanent link">&para;</a></h2>
+<pre><code>ldap_id_use_start_tls = false
+ldap_tls_reqcert = never
+ldap_auth_disable_tls_never_use_in_production = true
+</code></pre>
+<blockquote>
+<p>⚠️ Not recommended for production</p>
+</blockquote>
+<hr />
+<h1 id="15-important-ldap-commands">15. Important LDAP Commands<a class="headerlink" href="#15-important-ldap-commands" title="Permanent link">&para;</a></h1>
+<h2 id="1-check-ldap-service-status">1. Check LDAP Service Status<a class="headerlink" href="#1-check-ldap-service-status" title="Permanent link">&para;</a></h2>
+<pre><code>systemctl status slapd
+</code></pre>
+<h2 id="2-startrestart-ldap-service">2. Start/Restart LDAP Service<a class="headerlink" href="#2-startrestart-ldap-service" title="Permanent link">&para;</a></h2>
+<pre><code>systemctl restart slapd
+</code></pre>
+<h2 id="3-search-entire-ldap-directory">3. Search Entire LDAP Directory<a class="headerlink" href="#3-search-entire-ldap-directory" title="Permanent link">&para;</a></h2>
+<pre><code>ldapsearch -x -b &quot;dc=mycluster,dc=local&quot;
+</code></pre>
+<h2 id="4-add-entry-usergroupbase">4. Add Entry (User/Group/Base)<a class="headerlink" href="#4-add-entry-usergroupbase" title="Permanent link">&para;</a></h2>
+<pre><code>ldapadd -x -D &quot;cn=admin,dc=mycluster,dc=local&quot; -W -f file.ldif
+</code></pre>
+<h2 id="5-delete-entry">5. Delete Entry<a class="headerlink" href="#5-delete-entry" title="Permanent link">&para;</a></h2>
+<pre><code>ldapdelete -x -D &quot;cn=admin,dc=mycluster,dc=local&quot; -W &quot;dn&quot;
+</code></pre>
+<h2 id="6-modify-entry">6. Modify Entry<a class="headerlink" href="#6-modify-entry" title="Permanent link">&para;</a></h2>
+<pre><code>ldapmodify -x -D &quot;cn=admin,dc=mycluster,dc=local&quot; -W -f file.ldif
+</code></pre>
+<h2 id="7-create-user-via-ldif">7. Create User (via LDIF)<a class="headerlink" href="#7-create-user-via-ldif" title="Permanent link">&para;</a></h2>
+<pre><code>dn: uid=user1,ou=People,dc=mycluster,dc=local
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: user1
+sn: user1
+uid: user1
+uidNumber: 10001
+gidNumber: 10001
+homeDirectory: /home/user1
+loginShell: /bin/bash
+userPassword: password123
+</code></pre>
+<h2 id="8-create-group-via-ldif">8. Create Group (via LDIF)<a class="headerlink" href="#8-create-group-via-ldif" title="Permanent link">&para;</a></h2>
+<pre><code>dn: cn=hpcusers,ou=Group,dc=mycluster,dc=local
+objectClass: posixGroup
+cn: hpcusers
+gidNumber: 10001
+memberUid: user1
+</code></pre>
+<h2 id="9-check-specific-user">9. Check Specific User<a class="headerlink" href="#9-check-specific-user" title="Permanent link">&para;</a></h2>
+<pre><code>ldapsearch -x -b &quot;dc=mycluster,dc=local&quot; uid=user1
+</code></pre>
+<h2 id="10-check-specific-group">10. Check Specific Group<a class="headerlink" href="#10-check-specific-group" title="Permanent link">&para;</a></h2>
+<pre><code>ldapsearch -x -b &quot;dc=mycluster,dc=local&quot; cn=hpcusers
+</code></pre>
+<h2 id="11-setreset-user-password-admin">11. Set/Reset User Password (Admin)<a class="headerlink" href="#11-setreset-user-password-admin" title="Permanent link">&para;</a></h2>
+<pre><code>ldappasswd -x -D &quot;cn=admin,dc=mycluster,dc=local&quot; -W -S &quot;uid=user1,ou=People,dc=mycluster,dc=local&quot;
+</code></pre>
+<h2 id="12-generate-password-hash">12. Generate Password Hash<a class="headerlink" href="#12-generate-password-hash" title="Permanent link">&para;</a></h2>
+<pre><code>slappasswd
+</code></pre>
+<h2 id="13-test-ldap-connectivity">13. Test LDAP Connectivity<a class="headerlink" href="#13-test-ldap-connectivity" title="Permanent link">&para;</a></h2>
+<pre><code>ldapsearch -x -H ldap://ldap.mycluster.local -b &quot;dc=mycluster,dc=local&quot;
+</code></pre>
+<h2 id="14-check-user-from-client-sssd">14. Check User from Client (SSSD)<a class="headerlink" href="#14-check-user-from-client-sssd" title="Permanent link">&para;</a></h2>
+<pre><code>id user1
+getent passwd user1
+</code></pre>
+<h2 id="15-clear-sssd-cache">15. Clear SSSD Cache<a class="headerlink" href="#15-clear-sssd-cache" title="Permanent link">&para;</a></h2>
+<pre><code>sss_cache -E
+systemctl restart sssd
+</code></pre>
+<hr />
+<p>LDAP provides centralized identity management for HPC clusters, ensuring consistency, scalability, and simplified administration.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

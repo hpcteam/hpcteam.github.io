@@ -1,0 +1,2968 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Openmpi-ucx/">
+      
+      
+        <link rel="next" href="../Intel-toolkit/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>OpenFOAM - AYYAPPASWAMY EETHAKOTA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openfoam-an-open-source-cfd-software" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-header__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AYYAPPASWAMY EETHAKOTA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenFOAM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Home/Professional-Summary/" class="md-tabs__link">
+          
+  
+  
+  Profile
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Documents
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Troubleshooting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Overview/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Quiz/" class="md-tabs__link">
+          
+  
+  
+  Quiz
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Home/contact/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AYYAPPASWAMY EETHAKOTA" class="md-nav__button md-logo" aria-label="AYYAPPASWAMY EETHAKOTA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AYYAPPASWAMY EETHAKOTA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Home/Professional-Summary/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Troubleshooting/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Note
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Anaconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anaconda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python-Offline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python-3.14.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenMpi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    METIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SU2_Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SU2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openmpi-ucx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMPI-UCX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenFOAM
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenFOAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-download-the-source-code-openfoam-and-third-party-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Download the Source Code (OpenFOAM and Third-Party Libraries)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-extract-the-source-code-and-verify-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Extract the Source Code and Verify Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-navigate-to-the-openfoam-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Navigate to the OpenFOAM Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-locate-the-bashrc-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Locate the bashrc File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-edit-and-update-the-bashrc-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Edit and Update the bashrc File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-source-the-bashrc-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Source the bashrc File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-check-openfoam-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Check OpenFOAM Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-run-foam-command-to-check-environment-variables-and-openfoam-installation-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Run foam Command to Check Environment Variables and OpenFOAM Installation Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-start-compilation-of-openfoam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Start Compilation of OpenFOAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-scenario-2-compile-third-party-libraries-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Scenario 2: Compile Third-Party Libraries First
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-re-source-the-bashrc-after-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Re-source the bashrc After Compilation:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-compile-openfoam-after-third-party-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Compile OpenFOAM After Third-Party Compilation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-check-openfoam-installation-after-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Check OpenFOAM Installation After Compilation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#131-run-foaminstallationtest-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1. Run foamInstallationTest Again:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-review-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2. Review the Output:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-interpret-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3. Interpret the Output:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-openfoam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started with OpenFOAM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-prepare-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Prepare the Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Prepare the Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-set-the-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Set the Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-copy-the-required-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Copy the Required Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Copy the Required Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-navigate-to-the-openfoam-test-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Navigate to the OpenFOAM Test Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-copy-the-tutorial-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Copy the Tutorial Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-verify-the-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Verify the Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-generate-the-mesh-with-blockmesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Generate the Mesh with blockMesh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Generate the Mesh with blockMesh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-navigate-to-the-test-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Navigate to the Test Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-run-blockmesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Run blockMesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-verify-the-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Verify the Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-run-the-simulation-with-icofoam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Run the Simulation with icoFoam
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Run the Simulation with icoFoam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-run-icofoam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Run icoFoam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-check-the-solver-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Check the Solver Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-post-processing-and-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Post-Processing and Results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Post-Processing and Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-check-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Check Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-and-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation and Tutorials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#community-and-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community and Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Intel-toolkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intel Toolkit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenPBS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenPbs-23.06.06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP (Lightweight Directory Access Protocol)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XCAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mpfr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MPFR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hwclock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HWClock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpcg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hpcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPCC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_22" id="__nav_5_22_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAMMPS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_22">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LAMMPS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/cpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lammps/gpu-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Quiz/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Home/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-download-the-source-code-openfoam-and-third-party-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Download the Source Code (OpenFOAM and Third-Party Libraries)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-extract-the-source-code-and-verify-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Extract the Source Code and Verify Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-navigate-to-the-openfoam-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Navigate to the OpenFOAM Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-locate-the-bashrc-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Locate the bashrc File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-edit-and-update-the-bashrc-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Edit and Update the bashrc File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-source-the-bashrc-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Source the bashrc File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-check-openfoam-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Check OpenFOAM Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-run-foam-command-to-check-environment-variables-and-openfoam-installation-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Run foam Command to Check Environment Variables and OpenFOAM Installation Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-start-compilation-of-openfoam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Start Compilation of OpenFOAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-scenario-2-compile-third-party-libraries-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Scenario 2: Compile Third-Party Libraries First
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-re-source-the-bashrc-after-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Re-source the bashrc After Compilation:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-compile-openfoam-after-third-party-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Compile OpenFOAM After Third-Party Compilation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-check-openfoam-installation-after-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Check OpenFOAM Installation After Compilation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#131-run-foaminstallationtest-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1. Run foamInstallationTest Again:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-review-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2. Review the Output:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-interpret-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3. Interpret the Output:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-openfoam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started with OpenFOAM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-prepare-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Prepare the Environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Prepare the Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-set-the-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Set the Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-copy-the-required-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Copy the Required Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Copy the Required Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-navigate-to-the-openfoam-test-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Navigate to the OpenFOAM Test Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-copy-the-tutorial-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Copy the Tutorial Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-verify-the-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Verify the Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-generate-the-mesh-with-blockmesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Generate the Mesh with blockMesh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Generate the Mesh with blockMesh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-navigate-to-the-test-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Navigate to the Test Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-run-blockmesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Run blockMesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-verify-the-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Verify the Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-run-the-simulation-with-icofoam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Run the Simulation with icoFoam
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Run the Simulation with icoFoam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-run-icofoam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Run icoFoam
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-check-the-solver-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Check the Solver Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-post-processing-and-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Post-Processing and Results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Post-Processing and Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-check-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Check Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-and-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation and Tutorials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#community-and-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community and Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Overview/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Installation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="openfoam-an-open-source-cfd-software">OpenFOAM: An Open-Source CFD Software<a class="headerlink" href="#openfoam-an-open-source-cfd-software" title="Permanent link">&para;</a></h1>
+<p>OpenFOAM (Open Field Operation and Manipulation) is a free, open-source computational fluid dynamics (CFD) toolkit. It is widely used for simulating fluid flow, heat transfer, and other related processes in various engineering disciplines. OpenFOAM provides a range of solvers for different applications, enabling users to simulate complex physical phenomena in industries like aerospace, automotive, and chemical processing.</p>
+<hr />
+<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Open-Source</strong>: OpenFOAM is completely open-source, meaning you can access, modify, and redistribute the source code under the GNU General Public License (GPL).</li>
+<li><strong>Extensibility</strong>: The software is highly customizable, allowing users to write their own solvers, utilities, and libraries to cater to specific simulation needs.</li>
+<li><strong>Wide Range of Applications</strong>: From simple laminar flows to highly complex turbulent flows, OpenFOAM supports a variety of physical models, including multi-phase flow, combustion, electromagnetics, and more.</li>
+<li><strong>Parallel Computing</strong>: OpenFOAM supports parallel processing using MPI (Message Passing Interface), allowing users to run large-scale simulations on high-performance computing (HPC) clusters.</li>
+<li><strong>Mesh Generation</strong>: OpenFOAM offers advanced mesh generation tools, including boundary layers and complex geometries.</li>
+<li><strong>Post-processing</strong>: It supports extensive post-processing utilities and integrates with visualization software such as ParaView.</li>
+</ul>
+<hr />
+<h2 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link">&para;</a></h2>
+<p>OpenFOAM is used in a wide array of industries and research fields. Some of its common applications include:</p>
+<ul>
+<li><strong>Aerodynamics</strong>: Simulating airflow over aircraft and vehicles for performance optimization.</li>
+<li><strong>Hydrodynamics</strong>: Modeling water flow in rivers, lakes, and oceans for environmental studies.</li>
+<li><strong>Chemical Engineering</strong>: Simulating chemical reactions and mixing in reactors.</li>
+<li><strong>Turbomachinery</strong>: Analyzing fluid flow in turbines, compressors, and pumps.</li>
+<li><strong>Multiphase Flows</strong>: Studying interactions between multiple fluids in systems like oil reservoirs or industrial separation processes.</li>
+</ul>
+<hr />
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>OpenFOAM is available on Linux, macOS, and Windows. The installation procedure varies depending on the platform.</p>
+<p><strong>NOTE:</strong><br />
+<strong>This documentation is created solely for the purpose of improving HPC skills and is intended for personal use on a laptop or personal machine.</strong></p>
+<p><strong>The steps outlined in this document are executed on a local setup and are meant for educational and skill-building purposes only.</strong> </p>
+<p><strong>It is important to note that this setup is done on a personal machine and should not be considered as a guideline for production or enterprise-level configurations.</strong></p>
+<p><strong>Now, we can see the installation process for Rocky Linux (open-source) as part of this documentation.</strong> </p>
+<p><strong>This guide outlines the steps for setting up OpenFOAM and other components for personal use and skill development, not for large-scale or server-level environments.</strong></p>
+<hr />
+<h3 id="1-download-the-source-code-openfoam-and-third-party-libraries">1. <strong>Download the Source Code (OpenFOAM and Third-Party Libraries)</strong><a class="headerlink" href="#1-download-the-source-code-openfoam-and-third-party-libraries" title="Permanent link">&para;</a></h3>
+<p>Since you're working in an offline environment, you cannot directly download the OpenFOAM source code and third-party libraries. Therefore, you should:</p>
+<p><strong>Download the Source Code and Third-Party Libraries:</strong>
+Download the OpenFOAM source code and third-party libraries on a machine that has internet access.</p>
+<p>You can download the source code from the <a href="https://www.openfoam.com">OpenFOAM</a></p>
+<p>Similarly, download the necessary <strong>Third-party libraries</strong> </p>
+<p><strong>Transfer the Files to the Offline Machine:</strong>
+After downloading, copy the source code and third-party libraries to an external drive (e.g., USB drive or external hard disk).</p>
+<p><strong>Move to the Offline Machine:</strong>
+Connect the external drive to the offline machine and copy the downloaded files to the appropriate directory on the offline machine.</p>
+<p><strong>Why This Step is Required</strong>:
+This step is necessary because the offline machine doesn't have internet access. By downloading the files on a connected machine and transferring them, you ensure that the OpenFOAM and third-party libraries are available for the installation process.</p>
+<h2 id="_1"><img alt="Copy Files" src="/assets/OFD/copy-to-machine.png" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h4 id="2-extract-the-source-code-and-verify-files">2. <strong>Extract the Source Code and Verify Files</strong><a class="headerlink" href="#2-extract-the-source-code-and-verify-files" title="Permanent link">&para;</a></h4>
+<p>After downloading, extract the source code and third-party libraries using the <code>tar</code> command. Ensure that the files are extracted correctly.</p>
+<pre><code class="language-bash">tar -xvf openfoam-source.tar.gz
+
+tar -xvf third-party.tar.gz
+</code></pre>
+<p><img alt="Extract Command" src="/assets/OFD/extrat-command.png" />
+<img alt="Extract and Check Files" src="/assets/OFD/extract-and-check.png" />
+<strong>Why This Step is Required</strong>:
+Extracting the files ensures that the source code and libraries are properly decompressed and placed in their respective directories. Verifying the extraction makes sure no files are corrupted or missing.</p>
+<hr />
+<h4 id="3-navigate-to-the-openfoam-directory">3. <strong>Navigate to the OpenFOAM Directory</strong><a class="headerlink" href="#3-navigate-to-the-openfoam-directory" title="Permanent link">&para;</a></h4>
+<p>Once the files are extracted, go to the OpenFOAM directory where you'll make necessary configurations.</p>
+<pre><code class="language-bash">cd OpenFOAM-version
+</code></pre>
+<p><strong>Why This Step is Required</strong>:
+This directory is the root folder of your OpenFOAM installation, where configuration files like <code>bashrc</code> are located. You will need to modify settings specific to your system here.</p>
+<hr />
+<h4 id="4-locate-the-bashrc-file">4. <strong>Locate the <code>bashrc</code> File</strong><a class="headerlink" href="#4-locate-the-bashrc-file" title="Permanent link">&para;</a></h4>
+<p>Navigate to the <code>etc</code> directory to find the <code>bashrc</code> file.</p>
+<pre><code class="language-bash">cd etc
+ls bashrc
+</code></pre>
+<p><strong>Why This Step is Required</strong>:
+The <code>bashrc</code> file contains environment variable settings for OpenFOAM, such as library paths and compiler configurations. It needs to be properly configured to make sure OpenFOAM works correctly on your system.</p>
+<hr />
+<h4 id="5-edit-and-update-the-bashrc-file">5. <strong>Edit and Update the <code>bashrc</code> File</strong><a class="headerlink" href="#5-edit-and-update-the-bashrc-file" title="Permanent link">&para;</a></h4>
+<p>Open the <code>bashrc</code> file in an editor and make changes according to your system’s configuration.</p>
+<pre><code class="language-bash">vi  etc/bashrc
+</code></pre>
+<p><strong>Why This Step is Required</strong>:
+You must configure the <code>bashrc</code> file to reflect your specific environment (e.g., adjusting paths to libraries or tools). Without these adjustments, OpenFOAM will not function correctly on your system.</p>
+<hr />
+<h4 id="6-source-the-bashrc-file">6. <strong>Source the <code>bashrc</code> File</strong><a class="headerlink" href="#6-source-the-bashrc-file" title="Permanent link">&para;</a></h4>
+<p>After editing the <code>bashrc</code> file, source it to apply the changes.</p>
+<pre><code class="language-bash">source OpenFOAM-version/etc/bashrc
+</code></pre>
+<p><strong>Why This Step is Required</strong>:
+Sourcing the <code>bashrc</code> file loads the environment variables and configurations into your current session. This step is essential for OpenFOAM to recognize the newly set paths and settings.</p>
+<p><img alt="Source Command Before Compiling" src="/assets/OFD/source-command-before-compling.png" /></p>
+<hr />
+<h4 id="7-check-openfoam-status">7. <strong>Check OpenFOAM Status</strong><a class="headerlink" href="#7-check-openfoam-status" title="Permanent link">&para;</a></h4>
+<p>To verify if OpenFOAM has been correctly compiled, check the environment variables.</p>
+<pre><code class="language-bash">echo $WM_PROJECT_DIR
+echo $WM_PROJECT_USER_DIR
+echo $WM_THIRD_PARTY_DIR
+</code></pre>
+<p><img alt="Check Directories" src="/assets/OFD/echo-command-directorys.png" />
+<strong>Why This Step is Required</strong>:
+Checking these variables confirms that the paths to OpenFOAM and its third-party libraries are correctly set.</p>
+<hr />
+<h4 id="8-run-foam-command-to-check-environment-variables-and-openfoam-installation-status">8. <strong>Run <code>foam</code> Command to Check Environment Variables and OpenFOAM Installation Status</strong><a class="headerlink" href="#8-run-foam-command-to-check-environment-variables-and-openfoam-installation-status" title="Permanent link">&para;</a></h4>
+<p><strong>8.1. Verify Environment Variables</strong>:</p>
+<p>After sourcing the <code>bashrc</code> file, run the <strong><code>foam</code></strong> command. This command checks if the environment variables are correctly set and ensures that OpenFOAM is configured properly.</p>
+<pre><code class="language-bash">   foam
+</code></pre>
+<p><strong>Why This Step is Required</strong>:
+The <code>foam</code> command helps confirm that the environment variables such as <code>$WM_PROJECT_DIR</code>, <code>$WM_PROJECT_USER_DIR</code>, and <code>$WM_THIRD_PARTY_DIR</code> are correctly set. If the variables are set properly, this command will navigate you to the OpenFOAM version's installation directory.</p>
+<p><strong>8.2. Run <code>foamInstallationTest</code></strong>:
+After running the <code>foam</code> command, execute <strong><code>foamInstallationTest</code></strong> to verify if OpenFOAM is compiled successfully.</p>
+<pre><code class="language-bash">   foamInstallationTest
+</code></pre>
+<p><strong>Why This Step is Required</strong>:
+The <code>foamInstallationTest</code> command checks the status of the OpenFOAM installation.</p>
+<ul>
+<li>If OpenFOAM has been compiled successfully, the command will show a status message indicating that everything is set up correctly.</li>
+<li>If OpenFOAM has not been compiled, the output will provide an error or status message indicating that the compilation has not been completed, allowing you to troubleshoot further.</li>
+</ul>
+<p><img alt="Foam Command" src="/assets/OFD/foam-command.png" />
+<img alt="Foam Installation Command" src="/assets/OFD/foamInstalltion-command.png" /></p>
+<h4 id="9-start-compilation-of-openfoam">9. <strong>Start Compilation of OpenFOAM</strong><a class="headerlink" href="#9-start-compilation-of-openfoam" title="Permanent link">&para;</a></h4>
+<p>To compile OpenFOAM, run the <code>./Allwmake</code> command.</p>
+<pre><code class="language-bash">./Allwmake
+</code></pre>
+<p><img alt="OpenFOAM Allwmake Command" src="/assets/OFD/Openfoam-all-wame-commad.png" /></p>
+<p><img alt="OpenFOAM Compilation Complete" src="/assets/OFD/openfoam-allwamke-command-compltete.png" /></p>
+<p><strong>Why This Step is Required</strong>:
+This command starts the full OpenFOAM compilation process. It will compile solvers, utilities, and libraries, and it can take a long time depending on your system resources.</p>
+<hr />
+<h4 id="10-scenario-2-compile-third-party-libraries-first">10. <strong>Scenario 2: Compile Third-Party Libraries First</strong><a class="headerlink" href="#10-scenario-2-compile-third-party-libraries-first" title="Permanent link">&para;</a></h4>
+<p>In the <code>ThirdParty-v2506</code> directory, you will find various <code>make</code> files for different third-party libraries required by OpenFOAM. To start compiling the third-party libraries, you will need to use the <code>./Allwmake</code> command.</p>
+<p><strong>10.1. Navigate to the Third-Party Directory</strong>:<br />
+   First, navigate to the <code>ThirdParty-v2506</code> directory where the third-party libraries and make files are located.</p>
+<pre><code class="language-bash">   cd $WM_THIRD_PARTY_DIR
+</code></pre>
+<p><strong>10.2. </strong>List the Available Make Files**:
+   You can list the contents of the directory to see the available make files for each third-party library.</p>
+<pre><code class="language-bash">   ls
+</code></pre>
+<p>The output will look like:</p>
+<pre><code class="language-bash">   Allclean  build     COPYING     etc         makeCCMIO  makeCmake  makeGcc         makeHDF5   makeKAHIP  makeMesa          makeMETIS     makeMPICH    makeOPENMPI          makeParaView          makePETSC  makeSCOTCH  makeVTK.example  platforms  Requirements.md  SOURCES.md
+   Allwmake  BUILD.md  Environ.md  makeAdios2  makeCGAL   makeFFTW   makeGperftools  makeHYPRE  makeLLVM   makeMesa.example  makeMGridGen  makeMVAPICH  makeOPENMPI.example  makeParaView.example  makeQt     makeVTK     minCmake         README.md  sources
+</code></pre>
+<p><strong>10.3. Start Compilation with <code>Allwmake</code></strong>:
+   Run the <code>Allwmake</code> command to start the compilation process for all third-party libraries.</p>
+<pre><code class="language-bash">   ./Allwmake
+</code></pre>
+<p><img alt="Third-Party Allwmake" src="/assets/OFD/thirdparty-allwamke.png" />
+<strong>Why This Step is Required</strong>:
+The <code>Allwmake</code> command will compile all necessary third-party libraries, such as <code>METIS</code>, <code>SCOTCH</code>, <code>MPICH</code>, and others, which are required for OpenFOAM to function properly. This process can take a significant amount of time depending on your system's resources. If any errors occur during the compilation, you can investigate them by checking the log output.</p>
+<p><strong>10.4. Monitor for Errors</strong>:
+   If any libraries fail to compile, you may encounter error messages. Common errors could include missing source code, incorrect versions, or misnamed files.</p>
+<p><strong>To manually compile a specific library</strong>:
+If you know which library is failing, you can navigate to its specific directory and run its individual make command.</p>
+<p><strong>For example, to compile <code>makeMPI</code></strong>:</p>
+<pre><code class="language-bash">   makeMPICH
+</code></pre>
+<h4 id="11-re-source-the-bashrc-after-compilation"><strong>11. Re-source the <code>bashrc</code> After Compilation</strong>:<a class="headerlink" href="#11-re-source-the-bashrc-after-compilation" title="Permanent link">&para;</a></h4>
+<p>After the third-party libraries are successfully compiled, you must re-source the <code>bashrc</code> file to ensure that the environment is updated.</p>
+<pre><code class="language-bash">   source $WM_PROJECT_DIR/etc/bashrc
+</code></pre>
+<p><strong>Why This Step is Required</strong>:
+After compiling the third-party libraries, re-sourcing the <code>bashrc</code> file ensures that OpenFOAM recognizes all compiled libraries and dependencies. This step is essential before proceeding with the compilation of OpenFOAM itself.</p>
+<hr />
+<h4 id="12-compile-openfoam-after-third-party-compilation">12. <strong>Compile OpenFOAM After Third-Party Compilation</strong><a class="headerlink" href="#12-compile-openfoam-after-third-party-compilation" title="Permanent link">&para;</a></h4>
+<p>Now that all dependencies are compiled, start the OpenFOAM compilation by running the following command in the OpenFOAM version directory.</p>
+<pre><code class="language-bash">cd $WM_PROJECT_DIR
+./Allwmake -j -s -a -l
+</code></pre>
+<p><strong>Why This Step is Required</strong>:
+This command triggers the final OpenFOAM compilation. </p>
+<p><strong>-j</strong>: Enables parallel compilation. It uses multiple processor cores to build the software much faster than a serial build.</p>
+<p><strong>-s</strong>: Silent mode. It keeps the terminal clean by hiding most of the standard output, showing only critical information or errors.</p>
+<p><strong>-a</strong>: Rebuild all files. It forces a complete recompilation of every component, even if it looks like it’s already been built.</p>
+<p><strong>-l</strong>: Log output. It typically redirects the build progress and errors to a log file (often named log.Allwmake) so you can check for failures later</p>
+<h4 id="13-check-openfoam-installation-after-compilation">13. <strong>Check OpenFOAM Installation After Compilation</strong><a class="headerlink" href="#13-check-openfoam-installation-after-compilation" title="Permanent link">&para;</a></h4>
+<p>After completing the compilation of OpenFOAM, you should run the <strong><code>foamInstallationTest</code></strong> command again to verify the successful installation and proper configuration of OpenFOAM.</p>
+<h4 id="131-run-foaminstallationtest-again">13.1. <strong>Run <code>foamInstallationTest</code> Again</strong>:<a class="headerlink" href="#131-run-foaminstallationtest-again" title="Permanent link">&para;</a></h4>
+<p>After OpenFOAM is compiled, run the following command to confirm that the setup is correct:</p>
+<pre><code class="language-bash">   foamInstallationTest
+</code></pre>
+<p><strong>Why This Step is Required</strong>:
+Running <code>foamInstallationTest</code> ensures that OpenFOAM and its dependencies are properly configured and installed. It checks the environment variables, paths, and critical systems to ensure everything is set up for smooth operation.</p>
+<h4 id="132-review-the-output">13.2. <strong>Review the Output</strong>:<a class="headerlink" href="#132-review-the-output" title="Permanent link">&para;</a></h4>
+<p>After running the command, you should see output that includes the configuration status of OpenFOAM. </p>
+<p>Here's an example of what you might see:</p>
+<pre><code class="language-bash">   Basic setup :
+   -------------------------------------------------------------------------------
+   OpenFOAM:            OpenFOAM-v2506
+   ThirdParty:          ThirdParty-v2506
+   Shell:               bash
+   Host:                rockey
+   OS:                  Linux version 5.14.0-284.11.1.el9_2.x86_64
+   -------------------------------------------------------------------------------
+
+   Main OpenFOAM env variables :
+   -------------------------------------------------------------------------------
+   Environment           FileOrDirectory                          Valid      Crit
+   -------------------------------------------------------------------------------
+   $WM_PROJECT_USER_DIR  /root/OpenFOAM/root-v2506                 no        no
+   $WM_THIRD_PARTY_DIR   /root/apple/OPENFOAM/ThirdParty-v2506     yes       maybe
+   $WM_PROJECT_SITE      [env variable unset]                                no
+   -------------------------------------------------------------------------------
+
+   OpenFOAM env variables in PATH :
+   -------------------------------------------------------------------------------
+   Environment           FileOrDirectory                          Valid Path Crit
+   -------------------------------------------------------------------------------
+   $WM_PROJECT_DIR       /root/apple/OPENFOAM/OpenFOAM-v2506       yes  yes  yes
+   $FOAM_APPBIN          ...06/platforms/linux64GccDPInt64Opt/bin  yes  yes  yes
+   -------------------------------------------------------------------------------
+
+   Software Components
+   -------------------------------------------------------------------------------
+   Software     Version    Location  
+   -------------------------------------------------------------------------------
+   flex         2.6.4      /bin/flex                                              
+   make         4.3        /bin/make                                              
+   gcc          11.5.0     /bin/gcc                                               
+   g++          11.5.0     /bin/g++                                               
+   -------------------------------------------------------------------------------
+   icoFoam      exists     ...OAM-v2506/platforms/linux64GccDPInt64Opt/bin/icoFoam
+   -------------------------------------------------------------------------------
+
+   Summary
+   -------------------------------------------------------------------------------
+   Base configuration ok.
+   Critical systems ok.
+
+   Done
+</code></pre>
+<h3 id="133-interpret-the-output">13.3. <strong>Interpret the Output</strong>:<a class="headerlink" href="#133-interpret-the-output" title="Permanent link">&para;</a></h3>
+<ul>
+<li>If the installation is successful, the output will indicate that the configuration and critical systems are "ok."</li>
+<li>If there are issues with the installation, it will highlight which components or paths are incorrect or missing.</li>
+</ul>
+<p><strong>Why This Step is Required</strong>:
+Running the <code>foamInstallationTest</code> ensures that OpenFOAM and its dependencies have been compiled correctly and that all necessary paths and configurations are properly set up. If there are any issues, the output will provide guidance for resolving them before starting simulations.</p>
+<h2 id="getting-started-with-openfoam">Getting Started with OpenFOAM<a class="headerlink" href="#getting-started-with-openfoam" title="Permanent link">&para;</a></h2>
+<p>After installation, you can start using OpenFOAM by running its solvers or utilities from the command line.</p>
+<p>Here’s a basic example:</p>
+<h2 id="1-prepare-the-environment">1. <strong>Prepare the Environment</strong><a class="headerlink" href="#1-prepare-the-environment" title="Permanent link">&para;</a></h2>
+<p>Before you start running OpenFOAM, make sure that your environment is set up properly. If you’ve already installed OpenFOAM, you can skip the installation steps and move on to the configuration and testing.</p>
+<h3 id="11-set-the-environment-variables">1.1 <strong>Set the Environment Variables</strong><a class="headerlink" href="#11-set-the-environment-variables" title="Permanent link">&para;</a></h3>
+<p>Ensure the environment variables are properly set by sourcing the <code>bashrc</code> file:</p>
+<pre><code class="language-bash">source /etc/bashrc
+</code></pre>
+<p>This command configures OpenFOAM's environment, setting paths to the required binaries, libraries, and other necessary files.</p>
+<h2 id="2-copy-the-required-files">2. <strong>Copy the Required Files</strong><a class="headerlink" href="#2-copy-the-required-files" title="Permanent link">&para;</a></h2>
+<p>The first step in setting up your simulation is to copy the necessary files from the tutorial cases. These files will serve as a template for your simulation.</p>
+<h3 id="21-navigate-to-the-openfoam-test-directory">2.1 <strong>Navigate to the OpenFOAM Test Directory</strong><a class="headerlink" href="#21-navigate-to-the-openfoam-test-directory" title="Permanent link">&para;</a></h3>
+<p>Create directory where you want to run your test case. </p>
+<p>For example:</p>
+<pre><code class="language-bash">cd /root/apple/OPENFOAM/test
+</code></pre>
+<h3 id="22-copy-the-tutorial-files">2.2 <strong>Copy the Tutorial Files</strong><a class="headerlink" href="#22-copy-the-tutorial-files" title="Permanent link">&para;</a></h3>
+<p>Navigate to the <strong><code>$FOAM_TUTORIALS</code></strong> directory and copy the files to the test directory. For a basic test, you can use the <strong><code>icoFoam</code></strong> solver with the cavity test case:</p>
+<pre><code class="language-bash">cd $FOAM_TUTORIALS/incompressible/icoFoam/cavity
+cp -r * /root/apple/OPENFOAM/test
+</code></pre>
+<p><img alt="Navigate to Test Directory" src="/assets/OFD/cd-toturial-direcory.png" />
+<img alt="Copy Tutorial Files" src="/assets/OFD/cp-r-command.png" /></p>
+<p>This command will copy all necessary files (<code>0</code>, <code>constant</code>, <code>system</code>) to the test directory.</p>
+<h3 id="23-verify-the-files">2.3 <strong>Verify the Files</strong><a class="headerlink" href="#23-verify-the-files" title="Permanent link">&para;</a></h3>
+<p>After copying, check the contents of your <strong>test directory</strong> to ensure that the files are present:</p>
+<pre><code class="language-bash">ls /root/apple/OPENFOAM/test
+</code></pre>
+<p>You should see the directories <strong><code>0</code></strong>, <strong><code>constant</code></strong>, and <strong><code>system</code></strong>, which contain the mesh and configuration files.</p>
+<h2 id="3-generate-the-mesh-with-blockmesh">3. <strong>Generate the Mesh with <code>blockMesh</code></strong><a class="headerlink" href="#3-generate-the-mesh-with-blockmesh" title="Permanent link">&para;</a></h2>
+<p>The next step is to generate the computational mesh for your simulation. OpenFOAM uses <strong><code>blockMesh</code></strong> to create a simple structured grid for the simulation.</p>
+<h3 id="31-navigate-to-the-test-directory">3.1 <strong>Navigate to the Test Directory</strong><a class="headerlink" href="#31-navigate-to-the-test-directory" title="Permanent link">&para;</a></h3>
+<p>Make sure you’re in the test directory where you copied the tutorial files:</p>
+<pre><code class="language-bash">cd /root/apple/OPENFOAM/test
+</code></pre>
+<h3 id="32-run-blockmesh">3.2 <strong>Run <code>blockMesh</code></strong><a class="headerlink" href="#32-run-blockmesh" title="Permanent link">&para;</a></h3>
+<p>Run the <strong><code>blockMesh</code></strong> utility to generate the mesh:</p>
+<pre><code class="language-bash">blockMesh
+</code></pre>
+<p><img alt="Generate Mesh" src="/assets/OFD/blockmesh.png" />
+<strong>Why This Step is Required</strong>:
+The <strong><code>blockMesh</code></strong> utility reads the <code>blockMeshDict</code> file (located in the <code>system</code> directory) and creates the mesh for your simulation. You must run this command before running any solvers.</p>
+<h3 id="33-verify-the-mesh">3.3 <strong>Verify the Mesh</strong><a class="headerlink" href="#33-verify-the-mesh" title="Permanent link">&para;</a></h3>
+<p>After running <strong><code>blockMesh</code></strong>, verify that the mesh has been created successfully. You can check the <code>constant/polyMesh</code> directory for the generated mesh files:</p>
+<pre><code class="language-bash">ls constant/polyMesh
+</code></pre>
+<p><img alt="Verify Mesh" src="/assets/OFD/checking-mesh.png" /></p>
+<p>You should see files like <code>boundary</code>, <code>faces</code>, and <code>points</code>, which indicate that the mesh has been generated.</p>
+<h2 id="4-run-the-simulation-with-icofoam">4. <strong>Run the Simulation with <code>icoFoam</code></strong><a class="headerlink" href="#4-run-the-simulation-with-icofoam" title="Permanent link">&para;</a></h2>
+<p>Once the mesh is created, you can run the simulation using the <strong><code>icoFoam</code></strong> solver. This solver solves the incompressible Navier-Stokes equations for laminar flow.</p>
+<h3 id="41-run-icofoam">4.1 <strong>Run <code>icoFoam</code></strong><a class="headerlink" href="#41-run-icofoam" title="Permanent link">&para;</a></h3>
+<p>To start the simulation, run the <strong><code>icoFoam</code></strong> solver:</p>
+<pre><code class="language-bash">icoFoam
+</code></pre>
+<p><img alt="Run icoFoam" src="/assets/OFD/icofoam.png" />
+<strong>Why This Step is Required</strong>:
+The <strong><code>icoFoam</code></strong> solver computes the flow field for the test case (cavity flow in this example). It reads the mesh and boundary conditions, then calculates the velocity and pressure fields.</p>
+<h3 id="42-check-the-solver-output">4.2 <strong>Check the Solver Output</strong><a class="headerlink" href="#42-check-the-solver-output" title="Permanent link">&para;</a></h3>
+<p>You will see output in the terminal as the solver iterates through time steps. Look for the following key indicators:</p>
+<ul>
+<li><strong>Courant Number</strong>: It should stay within an acceptable range for stability.</li>
+<li><strong>Residuals</strong>: These should decrease over time, indicating convergence.</li>
+</ul>
+<p>Example output:</p>
+<pre><code class="language-bash">Time = 0.005
+Courant Number mean: 0.0976825 max: 0.585607
+smoothSolver:  Solving for Ux, Initial residual = 0.160686, Final residual = 6.83031e-06, No Iterations 19
+...
+</code></pre>
+<p><strong>Why This Step is Required</strong>:
+Running the <strong><code>icoFoam</code></strong> solver verifies that OpenFOAM is properly simulating fluid flow. The solver iterates through time steps and updates the velocity and pressure fields.</p>
+<h2 id="5-post-processing-and-results">5. <strong>Post-Processing and Results</strong><a class="headerlink" href="#5-post-processing-and-results" title="Permanent link">&para;</a></h2>
+<p>After the solver has completed, you can check the results in the <code>postProcessing/</code> directory for output files (such as <code>U</code>, <code>p</code> for velocity and pressure). These files contain the simulation results for each time step.</p>
+<h3 id="51-check-results">5.1 <strong>Check Results</strong><a class="headerlink" href="#51-check-results" title="Permanent link">&para;</a></h3>
+<p>Use the following command to list the files generated by the solver:</p>
+<pre><code class="language-bash">ls postProcessing
+</code></pre>
+<p><img alt="Post-processing Results" src="/assets/OFD/post-processing-results.png" /></p>
+<p>You should see the time-step directories with the result files.</p>
+<p>This procedure confirms that OpenFOAM is correctly installed and functioning. You can now proceed with more complex simulations and case studies.</p>
+<p><strong>NOTE:</strong>
+This setup is intended for personal use on a laptop or personal machine. It is not suitable for server-level installations or large-scale simulations.</p>
+<p>For more advanced usage, explore the official <a href="https://www.openfoam.com/documentation/">OpenFOAM documentation</a> and tutorials.</p>
+<hr />
+<h2 id="documentation-and-tutorials">Documentation and Tutorials<a class="headerlink" href="#documentation-and-tutorials" title="Permanent link">&para;</a></h2>
+<p>OpenFOAM provides extensive documentation and tutorials to help users get up to speed quickly. The official documentation includes:</p>
+<ul>
+<li><strong>User Guide</strong>: Detailed explanation of how to set up and run simulations.</li>
+<li><strong>Developer Guide</strong>: For those interested in modifying or extending OpenFOAM’s capabilities.</li>
+<li><strong>Tutorials</strong>: Step-by-step guides for a wide range of simulations, from simple fluid flow to more complex models.</li>
+</ul>
+<p>You can access all these resources at the official <a href="https://www.openfoam.com">OpenFOAM website</a>.</p>
+<hr />
+<h2 id="community-and-support">Community and Support<a class="headerlink" href="#community-and-support" title="Permanent link">&para;</a></h2>
+<p>As an open-source project, OpenFOAM has a vibrant community of users and developers. There are various ways to get help:</p>
+<ul>
+<li><strong>Official Forum</strong>: <a href="https://www.cfd-online.com/Forums/openfoam/">OpenFOAM Community Forum</a></li>
+<li><strong>Mailing Lists</strong>: Join the mailing list to stay updated on the latest news and releases.</li>
+<li><strong>OpenFOAM Wiki</strong>: A community-maintained wiki with a wealth of information on installation, usage, and troubleshooting.</li>
+</ul>
+<p>Additionally, commercial support is available from OpenFOAM providers like <a href="https://www.openfoam.com">OpenCFD</a>.</p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>OpenFOAM is a powerful tool for simulating fluid dynamics and other related processes. With its open-source nature, extensibility, and wide range of features, it is an essential resource for researchers, engineers, and scientists working in the field of computational fluid dynamics. Whether you're a novice looking to run basic simulations or an expert looking to develop custom solvers, OpenFOAM has the tools you need.</p>
+<p>For more information, visit the official <a href="https://www.openfoam.com">OpenFOAM website</a>.</p>
+<hr />
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.openfoam.com">Official OpenFOAM Website</a></li>
+<li><a href="https://www.openfoam.com/documentation/">OpenFOAM Documentation</a></li>
+<li><a href="https://openfoamwiki.net">OpenFOAM Wiki</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.instant.prefetch", "navigation.instant.preview", "navigation.tracking", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
