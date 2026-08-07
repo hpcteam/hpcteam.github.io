@@ -2,6 +2,7 @@ site_name: AYYAPPASWAMY EETHAKOTA
 
 theme:
   name: material
+
   features:
     - navigation.instant
     - navigation.tabs
@@ -52,10 +53,12 @@ markdown_extensions:
 plugins:
   - privacy
   - search 
+  - blog
 
  
 nav:
   - Home: index.md
+  - Blog:  blog/index.md
 
   - Profile:
       - Professional Summary: Home/Professional-Summary.md
