@@ -52,7 +52,8 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 plugins:
   - privacy
-  - search 
+  - search:
+      lang: en
   - blog
 
  
