@@ -2,6 +2,10 @@ site_name: AYYAPPASWAMY EETHAKOTA
 
 theme:
   name: material
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
 
   features:
     - navigation.instant
