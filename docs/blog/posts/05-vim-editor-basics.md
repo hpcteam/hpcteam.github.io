@@ -7,9 +7,7 @@ categories:
   - Linux
 tags:
   - vim
-  - vi
   - text-editor
-  - command-line
 ---
 
 # Vim Editor Basics for Beginners

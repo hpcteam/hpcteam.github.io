@@ -8,8 +8,6 @@ categories:
 tags:
   - bash
   - variables
-  - touch
-  - shell
 ---
 
 # Bash Basics: touch, Variables, export, and File Viewers

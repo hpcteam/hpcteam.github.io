@@ -7,9 +7,6 @@ categories:
   - Linux
 tags:
   - users
-  - uid
-  - passwd
-  - shadow
   - linux-administration
 ---
 

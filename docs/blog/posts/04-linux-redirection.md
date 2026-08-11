@@ -7,10 +7,6 @@ categories:
   - Linux
 tags:
   - redirection
-  - shell
-  - stdin
-  - stdout
-  - stderr
 ---
 
 # Understanding Redirection in Linux

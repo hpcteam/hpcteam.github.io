@@ -6,8 +6,6 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
-
-  features:
     - navigation.instant
     - navigation.tabs
     - navigation.instant.prefetch
@@ -18,8 +16,6 @@ theme:
     - navigation.expand
     - navigation.path
     - navigation.prune
-    - search.suggest
-    - search.highlight
 
   palette:
     # Palette toggle for automatic mode
@@ -45,8 +41,8 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-    
-  
+
+
 markdown_extensions:
   - attr_list
   - toc:
@@ -54,16 +50,24 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
 plugins:
   - privacy
+
   - search:
       lang: en
-  - blog
 
- 
+  - blog:
+      pagination_per_page: 1
+
+  - tags
+
+
 nav:
   - Home: index.md
-  - Blog:  blog/index.md
+  - Blog:
+    - Blog: blog/index.md
+    - Topics: blog/tags.md
 
   - Profile:
       - Professional Summary: Home/Professional-Summary.md
@@ -72,8 +76,8 @@ nav:
       - Roles & Responsibilities: Home/roles-responsibilities.md
       - Applications & Libraries: Home/Applications&Libraries.md
       - Projects: Home/projects.md
-      
-      
+
+
   - Documents:
       - Important Note : Documents/index.md
       - Bright Cluster Manager : Documents/brightclustermanager.md
@@ -85,13 +89,13 @@ nav:
       - What is module file : Documents/Module-File.md
       - NFS : Documents/NFS.md
       - PIP: Documents/PIP.md
-      - Proxy: Documents/Proxy.md            
+      - Proxy: Documents/Proxy.md
       - Slurm Basics: Documents/Slurm.md
       - RPM BUILD FROM SOURCODE : Documents/RPM-BUILD_SOURE_CODE.md
       - Job-Query : Documents/Jobs-query.md
       - test : Documents/test.md
-      
-      
+
+
       - Lustre File System:
           - Lustre: Documents/Lustre.md
           - Installation: Documents/lustre-installtion.md
@@ -106,8 +110,8 @@ nav:
       - Power Supply Unit (PSU) : Troubleshooting/Power Supply Unit.md
       - Memory issue : Troubleshooting/Memory issue.md
       - Processor : Troubleshooting/Processor-replaceing.md
-      
-    
+
+
 
   - Installation:
       - Important Note: Documents/Installation/Overview.md
@@ -143,5 +147,3 @@ nav:
 
 
   - Contact: Home/contact.md
-
- 

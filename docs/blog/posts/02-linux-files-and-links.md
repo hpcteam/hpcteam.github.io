@@ -6,10 +6,7 @@ authors:
 categories:
   - Linux
 tags:
-  - files
-  - links
   - filesystem
-  - operating-systems
 ---
 
 # Understanding Linux Files, Links, and Folders 
