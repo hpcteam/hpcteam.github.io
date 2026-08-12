@@ -2,6 +2,7 @@ site_name: AYYAPPASWAMY EETHAKOTA
 
 theme:
   name: material
+  custom_dir: overrides
   features:
     - search.suggest
     - search.highlight
