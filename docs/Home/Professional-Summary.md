@@ -3,9 +3,13 @@ title: Professional Summary
 layout: default
 ---
 
-I am a Linux Systems Administrator and HPC Engineer with two years of hands-on experience managing large-scale, high-performance computing (HPC) environments designed to support government and enterprise research workloads. My focus is on ensuring the reliability, performance, and availability of production-grade HPC infrastructures.
+I am a Linux Systems Administrator and HPC Engineer with hands-on experience managing large-scale, high-performance computing environments for government and enterprise research workloads. My work centers on keeping production-grade HPC infrastructure reliable, performant, and continuously available.
 
-I have been an integral part of the deployment and ongoing operations of India’s 11-Petaflops supercomputing infrastructure, supporting environments consisting of over 1,300 compute nodes and NVIDIA H100 GPU accelerator systems. My core responsibilities encompass cluster provisioning, operating system management, workload scheduling, system monitoring, hardware management, and troubleshooting across both CPU and GPU-based clusters to ensure high performance and minimal downtime. I also manage storage solutions like Lustre File System to maintain efficient data storage and access across the HPC environment.
+I began my HPC career in January 2024 and have since built expertise across Linux system administration, cluster deployment and operations, server provisioning, job scheduling, high-speed networking, parallel file systems, GPU infrastructure, and performance troubleshooting. I currently serve as a Technology Associate – HPC at my second organization, where I design, build, and manage HPC environments that scale.
+
+A core part of my experience has been contributing to the deployment and ongoing operations of India's 11-petaflop supercomputing infrastructure — an environment spanning over 1,300 compute nodes and NVIDIA H100 GPU accelerator systems. Day to day, this means provisioning clusters, managing operating systems, scheduling workloads, monitoring system health, and troubleshooting across both CPU and GPU nodes to minimize downtime. I also manage the Lustre file system, ensuring efficient, high-throughput data storage and access across the environment.
+
+Beyond infrastructure operations, I'm continually deepening my skills in automation, storage architecture, networking, and data-center operations — with the goal of not just maintaining HPC systems, but making them faster, more resilient, and easier to operate at scale.
 
 ## Core Responsibilities
 
