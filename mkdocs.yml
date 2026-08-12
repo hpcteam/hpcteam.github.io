@@ -65,8 +65,8 @@ plugins:
 
 nav:
   - Home: index.md
-  - Blog:
-    - Blog: blog/index.md
+  - Tech Blog:
+    - Tech Blog: blog/index.md
     - Topics: blog/tags.md
 
   - Profile:

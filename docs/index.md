@@ -3,13 +3,13 @@
 
 # Ayyappaswamy Eethakota
 
-**Linux Systems Administrator** and **High-Performance Computing (HPC) Engineer** with
-hands-on experience supporting **large-scale**, production-grade HPC environments
-for **government** and **enterprise** research workloads.
+**Linux Systems Administrator** and **HPC Engineer** with hands-on experience supporting **large-scale, production-grade HPC environments** for **government and enterprise research workloads**.
 
-This site documents my professional experience, technical skills, and operational
-knowledge gained while working on multi-petaflop HPC infrastructure, GPU-accelerated
-clusters, high-speed InfiniBand networks, and enterprise Linux systems.
+I started my HPC career in January 2024, working on large-scale infrastructure supporting government and enterprise research. My experience spans Linux system administration, HPC cluster deployment and operations, server provisioning, job schedulers, high-speed networking, parallel file systems, GPU infrastructure, and performance monitoring and troubleshooting.
+
+I currently work as a **Technology Associate – HPC** in my second organization, where I build and manage reliable, scalable, high-performance computing environments — focusing on the reliability, performance, availability, and operational efficiency of HPC infrastructure while deepening my skills across Linux, HPC technologies, automation, storage, networking, and data-center operations.
+
+This site documents my professional experience, technical skills, and operational knowledge gained working on multi-petaflop HPC infrastructure, GPU-accelerated clusters, high-speed InfiniBand networks, and enterprise Linux systems.
 
 ---
 
