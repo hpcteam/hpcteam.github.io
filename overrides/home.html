@@ -1,0 +1,3476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ayyappaswamy Eethakota — Associate Technology, HPC</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+
+    :root {
+      --bg-0: #f5f8fd;
+      --bg-1: #ffffff;
+      --bg-2: #eef3fb;
+      --line: #dfe7f3;
+      --ink: #0f1b33;
+      --ink-dim: #5b6b85;
+      --ink-faint: #8c99b0;
+      --accent: #1d5bf0;
+      --accent-2: #5b8bff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(
+          1100px 600px at 82% 10%,
+          rgba(29, 91, 240, 0.10),
+          transparent 60%
+        ),
+        radial-gradient(
+          700px 500px at 8% 95%,
+          rgba(29, 91, 240, 0.06),
+          transparent 60%
+        ),
+        var(--bg-0);
+
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+
+      min-height: 100vh;
+
+      padding: 28px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .frame {
+      width: 100%;
+      max-width: 1180px;
+
+      margin: 0 auto;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--bg-1),
+          var(--bg-0)
+        );
+
+      border: 1px solid var(--line);
+      border-radius: 22px;
+
+      padding: 36px 48px 44px;
+
+      position: relative;
+      overflow: hidden;
+
+      box-shadow:
+        0 40px 80px -30px rgba(29, 91, 240, 0.18);
+    }
+
+    .frame::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(29, 91, 240, 0.03) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(29, 91, 240, 0.03) 1px,
+          transparent 1px
+        );
+
+      background-size: 36px 36px;
+
+      pointer-events: none;
+    }
+
+    /* =========================
+       NAVIGATION
+       ========================= */
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      position: relative;
+      z-index: 20;
+    }
+
+    .logo {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.1rem;
+
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--ink-dim);
+      text-decoration: none;
+
+      font-size: 0.92rem;
+      font-weight: 500;
+
+      transition: color .2s ease;
+
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* =========================
+       BUTTONS
+       ========================= */
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 0.72rem 1.7rem;
+
+      border-radius: 999px;
+
+      font-weight: 600;
+      font-size: 0.92rem;
+
+      cursor: pointer;
+
+      border: none;
+
+      text-decoration: none;
+
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        background .2s ease;
+    }
+
+    .btn-primary {
+      background:
+        linear-gradient(
+          135deg,
+          var(--accent),
+          #1440b0
+        );
+
+      color: #ffffff;
+
+      box-shadow:
+        0 10px 24px -8px rgba(29, 91, 240, 0.45);
+    }
+    .btn-primary,
+    .btn-primary:visited,
+    .btn-primary:hover,
+    .btn-primary:active {
+  color: #ffffff !important;
+}
+
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 14px 30px -8px rgba(29, 91, 240, 0.6);
+    }
+
+    .btn-outline {
+      background: transparent;
+
+      color: var(--ink);
+
+      border: 1px solid var(--line);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+
+      color: var(--accent);
+
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       DROPDOWN
+       ========================= */
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-item > a {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .nav-item > a svg {
+      width: 12px;
+      height: 12px;
+
+      transition: transform .18s ease;
+    }
+
+    .nav-item:hover > a svg {
+      transform: rotate(180deg);
+    }
+
+    .dropdown {
+      position: absolute;
+
+      top: calc(100% + 14px);
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      background: var(--bg-1);
+
+      border: 1px solid var(--line);
+
+      border-radius: 14px;
+
+      padding: 0.6rem;
+
+      min-width: 250px;
+
+      max-height: 500px;
+
+      overflow-y: auto;
+
+      box-shadow:
+        0 20px 40px -12px rgba(29, 91, 240, 0.25);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        opacity .18s ease,
+        transform .18s ease,
+        visibility .18s ease;
+
+      z-index: 100;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+
+      visibility: visible;
+
+      transform:
+        translateX(-50%)
+        translateY(6px);
+    }
+
+    .dropdown a {
+      display: block;
+
+      padding: 0.55rem 0.8rem;
+
+      border-radius: 8px;
+
+      font-size: 0.88rem;
+
+      white-space: nowrap;
+
+      color: var(--ink-dim);
+
+      text-decoration: none;
+    }
+
+    .dropdown a:hover 
+    .dropdown-heading {
+  padding: 0.65rem 0.8rem 0.35rem;
+  color: var(--accent);
+  font-family: 'Sora', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      display: grid;
+
+      grid-template-columns: 1.05fr 0.95fr;
+
+      align-items: center;
+
+      gap: 2rem;
+
+      margin-top: 3.2rem;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: var(--ink-faint);
+
+      font-size: 0.98rem;
+
+      margin-bottom: 0.35rem;
+    }
+
+    .name {
+      font-family: 'Sora', sans-serif;
+
+      font-weight: 600;
+
+      font-size: 1.35rem;
+
+      color: var(--ink);
+
+      margin-bottom: 0.9rem;
+    }
+
+    .title {
+      font-family: 'Sora', sans-serif;
+
+      font-weight: 800;
+
+      font-size: 3.6rem;
+
+      line-height: 1.05;
+
+      letter-spacing: -0.01em;
+    }
+
+    .title .accent {
+      color: var(--accent);
+    }
+
+    .desc {
+      color: var(--ink-dim);
+
+      max-width: 45ch;
+
+      margin: 1.3rem 0 1.8rem;
+
+      line-height: 1.6;
+
+      font-size: 0.98rem;
+    }
+
+    /* =========================
+       SOCIAL
+       ========================= */
+
+    .socials {
+      display: flex;
+
+      gap: 0.7rem;
+
+      margin-bottom: 2rem;
+    }
+
+    .socials a {
+      width: 38px;
+      height: 38px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      border: 1px solid var(--line);
+
+      color: var(--ink-dim);
+
+      text-decoration: none;
+
+      transition: all .2s ease;
+    }
+
+    .socials a:hover {
+      border-color: var(--accent);
+
+      color: var(--accent);
+
+      transform: translateY(-2px);
+    }
+
+    .socials svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* =========================
+       CTA
+       ========================= */
+
+    .cta-row {
+      display: flex;
+
+      gap: 1rem;
+
+      margin-bottom: 2.6rem;
+    }
+
+    /* =========================
+       STATS
+       ========================= */
+
+    .stats {
+      display: flex;
+
+      background: rgba(29, 91, 240, 0.03);
+
+      border: 1px solid var(--line);
+
+      border-radius: 16px;
+
+      padding: 1.3rem 0;
+
+      max-width: 440px;
+    }
+
+    .stat {
+      flex: 1;
+
+      text-align: center;
+
+      padding: 0 1rem;
+    }
+
+    .stat + .stat {
+      border-left: 1px solid var(--line);
+    }
+
+    .stat .num {
+      font-family: 'Sora', sans-serif;
+
+      font-weight: 800;
+
+      font-size: 1.5rem;
+
+      color: var(--accent);
+    }
+
+    .stat .label {
+      color: var(--ink-dim);
+
+      font-size: 0.85rem;
+
+      margin-top: 0.2rem;
+    }
+
+    /* =========================
+       PORTRAIT
+       ========================= */
+
+    .portrait-wrap {
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      height: 520px;
+    }
+
+    .glow-ring {
+      position: absolute;
+
+      width: 400px;
+      height: 400px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 50% 40%,
+          rgba(29, 91, 240, 0.14),
+          rgba(29, 91, 240, 0.02) 65%,
+          transparent 70%
+        );
+
+      filter: blur(2px);
+    }
+
+    .portrait-svg {
+      position: relative;
+
+      z-index: 2;
+
+      height: 100%;
+
+      filter:
+        drop-shadow(
+          0 30px 40px rgba(29, 91, 240, 0.18)
+        );
+    }
+
+    /* =========================
+       PROFILE
+       ========================= */
+
+    .profile-section {
+      margin-top: 4.5rem;
+
+      position: relative;
+
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns: 220px 1fr;
+
+      gap: 3rem;
+
+      align-items: start;
+    }
+
+    .profile-sidebar {
+      position: sticky;
+
+      top: 90px;
+    }
+
+    .sidebar-eyebrow {
+      font-family: 'Sora', sans-serif;
+
+      font-weight: 700;
+
+      font-size: 0.8rem;
+
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+
+      color: var(--ink-faint);
+
+      margin-bottom: 1.1rem;
+    }
+
+    .sidebar-links {
+      list-style: none;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 0.9rem;
+
+      border-left: 2px solid var(--line);
+    }
+
+    .sidebar-links a {
+      display: block;
+
+      padding: 0.15rem 0 0.15rem 1rem;
+
+      margin-left: -2px;
+
+      border-left: 2px solid transparent;
+
+      color: var(--ink-dim);
+
+      text-decoration: none;
+
+      font-size: 1rem;
+
+      font-weight: 500;
+
+      transition:
+        color .18s ease,
+        border-color .18s ease;
+    }
+
+    .sidebar-links a:hover {
+      color: var(--ink);
+    }
+
+    .sidebar-links a.active {
+      color: var(--accent);
+
+      border-left-color: var(--accent);
+
+      font-weight: 600;
+    }
+
+    .profile-content {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 4rem;
+    }
+
+    .profile-block {
+  scroll-margin-top: 28px;
+}
+
+.profile-block h2 {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.profile-block p {
+  color: var(--ink-dim);
+  line-height: 1.8;
+  font-size: 0.98rem;
+  max-width: 70ch;
+  overflow-wrap: break-word;
+  margin-bottom: 1.4rem;
+}
+
+/* Summary sections */
+
+.summary-category {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.summary-category h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+}
+
+/* Responsibility cards */
+
+.responsibility-card {
+  margin-top: 1.8rem;
+  margin-bottom: 1.8rem;
+
+  padding: 1.5rem 1.7rem;
+
+  background: rgba(29, 91, 240, 0.025);
+
+  border: 1px solid var(--line);
+
+  border-radius: 14px;
+
+  line-height: 1.75;
+}
+
+.responsibility-card h4 {
+  font-family: 'Sora', sans-serif;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  color: var(--ink);
+
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.responsibility-card p {
+  margin: 0;
+  line-height: 1.8;
+  color: var(--ink-dim);
+}
+
+/* Operations & Support */
+
+.summary-list {
+  margin-top: 1.8rem;
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.summary-list li {
+  margin-bottom: 2.2rem;
+  padding-left: 0.2rem;
+  line-height: 1.8;
+}
+
+.summary-list li:last-child {
+  margin-bottom: 0;
+}
+
+.support-goal {
+  margin-top: 2.8rem;
+}
+
+.support-goal p {
+  margin-bottom: 0;
+}
+/* =========================
+   TECHNICAL SKILLS
+   ========================= */
+
+.skill-category {
+  margin-top: 3rem;
+  padding: 1.5rem 1.7rem;
+
+  background: rgba(29, 91, 240, 0.025);
+
+  border: 1px solid var(--line);
+
+  border-radius: 14px;
+}
+
+.skill-category h3 {
+  font-family: 'Sora', sans-serif;
+
+  font-size: 1.15rem;
+  font-weight: 700;
+
+  color: var(--ink);
+
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+.skill-category h4 {
+  font-family: 'Sora', sans-serif;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  color: var(--accent);
+
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.skill-list {
+  margin: 0;
+  padding-left: 1.4rem;
+
+  color: var(--ink-dim);
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+}
+
+.skill-list li {
+  margin-bottom: 0.45rem;
+}
+
+.skill-list strong {
+  color: var(--ink);
+}
+
+/* =========================
+   TECHNICAL SKILLS
+   ========================= */
+
+.skill-category {
+  margin-top: 3rem;
+  padding: 1.5rem 1.7rem;
+  background: rgba(29, 91, 240, 0.025);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.skill-category h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 1.2rem;
+}
+
+.skill-category h4 {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 1.5rem 0 0.8rem;
+}
+
+.skill-list {
+  margin: 0;
+  padding-left: 1.4rem;
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.skill-list li {
+  margin-bottom: 0.45rem;
+}
+
+.skill-list li:last-child {
+  margin-bottom: 0;
+}
+
+.skill-list strong {
+  color: var(--ink);
+}
+
+/* =========================
+   END TECHNICAL SKILLS
+   ========================= */
+
+/* Focus cards */
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.3rem;
+}
+
+.focus-card {
+  padding: 1.4rem;
+  background: rgba(29, 91, 240, 0.025);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  min-height: 150px;
+}
+
+.focus-card h4 {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.focus-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--ink-dim);
+}
+
+    /* =========================
+       TAGS
+       ========================= */
+
+    .tag-list {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 0.6rem;
+    }
+
+    .tag-list span {
+      background: var(--bg-2);
+
+      border: 1px solid var(--line);
+
+      color: var(--ink);
+
+      font-size: 0.85rem;
+
+      font-weight: 500;
+
+      padding: 0.4rem 0.9rem;
+
+      border-radius: 999px;
+    }
+
+    /* =========================
+       EXPERIENCE / PROJECTS
+       ========================= */
+
+    .exp-item,
+    .project-item {
+      border: 1px solid var(--line);
+
+      background: rgba(29, 91, 240, 0.02);
+
+      border-radius: 14px;
+
+      padding: 1.3rem 1.5rem;
+    }
+
+    .exp-item + .exp-item,
+    .project-item + .project-item {
+      margin-top: 1rem;
+    }
+
+    .exp-head {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: baseline;
+
+      flex-wrap: wrap;
+
+      gap: 0.4rem;
+
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-role {
+      font-family: 'Sora', sans-serif;
+
+      font-weight: 600;
+
+      font-size: 1.02rem;
+    }
+
+    .exp-dates {
+      color: var(--ink-faint);
+
+      font-size: 0.85rem;
+
+      font-weight: 500;
+    }
+
+    .exp-org {
+      color: var(--accent);
+
+      font-size: 0.88rem;
+
+      font-weight: 600;
+
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-item ul,
+    .roles-list {
+      color: var(--ink-dim);
+
+      font-size: 0.94rem;
+
+      line-height: 1.7;
+
+      padding-left: 1.1rem;
+    }
+
+/* =========================================
+   ENHANCED PROFILE PRESENTATION
+   ========================================= */
+
+/* Consistent anchor positioning */
+section[id],
+.profile-block {
+  scroll-margin-top: 90px;
+}
+
+/* Profile content spacing */
+.profile-content {
+  gap: 5rem;
+}
+
+.profile-block {
+  position: relative;
+}
+
+.profile-block > h2 {
+  position: relative;
+  font-size: 1.8rem;
+  line-height: 1.25;
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.01em;
+}
+
+.profile-block > h2::after {
+  content: '';
+  display: block;
+  width: 52px;
+  height: 3px;
+  margin-top: 0.65rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.profile-block > p {
+  max-width: 78ch;
+  line-height: 1.85;
+}
+
+/* Section separation */
+.profile-content > .profile-block + .profile-block {
+  padding-top: 4rem;
+  border-top: 1px solid rgba(223, 231, 243, 0.9);
+}
+
+/* Better spacing for summary groups */
+.summary-category {
+  margin-top: 2.8rem;
+  margin-bottom: 2.8rem;
+}
+
+.summary-category h3 {
+  margin-bottom: 1.15rem;
+  line-height: 1.35;
+}
+
+/* Responsibility / role cards */
+.responsibility-card,
+#roles .summary-category,
+#applications .summary-category,
+#projects .summary-category {
+  background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(29,91,240,0.025));
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(15, 27, 51, 0.035);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.responsibility-card:hover,
+#roles .summary-category:hover,
+#applications .summary-category:hover,
+#projects .summary-category:hover,
+.skill-category:hover,
+.exp-item:hover,
+.project-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(29, 91, 240, 0.28);
+  box-shadow: 0 14px 30px rgba(29, 91, 240, 0.08);
+}
+
+/* Operations & Support */
+#summary .summary-list {
+  margin-top: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+
+#summary .summary-list li {
+  margin-bottom: 0.85rem;
+}
+
+.support-goal {
+  margin-top: 2rem;
+  padding: 1.25rem 1.4rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(29, 91, 240, 0.035);
+  border-radius: 0 12px 12px 0;
+}
+
+/* Technical Skills */
+#skills .skill-category {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  margin-top: 1.5rem;
+  padding: 1.55rem 1.7rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(29,91,240,0.025));
+  box-shadow: 0 8px 24px rgba(15, 27, 51, 0.035);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+#skills .skill-category::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  opacity: .85;
+}
+
+#skills .skill-category h3 {
+  font-size: 1.08rem;
+  margin-bottom: 0.9rem;
+}
+
+#skills .skill-list {
+  line-height: 1.75;
+}
+
+#skills .skill-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Storage & GPU are important HPC skills */
+#skills .skill-category:nth-of-type(7),
+#skills .skill-category:nth-of-type(8) {
+  border-color: rgba(29, 91, 240, 0.22);
+}
+
+/* Professional Experience */
+#experience .experience-card {
+  padding: 2rem 2.2rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(29,91,240,0.025));
+  box-shadow: 0 12px 34px rgba(15, 27, 51, 0.055);
+}
+
+#experience .experience-card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 0.7rem;
+}
+
+#experience .experience-meta {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+#experience .experience-card .summary-category {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Roles, Applications and Projects */
+#roles .summary-category,
+#applications .summary-category,
+#projects .summary-category {
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  padding: 1.45rem 1.6rem;
+  border-radius: 16px;
+}
+
+#roles .summary-category h3,
+#applications .summary-category h3,
+#projects .summary-category h3 {
+  color: var(--ink);
+}
+
+#roles .summary-list,
+#applications .summary-list,
+#projects .summary-list {
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+#roles .summary-list li,
+#applications .summary-list li,
+#projects .summary-list li {
+  margin-bottom: 0.65rem;
+}
+
+/* Focus cards */
+.focus-card {
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(29, 91, 240, 0.3);
+  box-shadow: 0 14px 30px rgba(29, 91, 240, 0.08);
+}
+
+/* Experience/project list readability */
+.exp-item,
+.project-item {
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.exp-item ul,
+.roles-list {
+  line-height: 1.8;
+}
+
+/* Keep long technical names inside cards */
+.skill-category,
+.experience-card,
+.summary-category {
+  overflow-wrap: anywhere;
+}
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 900px) {
+
+      .frame {
+        padding: 28px 22px 32px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+
+        gap: 1rem;
+      }
+
+      .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 1.4rem;
+
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        text-align: left;
+      }
+
+      .title {
+        font-size: 2.6rem;
+      }
+
+      .portrait-wrap {
+        height: 360px;
+
+        margin-top: 2rem;
+      }
+
+      .stats {
+        max-width: 100%;
+      }
+
+      .dropdown {
+        position: static;
+
+        transform: none !important;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        box-shadow: none;
+
+        border: none;
+
+        display: none;
+
+        width: 100%;
+
+        max-height: none;
+
+        overflow: visible;
+
+        padding: 0.3rem 0 0 1rem;
+      }
+
+      .nav-item.open .dropdown {
+        display: block;
+      }
+
+      .profile-section {
+        grid-template-columns: 1fr;
+
+        gap: 2rem;
+      }
+
+      .profile-sidebar {
+        position: static;
+      }
+
+      .sidebar-links {
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        border-left: none;
+
+        gap: 1.2rem;
+      }
+
+      .sidebar-links a {
+        border-left: none;
+
+        border-bottom: 2px solid transparent;
+
+        padding: 0 0 0.3rem;
+      }
+
+      .sidebar-links a.active {
+        border-bottom-color: var(--accent);
+      }
+
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-category {
+        padding: 1.25rem 1.2rem;
+      }
+
+      .profile-content {
+        gap: 3rem;
+      }
+
+      .profile-content > .profile-block + .profile-block {
+        padding-top: 2.5rem;
+      }
+
+      .profile-block > h2 {
+        font-size: 1.5rem;
+      }
+
+      #experience .experience-card {
+        padding: 1.35rem 1.2rem;
+      }
+
+      #roles .summary-category,
+      #applications .summary-category,
+      #projects .summary-category {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .btn,
+      .socials a {
+        transition: none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="frame">
+
+  <!-- =========================
+       NAVIGATION
+       ========================= -->
+
+  <nav>
+
+    <a href="/" class="logo">
+      HPC & LINUX <span>.</span>
+    </a>
+
+    <ul class="nav-links">
+
+  <!-- HOME -->
+
+  <li>
+    <a href="/">
+      Home
+    </a>
+  </li>
+
+
+  <!-- =========================
+     PROFILE
+     ========================= -->
+
+<li class="nav-item">
+
+  <a href="#summary">
+
+    Profile
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2">
+
+      <path d="M6 9l6 6 6-6"/>
+
+    </svg>
+
+  </a>
+
+  <div class="dropdown">
+
+    <a href="/#summary">
+      Professional Summary
+    </a>
+
+    <a href="/#skills">
+      Technical Skills
+    </a>
+
+    <a href="/#experience">
+      Professional Experience
+    </a>
+
+    <a href="/#roles">
+      Roles &amp; Responsibilities
+    </a>
+
+    <a href="/#applications">
+      Applications &amp; Libraries
+    </a>
+
+    <a href="/#projects">
+      Projects
+    </a>
+
+  </div>
+
+</li>
+
+  <!-- TECH BLOG -->
+
+  <li>
+    <a href="/blog/">
+      Tech Blog
+    </a>
+  </li>
+
+
+      <!-- DOCUMENTS -->
+
+<li class="nav-item">
+
+  <a href="/Documents/">
+
+    Documents
+
+    <svg viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2">
+      <path d="M6 9l6 6 6-6"/>
+    </svg>
+
+  </a>
+
+  <div class="dropdown">
+
+    <a href="/Documents/">
+      Important Note
+    </a>
+
+    <a href="/Documents/brightclustermanager/">
+      Bright Cluster Manager
+    </a>
+
+    <a href="/Documents/GitHub_Pages_MkDocs/">
+      GitHub Pages CI/CD
+    </a>
+
+    <a href="/Documents/hyperthreading/">
+      Hyperthreading
+    </a>
+
+    <a href="/Documents/Linux_commands/">
+      Linux Commands
+    </a>
+
+    <a href="/Documents/Logical%20Volume%20Manager%20(LVM)/">
+      LVM
+    </a>
+
+    <a href="/Documents/Local_repo/">
+      Local Repo
+    </a>
+
+    <a href="/Documents/Module-File/">
+      What is Module File
+    </a>
+
+    <a href="/Documents/NFS/">
+      NFS
+    </a>
+
+    <a href="/Documents/PIP/">
+      PIP
+    </a>
+
+    <a href="/Documents/Proxy/">
+      Proxy
+    </a>
+
+    <a href="/Documents/Slurm/">
+      Slurm Basics
+    </a>
+
+    <a href="/Documents/RPM-BUILD_SOURE_CODE/">
+      RPM BUILD FROM SOURCE
+    </a>
+
+    <a href="/Documents/Jobs-query/">
+      Job-Query
+    </a>
+
+    <a href="/Documents/test/">
+      Test
+    </a>
+
+    <div class="dropdown-heading">
+      Lustre File System
+    </div>
+
+    <a href="/Documents/Lustre/">
+      Lustre
+    </a>
+
+    <a href="/Documents/lustre-installtion/">
+      Installation
+    </a>
+
+    <div class="dropdown-heading">
+      Scripts
+    </div>
+
+    <a href="/Documents/Scripts/run.sh/">
+      Run Script
+    </a>
+
+    <div class="dropdown-heading">
+      Installation
+    </div>
+
+    <a href="/Documents/Installation/Overview/">
+      Important Note
+    </a>
+
+    <a href="/Documents/Installation/Anaconda/">
+      Anaconda
+    </a>
+
+    <a href="/Documents/Installation/Python-Offline/">
+      Python-3.14.3
+    </a>
+
+    <a href="/Documents/Installation/OpenMpi/">
+      OpenMPI
+    </a>
+
+    <a href="/Documents/Installation/Metis/">
+      METIS
+    </a>
+
+    <a href="/Documents/Installation/SU2_Installation/">
+      SU2
+    </a>
+
+    <a href="/Documents/Installation/Openmpi-ucx/">
+      OpenMPI-UCX
+    </a>
+
+    <a href="/Documents/Installation/OPEN-FOAM/">
+      OpenFOAM
+    </a>
+
+    <a href="/Documents/Installation/building-an-openhpc-cluster-in-vms/">
+      OpenHPC + Slurm
+    </a>
+
+    <a href="/Documents/Installation/Intel-toolkit/">
+      Intel Toolkit
+    </a>
+
+    <a href="/Documents/Installation/OpenPBS/">
+      OpenPBS-23.06.06
+    </a>
+
+    <a href="/Documents/Installation/LDAP/">
+      LDAP
+    </a>
+
+    <a href="/Documents/Installation/xcat/">
+      XCAT
+    </a>
+
+    <a href="/Documents/Installation/gcc/">
+      GCC
+    </a>
+
+    <a href="/Documents/Installation/gmp/">
+      GMP
+    </a>
+
+    <a href="/Documents/Installation/mpc/">
+      MPC
+    </a>
+
+    <a href="/Documents/Installation/mpfr/">
+      MPFR
+    </a>
+
+    <a href="/Documents/Installation/hwclock/">
+      HWClock
+    </a>
+
+    <a href="/Documents/Installation/hpl/">
+      HPL
+    </a>
+
+    <a href="/Documents/Installation/hpcg/">
+      HPCG
+    </a>
+
+    <a href="/Documents/Installation/qe/">
+      QE
+    </a>
+
+    <a href="/Documents/Installation/hpcc/">
+      HPCC
+    </a>
+
+    <div class="dropdown-heading">
+      LAMMPS
+    </div>
+
+    <a href="/Documents/Installation/lammps/theory/">
+      Theory
+    </a>
+
+    <a href="/Documents/Installation/lammps/cpu-installation/">
+      CPU Installation
+    </a>
+
+    <a href="/Documents/Installation/lammps/gpu-installation/">
+      GPU Installation
+    </a>
+
+  </div>
+
+</li>
+
+
+      <!-- =========================
+     TROUBLESHOOTING
+     ========================= -->
+
+<li class="nav-item">
+
+  <a href="/Troubleshooting/">
+
+    Troubleshooting
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2">
+
+      <path d="M6 9l6 6 6-6"/>
+
+    </svg>
+
+  </a>
+
+  <div class="dropdown">
+
+    <a href="/Troubleshooting/">
+      Overview
+    </a>
+
+    <a href="/Troubleshooting/Hardware%20Troubleshooting/">
+      Hardware Troubleshooting
+    </a>
+
+    <a href="/Troubleshooting/Power%20Drain/">
+      Power Drain
+    </a>
+
+    <a href="/Troubleshooting/Power%20Supply%20Unit/">
+      Power Supply Unit (PSU)
+    </a>
+
+    <a href="/Troubleshooting/Memory%20issue/">
+      Memory Issue
+    </a>
+
+    <a href="/Troubleshooting/Processor-replaceing/">
+      Processor
+    </a>
+
+  </div>
+
+</li>
+
+      <!-- =========================
+     INSTALLATION
+     ========================= -->
+
+<li class="nav-item">
+
+  <a href="/Documents/Installation/">
+
+    Installation
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2">
+
+      <path d="M6 9l6 6 6-6"/>
+
+    </svg>
+
+  </a>
+
+  <div class="dropdown">
+
+    <a href="/Documents/Installation/Overview/">
+      Important Note
+    </a>
+
+    <a href="/Documents/Installation/Anaconda/">
+      Anaconda
+    </a>
+
+    <a href="/Documents/Installation/Python-Offline/">
+      Python-3.14.3
+    </a>
+
+    <a href="/Documents/Installation/OpenMpi/">
+      OpenMPI
+    </a>
+
+    <a href="/Documents/Installation/Metis/">
+      METIS
+    </a>
+
+    <a href="/Documents/Installation/SU2_Installation/">
+      SU2
+    </a>
+
+    <a href="/Documents/Installation/Openmpi-ucx/">
+      OpenMPI-UCX
+    </a>
+
+    <a href="/Documents/Installation/OPEN-FOAM/">
+      OpenFOAM
+    </a>
+
+    <a href="/Documents/Installation/building-an-openhpc-cluster-in-vms/">
+      OpenHPC + Slurm
+    </a>
+
+    <a href="/Documents/Installation/Intel-toolkit/">
+      Intel Toolkit
+    </a>
+
+    <a href="/Documents/Installation/OpenPBS/">
+      OpenPBS-23.06.06
+    </a>
+
+    <a href="/Documents/Installation/LDAP/">
+      LDAP
+    </a>
+
+    <a href="/Documents/Installation/xcat/">
+      XCAT
+    </a>
+
+    <a href="/Documents/Installation/gcc/">
+      GCC
+    </a>
+
+    <a href="/Documents/Installation/gmp/">
+      GMP
+    </a>
+
+    <a href="/Documents/Installation/mpc/">
+      MPC
+    </a>
+
+    <a href="/Documents/Installation/mpfr/">
+      MPFR
+    </a>
+
+    <a href="/Documents/Installation/hwclock/">
+      HWClock
+    </a>
+
+    <a href="/Documents/Installation/hpl/">
+      HPL
+    </a>
+
+    <a href="/Documents/Installation/hpcg/">
+      HPCG
+    </a>
+
+    <a href="/Documents/Installation/qe/">
+      QE
+    </a>
+
+    <a href="/Documents/Installation/hpcc/">
+      HPCC
+    </a>
+
+
+    <!-- LAMMPS -->
+
+    <div class="dropdown-heading">
+      LAMMPS
+    </div>
+
+    <a href="/Documents/Installation/lammps/theory/">
+      Theory
+    </a>
+
+    <a href="/Documents/Installation/lammps/cpu-installation/">
+      CPU Installation
+    </a>
+
+    <a href="/Documents/Installation/lammps/gpu-installation/">
+      GPU Installation
+    </a>
+
+  </div>
+
+</li>
+
+    <!-- CONTACT -->
+
+    <a
+      href="/home/Contact/"
+      class="btn btn-primary">
+
+      Hire Me
+
+    </a>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+       ========================= -->
+
+  <div class="hero">
+
+    <div class="hero-copy">
+
+      <p class="eyebrow">
+        Hi I am
+      </p>
+
+      <p class="name">
+        Ayyappaswamy Eethakota
+      </p>
+
+      <h1 class="title">
+
+        Data Centre
+
+        <br>
+
+        <span class="accent">
+          &amp; HPC Engineer 
+        </span>
+
+      </h1>
+
+      <p class="desc">
+
+        I work on high-performance computing systems —
+        building and optimizing the infrastructure that
+        powers demanding, large-scale workloads.
+
+      </p>
+
+
+      <!-- SOCIAL LINKS -->
+
+      <div class="socials">
+
+        <!-- LINKEDIN
+             Replace # with your LinkedIn URL -->
+
+        <a
+          href="https://www.linkedin.com/in/ayyappaswamy-eethakota-ab3834339/"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2">
+
+            <path
+              d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/>
+
+            <rect
+              x="2"
+              y="9"
+              width="4"
+              height="12"/>
+
+            <circle
+              cx="4"
+              cy="4"
+              r="2"/>
+
+          </svg>
+
+        </a>
+
+
+        <!-- GITHUB
+             Replace # with your GitHub URL -->
+
+        <a
+          href="https://github.com/ayyappaswamyeethakota"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2">
+
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0010 18.13V22"/>
+
+          </svg>
+
+        </a>
+
+<!-- INSTAGRAM -->
+
+<a
+  href="https://www.instagram.com/ayyappaswamy_eethakota/"
+  aria-label="Instagram"
+  target="_blank"
+  rel="noopener noreferrer">
+
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round">
+
+    <rect
+      x="3"
+      y="3"
+      width="18"
+      height="18"
+      rx="5">
+    </rect>
+
+    <circle
+      cx="12"
+      cy="12"
+      r="4">
+    </circle>
+
+    <circle
+      cx="17.5"
+      cy="6.5"
+      r="1">
+    </circle>
+
+  </svg>
+
+</a>
+
+        <!-- EMAIL
+             Replace with your email -->
+
+        <a
+          href="mailto:eethakotaayyappaswamy@gmail.com"
+          aria-label="Email">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2">
+
+            <rect
+              x="2"
+              y="4"
+              width="20"
+              height="16"
+              rx="2"/>
+
+            <path d="M22 6l-10 7L2 6"/>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+
+      <!-- BUTTONS -->
+
+      <div class="cta-row">
+
+        <a
+          href="/home/contact/"
+          class="btn btn-primary">
+
+          Contact Me
+
+        </a>
+
+        <!--
+          Resume file:
+          docs/assets/Ayyappaswamy_Resume.pdf
+
+          MkDocs output URL:
+          /assets/Ayyappaswamy_Resume.pdf
+        -->
+
+        <a
+          href="/assets/Ayyappaswamy_Resume.pdf"
+          class="btn btn-outline"
+          target="_blank">
+
+          Download CV
+
+        </a>
+
+      </div>
+
+
+      <!-- STATS -->
+
+      <div class="stats">
+
+        <div class="stat">
+
+          <div class="num">
+            2+
+          </div>
+
+          <div class="label">
+            Years Experience 
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="num">
+            1300+
+          </div>
+
+          <div class="label">
+            Node Cluster 
+          </div>
+
+        </div>
+
+
+        <div class="stat">
+
+          <div class="num">
+            13 PB
+          </div>
+
+          <div class="label">
+            Storage
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         PORTRAIT
+         ========================= -->
+
+    <div class="portrait-wrap">
+
+      <div class="glow-ring"></div>
+
+      <svg
+        class="portrait-svg"
+        viewBox="0 0 320 520"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+
+          <linearGradient
+            id="suitGrad"
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="1">
+
+            <stop
+              offset="0%"
+              stop-color="#1d3f8f"/>
+
+            <stop
+              offset="100%"
+              stop-color="#0f1b33"/>
+
+          </linearGradient>
+
+
+          <linearGradient
+            id="skinGrad"
+            x1="0"
+            y1="0"
+            x2="1"
+            y2="1">
+
+            <stop
+              offset="0%"
+              stop-color="#dfe7f3"/>
+
+            <stop
+              offset="100%"
+              stop-color="#b9c6dd"/>
+
+          </linearGradient>
+
+        </defs>
+
+
+        <ellipse
+          cx="160"
+          cy="470"
+          rx="150"
+          ry="40"
+          fill="#1d5bf0"
+          opacity="0.10"/>
+
+
+        <!-- TORSO -->
+
+        <path
+          d="M60 520 C55 380 80 300 130 270 L190 270 C240 300 265 380 260 520 Z"
+          fill="url(#suitGrad)"/>
+
+
+        <path
+          d="M130 270 L160 330 L190 270 L175 255 L145 255 Z"
+          fill="#ffffff"/>
+
+
+        <rect
+          x="150"
+          y="290"
+          width="20"
+          height="140"
+          fill="#1d5bf0"
+          opacity="0.25"/>
+
+
+        <!-- NECK -->
+
+        <rect
+          x="140"
+          y="230"
+          width="40"
+          height="50"
+          rx="10"
+          fill="url(#skinGrad)"/>
+
+
+        <!-- HEAD -->
+
+        <ellipse
+          cx="160"
+          cy="175"
+          rx="58"
+          ry="68"
+          fill="url(#skinGrad)"/>
+
+
+        <!-- HAIR -->
+
+        <path
+          d="M104 165 C98 110 130 80 160 80 C192 80 222 112 216 168 C210 145 198 150 195 130 C180 150 140 150 125 130 C122 150 112 145 104 165 Z"
+          fill="#334467"/>
+
+
+        <!-- RIM LIGHT -->
+
+        <path
+          d="M104 165 C98 110 130 80 160 80"
+          stroke="#1d5bf0"
+          stroke-width="3"
+          fill="none"
+          opacity="0.55"
+          stroke-linecap="round"/>
+
+
+        <path
+          d="M60 520 C55 400 75 320 118 280"
+          stroke="#1d5bf0"
+          stroke-width="3"
+          fill="none"
+          opacity="0.35"
+          stroke-linecap="round"/>
+
+      </svg>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       PROFILE
+       ========================= -->
+
+  <div class="profile-section">
+
+
+    <!-- PROFILE SIDEBAR -->
+
+    <aside class="profile-sidebar">
+
+      <p class="sidebar-eyebrow">
+        Profile
+      </p>
+
+      <ul class="sidebar-links">
+
+        <li>
+          <a
+            href="#summary"
+            class="active">
+
+            Professional Summary
+
+          </a>
+        </li>
+
+
+        <li>
+          <a href="#skills">
+
+            Technical Skills
+
+          </a>
+        </li>
+
+
+        <li>
+          <a href="#experience">
+
+            Professional Experience
+
+          </a>
+        </li>
+
+
+        <li>
+          <a href="#roles">
+
+            Roles &amp; Responsibilities
+
+          </a>
+        </li>
+
+
+        <li>
+          <a href="#applications">
+
+            Applications &amp; Libraries
+
+          </a>
+        </li>
+
+
+        <li>
+          <a href="#projects">
+
+            Projects
+
+          </a>
+        </li>
+
+      </ul>
+
+    </aside>
+
+
+    <!-- PROFILE CONTENT -->
+
+    <div class="profile-content">
+
+
+      <!-- =========================
+     PROFESSIONAL SUMMARY
+     ========================= -->
+
+<section
+  id="summary"
+  class="profile-block">
+
+  <h2>
+    Professional Summary
+  </h2>
+
+  <p>
+    I am a Linux Systems Administrator and HPC Engineer with
+    hands-on experience managing large-scale, high-performance
+    computing environments for government and enterprise
+    research workloads. My work centers on keeping
+    production-grade HPC infrastructure reliable, performant,
+    and continuously available.
+  </p>
+
+  <p>
+    I began my HPC career in January 2024 and have since built
+    expertise across Linux system administration, cluster
+    deployment and operations, server provisioning, job
+    scheduling, high-speed networking, parallel file systems,
+    GPU infrastructure, and performance troubleshooting.
+    I currently serve as a Technology Associate – HPC at my
+    second organization, where I design, build, and manage
+    HPC environments that scale.
+  </p>
+
+  <p>
+    A core part of my experience has been contributing to the
+    deployment and ongoing operations of India's 11-petaflop
+    supercomputing infrastructure — an environment spanning
+    over 1,300 compute nodes and NVIDIA H100 GPU accelerator
+    systems. Day to day, this means provisioning clusters,
+    managing operating systems, scheduling workloads,
+    monitoring system health, and troubleshooting across both
+    CPU and GPU nodes to minimize downtime. I also manage the
+    Lustre file system, ensuring efficient, high-throughput
+    data storage and access across the environment.
+  </p>
+
+  <p>
+    Beyond infrastructure operations, I'm continually deepening
+    my skills in automation, storage architecture, networking,
+    and data-center operations — with the goal of not just
+    maintaining HPC systems, but making them faster, more
+    resilient, and easier to operate at scale.
+  </p>
+
+
+  <!-- =========================
+       CORE RESPONSIBILITIES
+       ========================= -->
+
+  <div class="summary-category">
+
+    <h3>
+      Core Responsibilities
+    </h3>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        OS Provisioning and Node Lifecycle Management
+      </h4>
+
+      <p>
+        Managing the provisioning, configuration, and maintenance
+        of operating systems across compute nodes, ensuring proper
+        setup, updates, and lifecycle management throughout each
+        node's usage. This includes integrating hardware and
+        software so the entire system runs efficiently.
+      </p>
+
+    </div>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        Hardware Management and Troubleshooting
+      </h4>
+
+      <p>
+        Responsible for maintaining and troubleshooting hardware
+        components such as CPUs, memory modules, network interface
+        cards (NICs), and storage devices. I diagnose hardware
+        failures, perform component replacements, and ensure
+        optimal hardware functionality across the entire cluster.
+      </p>
+
+    </div>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        Scheduler Integration and Workload Execution Using PBS Pro
+      </h4>
+
+      <p>
+        Configuring and optimizing PBS Pro for efficient workload
+        scheduling, ensuring smooth execution of tasks across both
+        CPU and GPU-based clusters. I fine-tune resource allocation
+        to maximize system performance and minimize job queuing
+        delays.
+      </p>
+
+    </div>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        Lustre File System Management and Troubleshooting
+      </h4>
+
+      <p>
+        Maintaining the Lustre file system to ensure high-performance,
+        scalable storage across multiple compute nodes. I troubleshoot
+        data access issues, optimize file system performance, and
+        ensure data integrity and availability for research workloads.
+      </p>
+
+    </div>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        Continuous Monitoring and Health Validation
+      </h4>
+
+      <p>
+        Monitoring system performance in real time, validating
+        hardware and software health, and addressing potential
+        issues proactively. I use tools like Dell OpenManage
+        Enterprise (OME) and Bright Cluster Manager for hardware
+        and system health validation, ensuring the cluster remains
+        fully operational.
+      </p>
+
+    </div>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        User Access Control and System-Level Troubleshooting
+      </h4>
+
+      <p>
+        Managing user access and permissions within the HPC
+        environment while ensuring security protocols are followed.
+        I troubleshoot system-level issues related to hardware,
+        software, and network connectivity to minimize disruptions
+        to research workflows.
+      </p>
+
+    </div>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        Application Installation and Library Management
+      </h4>
+
+      <p>
+        Installing and configuring both commercial and open-source
+        applications on the cluster, ensuring all required
+        dependencies are met. I manage essential libraries
+        such as MPI, CUDA, and OpenCL and resolve compatibility
+        issues so applications run smoothly and efficiently.
+      </p>
+
+    </div>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        System Monitoring Tools
+      </h4>
+
+      <p>
+        Utilizing platforms like Bright Cluster Manager,
+        Dell OpenManage Enterprise (OME), and InfiniBand UFM
+        to monitor system performance, track hardware health,
+        and resolve issues early. This supports a high system
+        availability target of 99.99% uptime and optimized
+        performance for distributed workloads.
+      </p>
+
+    </div>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        High-Speed InfiniBand (400 Gb/s) Network Support
+      </h4>
+
+      <p>
+        Supporting InfiniBand networks by monitoring link health,
+        troubleshooting connectivity issues, and assisting with
+        network optimization. I help ensure network performance
+        remains strong, which is essential for high-throughput
+        data transfer in HPC environments.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       AUTOMATION & OPERATIONS
+       ========================= -->
+
+  <div class="summary-category">
+
+    <h3>
+      Automation &amp; Operations
+    </h3>
+
+    <p>
+      Automation plays a crucial role in enhancing efficiency
+      and reducing manual effort across server management.
+      I use shell scripting to automate several key operations,
+      including:
+    </p>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        Server Configuration and Actions
+      </h4>
+
+      <p>
+        Automating server configurations to ensure uniformity
+        across all systems, including managing hardware drivers
+        and system settings, and verifying that every server is
+        configured consistently with required parameters.
+      </p>
+
+    </div>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        Server Monitoring and Data Collection
+      </h4>
+
+      <p>
+        Automating server monitoring tasks, including collecting
+        server data such as CPU and memory usage and checking
+        the status of critical services, so I can quickly identify
+        potential issues such as resource exhaustion or service
+        failures and take action to prevent disruptions.
+      </p>
+
+    </div>
+
+
+    <div class="responsibility-card">
+
+      <h4>
+        Identifying Configuration Issues
+      </h4>
+
+      <p>
+        Writing scripts to identify hardware or driver mismatches
+        across servers, ensuring correct hardware driver
+        configurations and preventing inconsistencies that could
+        affect performance or cause errors.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+     OPERATIONS & SUPPORT
+     ========================= -->
+
+<div class="summary-category">
+
+  <h3>
+    Operations &amp; Support
+  </h3>
+
+  <p>
+    I provide 24×7 L2 operational support in high-availability
+    environments, focusing on:
+  </p>
+
+  <ul class="summary-list">
+
+    <li>
+      Incident diagnosis and root-cause analysis
+    </li>
+
+    <li>
+      Corrective actions and continuous system optimization
+    </li>
+
+    <li>
+      Comprehensive documentation of troubleshooting processes
+      and solutions
+    </li>
+
+  </ul>
+
+  <div class="support-goal">
+
+    <p>
+      My primary goal is to ensure a stable infrastructure,
+      predictable performance, and a smooth experience for
+      researchers and engineers working on compute-intensive
+      workloads — maintaining uptime and reliability across
+      all systems.
+    </p>
+
+  </div>
+
+</div>
+
+
+  <!-- =========================
+       FOCUS & APPROACH
+       ========================= -->
+
+  <div class="summary-category">
+
+    <h3>
+      Focus &amp; Approach
+    </h3>
+
+    <p>
+      My approach centers on three key areas:
+      stability, performance, and scalability.
+      I work to build and maintain Linux and HPC
+      environments that are:
+    </p>
+
+    <div class="focus-grid">
+
+      <div class="focus-card">
+
+        <h4>
+          Reliable
+        </h4>
+
+        <p>
+          Strong, secure, and consistently
+          high-performing.
+        </p>
+
+      </div>
+
+
+      <div class="focus-card">
+
+        <h4>
+          Well-Monitored
+        </h4>
+
+        <p>
+          Closely watched for early detection
+          of issues.
+        </p>
+
+      </div>
+
+
+      <div class="focus-card">
+
+        <h4>
+          Ready for Demanding Tasks
+        </h4>
+
+        <p>
+          Built to handle scientific and
+          engineering workloads at the scale
+          complex computing requires.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+      <!-- =========================
+           TECHNICAL SKILLS
+           ========================= -->
+
+      <section
+        id="skills"
+        class="profile-block">
+
+        <h2>
+          Technical Skills
+        </h2>
+
+        <p>
+          My technical skill set covers Linux system administration,
+          high-performance computing (HPC), software tools,
+          networking, hardware management, and data management
+          within enterprise environments.
+        </p>
+
+
+        <div class="skill-category">
+
+          <h3>
+            Operating Systems
+          </h3>
+
+          <ul class="skill-list">
+            <li><strong>Red Hat Enterprise Linux (RHEL) 9.x</strong></li>
+            <li><strong>CentOS</strong></li>
+            <li>Linux system administration in multi-node environments</li>
+            <li>OS installation and configuration</li>
+          </ul>
+
+        </div>
+
+
+        <div class="skill-category">
+
+          <h3>
+            HPC Cluster Management &amp; Scheduling
+          </h3>
+
+          <ul class="skill-list">
+            <li><strong>NVIDIA Bright Cluster Manager</strong></li>
+            <li><strong>PBS Pro</strong></li>
+            <li><strong>Slurm</strong></li>
+          </ul>
+
+          <h4>Activities Include</h4>
+
+          <ul class="skill-list">
+            <li>Cluster provisioning</li>
+            <li>Node lifecycle management</li>
+            <li>Scheduler integration</li>
+            <li>Job monitoring</li>
+            <li>Production troubleshooting</li>
+          </ul>
+
+        </div>
+
+
+        <div class="skill-category">
+
+          <h3>
+            Networking &amp; Interconnects
+          </h3>
+
+          <ul class="skill-list">
+            <li><strong>InfiniBand (QM9700 / QM9790 – 400 Gb/s)</strong></li>
+            <li><strong>Dell S3100 Ethernet switches (1G / 10G)</strong></li>
+            <li>InfiniBand fabric monitoring and issue resolution</li>
+            <li>Network validation for HPC performance workloads</li>
+          </ul>
+
+        </div>
+
+
+        <div class="skill-category">
+
+          <h3>
+            Monitoring &amp; Management Tools
+          </h3>
+
+          <ul class="skill-list">
+            <li><strong>NVIDIA Bright Cluster Manager</strong></li>
+            <li><strong>Dell OpenManage Enterprise (OME)</strong></li>
+            <li><strong>InfiniBand UFM</strong></li>
+          </ul>
+
+          <h4>Used For</h4>
+
+          <ul class="skill-list">
+            <li>System health monitoring</li>
+            <li>Proactive fault detection</li>
+            <li>Hardware alerts</li>
+            <li>Operational reliability</li>
+          </ul>
+
+        </div>
+
+
+        <div class="skill-category">
+
+          <h3>
+            Benchmarking &amp; Performance Validation
+          </h3>
+
+          <ul class="skill-list">
+            <li><strong>HPL</strong></li>
+            <li><strong>HPCG</strong></li>
+            <li><strong>HPCC</strong></li>
+            <li><strong>LAMMPS</strong></li>
+          </ul>
+
+          <h4>Experience Includes</h4>
+
+          <ul class="skill-list">
+            <li>Performance validation</li>
+            <li>Baseline comparison</li>
+            <li>Throughput verification</li>
+            <li>Deployment and production testing</li>
+          </ul>
+
+        </div>
+
+
+        <div class="skill-category">
+
+          <h3>
+            Package &amp; Configuration Management
+          </h3>
+
+          <ul class="skill-list">
+            <li><strong>YUM</strong></li>
+            <li><strong>DNF</strong></li>
+            <li><strong>RPM</strong></li>
+            <li>Repository configuration</li>
+            <li>Dependency resolution in HPC environments</li>
+          </ul>
+
+        </div>
+        
+
+
+        <div class="skill-category">
+
+         <h3>
+          Storage &amp; File Systems
+        </h3>
+
+           <ul class="skill-list">
+
+             <li>
+             <strong>Parallel File Systems:</strong>
+            Lustre, BeeGFS — deployment, tuning, and troubleshooting
+            </li>
+
+    <li>
+      <strong>Volume Management:</strong>
+      LVM, NFS
+    </li>
+
+  </ul>
+
+</div>
+
+
+<!-- =========================
+     GPU & ACCELERATED COMPUTING
+     ========================= -->
+
+<div class="skill-category">
+
+  <h3>
+    GPU &amp; Accelerated Computing
+  </h3>
+
+  <ul class="skill-list">
+
+    <li>
+      <strong>GPU Infrastructure:</strong>
+      NVIDIA H100 accelerator systems, CUDA, driver and library management
+    </li>
+
+  </ul>
+
+</div>
+
+
+
+
+        
+
+        <div class="skill-category">
+
+          <h3>
+            Hardware &amp; Datacenter Operations
+          </h3>
+
+          <ul class="skill-list">
+            <li>
+              <strong>Dell PowerEdge servers:</strong>
+              R6625, R7625, XE8640, T550
+            </li>
+            <li>BIOS, firmware, and driver upgrades</li>
+            <li>Hardware diagnostics and fault handling</li>
+            <li>Server integration and validation</li>
+          </ul>
+
+        </div>
+
+
+        <div class="skill-category">
+
+          <h3>
+            Operations &amp; Support
+          </h3>
+
+          <ul class="skill-list">
+            <li><strong>24×7 L2 production support</strong></li>
+            <li>Incident diagnosis and root-cause analysis</li>
+            <li>Change implementation and validation</li>
+            <li>Operational documentation and handover support</li>
+          </ul>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+     PROFESSIONAL EXPERIENCE
+     ========================= -->
+
+<section id="experience" class="profile-block">
+
+  <h2>Professional Experience</h2>
+
+  <div class="experience-card">
+
+    <h3>Linux Systems Administrator</h3>
+
+    <div class="experience-meta">
+      TIS Labs Pvt. Ltd., Kolkata
+      <span>January 2024 – Present</span>
+    </div>
+
+    <p>
+      I am responsible for the administration, operation, and reliability
+      of large-scale Linux and high-performance computing (HPC) environments
+      supporting mission-critical government and enterprise research workloads.
+    </p>
+
+    <p>
+      My role involves day-to-day production support, cluster operations,
+      performance validation, and infrastructure maintenance across CPU and
+      GPU-based HPC systems.
+    </p>
+
+    <div class="summary-category">
+
+      <h3>Key Responsibilities &amp; Contributions</h3>
+
+      <ul class="summary-list">
+
+        <li>
+          Administered and supported large-scale HPC clusters comprising over
+          <strong>1,300+ compute nodes</strong> and GPU accelerator nodes with
+          <strong>NVIDIA H100 GPUs</strong>, sustaining production workloads
+          at multi-petaflop scale.
+        </li>
+
+        <li>
+          Managed HPC environments using
+          <strong>NVIDIA Bright Cluster Manager</strong>, including cluster
+          provisioning, node lifecycle management, configuration updates,
+          and system validation.
+        </li>
+
+        <li>
+          Supported workload scheduling and job execution using
+          <strong>PBS Pro</strong>, ensuring stable and predictable job
+          execution in shared environments.
+        </li>
+
+        <li>
+          Performed continuous system monitoring and health checks using
+          <strong>Bright Cluster Manager</strong>,
+          <strong>Dell OpenManage Enterprise</strong>, and
+          <strong>InfiniBand UFM</strong>, contributing to
+          <strong>99.99% system availability</strong>.
+        </li>
+
+        <li>
+          Executed <strong>OS provisioning, patching, and configuration
+          management</strong> across compute and management nodes.
+        </li>
+
+        <li>
+          Automated routine administrative tasks using
+          <strong>shell scripting</strong>, improving operational efficiency
+          and reducing manual intervention.
+        </li>
+
+        <li>
+          Installed, configured, and validated
+          <strong>commercial and open-source HPC applications</strong>
+          across multi-node environments, including MPI integration and
+          environment module configuration.
+        </li>
+
+        <li>
+          Conducted <strong>performance benchmarking and validation</strong>
+          using HPL, LINPACK, and HPCC.
+        </li>
+
+        <li>
+          Supported <strong>400 Gb/s InfiniBand networking</strong>,
+          including fabric monitoring, connectivity troubleshooting,
+          and performance tuning.
+        </li>
+
+        <li>
+          Performed hardware-level operations including BIOS, firmware,
+          and driver upgrades on <strong>Dell PowerEdge servers</strong>.
+        </li>
+
+        <li>
+          Provided <strong>24×7 L2 operational support</strong>, handling
+          incident diagnosis, root-cause analysis, corrective actions,
+          and operational documentation.
+        </li>
+
+        <li>
+          Contributed to datacenter modernization activities, supporting
+          server integration, network validation, and operating system
+          provisioning.
+        </li>
+
+      </ul>
+
+    </div>
+
+    <p>
+      This role requires close coordination with infrastructure, networking,
+      and application teams to ensure stable, secure, and high-performing
+      HPC environments for production use.
+    </p>
+
+  </div>
+
+</section>
+
+
+      <!-- =========================
+     ROLES & RESPONSIBILITIES
+     ========================= -->
+
+<section id="roles" class="profile-block">
+
+  <h2>Roles &amp; Responsibilities</h2>
+
+  <p>
+    This section outlines my key roles and responsibilities in supporting
+    large-scale Linux and high-performance computing (HPC) environments
+    in production settings.
+  </p>
+
+  <div class="summary-category">
+
+    <h3>HPC Operations &amp; Administration</h3>
+
+    <ul class="summary-list">
+      <li>Manage and support multi-petaflop HPC environments for research workloads.</li>
+      <li>Perform tasks like setting up and managing compute nodes, from installation to decommissioning.</li>
+      <li>Support workload scheduling using PBS Pro.</li>
+      <li>Ensure stable job execution across CPU and GPU-based clusters.</li>
+    </ul>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>System Monitoring &amp; Reliability</h3>
+
+    <ul class="summary-list">
+      <li>Monitor system health and availability using NVIDIA Bright Cluster Manager, Dell OpenManage Enterprise, and InfiniBand UFM.</li>
+      <li>Run proactive health checks to identify potential issues.</li>
+      <li>Respond to alerts and incidents to minimize disruptions.</li>
+      <li>Ensure high availability of systems in 24×7 production environments.</li>
+    </ul>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>Performance Validation &amp; Optimization</h3>
+
+    <ul class="summary-list">
+      <li>Run performance benchmarks using HPL, LINPACK, and HPCC.</li>
+      <li>Validate performance after system upgrades, changes, or new deployments.</li>
+      <li>Work on fine-tuning system performance to meet operational goals.</li>
+    </ul>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>Application &amp; User Support</h3>
+
+    <ul class="summary-list">
+      <li>Install, configure, and validate commercial and open-source applications.</li>
+      <li>Support applications using MPI for multi-node execution.</li>
+      <li>Manage environment modules and application runtime settings.</li>
+      <li>Provide user onboarding, access management, and technical support.</li>
+    </ul>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>Automation &amp; Operational Efficiency</h3>
+
+    <ul class="summary-list">
+      <li>Write shell scripts to automate common administrative tasks.</li>
+      <li>Automate OS provisioning, user management, and software deployment.</li>
+      <li>Streamline operations to improve consistency and reduce manual effort.</li>
+    </ul>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>Hardware &amp; Infrastructure Support</h3>
+
+    <ul class="summary-list">
+      <li>Assist with server installation, integration, and validation.</li>
+      <li>Perform BIOS, firmware, and driver upgrades on Dell PowerEdge platforms.</li>
+      <li>Troubleshoot hardware issues and assist with diagnostics and repairs.</li>
+      <li>Help coordinate infrastructure changes during upgrades and system expansions.</li>
+    </ul>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>Networking Support</h3>
+
+    <ul class="summary-list">
+      <li>Manage high-speed InfiniBand (400 Gb/s) networking for HPC clusters.</li>
+      <li>Monitor network health, fix connectivity issues, and optimize performance.</li>
+      <li>Ensure network readiness for large-scale parallel workloads.</li>
+    </ul>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>Incident Management &amp; Documentation</h3>
+
+    <ul class="summary-list">
+      <li>Provide L2-level incident support in high-availability environments.</li>
+      <li>Analyze and troubleshoot system issues, then take corrective actions.</li>
+      <li>Document incidents, solutions, and operational procedures.</li>
+      <li>Support activities related to system changes and updates.</li>
+    </ul>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>Datacenter &amp; Project Support</h3>
+
+    <ul class="summary-list">
+      <li>Contribute to datacenter modernization and infrastructure deployment.</li>
+      <li>Support server installation, OS provisioning, and network setup.</li>
+      <li>Work closely with cross-functional teams during project execution and handover.</li>
+    </ul>
+
+  </div>
+
+</section>
+
+
+      <!-- =========================
+     APPLICATIONS & LIBRARIES
+     ========================= -->
+
+<section id="applications" class="profile-block">
+
+  <h2>Applications &amp; Libraries</h2>
+
+  <p>
+    This section lists the commercial and open-source software, libraries,
+    compilers, and tools I have worked with in high-performance computing
+    environments.
+  </p>
+
+
+  <div class="summary-category">
+
+    <h3>Commercial Applications</h3>
+
+    <ul class="summary-list">
+      <li><strong>ANSYS Fluent</strong></li>
+      <li><strong>ANSYS CFX</strong></li>
+      <li><strong>STAR-CCM+</strong></li>
+      <li><strong>HEEDS</strong></li>
+      <li><strong>Altair FEKO</strong></li>
+    </ul>
+
+    <p>
+      Installation and validation on multi-node HPC clusters,
+      MPI and scheduler integration, environment module creation,
+      batch and interactive job support, and runtime troubleshooting.
+    </p>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>Open-Source Applications</h3>
+
+    <ul class="summary-list">
+      <li><strong>OpenFOAM</strong></li>
+      <li><strong>SU2</strong></li>
+      <li><strong>ParaView</strong></li>
+      <li><strong>WRF</strong></li>
+    </ul>
+
+    <p>
+      Source-based installation, configuration, MPI integration,
+      multi-node execution testing, environment setup, and
+      troubleshooting build, runtime, and scaling issues.
+    </p>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>Compilers, Libraries &amp; Toolchains</h3>
+
+    <h4>Compilers</h4>
+
+    <ul class="summary-list">
+      <li><strong>AOCC</strong> — AMD Optimizing C/C++ Compiler</li>
+      <li><strong>GCC</strong></li>
+      <li><strong>Intel OneAPI Toolkit</strong></li>
+    </ul>
+
+    <h4>Libraries &amp; MPI</h4>
+
+    <ul class="summary-list">
+      <li><strong>AOCL</strong> — AMD Optimized CPU Libraries</li>
+      <li><strong>OpenMPI</strong></li>
+    </ul>
+
+    <p>
+      Application compilation, build validation, library and compiler
+      compatibility checks, runtime library configuration, and support
+      for CPU and GPU-enabled workloads.
+    </p>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>Operational Scope</h3>
+
+    <ul class="summary-list">
+      <li>Installation and upgrade validation</li>
+      <li>Dependency and compatibility checks</li>
+      <li>Scheduler and resource manager integration</li>
+      <li>Environment module management</li>
+      <li>User support and issue resolution</li>
+      <li>Coordination with infrastructure and application teams</li>
+    </ul>
+
+  </div>
+
+</section>
+
+
+      <!-- =========================
+     PROJECTS
+     ========================= -->
+
+<section id="projects" class="profile-block">
+
+  <h2>Projects</h2>
+
+
+  <div class="summary-category">
+
+    <h3>
+      India’s Multi-Petaflops HPC Cluster Deployment
+    </h3>
+
+    <p>
+      I was part of the core team responsible for deploying and maintaining
+      a multi-petaflops high-performance computing system used for national
+      research and government tasks.
+    </p>
+
+    <h4>Scope &amp; Contributions</h4>
+
+    <ul class="summary-list">
+
+      <li>
+        Supported an HPC environment delivering about
+        <strong>11 Petaflops</strong> of compute power.
+      </li>
+
+      <li>
+        Managed clusters with over <strong>1,300+ compute nodes</strong>
+        and NVIDIA H100 GPUs.
+      </li>
+
+      <li>
+        Managed <strong>13 Petabytes of Lustre storage</strong>,
+        including monitoring and troubleshooting.
+      </li>
+
+      <li>
+        Supported <strong>30 Petabytes of tape library storage</strong>
+        for data archiving and retrieval.
+      </li>
+
+      <li>
+        Set up and configured the cluster using
+        <strong>NVIDIA Bright Cluster Manager</strong>.
+      </li>
+
+      <li>
+        Managed job scheduling using <strong>PBS Pro</strong>.
+      </li>
+
+      <li>
+        Validated system performance using
+        <strong>HPL, LINPACK, and HPCC</strong>.
+      </li>
+
+      <li>
+        Monitored and troubleshot <strong>400 Gb/s InfiniBand</strong>
+        fabric during cluster operations.
+      </li>
+
+    </ul>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>
+      Datacenter Infrastructure Modernization
+    </h3>
+
+    <p>
+      I contributed to a major datacenter modernization project to support
+      enterprise and HPC-ready infrastructure.
+    </p>
+
+    <ul class="summary-list">
+
+      <li>Supported server installation and integration.</li>
+      <li>Handled operating system installation and validation.</li>
+      <li>Assisted with network connectivity tests and readiness checks.</li>
+      <li>Supported hardware configuration and firmware validation.</li>
+      <li>Worked with infrastructure and networking teams during deployment.</li>
+
+    </ul>
+
+  </div>
+
+
+  <div class="summary-category">
+
+    <h3>
+      Ongoing Operational Projects
+    </h3>
+
+    <ul class="summary-list">
+
+      <li>Cluster expansion and adding new nodes</li>
+      <li>Hardware refreshes and firmware upgrades</li>
+      <li>Performance validation after system updates</li>
+      <li>Automation of provisioning and administration processes</li>
+      <li>Incident resolution and continuous system improvement</li>
+
+    </ul>
+
+  </div>
+
+</section>
+
+<!-- =========================
+     JAVASCRIPT
+     ========================= -->
+
+<script>
+
+  /*
+   * Mobile Documents dropdown
+   */
+
+  document
+    .querySelectorAll('.nav-item > a')
+    .forEach(trigger => {
+
+      trigger.addEventListener('click', function (event) {
+
+        if (window.innerWidth <= 900) {
+
+          event.preventDefault();
+
+          this
+            .closest('.nav-item')
+            .classList
+            .toggle('open');
+
+        }
+
+      });
+
+    });
+
+</script>
+
+</body>
+</html>
