@@ -97,17 +97,22 @@ nav:
 
       - Bright Cluster Manager: Documents/brightclustermanager.md
 
+      - Disableing Job-Query OpenPBS: Documents/Jobs-query.md
+
       - GitHub Pages CI/CD: Documents/GitHub_Pages_MkDocs.md
 
       - Hyperthreading: Documents/hyperthreading.md
 
       - Linux Commands: Documents/Linux_commands.md
 
-      - LVM: Documents/Logical Volume Manager (LVM).md
-
       - Local Repo: Documents/Local_repo.md
 
-      - What is module file: Documents/Module-File.md
+      - Lustre File System:
+
+          - Lustre: Documents/Lustre.md
+          - Installation: Documents/lustre-installtion.md
+
+      - LVM: Documents/Logical Volume Manager (LVM).md
 
       - NFS: Documents/NFS.md
 
@@ -115,22 +120,15 @@ nav:
 
       - Proxy: Documents/Proxy.md
 
-      - Slurm Basics: Documents/Slurm.md
-
       - RPM BUILD FROM SOURCE CODE: Documents/RPM-BUILD_SOURE_CODE.md
-
-      - Job-Query: Documents/Jobs-query.md
-
-      - Test: Documents/test.md
-
-      - Lustre File System:
-
-          - Lustre: Documents/Lustre.md
-          - Installation: Documents/lustre-installtion.md
 
       - Scripts:
 
           - Run Script: Documents/Scripts/run.sh.md
+
+      - Slurm Basics: Documents/Slurm.md
+
+      - What is module file: Documents/Module-File.md
 
 
   - Troubleshooting:
