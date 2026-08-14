@@ -3,14 +3,12 @@ site_name: AYYAPPASWAMY EETHAKOTA
 theme:
   name: material
   custom_dir: overrides
+
   features:
     - search.suggest
     - search.highlight
     - search.share
-    - navigation.instant
     - navigation.tabs
-    - navigation.instant.prefetch
-    - navigation.instant.preview
     - navigation.tracking
     - navigation.tabs.sticky
     - navigation.sections
@@ -19,6 +17,7 @@ theme:
     - navigation.prune
 
   palette:
+
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
@@ -45,105 +44,165 @@ theme:
 
 
 markdown_extensions:
+
   - attr_list
+
   - toc:
       permalink: true
+
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
+extra_css:
+  - stylesheets/blog.css
+
 plugins:
+
   - privacy
 
   - search:
       lang: en
 
   - blog:
-      pagination_per_page: 1
+      pagination_per_page: 6
 
   - tags
 
 
 nav:
+
   - Home: index.md
+
+
   - Tech Blog:
-    - Tech Blog: blog/index.md
-    - Topics: blog/tags.md
+
+      - Tech Blog: blog/index.md
+      - Topics: blog/tags.md
+
 
   - Profile:
+
       - Professional Summary: Home/Professional-Summary.md
       - Technical Skills: Home/technical-skills.md
       - Professional Experience: Home/professional-experience.md
       - Roles & Responsibilities: Home/roles-responsibilities.md
-      - Applications & Libraries: Home/Applications&Libraries.md
+      - Applications & Libraries: Home/applications-and-libraries.md
       - Projects: Home/projects.md
 
 
   - Documents:
-      - Important Note : Documents/index.md
-      - Bright Cluster Manager : Documents/brightclustermanager.md
-      - GitHub Pages CI/CD: Documents/GitHub_Pages_MkDocs.md
-      - Hyperthreading: Documents/hyperthreading.md
-      - Linux Commands: Documents/Linux_commands.md
-      - LVM: Documents/Logical Volume Manager (LVM).md
-      - Local Repo: Documents/Local_repo.md
-      - What is module file : Documents/Module-File.md
-      - NFS : Documents/NFS.md
-      - PIP: Documents/PIP.md
-      - Proxy: Documents/Proxy.md
-      - Slurm Basics: Documents/Slurm.md
-      - RPM BUILD FROM SOURCODE : Documents/RPM-BUILD_SOURE_CODE.md
-      - Job-Query : Documents/Jobs-query.md
-      - test : Documents/test.md
 
+      - Important Note: Documents/index.md
+
+      - Bright Cluster Manager: Documents/brightclustermanager.md
+
+      - GitHub Pages CI/CD: Documents/GitHub_Pages_MkDocs.md
+
+      - Hyperthreading: Documents/hyperthreading.md
+
+      - Linux Commands: Documents/Linux_commands.md
+
+      - LVM: Documents/Logical Volume Manager (LVM).md
+
+      - Local Repo: Documents/Local_repo.md
+
+      - What is module file: Documents/Module-File.md
+
+      - NFS: Documents/NFS.md
+
+      - PIP: Documents/PIP.md
+
+      - Proxy: Documents/Proxy.md
+
+      - Slurm Basics: Documents/Slurm.md
+
+      - RPM BUILD FROM SOURCE CODE: Documents/RPM-BUILD_SOURE_CODE.md
+
+      - Job-Query: Documents/Jobs-query.md
+
+      - Test: Documents/test.md
 
       - Lustre File System:
+
           - Lustre: Documents/Lustre.md
           - Installation: Documents/lustre-installtion.md
 
       - Scripts:
+
           - Run Script: Documents/Scripts/run.sh.md
 
-  - Troubleshooting:
-      - Overview: Troubleshooting/index.md
-      - Hardware Troubleshooting : Troubleshooting/Hardware Troubleshooting.md
-      - Power Drain : Troubleshooting/Power Drain.md
-      - Power Supply Unit (PSU) : Troubleshooting/Power Supply Unit.md
-      - Memory issue : Troubleshooting/Memory issue.md
-      - Processor : Troubleshooting/Processor-replaceing.md
 
+  - Troubleshooting:
+
+      - Overview: Troubleshooting/index.md
+
+      - Hardware Troubleshooting: Troubleshooting/Hardware Troubleshooting.md
+
+      - Power Drain: Troubleshooting/Power Drain.md
+
+      - Power Supply Unit (PSU): Troubleshooting/Power Supply Unit.md
+
+      - Memory issue: Troubleshooting/Memory issue.md
+
+      - Processor: Troubleshooting/Processor-replaceing.md
 
 
   - Installation:
+
       - Important Note: Documents/Installation/Overview.md
+
       - Anaconda: Documents/Installation/Anaconda.md
+
       - Python-3.14.3: Documents/Installation/Python-Offline.md
+
       - OpenMPI: Documents/Installation/OpenMpi.md
+
       - METIS: Documents/Installation/Metis.md
-      - SU2 : Documents/Installation/SU2_Installation.md
-      - OpenMPI-UCX : Documents/Installation/Openmpi-ucx.md
-      - OpenFOAM : Documents/Installation/OPEN-FOAM.md
-      - Openhpc_Slurm : Documents/Installation/building-an-openhpc-cluster-in-vms.md
-      - Intel Toolkit : Documents/Installation/Intel-toolkit.md
-      - OpenPbs-23.06.06 : Documents/Installation/OpenPBS.md
-      - LDAP (Lightweight Directory Access Protocol) : Documents/Installation/LDAP.md
-      - XCAT : Documents/Installation/xcat.md
-      - GCC : Documents/Installation/gcc.md
-      - GMP : Documents/Installation/gmp.md
-      - MPC : Documents/Installation/mpc.md
-      - MPFR : Documents/Installation/mpfr.md
-      - HWClock : Documents/Installation/hwclock.md
-      - HPL : Documents/Installation/hpl.md
-      - HPCG : Documents/Installation/hpcg.md
-      - QE : Documents/Installation/qe.md
-      - HPCC : Documents/Installation/hpcc.md
-      - LAMMPS :
-        - Theory : Documents/Installation/lammps/theory.md
-        - CPU Installation : Documents/Installation/lammps/cpu-installation.md
-        - GPU Installation : Documents/Installation/lammps/gpu-installation.md
+
+      - SU2: Documents/Installation/SU2_Installation.md
+
+      - OpenMPI-UCX: Documents/Installation/Openmpi-ucx.md
+
+      - OpenFOAM: Documents/Installation/OPEN-FOAM.md
+
+      - OpenHPC Slurm: Documents/Installation/building-an-openhpc-cluster-in-vms.md
+
+      - Intel Toolkit: Documents/Installation/Intel-toolkit.md
+
+      - OpenPBS-23.06.06: Documents/Installation/OpenPBS.md
+
+      - LDAP (Lightweight Directory Access Protocol): Documents/Installation/LDAP.md
+
+      - XCAT: Documents/Installation/xcat.md
+
+      - GCC: Documents/Installation/gcc.md
+
+      - GMP: Documents/Installation/gmp.md
+
+      - MPC: Documents/Installation/mpc.md
+
+      - MPFR: Documents/Installation/mpfr.md
+
+      - HWClock: Documents/Installation/hwclock.md
+
+      - HPL: Documents/Installation/hpl.md
+
+      - HPCG: Documents/Installation/hpcg.md
+
+      - QE: Documents/Installation/qe.md
+
+      - HPCC: Documents/Installation/hpcc.md
+
+      - LAMMPS:
+
+          - Theory: Documents/Installation/lammps/theory.md
+          - CPU Installation: Documents/Installation/lammps/cpu-installation.md
+          - GPU Installation: Documents/Installation/lammps/gpu-installation.md
 
 
   - Quiz:
+
       - Quiz: Quiz/index.html
 
 

@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block site_nav %}
+{% endblock %}
+
+{% block site_toc %}
+{% endblock %}
+
+{% block content %}
+
+<div class="simple-blog">
+
+
+    <!-- =====================================================
+         BLOG INTRODUCTION
+         ONLY SHOW ON MAIN BLOG PAGE
+         ===================================================== -->
+
+    {% if "/page/" not in page.url %}
+
+    <section class="simple-blog-header">
+
+        <h1>Tech Blog</h1>
+
+        <h2>Welcome to My HPC Journey</h2>
+
+        <p>
+            Hi Everyone,
+        </p>
+
+        <p>
+            My name is <strong>Ayyappaswamy Eethakota</strong>.
+            I work as a
+            <strong>Technology Associate – HPC | Data Center Engineer</strong>.
+        </p>
+
+        <p>
+            I created this website to improve my knowledge,
+            document my learning, and support my career growth.
+        </p>
+
+        <p>
+            Many times, when I solve a technical problem,
+            I remember the solution at that moment but forget
+            the exact commands or steps after a few months.
+        </p>
+
+        <p>
+            So, I decided to create this website as my
+            personal technical knowledge base.
+        </p>
+
+        <p>
+            Here, I document the things I learn and the problems
+            I solve while working with Linux, HPC, servers,
+            storage, networking, and data center technologies.
+        </p>
+
+        <p>
+            If someone is learning Linux or HPC,
+            I hope these notes can also help them.
+        </p>
+
+        <p>
+            If my blog helps even one person understand
+            a concept or solve a technical problem,
+            I will be happy.
+        </p>
+
+        <p class="blog-author">
+
+            <strong>Ayyappaswamy Eethakota</strong>
+
+            <br>
+
+            Technology Associate – HPC | Data Center Engineer
+
+        </p>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- =====================================================
+         LATEST ARTICLES
+         ===================================================== -->
+
+    <section class="latest-articles">
+
+        {% if "/page/" not in page.url %}
+
+        <h2>
+            Latest Articles
+        </h2>
+
+        {% endif %}
+
+
+        <!-- =================================================
+             BLOG GRID
+             ================================================= -->
+
+        <div class="simple-blog-grid">
+
+            {% for post in posts %}
+
+            <article class="simple-blog-card">
+
+                <h3>
+
+                    <a href="{{ post.url | url }}">
+                        {{ post.title }}
+                    </a>
+
+                </h3>
+
+
+                <a
+                    class="simple-blog-read"
+                    href="{{ post.url | url }}"
+                >
+                    Read Article →
+                </a>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- =================================================
+             PAGINATION
+             ================================================= -->
+
+        {% if pagination %}
+
+        <div class="blog-pagination">
+
+            {% include "partials/pagination.html" %}
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+</div>
+
+{% endblock %}
