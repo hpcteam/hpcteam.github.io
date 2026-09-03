@@ -148,7 +148,7 @@ nav:
 
   - Installation:
 
-      - Important Note: Documents/Installation/Overview.md
+      - Overview: Documents/Installation/index.md
 
       - Anaconda: Documents/Installation/Anaconda.md
 
