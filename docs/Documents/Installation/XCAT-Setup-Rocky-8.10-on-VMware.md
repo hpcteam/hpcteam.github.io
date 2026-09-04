@@ -314,7 +314,7 @@ makedhcp cnode01
 ```
 
 ![Step 5.2 — hosts + dhcpd.conf entries for the node](/assets/xcat/makedns-makehosts-makedhpc.png)
-*Step 5.2 — hosts + dhcpd.conf entries for the node*
+*Step 5.2 — HOSTS + dhcpd.conf entries for the node*
 
 ### 5.3 Stage the node for installation
 
