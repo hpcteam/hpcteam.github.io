@@ -103,7 +103,7 @@ Alternatively, you can specify the GMP and MPFR directories directly in the `con
 Replace `/path/to/gmp`, `/path/to/mpfr`, and `/path/to/install` with the correct directories.
 
  **`configure` with GMP and MPFR Path Options**
-  ![MPC Configure](/assets/mpc/configure--mpfr-gmp.png)
+  ![MPC Configure](../../assets/mpc/configure--mpfr-gmp.png)
 
 ### Step 6: Run the `./configure` Script
 
@@ -134,7 +134,7 @@ make -j
 The `-j` flag utilizes multiple CPU cores to speed up the compilation process. Adjust the number of cores based on your system's capabilities (e.g., `-j4` for four cores).
 
 * **Running the `make -j` Command:**
-  ![Make -j](/assets/mpc/make-j.png)
+  ![Make -j](../../assets/mpc/make-j.png)
 
 You can also verify that the compilation process ran smoothly by performing a check:
 
@@ -153,7 +153,7 @@ sudo make install
 This command installs MPC into the directory specified by the `--prefix` option during the configuration process.
 
 * **Running `make install`**
-  ![Make Install](/assets/mpc/makeinstall.png)
+  ![Make Install](../../assets/mpc/makeinstall.png)
 
 ### Step 9: Verify Installation
 

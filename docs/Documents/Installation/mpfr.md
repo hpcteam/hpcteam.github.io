@@ -82,7 +82,7 @@ export PATH=$GMP_DIR/bin:$PATH
 export LD_LIBRARY_PATH=$GMP_DIR/lib:$LD_LIBRARY_PATH
 export C_INCLUDE_PATH=$GMP_DIR/include:$C_INCLUDE_PATH
 ```
-![exporti=ing](/assets/mpfr/exporting-gmpdependece.png)
+![exporti=ing](../../assets/mpfr/exporting-gmpdependece.png)
 
 Replace `/path/to/gmp` with the path where GMP is installed on your system. Once these variables are set, MPFR will automatically use GMP during the configuration.
 
@@ -97,7 +97,7 @@ Alternatively, you can specify the GMP directory directly in the `configure` scr
 Replace `/path/to/gmp` with the actual path to your GMP installation directory, and `/path/to/install` with the desired installation directory for MPFR.
 
 * **`configure` with GMP Path Option:**
-  ![MPFR Configure](/assets/mpfr/configure--with-gmp.png)
+  ![MPFR Configure](../../assets/mpfr/configure--with-gmp.png)
 
 ### Step 6: Run the `./configure` Script
 
@@ -120,7 +120,7 @@ make -j
 The `-j` flag utilizes multiple CPU cores to speed up the compilation process. Adjust the number of cores based on your system's capabilities (e.g., `-j4` for four cores).
 
 * **Running the `make -j` Command:**
-  ![Make -j](/assets/mpfr/make-j.png)
+  ![Make -j](../../assets/mpfr/make-j.png)
 
 You can also verify that the compilation process ran smoothly by performing a check:
 
@@ -139,7 +139,7 @@ sudo make install
 This command installs MPFR into the directory specified by the `--prefix` option during the configuration process.
 
 * **Running `make install`:**
-  ![Make Install](/assets/mpfr/make-install.png)
+  ![Make Install](../../assets/mpfr/make-install.png)
 
 ### Step 9: Verify Installation
 
@@ -153,7 +153,7 @@ ls /path/to/install/lib
 You should see the necessary MPFR files in the `bin` and `lib` directories.
 
 * **Final Installation Check:**
-  ![Final Check](/assets/mpfr/final-check-directory-created-or-not.png)
+  ![Final Check](../../assets/mpfr/final-check-directory-created-or-not.png)
 
 ---
 
@@ -162,20 +162,20 @@ You should see the necessary MPFR files in the `bin` and `lib` directories.
 Here are the screenshots demonstrating the installation steps:
 
 * **`configure` with GMP Path Option**
-  ![Make Check](/assets/mpfr/configure--with-gmp.png)
+  ![Make Check](../../assets/mpfr/configure--with-gmp.png)
 
 
 * **`configure` after exporting Path Option**
-  ![MPFR Configure](/assets/mpfr/mpfrconfigure.png)
+  ![MPFR Configure](../../assets/mpfr/mpfrconfigure.png)
 
 * **Running the `make -j` Command**
-  ![Make -j](/assets/mpfr/make-j.png)
+  ![Make -j](../../assets/mpfr/make-j.png)
 
 
 * **Running `make install`**
-  ![Make Install](/assets/mpfr/make-install.png)
+  ![Make Install](../../assets/mpfr/make-install.png)
 
 * **Final Installation Check**
-  ![Final Check](/assets/mpfr/final-check-directory-created-or-not.png)
+  ![Final Check](../../assets/mpfr/final-check-directory-created-or-not.png)
 
 
