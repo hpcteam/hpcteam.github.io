@@ -82,7 +82,7 @@ Run the following command to configure the build:
 ./configure --prefix=/opt/openmpi/5.0.1
 ```
 
-![Configuring OpenMPI](/assets/Openmpi/configure.png)
+![Configuring OpenMPI](../../assets/Openmpi/configure.png)
 
 ---
 
@@ -101,7 +101,7 @@ make -j 16  # Using 16 cores
 make -j     # Use all available cores
 ```
 
-![Configuring OpenMPI Build](/assets/Openmpi/make-j.png)
+![Configuring OpenMPI Build](../../assets/Openmpi/make-j.png)
 
 ---
 
@@ -123,7 +123,7 @@ Once the build is successful, install OpenMPI with:
 make install
 ```
 
-![Configuring OpenMPI Installation](/assets/Openmpi/makeinstall.png)
+![Configuring OpenMPI Installation](../../assets/Openmpi/makeinstall.png)
 
 ---
 
@@ -148,7 +148,7 @@ mpicc --version  # Check if MPI compiler is working
 mpirun -np 2 hostname  # Run a simple MPI job
 ```
 
-![Final Verification](/assets/Openmpi/checkingdirectorys.png)
+![Final Verification](../../assets/Openmpi/checkingdirectorys.png)
 
 ---
 

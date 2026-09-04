@@ -24,10 +24,10 @@ bash Anaconda3-2024.10-1-Linux-x86_64.sh
 4. **Complete the Installation**
    Once installed, exit the terminal and log out to initialize the base environment.
 
-   ![shcommnad](/assets/anaconda/sh-Anaconda.png)
-   ![license-accept](/assets/anaconda/license-accpect.png)
-   ![location](/assets/anaconda/Location.png)
-   ![installation-finished](/assets/anaconda/installationfinished.png)
+   ![shcommnad](../../assets/anaconda/sh-Anaconda.png)
+   ![license-accept](../../assets/anaconda/license-accpect.png)
+   ![location](../../assets/anaconda/Location.png)
+   ![installation-finished](../../assets/anaconda/installationfinished.png)
 
 ---
 
@@ -47,7 +47,7 @@ Example:
 conda activate base
 ```
 
-![conda-activate](/assets/anaconda/conda%20activate.png)
+![conda-activate](../../assets/anaconda/conda%20activate.png)
 
 ### Deactivating an Environment:
 
@@ -57,7 +57,7 @@ Once done, you can deactivate the environment:
 conda deactivate
 ```
 
-![conda-deactivate](/assets/anaconda/conda%20deactivate%20-new-env.png)
+![conda-deactivate](../../assets/anaconda/conda%20deactivate%20-new-env.png)
 
 ---
 
@@ -74,7 +74,7 @@ Or:
 ```bash
 conda info --envs
 ```
-![conda-deactivate](/assets/anaconda/envlist.png)
+![conda-deactivate](../../assets/anaconda/envlist.png)
 This will show all environments along with their paths.
 
 ---
@@ -89,7 +89,7 @@ To create a new environment called `env_conda`, use the following command:
 conda create --name env_conda
 ```
 
-![creating-env](/assets/anaconda/creating-env-with-internet.png)
+![creating-env](../../assets/anaconda/creating-env-with-internet.png)
 
 ### Creating an Environment (Without Internet Access):
 
@@ -98,7 +98,7 @@ If you're working in an offline environment and need to install packages from pr
 ```bash
 conda create --name env_conda --offline
 ```
-![creating-env-with-pyhton-version](/assets/anaconda/new-env.png)
+![creating-env-with-pyhton-version](../../assets/anaconda/new-env.png)
 ---
 
 ## 5. **Creating an Environment with a Specific Python Version** Using internet
@@ -109,11 +109,11 @@ To create an environment with a specific version of Python (for example, Python 
 conda create --name compute-env python=3.9 
 ```
 
-![creating-env-with-pyhton-version](/assets/anaconda/creating-new-env-with-pysthonversin-with-internet.png)
+![creating-env-with-pyhton-version](../../assets/anaconda/creating-new-env-with-pysthonversin-with-internet.png)
 
 For conformation check the Python version in newly creating env
 
-![creating-env-with-pyhton-version](/assets/anaconda/python3-versioncheck.png)
+![creating-env-with-pyhton-version](../../assets/anaconda/python3-versioncheck.png)
 
 To create an environment with a specific version of Python (for example, Python 3.11):
 
@@ -121,11 +121,11 @@ To create an environment with a specific version of Python (for example, Python 
 conda create --name ai-env python=3.11 --offline
 ```
 
-![creating-env-with-pyhton-version](/assets/anaconda/creating-env-with-pyhton-version.png)
-![creating-env-with-pyhton-version](/assets/anaconda/creating-env-with-pyhton-version-completed.png)
+![creating-env-with-pyhton-version](../../assets/anaconda/creating-env-with-pyhton-version.png)
+![creating-env-with-pyhton-version](../../assets/anaconda/creating-env-with-pyhton-version-completed.png)
 For conformation check the Python version in newly creating env
 
-![creating-env-with-pyhton-version](/assets/anaconda/creating-env-with-pyhton-version-check.png)
+![creating-env-with-pyhton-version](../../assets/anaconda/creating-env-with-pyhton-version-check.png)
 ---
 
 ## 6. **Cloning an Environment**
@@ -142,7 +142,7 @@ Example:
 conda create --name web-env --clone ai-env
 ```
 
-![clone-env](/assets/anaconda/cloneing-env.png)
+![clone-env](../../assets/anaconda/cloneing-env.png)
 
 This will create an exact copy of the environment, including all installed packages.
 
@@ -165,7 +165,7 @@ Example:
 ```bash
 pip uninstall pandas
 ```
-![removing-lib](/assets/anaconda/removing-library.png)
+![removing-lib](../../assets/anaconda/removing-library.png)
 ### Removing the Entire Environment:
 
 To remove an environment along with all its data and packages:
@@ -175,7 +175,7 @@ conda remove --name <env_name> --all
 ```
 
 This will delete the environment `env_conda` and all installed packages within it.
-![removing-env](/assets/anaconda/removing%20the%20env%20witll%20all%20packges.png)
+![removing-env](../../assets/anaconda/removing%20the%20env%20witll%20all%20packges.png)
 
 ---
 

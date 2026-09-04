@@ -1,0 +1,56 @@
+
+[31m │  ⚠  Warning from the Material for MkDocs team[0m
+[31m │[0m
+[31m │[0m  MkDocs 2.0, the underlying framework of Material for MkDocs,
+[31m │[0m  will introduce backward-incompatible changes, including:
+[31m │[0m
+[31m │  × [0mAll plugins will stop working – the plugin system has been removed
+[31m │  × [0mAll theme overrides will break – the theming system has been rewritten
+[31m │  × [0mNo migration path exists – existing projects cannot be upgraded
+[31m │  × [0mClosed contribution model – community members can't report bugs
+[31m │  × [0mCurrently unlicensed – unsuitable for production use
+[31m │[0m
+[31m │[0m  Our full analysis:
+[31m │[0m
+[31m │[0m  [4mhttps://squidfunk.github.io/mkdocs-material/blog/2026/02/18/mkdocs-2.0/[0m
+[0m
+INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: /drives/d/GIT/hpcteam/hpcteam.github.io/site
+INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+  - Home/Applications&Libraries.md
+  - Home/education.md
+  - Home/hpc-troubleshooting-notes.md
+  - Home/machines-hardware-networks.md
+WARNING -  A reference to 'Documents/Installation/sample.md' is included in the 'nav' configuration, which is not found in the documentation files.
+INFO    -  Doc file 'Documents/Jobs-query.md' contains an absolute link '/assets/Job-Quary/jobquaru-True.png', it was left as is. Did you mean '../assets/Job-Quary/jobquaru-True.png'?
+INFO    -  Doc file 'Documents/Jobs-query.md' contains an absolute link '/assets/Job-Quary/seting-flase.png', it was left as is. Did you mean '../assets/Job-Quary/seting-flase.png'?
+INFO    -  Doc file 'Documents/Jobs-query.md' contains an absolute link '/assets/Job-Quary/quary-Flase.png', it was left as is. Did you mean '../assets/Job-Quary/quary-Flase.png'?
+INFO    -  Doc file 'Documents/Lustre.md' contains an absolute link '/assets/Lustre/Lustre-arch.png', it was left as is. Did you mean '../assets/Lustre/Lustre-arch.png'?
+INFO    -  Doc file 'Documents/NFS.md' contains an absolute link '/assets/NFS/1.png', it was left as is. Did you mean '../assets/NFS/1.png'?
+INFO    -  Doc file 'Documents/NFS.md' contains an absolute link '/assets/NFS/2.png', it was left as is. Did you mean '../assets/NFS/2.png'?
+INFO    -  Doc file 'Documents/NFS.md' contains an absolute link '/assets/NFS/3.png', it was left as is. Did you mean '../assets/NFS/3.png'?
+INFO    -  Doc file 'Documents/NFS.md' contains an absolute link '/assets/NFS/4.png', it was left as is. Did you mean '../assets/NFS/4.png'?
+INFO    -  Doc file 'Documents/NFS.md' contains an absolute link '/assets/NFS/4.png', it was left as is. Did you mean '../assets/NFS/4.png'?
+INFO    -  Doc file 'Documents/NFS.md' contains an absolute link '/assets/NFS/5.png', it was left as is. Did you mean '../assets/NFS/5.png'?
+INFO    -  Doc file 'Documents/NFS.md' contains an absolute link '/assets/NFS/7.png', it was left as is. Did you mean '../assets/NFS/7.png'?
+INFO    -  Doc file 'Documents/NFS.md' contains an absolute link '/assets/NFS/9.png', it was left as is. Did you mean '../assets/NFS/9.png'?
+INFO    -  Doc file 'Documents/NFS.md' contains an absolute link '/assets/NFS/10.png', it was left as is. Did you mean '../assets/NFS/10.png'?
+INFO    -  Doc file 'Documents/NFS.md' contains an absolute link '/assets/NFS/11.png', it was left as is. Did you mean '../assets/NFS/11.png'?
+INFO    -  Doc file 'Documents/PIP.md' contains an absolute link '/assets/PIP/downloading-all-pacakages.png', it was left as is. Did you mean '../assets/PIP/downloading-all-pacakages.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/yuminstall.png', it was left as is. Did you mean '../assets/source-rpm/yuminstall.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/checking-rpm-build-installed-or-not.png', it was left as is. Did you mean '../assets/source-rpm/checking-rpm-build-installed-or-not.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/rpmdev-setuptree.png', it was left as is. Did you mean '../assets/source-rpm/rpmdev-setuptree.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/downloading sourecode.png', it was left as is. Did you mean '../assets/source-rpm/downloading sourecode.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/tar extract.png', it was left as is. Did you mean '../assets/source-rpm/tar extract.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/cpoing.specfile.png', it was left as is. Did you mean '../assets/source-rpm/cpoing.specfile.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/rpmbuild-faild.png', it was left as is. Did you mean '../assets/source-rpm/rpmbuild-faild.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/installed-dependeces-for-source-pacaage.png', it was left as is. Did you mean '../assets/source-rpm/installed-dependeces-for-source-pacaage.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/rpmbuild.png', it was left as is. Did you mean '../assets/source-rpm/rpmbuild.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/rpmbuild-final-sucess.png', it was left as is. Did you mean '../assets/source-rpm/rpmbuild-final-sucess.png'?
+INFO    -  Doc file 'Documents/RPM-BUILD_SOURE_CODE.md' contains an absolute link '/assets/source-rpm/rpm-created.png', it was left as is. Did you mean '../assets/source-rpm/rpm-created.png'?
+WARNING -  Doc file 'Documents/Installation/mpc.md' contains a link '../../assets/mpc/final-check-directory-created-or-not.png', but the target 'assets/mpc/final-check-directory-created-or-not.png' is not found among documentation files.
+WARNING -  Doc file 'Documents/Installation/mpc.md' contains a link '../../assets/mpc/final-check-directory-created-or-not.png', but the target 'assets/mpc/final-check-directory-created-or-not.png' is not found among documentation files.
+INFO    -  Downloading external file: https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback
+INFO    -  Downloading external file: https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap
+
+Aborted with 3 warnings in strict mode!

@@ -17,7 +17,7 @@ Lustre is a high-performance, distributed (parallel) file system mainly used in:
 
 ## Lustre Architecture Diagram
 
-![Lustre Architecture](/assets/Lustre/Lustre-arch.png)
+![Lustre Architecture](../assets/Lustre/Lustre-arch.png)
 ---
 
 ## Main Components and Their Roles

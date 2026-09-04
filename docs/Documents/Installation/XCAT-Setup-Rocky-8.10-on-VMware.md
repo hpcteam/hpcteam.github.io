@@ -48,7 +48,7 @@ nmcli con mod ens160 ipv4.method manual
 nmcli con up ens160
 ```
 
-![Step 1.1 — static IP confirmation (ip a show ens160)](/assets/xcat/image1.png)
+![Step 1.1 — static IP confirmation (ip a show ens160)](../../assets/xcat/image1.png)
         *Step 1.1 — static IP confirmation (ip a show ens160)*
 
 ### 1.2 Set the hostname
@@ -61,7 +61,7 @@ nmcli con up ens160
 hostnamectl set-hostname labtesting.local.com
 ```
 
-![Step 1.2 — hostnamectl output](/assets/xcat/image2.png)
+![Step 1.2 — hostnamectl output](../../assets/xcat/image2.png)
 *Step 1.2 — hostnamectl output*
 
 ### 1.3 Disable SELinux
@@ -78,7 +78,7 @@ reboot
 sestatus   # after reboot
 ```
 
-![Step 1.3 — sestatus output](/assets/xcat/image3.png)
+![Step 1.3 — sestatus output](../../assets/xcat/image3.png)
 *Step 1.3 — sestatus output*
 
 ### 1.4 Disable the firewall
@@ -93,7 +93,7 @@ systemctl disable --now firewalld.service
 systemctl status firewalld.service
 ```
 
-![Step 1.4 — firewalld disabled confirmation](/assets/xcat/image4.png)
+![Step 1.4 — firewalld disabled confirmation](../../assets/xcat/image4.png)
 *Step 1.4 — firewalld disabled confirmation*
 
 ### 1.5 Enable required repositories
@@ -106,10 +106,10 @@ systemctl status firewalld.service
 dnf config-manager --enable extras
 dnf config-manager --enable powertools
 ```
-![Step 2.1 — xCAT install completion](/assets/xcat/image6.png)
+![Step 2.1 — xCAT install completion](../../assets/xcat/image6.png)
 
 
-![Step 1.5 — dnf repolist showing enabled repos](/assets/xcat/image5.png)
+![Step 1.5 — dnf repolist showing enabled repos](../../assets/xcat/image5.png)
 *Step 1.5 — dnf repolist showing enabled repos*
 
 ---
@@ -128,7 +128,7 @@ With the base OS prepared, install the xCAT packages themselves. (If your enviro
 # Example using the xCAT install script from the official repo:
 wget -O - https://raw.githubusercontent.com/xcat2/xcat-core/master/xCAT-server/share/xcat/tools/go-xcat | bash -s -- install -p core
 ```
-![Step 2.1 — xCAT install completion](/assets/xcat/image7.png)
+![Step 2.1 — xCAT install completion](../../assets/xcat/image7.png)
 
 *Step 2.1 — xCAT install completion*
 
@@ -141,7 +141,7 @@ wget -O - https://raw.githubusercontent.com/xcat2/xcat-core/master/xCAT-server/s
 ```bash
 xcatprobe xcatmn
 ```
-![Step 2.1 — xCAT install completion](/assets/xcat/image8.png)
+![Step 2.1 — xCAT install completion](../../assets/xcat/image8.png)
 
 
 *Step 2.2 — initial xcatprobe xcatmn output (before fixes)*
@@ -162,7 +162,7 @@ This phase resolves every FAIL/WARN reported by xcatprobe: authentication creden
 chtab key=system passwd.username=root passwd.password=<your_password>
 ```
 
-![Step 2.2 — initial xcatprobe xcatmn output (before fixes)](/assets/xcat/image9.png)
+![Step 2.2 — initial xcatprobe xcatmn output (before fixes)](../../assets/xcat/image9.png)
 
 
 
@@ -179,7 +179,7 @@ tabdump site | grep -E "master|domain|forwarders|nameservers"
 
 chdef -t site domain="labtesting.local.com"
 ```
-![Step 2.2 — initial xcatprobe xcatmn output (before fixes)](/assets/xcat/image10.png)
+![Step 2.2 — initial xcatprobe xcatmn output (before fixes)](../../assets/xcat/image10.png)
 
 *Step 3.2 — site table values*
 
@@ -194,7 +194,7 @@ makedns -n
 
 ```
 
-![Step 3.2 — makends](/assets/xcat/makedns.png)
+![Step 3.2 — makends](../../assets/xcat/makedns.png)
 *Step 3.2 — makends*
 
 
@@ -204,7 +204,7 @@ systemctl enable --now named
 systemctl restart named
 ```
 
-![Step 3.3 — systemctl restart named](/assets/xcat/named-enable.png)
+![Step 3.3 — systemctl restart named](../../assets/xcat/named-enable.png)
 *Step 3.3 — systemctl restart named*
 
 
@@ -221,7 +221,7 @@ makedhcp -a
 systemctl status dhcpd
 ```
 
-![Step 3.1 — makedhcp -n,makedhpc -a,](/assets/xcat/makedhpc-an.png)
+![Step 3.1 — makedhcp -n,makedhpc -a,](../../assets/xcat/makedhpc-an.png)
 
 *Step 3.3 — makedhcp -n,makedhpc -a*
 
@@ -240,7 +240,7 @@ systemctl enable --now chronyd
 chronyc sources
 ```
 
-![Step 3.5 — chronyc sources output](/assets/xcat/chronyd.png)
+![Step 3.5 — chronyc sources output](../../assets/xcat/chronyd.png)
 *Step 3.5 — chronyc sources output*
 
 ### 3.6 Re-run the probe to confirm all services pass
@@ -253,7 +253,7 @@ chronyc sources
 xcatprobe xcatmn -i ens160
 ```
 
-![Step 3.6 — final clean xcatprobe xcatmn output](/assets/xcat/xcatprobe-xcatman-sucess.png)
+![Step 3.6 — final clean xcatprobe xcatmn output](../../assets/xcat/xcatprobe-xcatman-sucess.png)
 *Step 3.6 — final clean xcatprobe xcatmn output*
 
 ---
@@ -272,7 +272,7 @@ Compute nodes install their OS by pulling packages and a kickstart file from the
 copycds /path/to/Rocky-8.10-x86_64-dvd1.iso
 ```
 
-![Step 4.1 — copycds success + lsdef -t osimage output](/assets/xcat/copyds.png)
+![Step 4.1 — copycds success + lsdef -t osimage output](../../assets/xcat/copyds.png)
 *Step 4.1 — copycds success + lsdef -t osimage output*
 
 > **Note:** If `copycds` reports "could not identify the ISO" or an ARCH error, the ISO checksum should be verified against the official Rocky Linux CHECKSUM file first — a partially downloaded or corrupted ISO produces exactly these symptoms, along with cpio "Read error" / "I/O error" messages if the copy is retried anyway.
@@ -298,7 +298,7 @@ mkdef -t node cnode01 groups=all,compute \
   installnic=mac primarynic=mac
 ```
 
-![Step 5.1 — makenodest](/assets/xcat/makenodes.png)
+![Step 5.1 — makenodest](../../assets/xcat/makenodes.png)
 *Step 5.1 — makenodes*
 
 ### 5.2 Publish the node into hosts, DNS, and DHCP
@@ -313,7 +313,7 @@ makedns -n
 makedhcp cnode01
 ```
 
-![Step 5.2 — hosts + dhcpd.conf entries for the node](/assets/xcat/makedns-makehosts-makedhpc.png)
+![Step 5.2 — hosts + dhcpd.conf entries for the node](../../assets/xcat/makedns-makehosts-makedhpc.png)
 *Step 5.2 — HOSTS + dhcpd.conf entries for the node*
 
 ### 5.3 Stage the node for installation
@@ -327,7 +327,7 @@ nodeset cnode01 osimage=rocky8.10-x86_64-install-compute
 nodeset cnode01 stat
 ```
 
-![Step 5.3 — nodeset stat output](/assets/xcat/nodeset.png)
+![Step 5.3 — nodeset stat output](../../assets/xcat/nodeset.png)
 *Step 5.3 — nodeset stat output*
 
 ### 5.4 Power on and boot the node from network
@@ -342,7 +342,7 @@ rpower cnode01 boot   # for real hardware
 
 **How to verify** `tail -f /var/log/xcat/cluster.log` on the management node, and watch the node's console directly, to confirm each stage completes.
 
-![Step 5.4a — cluster log](/assets/xcat/clusterlog.png)
+![Step 5.4a — cluster log](../../assets/xcat/clusterlog.png)
 
 ---
 
@@ -360,7 +360,7 @@ A node that installed successfully still needs to be confirmed as manageable —
 xdsh cnode01 -K
 ```
 
-![Step 6.1 — successful xdsh cnode01 date output](/assets/xcat/passwordlessnode.png)
+![Step 6.1 — successful xdsh cnode01 date output](../../assets/xcat/passwordlessnode.png)
 *Step 6.1 — successful xdsh cnode01 date output*
 
 ### 6.2 Confirm node membership and status
@@ -374,7 +374,7 @@ nodels compute
 lsdef cnode01 -i status
 ```
 
-![Step 6.2 — nodels and status output](/assets/xcat/nodestatus.png)
+![Step 6.2 — nodels and status output](../../assets/xcat/nodestatus.png)
 
 *Step 6.2 — nodels and status output*
 

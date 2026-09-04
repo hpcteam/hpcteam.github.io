@@ -89,7 +89,7 @@ Run the `configure` script with the `--prefix` option to specify the installatio
 Replace `/path/to/install` with the directory where you want GMP to be installed (e.g., `/usr/local/gmp`). This ensures GMP is installed in the specified location on your system.
 
 * **`configure` File Check:**
-  ![Configure Check](/assets/gmp/configure.png)
+  ![Configure Check](../../assets/gmp/configure.png)
 
 ### Step 6: Compile the Code
 
@@ -102,12 +102,12 @@ make -j
 The `-j` option allows you to specify the number of cores to use, for example, `-j4` for four cores. This can significantly speed up the compilation, especially on systems with multiple cores.
 
 * **Running the `make -j` Command:**
-  ![Make -j](/assets/gmp/make-j.png)
+  ![Make -j](../../assets/gmp/make-j.png)
 
 After compilation, you can run a check to ensure that the build process was successful:
 
 * **Make Check:**
-  ![Make Check](/assets/gmp/make-check.png)
+  ![Make Check](../../assets/gmp/make-check.png)
 
 ### Step 7: Install GMP
 
@@ -120,7 +120,7 @@ sudo make install
 This command installs GMP into the directory specified by the `--prefix` option.
 
 * **Running `make install`:**
-  ![Make Install](/assets/gmp/makeinstall.png)
+  ![Make Install](../../assets/gmp/makeinstall.png)
 
 ### Step 8: Verify Installation
 
@@ -132,7 +132,7 @@ ls /path/to/install/
 ```
 
 * **Final Check:**
-  ![Final Check](/assets/gmp/finalcheck.png)
+  ![Final Check](../../assets/gmp/finalcheck.png)
 
 ---
 

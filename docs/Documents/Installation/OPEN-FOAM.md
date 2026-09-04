@@ -64,7 +64,7 @@ Connect the external drive to the offline machine and copy the downloaded files 
 **Why This Step is Required**:
 This step is necessary because the offline machine doesn't have internet access. By downloading the files on a connected machine and transferring them, you ensure that the OpenFOAM and third-party libraries are available for the installation process.
 
-![Copy Files](/assets/OFD/copy-to-machine.png)
+![Copy Files](../../assets/OFD/copy-to-machine.png)
 ---
 
 #### 2. **Extract the Source Code and Verify Files**
@@ -77,8 +77,8 @@ tar -xvf openfoam-source.tar.gz
 tar -xvf third-party.tar.gz
 ```
 
-![Extract Command](/assets/OFD/extrat-command.png)
-![Extract and Check Files](/assets/OFD/extract-and-check.png)
+![Extract Command](../../assets/OFD/extrat-command.png)
+![Extract and Check Files](../../assets/OFD/extract-and-check.png)
 **Why This Step is Required**:
 Extracting the files ensures that the source code and libraries are properly decompressed and placed in their respective directories. Verifying the extraction makes sure no files are corrupted or missing.
 
@@ -135,7 +135,7 @@ source OpenFOAM-version/etc/bashrc
 **Why This Step is Required**:
 Sourcing the `bashrc` file loads the environment variables and configurations into your current session. This step is essential for OpenFOAM to recognize the newly set paths and settings.
 
-![Source Command Before Compiling](/assets/OFD/source-command-before-compling.png)
+![Source Command Before Compiling](../../assets/OFD/source-command-before-compling.png)
 
 ---
 
@@ -148,7 +148,7 @@ echo $WM_PROJECT_DIR
 echo $WM_PROJECT_USER_DIR
 echo $WM_THIRD_PARTY_DIR
 ```
-![Check Directories](/assets/OFD/echo-command-directorys.png)
+![Check Directories](../../assets/OFD/echo-command-directorys.png)
 **Why This Step is Required**:
 Checking these variables confirms that the paths to OpenFOAM and its third-party libraries are correctly set.
 
@@ -179,8 +179,8 @@ The `foamInstallationTest` command checks the status of the OpenFOAM installatio
  * If OpenFOAM has been compiled successfully, the command will show a status message indicating that everything is set up correctly.
  * If OpenFOAM has not been compiled, the output will provide an error or status message indicating that the compilation has not been completed, allowing you to troubleshoot further.
 
-![Foam Command](/assets/OFD/foam-command.png)
-![Foam Installation Command](/assets/OFD/foamInstalltion-command.png)
+![Foam Command](../../assets/OFD/foam-command.png)
+![Foam Installation Command](../../assets/OFD/foamInstalltion-command.png)
 
 
 
@@ -191,9 +191,9 @@ To compile OpenFOAM, run the `./Allwmake` command.
 ```bash
 ./Allwmake
 ```
-![OpenFOAM Allwmake Command](/assets/OFD/Openfoam-all-wame-commad.png)
+![OpenFOAM Allwmake Command](../../assets/OFD/Openfoam-all-wame-commad.png)
 
-![OpenFOAM Compilation Complete](/assets/OFD/openfoam-allwamke-command-compltete.png)
+![OpenFOAM Compilation Complete](../../assets/OFD/openfoam-allwamke-command-compltete.png)
 
 **Why This Step is Required**:
 This command starts the full OpenFOAM compilation process. It will compile solvers, utilities, and libraries, and it can take a long time depending on your system resources.
@@ -231,7 +231,7 @@ In the `ThirdParty-v2506` directory, you will find various `make` files for diff
 ```bash
    ./Allwmake
 ```
-![Third-Party Allwmake](/assets/OFD/thirdparty-allwamke.png)
+![Third-Party Allwmake](../../assets/OFD/thirdparty-allwamke.png)
 **Why This Step is Required**:
 The `Allwmake` command will compile all necessary third-party libraries, such as `METIS`, `SCOTCH`, `MPICH`, and others, which are required for OpenFOAM to function properly. This process can take a significant amount of time depending on your system's resources. If any errors occur during the compilation, you can investigate them by checking the log output.
 
@@ -397,8 +397,8 @@ Navigate to the **`$FOAM_TUTORIALS`** directory and copy the files to the test d
 cd $FOAM_TUTORIALS/incompressible/icoFoam/cavity
 cp -r * /root/apple/OPENFOAM/test
 ```
-![Navigate to Test Directory](/assets/OFD/cd-toturial-direcory.png)
-![Copy Tutorial Files](/assets/OFD/cp-r-command.png)
+![Navigate to Test Directory](../../assets/OFD/cd-toturial-direcory.png)
+![Copy Tutorial Files](../../assets/OFD/cp-r-command.png)
 
 
 
@@ -433,7 +433,7 @@ Run the **`blockMesh`** utility to generate the mesh:
 ```bash
 blockMesh
 ```
-![Generate Mesh](/assets/OFD/blockmesh.png)
+![Generate Mesh](../../assets/OFD/blockmesh.png)
 **Why This Step is Required**:
 The **`blockMesh`** utility reads the `blockMeshDict` file (located in the `system` directory) and creates the mesh for your simulation. You must run this command before running any solvers.
 
@@ -444,7 +444,7 @@ After running **`blockMesh`**, verify that the mesh has been created successfull
 ```bash
 ls constant/polyMesh
 ```
-![Verify Mesh](/assets/OFD/checking-mesh.png)
+![Verify Mesh](../../assets/OFD/checking-mesh.png)
 
 
 You should see files like `boundary`, `faces`, and `points`, which indicate that the mesh has been generated.
@@ -460,7 +460,7 @@ To start the simulation, run the **`icoFoam`** solver:
 ```bash
 icoFoam
 ```
-![Run icoFoam](/assets/OFD/icofoam.png)
+![Run icoFoam](../../assets/OFD/icofoam.png)
 **Why This Step is Required**:
 The **`icoFoam`** solver computes the flow field for the test case (cavity flow in this example). It reads the mesh and boundary conditions, then calculates the velocity and pressure fields.
 
@@ -495,7 +495,7 @@ Use the following command to list the files generated by the solver:
 ls postProcessing
 ```
 
-![Post-processing Results](/assets/OFD/post-processing-results.png)
+![Post-processing Results](../../assets/OFD/post-processing-results.png)
 
 You should see the time-step directories with the result files.
 

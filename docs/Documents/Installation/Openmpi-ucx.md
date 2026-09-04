@@ -56,7 +56,7 @@ Now, configure OpenMPI to use UCX by specifying the UCX installation path using 
 ```bash
 ./configure --prefix=/home/admin/apps/openmpi-ucx --with-ucx=/home/admin/apps/ucx-1.18.0
 ```
-![configuration](/assets/openmpi-ucx/configure.png)
+![configuration](../../assets/openmpi-ucx/configure.png)
 
 ### 4. **Compile OpenMPI**
 
@@ -65,7 +65,7 @@ Once the configuration is complete, compile OpenMPI with the following command:
 ```bash
 make -j
 ```
-![make](/assets/openmpi-ucx/make-j.png)
+![make](../../assets/openmpi-ucx/make-j.png)
 This will initiate the compilation process using multiple cores to speed up the build process. The `-j` option specifies the number of jobs to run simultaneously.
 
 
@@ -76,7 +76,7 @@ After compilation is complete, install OpenMPI:
 ```bash
 make install
 ```
-![make install](/assets/openmpi-ucx/makeinstall.png)
+![make install](../../assets/openmpi-ucx/makeinstall.png)
 
 ### 6. **Verify Installation**
 
@@ -86,7 +86,7 @@ Check the installation directories to ensure everything is in place:
 cd /home/admin/apps/openmpi-ucx
 ls
 ```
-![make install](/assets/openmpi-ucx/finalcheck.png)
+![make install](../../assets/openmpi-ucx/finalcheck.png)
 
 You should see directories such as `bin`, `lib`, and `include`, confirming that OpenMPI has been installed successfully with UCX support.
 

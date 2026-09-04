@@ -43,7 +43,7 @@ wget https://download.open-mpi.org/release/hwloc/v2.5/hwloc-2.5.0.tar.bz2
 
 You should see output similar to the following:
 
-![Image 1](/assets/hwclock/hwclockintsallation1.png)
+![Image 1](../../assets/hwclock/hwclockintsallation1.png)
 
 ---
 
@@ -73,7 +73,7 @@ Now, run the `configure` script to prepare the build environment:
 
 This will check for the build system and necessary dependencies. The output should look similar to this:
 
-![Image 2](/assets/hwclock/hwclockconfigure2.png)
+![Image 2](../../assets/hwclock/hwclockconfigure2.png)
 
 ---
 
@@ -87,7 +87,7 @@ make
 
 During this step, the compilation process will begin:
 
-![Image 3](/assets/hwclock/hwclock-make3.png)
+![Image 3](../../assets/hwclock/hwclock-make3.png)
 
 ---
 
@@ -101,7 +101,7 @@ make install
 
 This will install the HWLOC libraries and executables on your system:
 
-![Image 4](/assets/hwclock/hwclockmakeinstall4.png)
+![Image 4](../../assets/hwclock/hwclockmakeinstall4.png)
 
 ---
 
@@ -113,7 +113,7 @@ After the installation, you can verify that HWLOC has been installed successfull
 lstopo
 ```
 
-![Image 5](/assets/hwclock/hwlotopo.png)
+![Image 5](../../assets/hwclock/hwlotopo.png)
 
 This should display the hardware topology of your system.
 

@@ -37,7 +37,7 @@ tar xf Python-3.14.3.tar.xz
 
    This will unpack the Python source code into a directory named `Python-3.14.3`.
 
-   ![Extracting Python](/assets/Python/Python-extract.png)
+   ![Extracting Python](../../assets/Python/Python-extract.png)
 
 ---
 
@@ -63,7 +63,7 @@ cd Python-3.14.3
      * `--enable-shared`: Builds shared libraries, useful for linking with other software.
      * `--enable-optimizations`: Optimizes the build, leading to better performance at the cost of a longer build time.
 
-   ![Configuring Python](/assets/Python/configure.png)
+   ![Configuring Python](../../assets/Python/configure.png)
 
 ---
 
@@ -77,7 +77,7 @@ After configuring the installation, you can proceed with compiling and installin
 make
 ```
 
-![Making Test](/assets/Python/make.png)
+![Making Test](../../assets/Python/make.png)
 
 
 
@@ -97,7 +97,7 @@ make test
 
    * **Explanation**: The `make test` command runs Python’s built-in test suite. If any tests fail, it might indicate issues with your build environment or missing dependencies.
 
-   ![Making Test](/assets/Python/make-test.png)
+   ![Making Test](../../assets/Python/make-test.png)
 
 3. **Install Python**: After successfully building Python and running tests, install it on your system (sudo permissins is required if your running as a user) :
 
@@ -107,7 +107,7 @@ sudo make install
 
    * **Explanation**: The `make install` command copies the compiled files into the specified directories (e.g., `/home/softwares/Python-3/3.14.3/`). The `sudo` command is used to install Python system-wide. This command might require administrative privileges.
 
-   ![Making Install](/assets/Python/make-install.png)
+   ![Making Install](../../assets/Python/make-install.png)
 
 ---
 
@@ -129,7 +129,7 @@ Once the installation is complete, you need to verify that Python is correctly i
      * `LD_LIBRARY_PATH`: Specifies the path for shared libraries.
      * `CPATH`: Specifies the path for include files (useful for building extensions).
 
-   ![Exporting Python](/assets/Python/Exportpyhton.png)
+   ![Exporting Python](../../assets/Python/Exportpyhton.png)
 
 2. **Check the Python Installation**: Once the environment variables are set, confirm the installation:
 
@@ -150,7 +150,7 @@ Once the installation is complete, you need to verify that Python is correctly i
    Python 3.14.3
 ```
 
-   ![Version Check](/assets/Python/Veriosn-check.png)
+   ![Version Check](../../assets/Python/Veriosn-check.png)
 
 ---
 

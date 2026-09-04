@@ -47,7 +47,7 @@ ls
 You should see the extracted `gcc-<version>` directory.
 
 * **Directory Listing after Extraction:**
-  ![Tar Extract](/assets/gcc/tarxfgcc.png)
+  ![Tar Extract](../../assets/gcc/tarxfgcc.png)
 
 ### Step 4: Install MPFR, MPC, and GMP
 
@@ -90,7 +90,7 @@ Run the `configure` script to prepare the build environment. First, check availa
 This will display the configuration options. The key options here will be the **`--with-gmp`**, **`--with-mpfr`**, and **`--with-mpc`** flags to ensure these libraries are correctly linked during the build process.
 
 * **`configure --help`:**
-  ![Configure Help](/assets/gcc/configure--help.png)
+  ![Configure Help](../../assets/gcc/configure--help.png)
 
 Run the `configure` script with the following flags:
 
@@ -102,10 +102,10 @@ Replace `/path/to/gmp`, `/path/to/mpfr`, `/path/to/mpc`, and `/path/to/install` 
 
 
 * **`configure` with Flags:**
-  ![Configure with Flags](/assets/gcc/configure-with-flages.png)
+  ![Configure with Flags](../../assets/gcc/configure-with-flages.png)
 
 * **Successful `configure` Execution:**
-  ![Configure Success](/assets/gcc/configure-sucess.png)
+  ![Configure Success](../../assets/gcc/configure-sucess.png)
 
 ### Step 7: Compile the Code
 
@@ -118,10 +118,10 @@ make -j
 The `-j` flag speeds up the process by using multiple cores. You can adjust the number of cores based on your system’s capabilities (e.g., `-j4` for four cores).
 
 * **Running the `make -j` Command:**
-  ![Make -j](/assets/gcc/make-j.png)
+  ![Make -j](../../assets/gcc/make-j.png)
 
 * **Completion of the `make -j` Process:**
-  ![Make -j Complete](/assets/gcc/make-j-complte.png)
+  ![Make -j Complete](../../assets/gcc/make-j-complte.png)
 
 ### Step 8: Install GCC
 
@@ -134,10 +134,10 @@ sudo make install
 This command installs GCC into the directory specified by the `--prefix` option during the configuration process.
 
 * **Running `make install`:**
-  ![Make Install](/assets/gcc/makeinstall.png)
+  ![Make Install](../../assets/gcc/makeinstall.png)
 
 * **Installation Complete:**
-  ![Make Install Complete](/assets/gcc/makeinstall-complte.png)
+  ![Make Install Complete](../../assets/gcc/makeinstall-complte.png)
 
 ### Step 9: Verify Installation
 
@@ -150,7 +150,7 @@ ls /path/to/install/bin
 You should see the necessary GCC binaries in the `bin` directory.
 
 * **Final Installation Check:**
-  ![Final Check](/assets/gcc/gcc-final-check.png)
+  ![Final Check](../../assets/gcc/gcc-final-check.png)
 
 ---
 
@@ -159,31 +159,31 @@ You should see the necessary GCC binaries in the `bin` directory.
 Here are the screenshots demonstrating the installation steps:
 
 * **Directory Listing after Extraction**
-  ![Tar Extract](/assets/gcc/tarxfgcc.png)
+  ![Tar Extract](../../assets/gcc/tarxfgcc.png)
 
 * **`configure --help`**
-  ![Configure Help](/assets/gcc/configure--help.png)
+  ![Configure Help](../../assets/gcc/configure--help.png)
 
 * **`configure` with Flags**
-  ![Configure with Flags](/assets/gcc/configure-with-flages.png)
+  ![Configure with Flags](../../assets/gcc/configure-with-flages.png)
 
 * **Successful `configure` Execution**
-  ![Configure Success](/assets/gcc/configure-sucess.png)
+  ![Configure Success](../../assets/gcc/configure-sucess.png)
 
 * **Running the `make -j` Command**
-  ![Make -j](/assets/gcc/make-j.png)
+  ![Make -j](../../assets/gcc/make-j.png)
 
 * **Completion of the `make -j` Process**
-  ![Make -j Complete](/assets/gcc/make-j-complte.png)
+  ![Make -j Complete](../../assets/gcc/make-j-complte.png)
 
 * **Running `make install`**
-  ![Make Install](/assets/gcc/makeinstall.png)
+  ![Make Install](../../assets/gcc/makeinstall.png)
 
 * **Installation Complete**
-  ![Make Install Complete](/assets/gcc/makeinstall-complte.png)
+  ![Make Install Complete](../../assets/gcc/makeinstall-complte.png)
 
 * **Final Installation Check**
-  ![Final Check](/assets/gcc/gcc-final-check.png)
+  ![Final Check](../../assets/gcc/gcc-final-check.png)
 
 
 

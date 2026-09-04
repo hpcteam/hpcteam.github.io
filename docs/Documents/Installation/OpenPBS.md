@@ -15,7 +15,7 @@ cd openpbs-23.06.06
 ls
 ```
 
-![autogen.sh output](/assets/OpenPbs23/6.png)
+![autogen.sh output](../../assets/OpenPbs23/6.png)
 
 ### Why this step is required
 
@@ -42,7 +42,7 @@ openssl-devel libXext libXft autoconf automake gcc-c++ cjson-devel
 * PostgreSQL development packages are required for database integration
 * Missing packages will cause `configure` or `make` to fail
 
-![Source directory](/assets/OpenPbs23/1.png)
+![Source directory](../../assets/OpenPbs23/1.png)
 
 ---
 
@@ -62,7 +62,7 @@ OpenPBS uses **PostgreSQL** internally to store:
 sudo dnf install -y postgresql-server postgresql-contrib
 ```
 
-![Dependencies](/assets/OpenPbs23/2.png)
+![Dependencies](../../assets/OpenPbs23/2.png)
 
 ---
 
@@ -72,7 +72,7 @@ sudo dnf install -y postgresql-server postgresql-contrib
 sudo postgresql-setup --initdb
 ```
 
-![PostgreSQL install](/assets/OpenPbs23/3.png)
+![PostgreSQL install](../../assets/OpenPbs23/3.png)
 
 ### Why this step is required
 
@@ -89,9 +89,9 @@ sudo systemctl enable postgresql
 systemctl status postgresql
 ```
 
-![PostgreSQL initdb](/assets/OpenPbs23/4.png)
+![PostgreSQL initdb](../../assets/OpenPbs23/4.png)
 
-![PostgreSQL status](/assets/OpenPbs23/5.png)
+![PostgreSQL status](../../assets/OpenPbs23/5.png)
 
 ### Why this step is required
 
@@ -107,7 +107,7 @@ systemctl status postgresql
 ./autogen.sh
 ```
 
-![Configure output](/assets/OpenPbs23/7.png)
+![Configure output](../../assets/OpenPbs23/7.png)
 
 ### Why this step is required
 
@@ -123,7 +123,7 @@ systemctl status postgresql
 ./configure --prefix=/opt/pbs
 ```
 
-![Make build](/assets/OpenPbs23/8.png)
+![Make build](../../assets/OpenPbs23/8.png)
 
 ### Why this step is required
 
@@ -139,7 +139,7 @@ systemctl status postgresql
 make
 ```
 
-![Make install](/assets/OpenPbs23/9.png)
+![Make install](../../assets/OpenPbs23/9.png)
 
 ### Why this step is required
 
@@ -158,7 +158,7 @@ make
 make install
 ```
 
-![Postinstall](/assets/OpenPbs23/10.png)
+![Postinstall](../../assets/OpenPbs23/10.png)
 
 ### Why this step is required
 
@@ -173,7 +173,7 @@ make install
 sudo /opt/pbs/libexec/pbs_postinstall
 ```
 
-![pbs.conf](/assets/OpenPbs23/11.png)
+![pbs.conf](../../assets/OpenPbs23/11.png)
 
 ### Why this step is required
 
@@ -189,7 +189,7 @@ sudo /opt/pbs/libexec/pbs_postinstall
 cat /etc/pbs.conf
 ```
 
-![Permissions](/assets/OpenPbs23/12.png)
+![Permissions](../../assets/OpenPbs23/12.png)
 
 ### What this configuration means
 
@@ -219,8 +219,8 @@ chmod 4755 /opt/pbs/sbin/pbs_rcp
 chmod 4755 /opt/pbs/sbin/pbs_iff
 ```
 
-![pbs.sh](/assets/OpenPbs23/13.png)
-![PBS restart](/assets/OpenPbs23/14.png)
+![pbs.sh](../../assets/OpenPbs23/13.png)
+![PBS restart](../../assets/OpenPbs23/14.png)
 
 ### Why this step is required
 
@@ -235,7 +235,7 @@ chmod 4755 /opt/pbs/sbin/pbs_iff
 source /etc/profile.d/pbs.sh
 ```
 
-![PBS restart](/assets/OpenPbs23/18.png)
+![PBS restart](../../assets/OpenPbs23/18.png)
 
 ### Why this step is required
 
@@ -251,7 +251,7 @@ source /etc/profile.d/pbs.sh
 /etc/init.d/pbs restart
 ```
 
-![PBS restart](/assets/OpenPbs23/17.png)
+![PBS restart](../../assets/OpenPbs23/17.png)
 
 ### Why this step is required
 
@@ -268,7 +268,7 @@ Edit `/etc/pbs.conf`:
 PBS_START_MOM=1
 ```
 
-![PBS restart](/assets/OpenPbs23/16.png)
+![PBS restart](../../assets/OpenPbs23/16.png)
 
 Restart PBS:
 
@@ -276,7 +276,7 @@ Restart PBS:
 /etc/init.d/pbs restart
 ```
 
-![Enable MOM](/assets/OpenPbs23/19 enable mom.png)
+![Enable MOM](../../assets/OpenPbs23/19 enable mom.png)
 
 ### Why this step is required
 
@@ -297,7 +297,7 @@ qmgr -c "create node <node_name>"
 
 Replace <node_name> with the hostname of the new node.
 
-![Node details](/assets/OpenPbs23/addingnode01.png)
+![Node details](../../assets/OpenPbs23/addingnode01.png)
 
 
 
@@ -305,7 +305,7 @@ Replace <node_name> with the hostname of the new node.
 pbsnodes -a
 ```
 
-![Node summary](/assets/OpenPbs23/addingnode02.png)
+![Node summary](../../assets/OpenPbs23/addingnode02.png)
 
 ### What this shows
 
@@ -327,7 +327,7 @@ for i in range(1000, 100001):
     time.sleep(0.001)
 ```
 
-![Python script](/assets/OpenPbs23/input.png)
+![Python script](../../assets/OpenPbs23/input.png)
 
 ### Why this program is used
 
@@ -352,7 +352,7 @@ cd $PBS_O_WORKDIR
 python3 print_numbers.py >> python_numbers.log
 ```
 
-![PBS job script](/assets/OpenPbs23/run.pbs.png)
+![PBS job script](../../assets/OpenPbs23/run.pbs.png)
 
 ---
 
@@ -362,7 +362,7 @@ python3 print_numbers.py >> python_numbers.log
 qsub run.pbs
 ```
 
-![qsub](/assets/OpenPbs23/qsub.png)
+![qsub](../../assets/OpenPbs23/qsub.png)
 
 ### What happens here
 
@@ -377,7 +377,7 @@ qsub run.pbs
 tail -f python_numbers.log
 ```
 
-![Job output](/assets/OpenPbs23/tail-flog_monitor .png)
+![Job output](../../assets/OpenPbs23/tail-flog_monitor .png)
 
 ### What this confirms
 
@@ -392,7 +392,7 @@ tail -f python_numbers.log
 qmgr -c "set server job_history_enable = True"
 ```
 
-![Enable history](/assets/OpenPbs23/enableing histrory.png)
+![Enable history](../../assets/OpenPbs23/enableing histrory.png)
 
 ### Why this step is required
 
@@ -405,7 +405,7 @@ Restart PBS:
 /etc/init.d/pbs restart
 ```
 
-![Restart after history](/assets/OpenPbs23/afterenabling histrory restar the service.png)
+![Restart after history](../../assets/OpenPbs23/afterenabling histrory restar the service.png)
 
 ---
 
@@ -416,7 +416,7 @@ qsub run.pbs
 qstat -x
 ```
 
-![Job history](/assets/OpenPbs23/histrory achnges submoyed job again and check.png)
+![Job history](../../assets/OpenPbs23/histrory achnges submoyed job again and check.png)
 
 ### What this confirms
 

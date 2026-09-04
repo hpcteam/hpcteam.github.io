@@ -63,7 +63,7 @@ List the files to check if the `configure` script is present:
 ls
 ```
 * **Directory Listing after Extraction**
-  ![Directory Listing](/assets/mpc/tarxfmpc.png)
+  ![Directory Listing](../../assets/mpc/tarxfmpc.png)
   
 * If the `configure` script is found, proceed to the next step.
 * If the `configure` script is missing, check for the `autogen.sh` script. If present, run it to generate the `configure` script:
@@ -121,7 +121,7 @@ You can check available configuration options by running:
 
 This will display the configuration options. Ensure that the GMP and MPFR paths are correctly set.
 * **`configure` --help**
-  ![MPC Configure](/assets/mpc/configure--help.png)
+  ![MPC Configure](../../assets/mpc/configure--help.png)
 
 ### Step 7: Compile the Code
 
@@ -167,7 +167,7 @@ ls /path/to/install/lib
 You should see the necessary MPC files in the `bin` and `lib` directories.
 
 * **Final Installation Check**
-  ![Final Check](/assets/mpc/final-check-directory-createdor-notpng)
+  ![Final Check](../../assets/mpc/final-check-directory-createdor-not.png)
 
 ---
 
@@ -176,18 +176,18 @@ You should see the necessary MPC files in the `bin` and `lib` directories.
 Here are the screenshots demonstrating the installation steps:
 
 * **Directory Listing after Extraction**
-  ![Directory Listing](/assets/mpc/tarxfmpc.png)
+  ![Directory Listing](../../assets/mpc/tarxfmpc.png)
 
 * **`configure` with GMP and MPFR Path Options**
-  ![MPC Configure](/assets/mpc/configure--mpfr-gmp.png)
+  ![MPC Configure](../../assets/mpc/configure--mpfr-gmp.png)
 
 * **Running the `make -j` Command**
-  ![Make -j](/assets/mpc/make-j.png)
+  ![Make -j](../../assets/mpc/make-j.png)
 
 * **Running `make install`**
-  ![Make Install](/assets/mpc/makeinstall.png)
+  ![Make Install](../../assets/mpc/makeinstall.png)
 
 * **Final Installation Check**
-  ![Final Check](/assets/mpc/final-check-directory-createdor-notpng)
+  ![Final Check](../../assets/mpc/final-check-directory-createdor-not.png)
 
 

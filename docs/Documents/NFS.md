@@ -89,7 +89,7 @@ systemctl stop firewalld.service
 
 Alternatively, if the firewall service must remain enabled, add the necessary services and enable the required port numbers.
 
-![Firewall rules](/assets/NFS/1.png)
+![Firewall rules](../assets/NFS/1.png)
 
 ### Step 3: Create the Directory to Share Across the Network
 
@@ -104,7 +104,7 @@ Change the ownership of the directory.
 ```bash
 chown nfsnobody:nfsnobody /directory_which_is_to_be_shared
 ```
-![Creating nfs share directory](/assets/NFS/2.png)
+![Creating nfs share directory](../assets/NFS/2.png)
 
 If necessary, change the directory permissions.
 
@@ -120,8 +120,8 @@ Edit the `/etc/exports` file to add the directories you wish to share.
 /directory_which_is_to_be_shared ip_address_of_network(rw,sync,no_root_squash)
 /directory_which_is_to_be_shared ip_address_of_client_machine(rw,sync,no_root_squash)
 ```
-![expoerts](/assets/NFS/3.png)
-![giving permissions](/assets/NFS/4.png)
+![expoerts](../assets/NFS/3.png)
+![giving permissions](../assets/NFS/4.png)
 ### Step 5: Verify Export Values
 
 Check and verify the export values with the following commands:
@@ -131,8 +131,8 @@ exportfs -a
 exportfs -r
 exportfs -v
 ```
-![expoerts](/assets/NFS/4.png)
-![checking exports](/assets/NFS/5.png)
+![expoerts](../assets/NFS/4.png)
+![checking exports](../assets/NFS/5.png)
 Everything is good! Now we need to configure the NFS client.
 
 ---
@@ -158,7 +158,7 @@ Create the directory where the NFS share will be mounted on the client machine.
 ```bash
 mkdir /mnt/nfs_mount
 ```
-![clint](/assets/NFS/7.png)
+![clint](../assets/NFS/7.png)
 
 ### Step 8: Mount the NFS Share
 
@@ -167,7 +167,7 @@ Mount the NFS share from the server to the client.
 ```bash
 mount ip_address_of_nfs_server:/directory_which_is_to_be_shared /mnt/nfs_mount
 ```
-![clint](/assets/NFS/9.png)
+![clint](../assets/NFS/9.png)
 ### Step 9: Permanent Mount After Reboot
 
 To make the NFS mount persistent across reboots, add the NFS server details in the `/etc/fstab` file.
@@ -177,7 +177,7 @@ Edit `/etc/fstab` and add the following line:
 ```bash
 ip_address_of_nfs_server:/directory_which_is_to_be_shared /mnt/nfs_mount nfs defaults 0 0
 ```
-![clint](/assets/NFS/10.png)
+![clint](../assets/NFS/10.png)
 ### Step 10: Verify the Mount
 
 Check if the NFS mount is successful.
@@ -191,5 +191,5 @@ Alternatively, use the `df -h` command to verify the mounted file systems.
 ```bash
 df -h
 ```
-![clint](/assets/NFS/11.png)
+![clint](../assets/NFS/11.png)
 ---

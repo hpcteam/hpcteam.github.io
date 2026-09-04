@@ -10,7 +10,7 @@ In PBS (Portable Batch System), the `query_other_jobs` option determines whether
   * **True** — Users can see jobs submitted by other users.
   * **False** — Users can only see their own jobs.
 
-![Defalut Value](/assets/Job-Quary/jobquaru-True.png)
+![Defalut Value](../assets/Job-Quary/jobquaru-True.png)
 
 ---
 
@@ -40,11 +40,11 @@ To disable this feature, run the following command:
 qmgr -c "set server query_other_jobs = False"
 ```
 
-![Defalut Value](/assets/Job-Quary/seting-flase.png)
+![Defalut Value](../assets/Job-Quary/seting-flase.png)
 
 #### **Example of `qstat` with Disabled Query**
 
-![Defalut Value](/assets/Job-Quary/quary-Flase.png)
+![Defalut Value](../assets/Job-Quary/quary-Flase.png)
 
 ---
 

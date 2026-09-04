@@ -105,7 +105,7 @@ To prepare the system for building RPMs from source code.
 dnf install rpm-build rpmdevtools gcc make autoconf automake libtool wget tar
 ```
 
-![Installing rpm-build tools](/assets/source-rpm/yuminstall.png)
+![Installing rpm-build tools](../assets/source-rpm/yuminstall.png)
 
 ---
 
@@ -120,7 +120,7 @@ Ensure `rpmbuild` is installed and available.
 rpm -qa | grep rpm-build
 ```
 
-![Checking rpm-build installation](/assets/source-rpm/checking-rpm-build-installed-or-not.png)
+![Checking rpm-build installation](../assets/source-rpm/checking-rpm-build-installed-or-not.png)
 
 ---
 
@@ -147,7 +147,7 @@ rpmdev-setuptree
 └── SRPMS
 ```
 
-![rpmdev setuptree](/assets/source-rpm/rpmdev-setuptree.png)
+![rpmdev setuptree](../assets/source-rpm/rpmdev-setuptree.png)
 
 ---
 
@@ -169,7 +169,7 @@ Move the source archive to the SOURCES directory:
 mv slurm-24.11.7.tar.bz2 ~/rpmbuild/SOURCES/
 ```
 
-![Downloading Slurm source code](/assets/source-rpm/downloading sourecode.png)
+![Downloading Slurm source code](../assets/source-rpm/downloading sourecode.png)
 
 ---
 
@@ -185,7 +185,7 @@ tar xf slurm-24.11.7.tar.bz2
 ls
 ```
 
-![Extracting source archive](/assets/source-rpm/tar extract.png)
+![Extracting source archive](../assets/source-rpm/tar extract.png)
 
 ---
 
@@ -200,7 +200,7 @@ The **SPEC file** controls the entire RPM build process.
 cp slurm-24.11.7/slurm.spec ~/rpmbuild/SPECS/
 ```
 
-![Copying spec file](/assets/source-rpm/cpoing.specfile.png)
+![Copying spec file](../assets/source-rpm/cpoing.specfile.png)
 
 ---
 
@@ -216,7 +216,7 @@ rpmbuild -ba slurm.spec
 
 The build fails due to **missing build dependencies**.
 
-![rpmbuild failed](/assets/source-rpm/rpmbuild-faild.png)
+![rpmbuild failed](../assets/source-rpm/rpmbuild-faild.png)
 
 ---
 
@@ -248,7 +248,7 @@ This behavior is **expected and correct**.
 dnf install mariadb-devel munge-devel pam-devel readline-devel
 ```
 
-![Installing build dependencies](/assets/source-rpm/installed-dependeces-for-source-pacaage.png)
+![Installing build dependencies](../assets/source-rpm/installed-dependeces-for-source-pacaage.png)
 
 ---
 
@@ -260,9 +260,9 @@ dnf install mariadb-devel munge-devel pam-devel readline-devel
 rpmbuild -ba slurm.spec
 ```
 
-![rpmbuild output](/assets/source-rpm/rpmbuild.png)
+![rpmbuild output](../assets/source-rpm/rpmbuild.png)
 
-![rpmbuild success](/assets/source-rpm/rpmbuild-final-sucess.png)
+![rpmbuild success](../assets/source-rpm/rpmbuild-final-sucess.png)
 
 ---
 
@@ -292,7 +292,7 @@ rpmbuild -ba slurm.spec
 * `slurm-slurmdbd-24.11.7-1.el9.x86_64.rpm`
 * `slurm-devel-24.11.7-1.el9.x86_64.rpm`
 
-![RPMs created successfully](/assets/source-rpm/rpm-created.png)
+![RPMs created successfully](../assets/source-rpm/rpm-created.png)
 
 ---
 

@@ -40,7 +40,7 @@ sh intel-oneapi-hpc-toolkit-2025.1.0.666_offline.sh
 
 This extracts the package and launches the installer in **GUI mode**.
 
-![Installer launch](/assets/intel/sh-intel.png)
+![Installer launch](../../assets/intel/sh-intel.png)
 
 ---
 
@@ -50,7 +50,7 @@ The installer checks system requirements automatically.
 
 Click **Continue** to proceed.
 
-![Welcome screen](/assets/intel/sh-intel.png)
+![Welcome screen](../../assets/intel/sh-intel.png)
 
 ---
 
@@ -71,7 +71,7 @@ For a complete HPC development environment, the following components were select
 * Intel® DPC++ Compatibility Tool
 * Intel® oneAPI Deep Neural Network Library
 
-![Selecting features](/assets/intel/selecting-feactures.png)
+![Selecting features](../../assets/intel/selecting-feactures.png)
 
 ---
 
@@ -88,7 +88,7 @@ This is recommended for:
 * HPC compute nodes
 * Production clusters
 
-![Skip Eclipse IDE](/assets/intel/skip-Eclipse.png)
+![Skip Eclipse IDE](../../assets/intel/skip-Eclipse.png)
 
 ---
 
@@ -102,7 +102,7 @@ This is recommended for:
   /home/admin/intel/oneapi
   ```
 
-![License and features](/assets/intel/license-and-feactures.png)
+![License and features](../../assets/intel/license-and-feactures.png)
 
 ---
 
@@ -113,7 +113,7 @@ The installer performs integrity checks and installs all selected components.
 * Integrity check: ✅ Completed
 * Installation monitored via GUI
 
-![Installing oneAPI](/assets/intel/installing.png)
+![Installing oneAPI](../../assets/intel/installing.png)
 
 ---
 
@@ -125,7 +125,7 @@ Installed toolkit:
 
 * **Intel® oneAPI HPC Toolkit v2025.1**
 
-![Installation finished](/assets/intel/finished.png)
+![Installation finished](../../assets/intel/finished.png)
 
 ---
 

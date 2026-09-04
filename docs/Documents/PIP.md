@@ -98,7 +98,7 @@ mkdir ~/offline_pkgs
 
 pip download -r requirements.txt -d ~/offline_pkgs
 ```
-![Creating Direcory](/assets/PIP/downloading-all-pacakages.png)
+![Creating Direcory](../assets/PIP/downloading-all-pacakages.png)
 
 This command will download all the necessary `.whl` (wheel) files and dependencies into the `~/offline_pkgs` directory.
 
