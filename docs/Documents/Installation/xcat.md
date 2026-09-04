@@ -427,7 +427,7 @@ Compute nodes download installation files from this location.
 
 ---
 
-### NFS Server (Optional)
+### NFS Server 
 
 Network File System can be used to share files between cluster nodes.
 

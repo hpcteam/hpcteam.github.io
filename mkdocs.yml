@@ -8,23 +8,23 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
+
     - navigation.tabs
-    - navigation.tracking
     - navigation.tabs.sticky
-    - navigation.sections
+    
     - navigation.expand
     - navigation.path
     - navigation.prune
+    - navigation.tracking
 
   palette:
-
-    # Palette toggle for automatic mode
+    # Automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
 
-    # Palette toggle for light mode
+    # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: blue
@@ -33,7 +33,7 @@ theme:
         icon: material/brightness-7
         name: Switch to dark mode
 
-    # Palette toggle for dark mode
+    # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: blue
@@ -44,7 +44,6 @@ theme:
 
 
 markdown_extensions:
-
   - attr_list
 
   - toc:
@@ -54,11 +53,12 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
+
 extra_css:
   - stylesheets/blog.css
 
-plugins:
 
+plugins:
   - privacy
 
   - search:
@@ -74,43 +74,37 @@ nav:
 
   - Home: index.md
 
-
   - Tech Blog:
-
       - Tech Blog: blog/index.md
       - Topics: blog/tags.md
 
-
   - Profile:
-
-      - Professional Summary: Home/Professional-Summary.md
-      - Technical Skills: Home/technical-skills.md
-      - Professional Experience: Home/professional-experience.md
-      - Roles & Responsibilities: Home/roles-responsibilities.md
       - Applications & Libraries: Home/applications-and-libraries.md
+      - Professional Experience: Home/professional-experience.md
+      - Professional Summary: Home/Professional-Summary.md
       - Projects: Home/projects.md
-
+      - Roles & Responsibilities: Home/roles-responsibilities.md
+      - Technical Skills: Home/technical-skills.md
 
   - Documents:
 
-      - Important Note: Documents/index.md
-
       - Bright Cluster Manager: Documents/brightclustermanager.md
 
-      - Disableing Job-Query OpenPBS: Documents/Jobs-query.md
+      - Disabling Job-Query OpenPBS: Documents/Jobs-query.md
 
       - GitHub Pages CI/CD: Documents/GitHub_Pages_MkDocs.md
 
       - Hyperthreading: Documents/hyperthreading.md
+
+      - Important Note: Documents/index.md
 
       - Linux Commands: Documents/Linux_commands.md
 
       - Local Repo: Documents/Local_repo.md
 
       - Lustre File System:
-
-          - Lustre: Documents/Lustre.md
           - Installation: Documents/lustre-installtion.md
+          - Lustre: Documents/Lustre.md
 
       - LVM: Documents/Logical Volume Manager (LVM).md
 
@@ -122,86 +116,71 @@ nav:
 
       - RPM BUILD FROM SOURCE CODE: Documents/RPM-BUILD_SOURE_CODE.md
 
-      - Scripts:
-
-          - Run Script: Documents/Scripts/run.sh.md
-
-      - Slurm Basics: Documents/Slurm.md
-
       - What is module file: Documents/Module-File.md
+
+
+  - Installation: 
+
+      - Overview: Documents/Installation/index.md
+
+      - Applications:
+          - Anaconda: Documents/Installation/Anaconda.md
+
+          - LAMMPS:
+              - CPU Installation: Documents/Installation/lammps/cpu-installation.md
+              - GPU Installation: Documents/Installation/lammps/gpu-installation.md
+              - Theory: Documents/Installation/lammps/theory.md
+
+          - OpenFOAM: Documents/Installation/OPEN-FOAM.md
+          - Python-3.14.3: Documents/Installation/Python-Offline.md
+          - QE: Documents/Installation/qe.md
+          - SU2: Documents/Installation/SU2_Installation.md
+
+      - Benchmarks:
+          - HPL: Documents/Installation/hpl.md
+          - HPCG: Documents/Installation/hpcg.md
+          - HPCC: Documents/Installation/hpcc.md
+
+      - Cluster & System Setup:
+          - HWClock: Documents/Installation/hwclock.md
+          - LDAP (Lightweight Directory Access Protocol): Documents/Installation/LDAP.md
+          - OpenHPC Slurm: Documents/Installation/building-an-openhpc-cluster-in-vms.md
+          - OpenPBS-23.06.06: Documents/Installation/OpenPBS.md
+          - XCAT: Documents/Installation/xcat.md
+          - XCAT-Setup-Rocky-8.10-on-VMware: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware.md
+
+      - Compilers & Toolchains:
+          - GCC: Documents/Installation/gcc.md
+          - Intel Toolkit: Documents/Installation/Intel-toolkit.md
+
+      - Libraries:
+          - GMP: Documents/Installation/gmp.md
+          - METIS: Documents/Installation/Metis.md
+          - MPC: Documents/Installation/mpc.md
+          - MPFR: Documents/Installation/mpfr.md
+          - OpenMPI: Documents/Installation/OpenMpi.md
+          - OpenMPI-UCX: Documents/Installation/Openmpi-ucx.md
+
+
+      - Sample: Documents/Installation/sample.md
 
 
   - Troubleshooting:
 
       - Overview: Troubleshooting/index.md
 
-      - Hardware Troubleshooting: Troubleshooting/Hardware Troubleshooting.md
+      - Hardware Troubleshooting: "Troubleshooting/Hardware Troubleshooting.md"
 
-      - Power Drain: Troubleshooting/Power Drain.md
+      - Memory Issue: "Troubleshooting/Memory issue.md"
 
-      - Power Supply Unit (PSU): Troubleshooting/Power Supply Unit.md
+      - Power Drain: "Troubleshooting/Power Drain.md"
 
-      - Memory issue: Troubleshooting/Memory issue.md
+      - Power Supply Unit (PSU): "Troubleshooting/Power Supply Unit.md"
 
-      - Processor: Troubleshooting/Processor-replaceing.md
-
-
-  - Installation:
-
-      - Overview: Documents/Installation/index.md
-
-      - Anaconda: Documents/Installation/Anaconda.md
-
-      - Python-3.14.3: Documents/Installation/Python-Offline.md
-
-      - OpenMPI: Documents/Installation/OpenMpi.md
-
-      - METIS: Documents/Installation/Metis.md
-
-      - SU2: Documents/Installation/SU2_Installation.md
-
-      - OpenMPI-UCX: Documents/Installation/Openmpi-ucx.md
-
-      - OpenFOAM: Documents/Installation/OPEN-FOAM.md
-
-      - OpenHPC Slurm: Documents/Installation/building-an-openhpc-cluster-in-vms.md
-
-      - Intel Toolkit: Documents/Installation/Intel-toolkit.md
-
-      - OpenPBS-23.06.06: Documents/Installation/OpenPBS.md
-
-      - LDAP (Lightweight Directory Access Protocol): Documents/Installation/LDAP.md
-
-      - XCAT: Documents/Installation/xcat.md
-
-      - GCC: Documents/Installation/gcc.md
-
-      - GMP: Documents/Installation/gmp.md
-
-      - MPC: Documents/Installation/mpc.md
-
-      - MPFR: Documents/Installation/mpfr.md
-
-      - HWClock: Documents/Installation/hwclock.md
-
-      - HPL: Documents/Installation/hpl.md
-
-      - HPCG: Documents/Installation/hpcg.md
-
-      - QE: Documents/Installation/qe.md
-
-      - HPCC: Documents/Installation/hpcc.md
-
-      - LAMMPS:
-
-          - Theory: Documents/Installation/lammps/theory.md
-          - CPU Installation: Documents/Installation/lammps/cpu-installation.md
-          - GPU Installation: Documents/Installation/lammps/gpu-installation.md
+      - Processor: "Troubleshooting/Processor-replaceing.md"
 
 
   - Quiz:
-
       - Quiz: Quiz/index.html
-
 
   - Contact: Home/contact.md
