@@ -147,7 +147,9 @@ nav:
           - OpenHPC Slurm: Documents/Installation/building-an-openhpc-cluster-in-vms.md
           - OpenPBS-23.06.06: Documents/Installation/OpenPBS.md
           - XCAT: Documents/Installation/xcat.md
-          - XCAT-Setup-Rocky-8.10-on-VMware: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware.md
+          - XCAT-Rocky8-VMware: 
+                - XCAT-Setup-Rocky-8.10-on-VMware: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware.md
+                - NFS-Setup-Rocky-8.10-on-VMware: Documents/Installation/nfs-storage-installation-guide.md
 
       - Compilers & Toolchains:
           - GCC: Documents/Installation/gcc.md
