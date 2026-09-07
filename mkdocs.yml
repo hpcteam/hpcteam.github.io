@@ -2,13 +2,14 @@ site_name: AYYAPPASWAMY EETHAKOTA
 
 theme:
   name: material
+  font: false
   custom_dir: overrides
 
   features:
     - search.suggest
     - search.highlight
     - search.share
-
+    - content.code.copy
     - navigation.tabs
     - navigation.tabs.sticky
     
@@ -85,6 +86,7 @@ nav:
       - Projects: Home/projects.md
       - Roles & Responsibilities: Home/roles-responsibilities.md
       - Technical Skills: Home/technical-skills.md
+      
 
   - Documents:
 
@@ -148,8 +150,14 @@ nav:
           - OpenPBS-23.06.06: Documents/Installation/OpenPBS.md
           - XCAT: Documents/Installation/xcat.md
           - XCAT-Rocky8-VMware: 
-                - XCAT-Setup-Rocky-8.10-on-VMware: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware.md
-                - NFS-Setup-Rocky-8.10-on-VMware: Documents/Installation/nfs-storage-installation-guide.md
+                - XCAT-Setup: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/Xcat.md
+                - NFS-Setup: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/Nfs.md
+                - SLURM-Setup: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/Slurm.md
+                - SLURM-CLIENT-Setup: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/Slurm-Client.md
+                - NTP-Setup: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/ntp.md
+                - Grafana-Prometheus-Setup: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/Grafana_Prometheus_Monitoring_Guide.md
+                - OpenLDAP-Setup: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/openldap-setup.md
+                - LDAP-Client-Configuration: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/xcat-automated-ldap-client-configuration.md
 
       - Compilers & Toolchains:
           - GCC: Documents/Installation/gcc.md
