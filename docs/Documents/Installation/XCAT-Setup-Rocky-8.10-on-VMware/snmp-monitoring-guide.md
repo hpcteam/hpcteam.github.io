@@ -7,7 +7,7 @@ Rocky Linux 8.10 · Prometheus 3.14.0 · Grafana 13.2.0 · snmp_exporter 0.30.1
 
 ---
 
-## 1. Architecture  
+## 1. Architecture
 
 > **Where each component runs:** `snmp_exporter` runs on the **master only**. It polls remote devices over SNMP and translates the results into Prometheus metrics. Prometheus (also master-only) scrapes `snmp_exporter`, not the monitored device directly — the device being monitored never needs any Prometheus/Grafana component installed on it, only an SNMP agent (`snmpd`) answering queries.
 
