@@ -12,6 +12,8 @@ Rocky Linux 8.10 | xCAT-Provisioned Cluster | Lab Validation
 
 This guide documents provisioning a dedicated disk for shared storage, exporting it as an NFS share, and mounting that share as `/home` on every compute node — so all cluster nodes see the same user home directories, which LDAP-authenticated users and Slurm jobs both depend on.
 
+**Scope decision:** the cluster's original task list called for separate `/scratch` and `/data` NFS exports. After reviewing available disk capacity, the decision was made to use the single new disk as a shared `/home` instead, since that directly satisfies the requirement that every node see the same home directory content for LDAP users. `/scratch` and `/data` can be added later as additional exports on the same or another disk if a dedicated high-throughput scratch area is needed.
+
 ## 2. Environment Overview
 
 | Field | Value |
@@ -41,7 +43,7 @@ fdisk -l
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-1.png" alt="Step 1.1 — lsblk showing unpartitioned nvme0n2" width="700"><br>
+  <img src="/assets/xcat/nfs/image1.png" alt="Step 1.1 — lsblk showing unpartitioned nvme0n2" width="700"><br>
   <em>Step 1.1 — lsblk showing unpartitioned nvme0n2</em>
 </p>
 
@@ -62,7 +64,8 @@ w        # write and exit
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-2.png" alt="Step 1.2 — lsblk showing nvme0n2p1 partition created" width="700"><br>
+  <img src="/assets/xcat/nfs/image2.png" alt="Step 1.2 — lsblk showing nvme0n2p1 partition created" width="700"><br>
+  <img src="/assets/xcat/nfs/image3.png" alt="Step 1.2 — lsblk showing nvme0n2p1 partition created" width="700"><br>
   <em>Step 1.2 — lsblk showing nvme0n2p1 partition created</em>
 </p>
 
@@ -81,7 +84,7 @@ lvcreate -L 49G -n logical_volume_nfs volume_nfs
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-3.png" alt="Step 1.3 — vgs/lvs showing volume_nfs and logical_volume_nfs" width="700"><br>
+  <img src="/assets/xcat/nfs/image4.png" alt="Step 1.3 — vgs/lvs showing volume_nfs and logical_volume_nfs" width="700"><br>
   <em>Step 1.3 — vgs/lvs showing volume_nfs and logical_volume_nfs</em>
 </p>
 
@@ -98,7 +101,7 @@ mount /dev/volume_nfs/logical_volume_nfs /home
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-4.png" alt="Step 1.4 — df -h showing new /home mount" width="700"><br>
+  <img src="/assets/xcat/nfs/image5.png" alt="Step 1.4 — df -h showing new /home mount" width="700"><br>
   <em>Step 1.4 — df -h showing new /home mount</em>
 </p>
 
@@ -120,13 +123,9 @@ mount -a
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-5.png" alt="Step 1.5a — /etc/fstab entry via blkid UUID" width="700"><br>
-  <em>Step 1.5a — /etc/fstab entry via blkid UUID</em>
-</p>
-
-<p align="center">
-  <img src="/assets/xcat/nfs/nfs-6.png" alt="Step 1.5b — df -h confirming persistent mount after mount -a" width="700"><br>
-  <em>Step 1.5b — df -h confirming persistent mount after mount -a</em>
+  <img src="/assets/xcat/nfs/image6.png" alt="Step 1.5 — df -h confirming persistent mount after mount -a" width="700"><br>
+  <img src="/assets/xcat/nfs/image7.png" alt="Step 1.5 — df -h confirming persistent mount after mount -a" width="700"><br>
+  <em>Step 1.5 — df -h confirming persistent mount after mount -a</em>
 </p>
 
 ---
@@ -144,7 +143,7 @@ dnf install -y nfs-utils
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-7.png" alt="Step 2.1 — rpm -qa confirming nfs-utils installed" width="700"><br>
+  <img src="/assets/xcat/nfs/image8.png" alt="Step 2.1 — rpm -qa confirming nfs-utils installed" width="700"><br>
   <em>Step 2.1 — rpm -qa confirming nfs-utils installed</em>
 </p>
 
@@ -161,7 +160,7 @@ EOF
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-8.png" alt="Step 2.2 — cat /etc/exports output" width="700"><br>
+  <img src="/assets/xcat/nfs/image9.png" alt="Step 2.2 — cat /etc/exports output" width="700"><br>
   <em>Step 2.2 — cat /etc/exports output</em>
 </p>
 
@@ -180,13 +179,9 @@ systemctl enable --now rpcbind
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-9.png" alt="Step 2.3a — exportfs -v output" width="700"><br>
-  <em>Step 2.3a — exportfs -v output</em>
-</p>
-
-<p align="center">
-  <img src="/assets/xcat/nfs/nfs-10.png" alt="Step 2.3b — showmount -e localhost output" width="700"><br>
-  <em>Step 2.3b — showmount -e localhost output</em>
+  <img src="/assets/xcat/nfs/image10.png" alt="Step 2.3 — exportfs -v and showmount -e localhost output" width="700"><br>
+  <img src="/assets/xcat/nfs/image11.png" alt="Step 2.3 — exportfs -v and showmount -e localhost output" width="700"><br>
+  <em>Step 2.3 — exportfs -v and showmount -e localhost output</em>
 </p>
 
 ---
@@ -219,7 +214,7 @@ chmod +x /install/postscripts/setup_nfs_client
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-11.png" alt="Step 3.1 — postscript file contents" width="700"><br>
+  <img src="/assets/xcat/nfs/image12.png" alt="Step 3.1 — postscript file contents" width="700"><br>
   <em>Step 3.1 — postscript file contents</em>
 </p>
 
@@ -236,7 +231,8 @@ xdsh compute "df -h"
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-12.png" alt="Step 3.2 — xdsh compute df -h showing NFS /home mount" width="700"><br>
+  <img src="/assets/xcat/nfs/image13.png" alt="Step 3.2 — xdsh compute df -h showing NFS /home mount" width="700"><br>
+  <img src="/assets/xcat/nfs/image14.png" alt="Step 3.2 — xdsh compute df -h showing NFS /home mount" width="700"><br>
   <em>Step 3.2 — xdsh compute df -h showing NFS /home mount</em>
 </p>
 
@@ -257,7 +253,7 @@ xdsh compute "ls -ll /home"
 ```
 
 <p align="center">
-  <img src="/assets/xcat/nfs/nfs-13.png" alt="Step 4.1 — matching file listing on master and compute node" width="700"><br>
+  <img src="/assets/xcat/nfs/image15.png" alt="Step 4.1 — matching file listing on master and compute node" width="700"><br>
   <em>Step 4.1 — matching file listing on master and compute node</em>
 </p>
 

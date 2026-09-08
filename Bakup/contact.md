@@ -12,4 +12,3 @@
 [:material-file-download: Download Resume](../assets/Ayyappaswamy_Resume.pdf){ .md-button .md-button--primary download }
 
 
-
