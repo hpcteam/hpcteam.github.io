@@ -159,6 +159,8 @@ nav:
                 - Grafana-Prometheus-Setup: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/Grafana_Prometheus_Monitoring_Guide.md
                 - OpenLDAP-Setup: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/openldap-setup.md
                 - LDAP-Client-Configuration: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/xcat-automated-ldap-client-configuration.md
+                - SNMP-Monitoring-Setup: Documents/Installation/XCAT-Setup-Rocky-8.10-on-VMware/snmp-monitoring-guide.md
+
 
       - Compilers & Toolchains:
           - GCC: Documents/Installation/gcc.md
