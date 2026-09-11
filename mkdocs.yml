@@ -88,37 +88,31 @@ nav:
       - Technical Skills: Home/technical-skills.md
       
 
-  - Documents:
+  - Documents: 
 
-      - Bright Cluster Manager: Documents/brightclustermanager.md
+      - Important Notes: Documents/index.md
 
-      - Disabling Job-Query OpenPBS: Documents/Jobs-query.md
+      - Bright Cluster Manager (BCM) : Documents/brightclustermanager.md
+
+      - Disable OpenPBS Job Query: Documents/Jobs-query.md
 
       - GitHub Pages CI/CD: Documents/GitHub_Pages_MkDocs.md
 
-      - Hyperthreading: Documents/hyperthreading.md
+      - CPU Hyper-Threading : Documents/hyperthreading.md
 
-      - Important Note: Documents/index.md
+      - Configure Local Repository : Documents/Local_repo.md
 
-      - Linux Commands: Documents/Linux_commands.md
+      - LVM — Logical Volume Manager : Documents/Logical Volume Manager (LVM).md
 
-      - Local Repo: Documents/Local_repo.md
+      - NFS — Network File System : Documents/NFS.md
 
-      - Lustre File System:
-          - Installation: Documents/lustre-installtion.md
-          - Lustre: Documents/Lustre.md
+      - PIP — Python Package Manager : Documents/PIP.md
 
-      - LVM: Documents/Logical Volume Manager (LVM).md
+      - Proxy — Network & Internet Access : Documents/Proxy.md
 
-      - NFS: Documents/NFS.md
+      - Build RPM Packages from Source : Documents/RPM-BUILD_SOURE_CODE.md
 
-      - PIP: Documents/PIP.md
-
-      - Proxy: Documents/Proxy.md
-
-      - RPM BUILD FROM SOURCE CODE: Documents/RPM-BUILD_SOURE_CODE.md
-
-      - What is module file: Documents/Module-File.md
+      - Environment Modules & Module Files : Documents/Module-File.md
 
 
   - Installation: 
@@ -129,13 +123,14 @@ nav:
           - Anaconda: Documents/Installation/Anaconda.md
 
           - LAMMPS:
+              - Theory: Documents/Installation/lammps/theory.md
               - CPU Installation: Documents/Installation/lammps/cpu-installation.md
               - GPU Installation: Documents/Installation/lammps/gpu-installation.md
-              - Theory: Documents/Installation/lammps/theory.md
+              
 
           - OpenFOAM: Documents/Installation/OPEN-FOAM.md
           - Python-3.14.3: Documents/Installation/Python-Offline.md
-          - QE: Documents/Installation/qe.md
+          - Quantum ESPRESSO : Documents/Installation/qe.md
           - SU2: Documents/Installation/SU2_Installation.md
 
       - Benchmarks:
@@ -146,6 +141,11 @@ nav:
       - Cluster & System Setup:
           - Beegfs: Documents/Installation/Cluster-System-Setup/beegfs-lab-guide.md
           - HWClock: Documents/Installation/Cluster-System-Setup/hwclock.md
+
+          - Lustre File System:
+                - Lustre: Documents/Lustre.md
+                - Installation: Documents/lustre-installtion.md
+                
           - LDAP (Lightweight Directory Access Protocol): Documents/Installation/Cluster-System-Setup/LDAP.md
           - OpenHPC Slurm: Documents/Installation/Cluster-System-Setup/building-an-openhpc-cluster-in-vms.md
           - OpenPBS-23.06.06: Documents/Installation/Cluster-System-Setup/OpenPBS.md

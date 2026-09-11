@@ -1,11 +1,11 @@
 # **Professional Experience**
 
-## **Linux Systems Administrator**  
-**TIS Labs Pvt. Ltd., Kolkata**  
+## **Technology Associate in High-Performance Computing (HPC)**
 *January 2024 – Present*
 
-I am responsible for the administration, operation, and reliability of large-scale
-Linux and high-performance computing (HPC) environments supporting mission-critical
+My HPC career began in January 2024, during which I have worked across various
+organizations on the administration, operation, and reliability of large-scale
+Linux and High-Performance Computing (HPC) environments supporting mission-critical
 government and enterprise research workloads.
 
 My role involves day-to-day production support, cluster operations, performance
@@ -46,4 +46,3 @@ validation, and infrastructure maintenance across CPU and GPU-based HPC systems.
 
 This role requires close coordination with infrastructure, networking, and application
 teams to ensure stable, secure, and high-performing HPC environments for production use.
-
