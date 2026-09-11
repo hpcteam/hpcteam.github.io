@@ -28,8 +28,8 @@ theme:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue
-      accent: blue
+      primary: light-blue
+      accent: light-blue
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode

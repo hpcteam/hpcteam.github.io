@@ -545,11 +545,6 @@
       z-index: 2;
 
       height: 100%;
-      width: auto;
-      max-width: 100%;
-
-      object-fit: cover;
-      border-radius: 24px;
 
       filter:
         drop-shadow(
@@ -2122,10 +2117,129 @@ section[id],
 
       <div class="glow-ring"></div>
 
-      <img
+      <svg
         class="portrait-svg"
-        src="/assets/blue.png"
-        alt="Ayyappaswamy Eethakota">
+        viewBox="0 0 320 520"
+        xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+
+          <linearGradient
+            id="suitGrad"
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="1">
+
+            <stop
+              offset="0%"
+              stop-color="#1d3f8f"/>
+
+            <stop
+              offset="100%"
+              stop-color="#0f1b33"/>
+
+          </linearGradient>
+
+
+          <linearGradient
+            id="skinGrad"
+            x1="0"
+            y1="0"
+            x2="1"
+            y2="1">
+
+            <stop
+              offset="0%"
+              stop-color="#dfe7f3"/>
+
+            <stop
+              offset="100%"
+              stop-color="#b9c6dd"/>
+
+          </linearGradient>
+
+        </defs>
+
+
+        <ellipse
+          cx="160"
+          cy="470"
+          rx="150"
+          ry="40"
+          fill="#1d5bf0"
+          opacity="0.10"/>
+
+
+        <!-- TORSO -->
+
+        <path
+          d="M60 520 C55 380 80 300 130 270 L190 270 C240 300 265 380 260 520 Z"
+          fill="url(#suitGrad)"/>
+
+
+        <path
+          d="M130 270 L160 330 L190 270 L175 255 L145 255 Z"
+          fill="#ffffff"/>
+
+
+        <rect
+          x="150"
+          y="290"
+          width="20"
+          height="140"
+          fill="#1d5bf0"
+          opacity="0.25"/>
+
+
+        <!-- NECK -->
+
+        <rect
+          x="140"
+          y="230"
+          width="40"
+          height="50"
+          rx="10"
+          fill="url(#skinGrad)"/>
+
+
+        <!-- HEAD -->
+
+        <ellipse
+          cx="160"
+          cy="175"
+          rx="58"
+          ry="68"
+          fill="url(#skinGrad)"/>
+
+
+        <!-- HAIR -->
+
+        <path
+          d="M104 165 C98 110 130 80 160 80 C192 80 222 112 216 168 C210 145 198 150 195 130 C180 150 140 150 125 130 C122 150 112 145 104 165 Z"
+          fill="#334467"/>
+
+
+        <!-- RIM LIGHT -->
+
+        <path
+          d="M104 165 C98 110 130 80 160 80"
+          stroke="#1d5bf0"
+          stroke-width="3"
+          fill="none"
+          opacity="0.55"
+          stroke-linecap="round"/>
+
+
+        <path
+          d="M60 520 C55 400 75 320 118 280"
+          stroke="#1d5bf0"
+          stroke-width="3"
+          fill="none"
+          opacity="0.35"
+          stroke-linecap="round"/>
+
+      </svg>
 
     </div>
 
