@@ -1,7 +1,3 @@
-# Installation
-
-Welcome to the Installation documentation.
-
 # Important Notice
 
 This installation setup has been created for **personal practice and skill improvement** on a local machine (laptop). The procedures and configurations outlined are intended to **enhance proficiency** in working with various tools and environments relevant to high-performance computing (HPC) and system administration.

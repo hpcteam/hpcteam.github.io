@@ -6,7 +6,7 @@ Hi Everyone,
 
 Welcome to my website.
 
-My name is **Ayyappaswamy Eethakota**.
+My name is **Ayyappaswamy**.
 
 I created this website to share my knowledge and daily work.
 

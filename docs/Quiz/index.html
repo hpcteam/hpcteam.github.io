@@ -1,71 +1,666 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome - HPC Quiz</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      text-align: center;
-      padding-top: 100px;
-    }
-    input {
-      padding: 10px;
-      width: 250px;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-    button {
-      padding: 12px 25px;
-      font-size: 16px;
-      background-color: #1e90ff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    .info-text {
-      font-size: 18px;
-      color: #333;
-      margin-top: 30px;
-      font-weight: normal;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HPC Quiz</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    padding: 30px 16px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    width: 100%;
+    max-width: 640px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  }
+  h1 { margin-top: 0; font-size: 24px; color: #222; }
+  h2 { font-size: 20px; color: #222; }
+  p.sub { color: #666; margin-top: -6px; }
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 14px;
+  }
+  input[type="text"]:focus { border-color: #1e90ff; }
+  button {
+    background: #1e90ff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.1s;
+  }
+  button:hover { background: #1877d1; }
+  button:disabled { background: #ccc; cursor: not-allowed; }
+  .secondary-btn { background: #eee; color: #333; margin-top: 10px; }
+  .secondary-btn:hover { background: #ddd; }
+  .error { color: #e03131; font-size: 14px; margin-top: -10px; margin-bottom: 10px; }
+
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .topic-box {
+    padding: 22px 12px;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.15s;
+    font-size: 15px;
+  }
+  .topic-box:hover { transform: scale(1.03); }
+  .topic-box.disabled { opacity: 0.55; cursor: default; }
+  .topic-box.disabled:hover { transform: none; }
+  .t1 { background: #1e90ff; }
+  .t2 { background: #ff7f50; }
+  .t3 { background: #32cd32; }
+  .t4 { background: #8a2be2; }
+  .t5 { background: #ff1493; }
+
+  .mode-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .mode-box {
+    padding: 24px 14px;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .mode-box:hover { transform: scale(1.03); }
+  .mode-box h3 { margin: 0 0 8px 0; }
+  .mode-box p { margin: 0; font-size: 13px; opacity: 0.9; }
+  .m1 { background: #1e3c72; }
+  .m2 { background: #2a5298; }
+
+  .question-block {
+    background: #f7f9fc;
+    padding: 16px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+  }
+  .question-block p.qtext { font-weight: 600; margin: 0 0 10px 0; color: #222; }
+  .options label {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 4px;
+  }
+  .options label:hover { background: #e8f2ff; }
+  .options input { margin-right: 8px; }
+  .question-block.correct { border-color: #2f9e44; background: #edfbee; }
+  .question-block.wrong { border-color: #e03131; background: #fff0f0; }
+  .qfeedback { font-size: 13px; margin-top: 6px; font-weight: 600; }
+  .qfeedback.ok { color: #2f9e44; }
+  .qfeedback.bad { color: #e03131; }
+
+  .progress-bar {
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .progress-fill { height: 100%; background: #1e90ff; transition: width 0.3s; }
+
+  .score-display {
+    font-size: 44px;
+    font-weight: 700;
+    color: #1e90ff;
+    text-align: center;
+    margin: 14px 0;
+  }
+  .total-banner {
+    background: #eef4ff;
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 14px;
+    color: #333;
+  }
+  .total-banner b { color: #1e3c72; font-size: 16px; }
+
+  .set-history { margin-top: 18px; border-top: 1px solid #eee; padding-top: 14px; }
+  .set-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+
+  .type-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 6px;
+  }
+  .type-input:focus { border-color: #1e90ff; outline: none; }
+  .type-input.correct-input { border-color: #2f9e44; background: #edfbee; }
+  .type-input.wrong-input { border-color: #e03131; background: #fff0f0; }
+
+  .breadcrumb { font-size: 13px; color: #888; margin-bottom: 4px; }
+  .loading { text-align: center; color: #999; padding: 40px 0; }
+
+  .review-section {
+    margin-top: 18px;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+  }
+  .review-toggle {
+    background: #fff3f3;
+    color: #e03131;
+    border: 1px solid #ffd6d6;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 14px;
+    margin-top: 10px;
+  }
+  .review-toggle:hover { background: #ffe9e9; }
+  .review-item {
+    background: #fff8f8;
+    border: 1px solid #ffe0e0;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  .review-item .rq { font-weight: 600; color: #222; margin: 0 0 6px 0; }
+  .review-item .ryour { color: #e03131; font-size: 14px; margin: 0 0 4px 0; }
+  .review-item .rcorrect { color: #2f9e44; font-size: 14px; margin: 0; }
+  .review-empty { color: #2f9e44; font-weight: 600; text-align: center; padding: 10px 0; }
+</style>
 </head>
 <body>
+<div class="card" id="app">
+  <div class="loading">Loading...</div>
+</div>
 
-  <h2>Welcome! Please enter your name to start the quiz 👋</h2>
+<script>
+/* ======================= DATA ======================= */
+const LINUX_QUESTIONS = [{"q": "Which command is used to list files in Linux?", "options": ["ls", "cd", "pwd", "mkdir"], "answer": 0}, {"q": "Default shell in most Linux systems?", "options": ["csh", "bash", "ksh", "sh"], "answer": 1}, {"q": "Command to change file permissions?", "options": ["chmod", "chown", "ls", "passwd"], "answer": 0}, {"q": "What does grep do?", "options": ["Change directory", "Search text in files", "Disk usage", "Move files"], "answer": 1}, {"q": "Symbol to overwrite output to file?", "options": [">>", ">", "<", "|"], "answer": 1}, {"q": "Which command is used to copy files in Linux?", "options": ["cp", "mv", "rm", "touch"], "answer": 0}, {"q": "Which command is used to remove a file in Linux?", "options": ["del", "rm", "rmdir", "erase"], "answer": 1}, {"q": "Which command is used to view the manual page of a command?", "options": ["info", "man", "help", "guide"], "answer": 1}, {"q": "Which command is used to move files or directories?", "options": ["cp", "rm", "mv", "rename"], "answer": 2}, {"q": "Which file contains group information in Linux?", "options": ["/etc/group", "/etc/passwd", "/etc/shadow", "/etc/hosts"], "answer": 0}, {"q": "Which command is used to display the current user in Linux?", "options": ["whoami", "user", "id", "who"], "answer": 0}, {"q": "Which command is used to display disk space usage?", "options": ["df", "du", "disk", "free"], "answer": 0}, {"q": "Which command is used to show network connections?", "options": ["netstat", "ping", "ifconfig", "nslookup"], "answer": 0}, {"q": "Which file contains system-wide environment variables in Linux?", "options": ["/etc/bashrc", "/etc/environment", "/etc/profile", "/etc/rc.local"], "answer": 1}, {"q": "Which command is used to display the list of users currently logged in?", "options": ["who", "users", "w", "log"], "answer": 0}, {"q": "Which command is used to find files in Linux?", "options": ["locate", "find", "search", "grep"], "answer": 1}, {"q": "Which command is used to change the owner of a file?", "options": ["chmod", "chown", "chgrp", "mv"], "answer": 1}, {"q": "Which command is used to display the system's hostname?", "options": ["hostname", "sysname", "machine", "name"], "answer": 0}, {"q": "Which command is used to display a file's contents in a paginated manner?", "options": ["more", "less", "cat", "view"], "answer": 0}, {"q": "Which command is used to combine multiple files into one?", "options": ["cat", "combine", "merge", "join"], "answer": 0}, {"q": "Which command is used to check the disk usage of a directory?", "options": ["df", "du", "ls", "usage"], "answer": 1}, {"q": "Which command is used to stop a process in Linux?", "options": ["kill", "stop", "end", "halt"], "answer": 0}, {"q": "Which file contains the system's password and authentication information?", "options": ["/etc/passwd", "/etc/shadow", "/etc/sudoers", "/etc/group"], "answer": 1}, {"q": "Which command is used to change the current directory?", "options": ["cd", "chdir", "pwd", "ls"], "answer": 0}, {"q": "Which command is used to create a new empty file?", "options": ["new", "touch", "create", "edit"], "answer": 1}, {"q": "Which command is used to display the contents of a directory in a long listing format?", "options": ["ls", "ls -l", "list", "longlist"], "answer": 1}, {"q": "Which command is used to rename a file in Linux?", "options": ["mv", "rename", "renamefile", "move"], "answer": 0}, {"q": "Which command is used to display the IP address of your system?", "options": ["ip addr", "ipconfig", "ifconfig", "netstat"], "answer": 0}, {"q": "Which command is used to install packages on Debian-based systems?", "options": ["apt-get", "yum", "zypper", "rpm"], "answer": 0}, {"q": "Which command is used to update all installed packages on Ubuntu?", "options": ["apt-get upgrade", "apt update", "yum update", "pacman -Syu"], "answer": 0}, {"q": "Which command is used to download a file from the internet in Linux?", "options": ["wget", "curl", "download", "fetch"], "answer": 0}, {"q": "Which command is used to remove a directory in Linux?", "options": ["rm", "rmdir", "del", "erase"], "answer": 1}, {"q": "Which command is used to see real-time system performance?", "options": ["top", "ps", "htop", "status"], "answer": 0}, {"q": "Which command is used to display disk partition information?", "options": ["parted", "df", "fdisk", "lsblk"], "answer": 2}, {"q": "Which command is used to show the contents of a file in Linux?", "options": ["cat", "show", "list", "view"], "answer": 0}, {"q": "Which command is used to display the IP address of your system?", "options": ["ip addr", "ipconfig", "ifconfig", "netstat"], "answer": 0}, {"q": "Which command is used to install packages on Debian-based systems?", "options": ["apt-get", "yum", "zypper", "rpm"], "answer": 0}, {"q": "Which command is used to update all installed packages on Ubuntu?", "options": ["apt-get upgrade", "apt update", "yum update", "pacman -Syu"], "answer": 0}, {"q": "Which command is used to download a file from the internet in Linux?", "options": ["wget", "curl", "download", "fetch"], "answer": 0}, {"q": "Which command is used to remove a directory in Linux?", "options": ["rm", "rmdir", "del", "erase"], "answer": 1}, {"q": "Which command is used to see real-time system performance?", "options": ["top", "ps", "htop", "status"], "answer": 0}, {"q": "Which command is used to display disk partition information?", "options": ["parted", "df", "fdisk", "lsblk"], "answer": 2}, {"q": "Which command is used to show the contents of a file in Linux?", "options": ["cat", "show", "list", "view"], "answer": 0}, {"q": "Which command is used to change the file permissions of a file in Linux?", "options": ["chgrp", "chmod", "chown", "mv"], "answer": 1}, {"q": "Which command is used to stop a service in Linux?", "options": ["stop", "service stop", "systemctl halt", "killservice"], "answer": 1}, {"q": "Which command is used to create a symbolic link in Linux?", "options": ["symlink", "ln -s", "link", "ln -l"], "answer": 1}, {"q": "Which command is used to view the environment variables in Linux?", "options": ["env", "set", "show", "variables"], "answer": 0}, {"q": "Which file contains the system's default user environment settings?", "options": ["/etc/profile", "/etc/bashrc", "/etc/sudoers", "/etc/environment"], "answer": 0}, {"q": "Which command is used to check if a file exists?", "options": ["test", "check", "file", "exists"], "answer": 0}, {"q": "Which command is used to check the available space on the file system?", "options": ["df", "du", "free", "space"], "answer": 0}, {"q": "Which command is used to compare two files?", "options": ["compare", "cmp", "diff", "comparefiles"], "answer": 1}, {"q": "Which command is used to list the available groups in Linux?", "options": ["group", "groups", "listgroups", "showgroups"], "answer": 1}, {"q": "Which command is used to display the users logged into the system?", "options": ["who", "users", "w", "log"], "answer": 0}, {"q": "Which command is used to reboot the system?", "options": ["reboot", "shutdown -r", "init 6", "systemctl reboot"], "answer": 0}, {"q": "Which command is used to shut down the system immediately?", "options": ["shutdown now", "poweroff", "halt", "shutdown -h"], "answer": 0}, {"q": "Which command is used to search for a file in Linux?", "options": ["find", "locate", "search", "grep"], "answer": 0}, {"q": "Which command is used to display information about a file?", "options": ["file", "info", "stat", "ls -l"], "answer": 0}, {"q": "Which command is used to show the system's memory usage?", "options": ["free", "memory", "sysinfo", "top"], "answer": 0}, {"q": "Which command is used to change the system's time zone?", "options": ["timedatectl", "timezone", "date", "set-timezone"], "answer": 0}, {"q": "Which command is used to remove files interactively?", "options": ["rm -i", "rm -f", "del", "remove -i"], "answer": 0}, {"q": "Which command is used to monitor disk I/O?", "options": ["iostat", "df", "top", "iotop"], "answer": 0}, {"q": "Which command is used to display the routing table?", "options": ["netstat -r", "route", "ip route show", "netstat"], "answer": 0}, {"q": "Which command is used to change the password of a user?", "options": ["passwd", "chpasswd", "setpassword", "change-password"], "answer": 0}, {"q": "Which command is used to list all users in the system?", "options": ["listusers", "cat /etc/passwd", "who", "users"], "answer": 1}, {"q": "Which command is used to create a new user in Linux?", "options": ["newuser", "adduser", "createuser", "useradd"], "answer": 1}, {"q": "Which command is used to set the system's hostname?", "options": ["hostnamectl", "sethostname", "hostname", "sysctl"], "answer": 0}, {"q": "Which command is used to display the system's current time?", "options": ["time", "date", "clock", "currenttime"], "answer": 1}, {"q": "Which command is used to lock a user account?", "options": ["passwd -l", "usermod -L", "lockuser", "lockaccount"], "answer": 0}, {"q": "Which command is used to unlock a user account?", "options": ["passwd -u", "usermod -U", "unlockuser", "unlockaccount"], "answer": 0}, {"q": "Which command is used to show the contents of a compressed file?", "options": ["zcat", "gzcat", "gunzip", "gzip -d"], "answer": 0}, {"q": "Which command is used to create a compressed tar file?", "options": ["tar -cvf", "tar -czf", "gzip -cvf", "zip"], "answer": 1}, {"q": "Which command is used to extract a compressed tar file?", "options": ["tar -xvf", "gzip -xvf", "extract", "untar"], "answer": 0}, {"q": "Which command is used to check for a specific pattern in a directory recursively?", "options": ["grep -r", "find", "search -r", "locate -r"], "answer": 0}, {"q": "Which command is used to view the file system's mount points?", "options": ["df", "mount", "lsblk", "parted"], "answer": 1}, {"q": "Which command is used to search for a file in Linux?", "options": ["find", "locate", "search", "grep"], "answer": 0}, {"q": "Which command is used to display the system\u2019s kernel name?", "options": ["uname -s", "kernelname", "sysinfo", "sysctl -k"], "answer": 0}, {"q": "Which command is used to list the processes running in the background?", "options": ["ps", "jobs", "top", "bg"], "answer": 1}, {"q": "Which command is used to display the calendar in Linux?", "options": ["calendar", "cal", "showdate", "date"], "answer": 1}, {"q": "Which command is used to find the manual for a specific command?", "options": ["man", "help", "info", "docs"], "answer": 0}, {"q": "Which command is used to find the location of an executable file in Linux?", "options": ["locate", "whereis", "which", "find"], "answer": 2}, {"q": "Which command is used to list all the environment variables?", "options": ["env", "showenv", "setenv", "listenv"], "answer": 0}, {"q": "Which command is used to display the current shell being used?", "options": ["whoami", "ps", "echo $SHELL", "shell"], "answer": 2}, {"q": "Which command is used to print the working directory in Linux?", "options": ["ls", "pwd", "cd", "dir"], "answer": 1}, {"q": "Which command is used to display or set the system date and time?", "options": ["date", "time", "clock", "setdate"], "answer": 0}, {"q": "Which command is used to show a process's status and other information?", "options": ["top", "ps", "status", "process"], "answer": 0}, {"q": "Which command is used to create a new directory in Linux?", "options": ["mkdir", "mkdir -p", "create", "newdir"], "answer": 0}, {"q": "Which command is used to display the current working directory?", "options": ["pwd", "dir", "cd", "ls"], "answer": 0}, {"q": "Which command is used to check disk usage in Linux?", "options": ["df", "du", "disk", "free"], "answer": 0}, {"q": "Which command is used to display the contents of a file?", "options": ["cat", "display", "open", "view"], "answer": 0}, {"q": "Which command is used to kill a process in Linux?", "options": ["kill", "stop", "terminate", "killall"], "answer": 0}, {"q": "Which command is used to change the permissions of a file or directory?", "options": ["chmod", "chown", "chgrp", "setperm"], "answer": 0}, {"q": "Which command is used to see the history of commands entered in the terminal?", "options": ["history", "last", "log", "commandlog"], "answer": 0}, {"q": "Which command is used to view the system's uptime?", "options": ["uptime", "top", "sysinfo", "load"], "answer": 0}, {"q": "Which command is used to check memory usage in Linux?", "options": ["free", "mem", "top", "df"], "answer": 0}, {"q": "Which command is used to list all active processes in Linux?", "options": ["ps", "top", "proc", "task"], "answer": 0}, {"q": "Which command is used to show information about the network interfaces?", "options": ["ifconfig", "netstat", "iwconfig", "netconfig"], "answer": 0}, {"q": "Which command is used to display the routing table?", "options": ["route", "netstat", "ip route", "traceroute"], "answer": 0}, {"q": "Which command is used to restart the network service?", "options": ["systemctl restart network", "restart network", "ifdown && ifup", "restart service network"], "answer": 0}, {"q": "Which command is used to trace the route packets take to a network host?", "options": ["traceroute", "route", "netstat", "ping"], "answer": 0}, {"q": "Which command is used to restart the Apache service in Linux?", "options": ["systemctl restart apache2", "service apache2 restart", "apachectl restart", "apache restart"], "answer": 0}]
+;
+const SET_SIZE = 10;
+const LINUX_SETS = [];
+for (let i = 0; i < LINUX_QUESTIONS.length; i += SET_SIZE) {
+  LINUX_SETS.push(LINUX_QUESTIONS.slice(i, i + SET_SIZE));
+}
 
-  <input type="text" id="username" placeholder="Enter your name">
-  <br>
-  <button onclick="startQuiz()">Start Quiz</button>
+const TOPICS = [
+  { key: "linux", name: "Linux", cls: "t1", ready: true },
+  { key: "bright", name: "Bright Cluster Manager", cls: "t2", ready: false },
+  { key: "pbs", name: "PBS", cls: "t3", ready: false },
+  { key: "lustre", name: "Lustre File System", cls: "t4", ready: false },
+  { key: "section5", name: "Section 5", cls: "t5", ready: false }
+];
 
-  <!-- Informing the user about quiz format -->
-  <div class="info-text">
-    <p>Each quiz page contains 20 questions. You can submit your answers at any time.</p>
-    <p>If you're done, simply click <strong>Submit</strong> to see your results. After viewing your result, click next to proceed to the next quiz.</p>
-  </div>
-
-  <script>
-    function startQuiz() {
-      let name = document.getElementById("username").value.trim();
-
-      if (name === "") {
-        alert("Please enter your name before proceeding!");
-        return;
-      }
-
-      // Store username
-      localStorage.setItem("username", name);
-
-      // Redirect to section selection page
-      window.location.href = "section.html";  // Make sure section.html exists in your folder
+/* ======================= STORAGE (localStorage-backed) ======================= */
+function storageSet(key, value) {
+  try { localStorage.setItem(key, value); return true; }
+  catch (e) { console.error("localStorage set failed", e); return false; }
+}
+function storageGet(key) {
+  try {
+    const v = localStorage.getItem(key);
+    return v === null ? null : { value: v };
+  } catch (e) { console.error("localStorage get failed", e); return null; }
+}
+function storageList(prefix) {
+  try {
+    const keys = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith(prefix)) keys.push(k);
     }
-  </script>
+    keys.sort();
+    return { keys };
+  } catch (e) { console.error("localStorage list failed", e); return { keys: [] }; }
+}
 
+/* ======================= STATE ======================= */
+let state = {
+  screen: "welcome",   // welcome -> name -> topics -> mode -> quiz -> setResult -> finalResult / placeholder
+  name: "",
+  topic: null,
+  mode: null,          // "mcq" | "text"
+  setIndex: 0,
+  setScores: [],         // [{correct, total, setNumber, wrongAnswers: [...]}]
+  currentAnswers: [],   // per-question chosen index or typed text, for current set
+  showSetReview: false,
+  showFinalReview: false
+};
+
+const app = document.getElementById("app");
+
+/* ======================= RENDER ROUTER ======================= */
+function render() {
+  if (state.screen === "welcome") return renderWelcome();
+  if (state.screen === "name") return renderName();
+  if (state.screen === "topics") return renderTopics();
+  if (state.screen === "placeholder") return renderPlaceholder();
+  if (state.screen === "mode") return renderMode();
+  if (state.screen === "quiz") return renderQuiz();
+  if (state.screen === "setResult") return renderSetResult();
+  if (state.screen === "finalResult") return renderFinalResult();
+}
+
+/* ======================= WELCOME ======================= */
+function renderWelcome() {
+  app.innerHTML = `
+    <h1>🖥️ HPC Quiz</h1>
+    <p class="sub">Test your knowledge of Linux, cluster tools, and more.</p>
+    <p class="sub">Each set has ${SET_SIZE} questions. Your score and wrong answers are shown after every set.</p>
+    <button onclick="goTo('name')">Get Started</button>
+  `;
+}
+
+/* ======================= NAME ======================= */
+function renderName() {
+  app.innerHTML = `
+    <h1>Welcome! Please enter your name 👋</h1>
+    <p class="sub">We'll use this to save your progress and scores.</p>
+    <input type="text" id="nameInput" placeholder="Enter your name" value="${escapeAttr(state.name)}" autofocus />
+    <div class="error" id="nameError" style="display:none;">Please enter your name before proceeding.</div>
+    <button onclick="submitName()">Continue</button>
+  `;
+  const input = document.getElementById("nameInput");
+  input.addEventListener("keydown", (e) => { if (e.key === "Enter") submitName(); });
+  input.focus();
+}
+
+function submitName() {
+  const val = document.getElementById("nameInput").value.trim();
+  if (!val) {
+    document.getElementById("nameError").style.display = "block";
+    return;
+  }
+  state.name = val;
+  storageSet("quiz:lastName", val);
+  goTo("topics");
+}
+
+/* ======================= TOPICS ======================= */
+function renderTopics() {
+  app.innerHTML = `
+    <h1>Hello, ${escapeHtml(state.name)} 👋</h1>
+    <p class="sub">Select a section to begin.</p>
+    <div class="topic-grid">
+      ${TOPICS.map(t => `
+        <div class="topic-box ${t.cls} ${t.ready ? "" : "disabled"}" onclick="selectTopic('${t.key}')">
+          ${escapeHtml(t.name)}${t.ready ? "" : "<br><small>(coming soon)</small>"}
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function selectTopic(key) {
+  const topic = TOPICS.find(t => t.key === key);
+  state.topic = topic;
+  if (!topic.ready) {
+    goTo("placeholder");
+    return;
+  }
+  goTo("mode");
+}
+
+function renderPlaceholder() {
+  app.innerHTML = `
+    <div class="breadcrumb">${escapeHtml(state.name)} · ${escapeHtml(state.topic.name)}</div>
+    <h1>🚧 Coming Soon</h1>
+    <p class="sub">Questions for "${escapeHtml(state.topic.name)}" haven't been added yet.</p>
+    <button onclick="goTo('topics')">Back to Sections</button>
+  `;
+}
+
+/* ======================= MODE (Linux only for now) ======================= */
+function renderMode() {
+  app.innerHTML = `
+    <div class="breadcrumb">${escapeHtml(state.name)} · ${escapeHtml(state.topic.name)}</div>
+    <h1>Select Quiz Type</h1>
+    <div class="mode-grid">
+      <div class="mode-box m1" onclick="startQuiz('mcq')">
+        <h3>Multiple Choice</h3>
+        <p>${LINUX_QUESTIONS.length} questions, ${LINUX_SETS.length} sets of ${SET_SIZE}.</p>
+      </div>
+      <div class="mode-box m2" onclick="startQuiz('text')">
+        <h3>Type Answer</h3>
+        <p>Same question bank — type the command yourself.</p>
+      </div>
+    </div>
+    <button class="secondary-btn" style="margin-top:20px;" onclick="goTo('topics')">Back to Sections</button>
+  `;
+}
+
+function startQuiz(mode) {
+  state.mode = mode;
+  state.setIndex = 0;
+  state.setScores = [];
+  state.currentAnswers = new Array(SET_SIZE).fill(null);
+  state.showSetReview = false;
+  state.showFinalReview = false;
+  goTo("quiz");
+}
+
+/* ======================= QUIZ (per set) ======================= */
+function currentRunningTotal() {
+  return state.setScores.reduce((sum, s) => sum + s.correct, 0);
+}
+function currentRunningTotalPossible() {
+  return state.setScores.reduce((sum, s) => sum + s.total, 0);
+}
+function allWrongAnswers() {
+  return state.setScores.reduce((acc, s) => acc.concat(s.wrongAnswers), []);
+}
+
+function renderQuiz() {
+  const set = LINUX_SETS[state.setIndex];
+  const pct = Math.round((state.setIndex / LINUX_SETS.length) * 100);
+  const modeLabel = state.mode === "mcq" ? "Multiple Choice" : "Type Answer";
+
+  let questionsHtml = "";
+  set.forEach((q, i) => {
+    if (state.mode === "mcq") {
+      questionsHtml += `
+        <div class="question-block" id="qblock-${i}">
+          <p class="qtext">${state.setIndex * SET_SIZE + i + 1}. ${escapeHtml(q.q)}</p>
+          <div class="options">
+            ${q.options.map((opt, oi) => `
+              <label><input type="radio" name="opt${i}" value="${oi}" onchange="selectMcq(${i}, ${oi})"> ${escapeHtml(opt)}</label>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    } else {
+      questionsHtml += `
+        <div class="question-block" id="qblock-${i}">
+          <p class="qtext">${state.setIndex * SET_SIZE + i + 1}. ${escapeHtml(q.q)}</p>
+          <input type="text" class="type-input" id="typeinput-${i}" placeholder="Type your answer"
+                 oninput="selectTyped(${i}, this.value)" autocomplete="off" />
+        </div>
+      `;
+    }
+  });
+
+  app.innerHTML = `
+    <div class="breadcrumb">${escapeHtml(state.name)} · ${escapeHtml(state.topic.name)} · ${modeLabel}</div>
+    <h2>Set ${state.setIndex + 1} of ${LINUX_SETS.length}</h2>
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    ${state.setIndex > 0 ? `<div class="total-banner"><span>Running total</span><b>${currentRunningTotal()} / ${currentRunningTotalPossible()}</b></div>` : ""}
+    ${questionsHtml}
+    <button id="submitSetBtn" onclick="submitSet()" ${allAnswered() ? "" : "disabled"}>Submit Set</button>
+  `;
+}
+
+function allAnswered() {
+  return state.currentAnswers.every(a => a !== null && a !== "");
+}
+
+function selectMcq(i, val) {
+  state.currentAnswers[i] = val;
+  document.getElementById("submitSetBtn").disabled = !allAnswered();
+}
+function selectTyped(i, val) {
+  state.currentAnswers[i] = val;
+  document.getElementById("submitSetBtn").disabled = !allAnswered();
+}
+
+function normalize(s) {
+  return String(s).trim().toLowerCase();
+}
+
+function submitSet() {
+  const set = LINUX_SETS[state.setIndex];
+  let correct = 0;
+  const wrongAnswers = [];
+
+  set.forEach((q, i) => {
+    const block = document.getElementById("qblock-" + i);
+    let isCorrect = false;
+    let yourAnswerText = "";
+    const correctAnswerText = q.options[q.answer];
+
+    if (state.mode === "mcq") {
+      const chosenIndex = Number(state.currentAnswers[i]);
+      isCorrect = chosenIndex === q.answer;
+      yourAnswerText = q.options[chosenIndex];
+      block.querySelectorAll("input").forEach(inp => inp.disabled = true);
+    } else {
+      const typedRaw = state.currentAnswers[i];
+      const typed = normalize(typedRaw);
+      const correctNorm = normalize(correctAnswerText);
+      isCorrect = typed === correctNorm;
+      yourAnswerText = typedRaw;
+      const inputEl = document.getElementById("typeinput-" + i);
+      inputEl.disabled = true;
+      inputEl.classList.add(isCorrect ? "correct-input" : "wrong-input");
+      const fb = document.createElement("div");
+      fb.className = "qfeedback " + (isCorrect ? "ok" : "bad");
+      fb.textContent = isCorrect ? "Correct!" : "Correct answer: " + correctAnswerText;
+      inputEl.insertAdjacentElement("afterend", fb);
+    }
+    block.classList.add(isCorrect ? "correct" : "wrong");
+    if (isCorrect) {
+      correct++;
+    } else {
+      wrongAnswers.push({
+        questionNumber: state.setIndex * SET_SIZE + i + 1,
+        question: q.q,
+        yourAnswer: yourAnswerText || "(no answer)",
+        correctAnswer: correctAnswerText
+      });
+    }
+  });
+
+  const setResult = { correct, total: set.length, setNumber: state.setIndex + 1, wrongAnswers };
+  state.setScores.push(setResult);
+
+  // Save this set's result immediately (wrong answers included)
+  const setKey = "quiz:setresult:" + Date.now();
+  storageSet(setKey, JSON.stringify({
+    name: state.name,
+    topic: state.topic.name,
+    mode: state.mode,
+    ...setResult,
+    date: new Date().toISOString()
+  }));
+
+  state.showSetReview = false;
+  document.getElementById("submitSetBtn").style.display = "none";
+  goTo("setResult");
+}
+
+/* ======================= SET RESULT (between sets) ======================= */
+function renderSetResult() {
+  const last = state.setScores[state.setScores.length - 1];
+  const isLastSet = state.setIndex === LINUX_SETS.length - 1;
+
+  app.innerHTML = `
+    <div class="breadcrumb">${escapeHtml(state.name)} · ${escapeHtml(state.topic.name)}</div>
+    <h1>Set ${last.setNumber} complete!</h1>
+    <div class="score-display">${last.correct} / ${last.total}</div>
+    <div class="total-banner">
+      <span>Running total</span>
+      <b>${currentRunningTotal()} / ${currentRunningTotalPossible()}</b>
+    </div>
+    ${last.wrongAnswers.length > 0 ? `
+      <button class="review-toggle" onclick="toggleSetReview()">
+        ${state.showSetReview ? "Hide" : "Show"} ${last.wrongAnswers.length} wrong answer${last.wrongAnswers.length === 1 ? "" : "s"} from this set
+      </button>
+      <div class="review-section" id="setReviewSection" style="display:${state.showSetReview ? "block" : "none"};">
+        ${renderReviewItems(last.wrongAnswers)}
+      </div>
+    ` : `<p class="review-empty">🎉 Perfect set — no wrong answers!</p>`}
+    <button onclick="continueAfterSet()" style="margin-top:16px;">${isLastSet ? "See Final Results" : "Continue to Next Set"}</button>
+  `;
+}
+
+function toggleSetReview() {
+  state.showSetReview = !state.showSetReview;
+  renderSetResult();
+}
+
+function renderReviewItems(items) {
+  return items.map(w => `
+    <div class="review-item">
+      <p class="rq">${w.questionNumber}. ${escapeHtml(w.question)}</p>
+      <p class="ryour">Your answer: ${escapeHtml(w.yourAnswer)}</p>
+      <p class="rcorrect">Correct answer: ${escapeHtml(w.correctAnswer)}</p>
+    </div>
+  `).join("");
+}
+
+function continueAfterSet() {
+  if (state.setIndex === LINUX_SETS.length - 1) {
+    finishQuiz();
+  } else {
+    state.setIndex++;
+    state.currentAnswers = new Array(SET_SIZE).fill(null);
+    goTo("quiz");
+  }
+}
+
+/* ======================= FINAL RESULT ======================= */
+function finishQuiz() {
+  const totalCorrect = currentRunningTotal();
+  const totalPossible = currentRunningTotalPossible();
+  const wrongAnswers = allWrongAnswers();
+  const record = {
+    name: state.name,
+    topic: state.topic.name,
+    mode: state.mode,
+    totalCorrect,
+    totalPossible,
+    setScores: state.setScores,
+    wrongAnswers,
+    date: new Date().toISOString()
+  };
+  const finalKey = "quiz:finalresult:" + Date.now();
+  storageSet(finalKey, JSON.stringify(record));
+  state.showFinalReview = false;
+  goTo("finalResult");
+}
+
+function renderFinalResult() {
+  const totalCorrect = currentRunningTotal();
+  const totalPossible = currentRunningTotalPossible();
+  const pct = Math.round((totalCorrect / totalPossible) * 100);
+  const wrongAnswers = allWrongAnswers();
+
+  app.innerHTML = `
+    <div class="breadcrumb">${escapeHtml(state.name)} · ${escapeHtml(state.topic.name)}</div>
+    <h1>🎉 Quiz Complete!</h1>
+    <div class="score-display">${totalCorrect} / ${totalPossible}</div>
+    <p class="sub" style="text-align:center;">${pct}% correct overall</p>
+    <div class="set-history">
+      <p class="sub" style="margin-bottom:6px;">Set-by-set breakdown</p>
+      ${state.setScores.map(s => `
+        <div class="set-row"><span>Set ${s.setNumber}</span><span>${s.correct} / ${s.total}</span></div>
+      `).join("")}
+    </div>
+    ${wrongAnswers.length > 0 ? `
+      <button class="review-toggle" onclick="toggleFinalReview()">
+        ${state.showFinalReview ? "Hide" : "Show"} all ${wrongAnswers.length} wrong answer${wrongAnswers.length === 1 ? "" : "s"}
+      </button>
+      <div class="review-section" id="finalReviewSection" style="display:${state.showFinalReview ? "block" : "none"};">
+        ${renderReviewItems(wrongAnswers)}
+      </div>
+    ` : `<p class="review-empty">🏆 Perfect run — no wrong answers at all!</p>`}
+    <button onclick="goTo('mode')" style="margin-top:20px;">Try Another Mode</button>
+    <button class="secondary-btn" onclick="goTo('topics')">Back to Sections</button>
+    <div class="set-history" id="pastResultsSection">
+      <p class="sub">Loading your past results...</p>
+    </div>
+  `;
+  loadPastResults();
+}
+
+function toggleFinalReview() {
+  state.showFinalReview = !state.showFinalReview;
+  renderFinalResult();
+}
+
+function loadPastResults() {
+  const list = storageList("quiz:finalresult:");
+  if (!list.keys.length) {
+    document.getElementById("pastResultsSection").innerHTML = "";
+    return;
+  }
+  const keys = list.keys.slice(-5).reverse();
+  const records = [];
+  for (const k of keys) {
+    const res = storageGet(k);
+    if (res) {
+      try { records.push(JSON.parse(res.value)); } catch (e) { /* skip malformed */ }
+    }
+  }
+  if (!records.length) {
+    document.getElementById("pastResultsSection").innerHTML = "";
+    return;
+  }
+  document.getElementById("pastResultsSection").innerHTML =
+    `<p class="sub" style="margin-bottom:6px;">Your recent full attempts</p>` +
+    records.map(r => `
+      <div class="set-row">
+        <span>${escapeHtml(r.topic)} (${escapeHtml(r.mode)})</span>
+        <span>${r.totalCorrect} / ${r.totalPossible}</span>
+      </div>
+    `).join("");
+}
+
+/* ======================= UTIL ======================= */
+function goTo(screen) {
+  state.screen = screen;
+  render();
+}
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = String(str);
+  return div.innerHTML;
+}
+function escapeAttr(str) {
+  return escapeHtml(str);
+}
+
+/* ======================= INIT ======================= */
+(function init() {
+  const res = storageGet("quiz:lastName");
+  if (res && res.value) state.name = res.value;
+  render();
+})();
+</script>
 </body>
 </html>
-
