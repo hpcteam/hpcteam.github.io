@@ -11,7 +11,7 @@ tags:
 ---
 # What Is a Kernel? 
 
-Today I learned something cool about how computers work, and I want to share it in simple words.
+> **The kernel is the quiet manager running the show inside your computer — handing out resources, keeping apps from colliding, and hiding complicated details so everything just works.**
 
 ## The Airport Story
 
@@ -47,8 +47,3 @@ Apps can't just do whatever they want — they have to follow a set of rules cal
 
 As long as the app follows the kernel's rules, it gets what it needs, without worrying about the messy details happening underneath.
 
-## The Simple Takeaway
-
-> The kernel is the quiet manager running the show inside your computer — handing out resources, keeping apps from colliding, and hiding complicated details so everything just works.
-
-Pretty cool for something you never actually see, right?

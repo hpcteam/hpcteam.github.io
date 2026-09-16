@@ -1,6 +1,6 @@
 ---
-title: "Linux File Permissions: chmod, chown, and Special Permissions Explained"
-date: 2026-09-11
+title: "Linux File Permissions: chmod, chown, umask, and Special Permissions Explained"
+date: 2026-09-16
 authors:
   - ayyappa
 categories:
@@ -12,14 +12,16 @@ tags:
   - umask
   - suid
   - sgid
+  - sticky-bit
 ---
 
 # Linux File Permissions 
-This post covers Linux file and directory permissions from the ground up — read/write/execute for files vs. directories, how to use `chmod` and `chown`, default permissions via `umask`, and the special permissions `SUID`, `SGID`, and the sticky bit.
 
-## The Three Basic Permissions
+This post covers Linux file and directory permissions from the ground up — what read/write/execute actually mean for files vs. directories, how to use `chmod` and `chown` with real examples, how default permissions are calculated with `umask`, and how the three special permissions (`SUID`, `SGID`, sticky bit) work with practical scenarios.
 
-Every file and directory in Linux carries three permission types, each with a symbol and a numeric value:
+## 1. The Three Basic Permissions
+
+Every file and directory carries three permission types, each with a symbol and a numeric value:
 
 | Permission | Symbol | Value |
 |---|---|---|
@@ -27,7 +29,7 @@ Every file and directory in Linux carries three permission types, each with a sy
 | Write | `w` | 2 |
 | Execute | `x` | 1 |
 
-These permissions apply to three categories of users:
+These apply separately to three categories of users:
 
 | Category | Symbol |
 |---|---|
@@ -35,96 +37,129 @@ These permissions apply to three categories of users:
 | Group | `g` |
 | Other | `o` |
 
-## What Permissions Actually Mean
+And they can be changed using three operators:
 
-Permissions behave differently depending on whether they're applied to a **file** or a **directory**.
-
-### On a Directory
-
-| Permission | Meaning |
+| Operator | Meaning |
 |---|---|
-| Read (`r`) | Lets you **list** the files inside the directory |
-| Write (`w`) | Lets you **create or remove** files and sub-directories inside it |
-| Execute (`x`) | Lets you **enter** the directory and access its contents (files and sub-directories) |
+| `+` | Add a permission, keep existing ones |
+| `-` | Remove a permission, keep the rest |
+| `=` | Set the **exact** permission, discarding anything not listed |
 
-**Important:** without execute permission on a directory, write permission is effectively useless — you can't actually get inside the directory to create or remove anything.
+## 2. What Permissions Mean on a Directory
 
-### On a File
+| Permission | Meaning | Example |
+|---|---|---|
+| Read (`r`) | Lets you **list** the contents of the directory | `ls /project` works only if you have read on `/project` |
+| Write (`w`) | Lets you **create or delete** files/sub-directories inside it | `touch /project/newfile.txt` needs write on `/project` |
+| Execute (`x`) | Lets you **enter** the directory (`cd` into it) and access its contents | `cd /project` needs execute on `/project` |
 
-| Permission | Meaning |
-|---|---|
-| Read (`r`) | Lets you **view** the contents of the file |
-| Write (`w`) | Lets you **add or remove** content in the file |
-| Execute (`x`) | Lets you **run** the file as a program or script |
+**Key rule:** without execute (`x`) on a directory, write (`w`) is useless — you can't get inside to create or remove anything. For example, a directory with permissions `rw-------` lets the owner list files but **not** enter or create anything in it, because execute is missing.
 
-By default, files are created **without** execute permission. It needs to be added manually depending on what the file is meant to do — for example, Python scripts or shell scripts.
+## 3. What Permissions Mean on a File
 
-## Reading Permission Strings
+| Permission | Meaning | Example |
+|---|---|---|
+| Read (`r`) | Lets you **view** the file's contents | `cat notes.txt` needs read on `notes.txt` |
+| Write (`w`) | Lets you **modify** the file's contents | `nano notes.txt` and saving needs write |
+| Execute (`x`) | Lets you **run** the file as a program/script | `./backup.sh` needs execute on `backup.sh` |
 
-Permissions are always read from **right to left** when interpreting privilege levels — other, then group, then user — and each triplet (`rwx`) maps to user, group, and other respectively.
-
-## Modifying Permissions with `chmod`
-
-### Symbolic Method (`+`, `-`, `=`)
-
-| Operator | Effect |
-|---|---|
-| `+` | Adds the specified permission, keeping existing ones intact |
-| `-` | Removes the specified permission, keeping the rest intact |
-| `=` | Sets the **exact** permission, removing any others not listed |
-
-Example — remove read/write/execute from group, add all to other, remove write from user, and show what changed:
+Files are created **without** execute by default. You add it manually depending on the file type — e.g., a Python script or shell script:
 
 ```bash
-chmod g-rwx,o+rwx,u-w file -c
+chmod u+x backup.sh
+./backup.sh
 ```
 
-The `-c` flag prints only the changes that were actually made — showing the previous and new permissions.
+## 4. Reading a Permission String
 
-Example — set the **exact** permission on other to execute-only, discarding whatever it had before:
+Permission strings like `rwxr-xr--` are read as three groups of three, left to right — user, group, other — but when you're reasoning about which category "wins" or applying privilege changes with numeric shorthand, always work through them **right to left**: other, then group, then user.
+
+Example: `rwxr-xr--`
+
+| Segment | Category | Permissions |
+|---|---|---|
+| `rwx` | User | read, write, execute |
+| `r-x` | Group | read, execute |
+| `r--` | Other | read only |
+
+## 5. Modifying Permissions with `chmod`
+
+### Symbolic method
+
+**Example 1 — remove group's rwx, add other's rwx, remove user's write, and show what changed:**
 
 ```bash
-chmod o=x filename
+chmod g-rwx,o+rwx,u-w report.txt -c
+```
+Output (via `-c`, which prints only what actually changed):
+```
+mode of 'report.txt' changed from 0644 (rw-r--r--) to 0087 (----w-rwx)
 ```
 
-### Numeric (Octal) Method
-
-Using numbers `4` (read), `2` (write), and `1` (execute), you can combine them to set permissions directly. A value of `0` removes all permissions for that category, overriding whatever was previously set.
-
-### Recursive Changes
+**Example 2 — set an exact permission**, discarding whatever `other` had before:
 
 ```bash
-chmod -R 777 directoryname
+chmod o=x script.sh
 ```
+If `script.sh` was `rwxrwxrwx`, it becomes `rwxrwx--x` — other now has **only** execute, nothing else, regardless of what it had previously.
 
-This applies the permission change **recursively** — to the directory itself and every file and sub-directory inside it.
+### Numeric (octal) method
 
-### Changing Permissions for All User Types
+Add up the values (4 = read, 2 = write, 1 = execute) for each category:
 
 ```bash
-chmod a+x filename
+chmod 754 script.sh
 ```
+This means:
+- User (`7` = 4+2+1) → read, write, execute
+- Group (`5` = 4+1) → read, execute
+- Other (`4`) → read only
 
-The `a` flag targets **all** categories at once — user, group, and other — granting execute permission to everyone in one command.
+A `0` removes all permissions for that category:
 
-## Changing Ownership: `chown` and `chgrp`
+```bash
+chmod 700 private.txt
+```
+Only the owner can read/write/execute; group and other get nothing.
 
-| Command | What it does |
+### Recursive changes
+
+```bash
+chmod -R 777 /var/www/project
+```
+This applies `rwxrwxrwx` to the `project` directory **and every file and sub-directory inside it**, recursively.
+
+### Changing permissions for everyone at once
+
+```bash
+chmod a+x deploy.sh
+```
+The `a` (all) flag applies the change to user, group, **and** other in one command — here, giving everyone execute permission on `deploy.sh`.
+
+## 6. Changing Ownership: `chown` and `chgrp`
+
+| Command | Effect |
 |---|---|
-| `chown user1:group2 filename` | Changes both the owner and group of a file/directory |
-| `chown user2 filename` | Changes only the owner |
-| `chgrp group3 filename` | Changes only the group |
+| `chown ravi:devteam report.txt` | Sets owner to `ravi` **and** group to `devteam` in one step |
+| `chown ravi report.txt` | Changes only the owner to `ravi` |
+| `chgrp devteam report.txt` | Changes only the group to `devteam` |
 
-`chown` is the only command needed when you want to change **both** the user and group ownership at once — you don't need `chgrp` separately in that case.
+**Example:** you have a file owned by `apple:apple` and want it owned by `mango` with group `devteam`:
 
-## Default Permissions and `umask`
+```bash
+chown mango:devteam report.txt
+```
 
-Linux defines maximum default permissions as:
+You only need `chown` for changing **both** owner and group together — `chgrp` is only needed when changing the group alone.
+
+## 7. Default Permissions and `umask`
+
+Linux's maximum default permissions are:
 
 - **Directories:** `777`
-- **Files:** `666`
+- **Files:** `666` (files never get execute by default, even at maximum)
 
-The actual default permission applied when a file or directory is created is calculated as:
+The actual permission applied at creation time is:
 
 ```
 Default permission = Maximum permission − umask value
@@ -132,17 +167,42 @@ Default permission = Maximum permission − umask value
 
 With the standard `umask` of `022`:
 
-- Directories: `777 − 022 = 755`
-- Files: `666 − 022 = 644`
+| Type | Calculation | Result |
+|---|---|---|
+| Directory | `777 − 022` | `755` (`rwxr-xr-x`) |
+| File | `666 − 022` | `644` (`rw-r--r--`) |
 
-### Temporary vs. Permanent umask Changes
+**Example — check it yourself:**
 
-- Changing `umask` directly in the terminal only affects the **current session** — it resets to the default `022` once the terminal is closed or the user logs out.
-- To make the change **permanent**, edit the user's `.bashrc` file, set the desired `umask` value there, and then source the file (`source ~/.bashrc`) to apply it.
+```bash
+umask          # shows current value, e.g. 0022
+mkdir testdir
+touch testfile
+ls -ld testdir   # drwxr-xr-x
+ls -l testfile   # -rw-r--r--
+```
 
-## Special Permissions
+**Example — a stricter umask:**
 
-Beyond the standard `rwx` set, Linux has three special permissions:
+```bash
+umask 077
+touch secret.txt
+ls -l secret.txt   # -rw-------  (only the owner gets any access)
+```
+
+### Temporary vs. permanent umask
+
+- Running `umask 077` directly in the terminal only lasts for that **session** — it resets to `022` once you close the terminal or log out.
+- To make it **permanent**, add the `umask` line to your `.bashrc`:
+
+```bash
+echo "umask 027" >> ~/.bashrc
+source ~/.bashrc
+```
+
+## 8. Special Permissions
+
+Beyond the standard `rwx` set, three special permissions handle privilege escalation and inheritance:
 
 | Special Permission | Numeric Value | Symbolic Form |
 |---|---|---|
@@ -150,26 +210,67 @@ Beyond the standard `rwx` set, Linux has three special permissions:
 | SGID (Set Group ID) | 2 | `g+s` |
 | Sticky Bit | 1 | `o+t` |
 
-### SUID — Set User ID
+### 8.1 SUID — Set User ID
 
-When SUID is applied to a command/executable, it lets a normal user run that command **as if they were the file's owner** — without needing `sudo`.
+Normally, running a command uses **your own** privileges. SUID makes a command run with the **file owner's** privileges instead — so a normal user can execute it with elevated rights, without being given full `sudo` access.
 
-**Example:** the `useradd` command normally requires `sudo` privileges to run. If SUID is set on the `useradd` binary, normal users can create new users **without** being granted full `sudo` access — instead of handing out broad admin rights, you selectively elevate just that one command.
-
-### SGID — Set Group ID
-
-Normally, when a file or directory is created inside another directory, it inherits ownership from the **user who created it** — for example, if the parent directory's owner is `apple` and group is `mango`, a new file created inside it by user `apple` would typically get user `apple` and group `apple`.
-
-When **SGID** is applied to the parent directory, this changes: any new file or directory created inside it inherits the **group ownership of the parent directory** instead of the creating user's own group. So in the example above, new files would get group `mango` (inherited from the parent), rather than the creator's personal group.
-
-This is set with:
+**Example:** `useradd` normally requires `sudo` because it needs root privileges to modify `/etc/passwd`. If you set SUID on the `useradd` binary:
 
 ```bash
-chmod g+s directoryname
+chmod u+s /usr/sbin/useradd
 ```
 
-SGID is especially useful for shared team directories, where everyone's files should automatically belong to the same project group, regardless of who created them.
+...then a normal user can run `useradd newuser` and it will execute **as root** for that one command — without granting that user broad `sudo` access to everything else. (In practice this is rarely done for `useradd` specifically since it's a security-sensitive shortcut, but it illustrates exactly what SUID does — the classic real-world example is `/usr/bin/passwd`, which already ships with SUID so any user can update their own password, which is stored in root-owned `/etc/shadow`.)
 
-## Quick Recap
+You can spot SUID in `ls -l` output as an `s` in place of the owner's execute bit:
 
-> Linux permissions revolve around three core rights — read, write, execute — applied across user, group, and other, with directories and files interpreting each right differently. `chmod` (symbolic or numeric) controls these permissions, `chown`/`chgrp` control ownership, `umask` sets the defaults for newly created files and directories, and the special permissions `SUID`, `SGID`, and the sticky bit provide fine-grained control over privilege escalation and group inheritance. Together, these form the foundation of Linux file security at the RHCSA level.
+```bash
+ls -l /usr/bin/passwd
+-rwsr-xr-x. 1 root root 27832 ... /usr/bin/passwd
+```
+
+### 8.2 SGID — Set Group ID
+
+**Without SGID:** if directory `/project` is owned by user `apple`, group `mango`, and user `apple` creates a new file inside it, that file gets owner `apple` and group `apple` — the creator's **own** group, not the parent directory's group.
+
+**With SGID applied to the directory:**
+
+```bash
+chmod g+s /project
+```
+
+Now, **any** new file or sub-directory created inside `/project` — by any user — automatically inherits the **group of the parent directory** (`mango`), instead of the creator's personal group.
+
+**Example scenario:** a shared team directory where multiple users (`apple`, `banana`, `cherry`) each have their own primary group, but all need their files to belong to `devteam` so teammates can access them:
+
+```bash
+mkdir /shared/devteam-project
+chown :devteam /shared/devteam-project
+chmod g+s /shared/devteam-project
+```
+
+Now no matter who creates a file inside `devteam-project`, it's automatically group-owned by `devteam` — no manual `chgrp` needed afterward.
+
+### 8.3 Sticky Bit
+
+**The problem it solves:** in a shared directory (like `/tmp`) where many users have write access, any user could delete or rename **any other user's** files, even ones they don't own — because directory write permission alone controls the ability to remove files inside it, regardless of who owns the file itself. This risks permanent, accidental data loss for other users.
+
+**The fix:** applying the sticky bit to a directory means users can still create files inside it, but they can **only delete or rename their own files** — not other users'. Only the file's owner, the directory's owner, or root can remove it.
+
+```bash
+sudo chmod +t /home/apple
+```
+or, using the numeric form (`1` prefix for sticky bit, combined with full `777`):
+```bash
+sudo chmod 1777 /home/apple
+```
+
+You can confirm it's set by checking for a `t` at the end of the permission string:
+
+```bash
+ls -ld /home/apple
+drwxrwxrwt. 2 apple apple 4096 ... /home/apple
+```
+
+**Real-world example:** `/tmp` on almost every Linux system already has the sticky bit set for exactly this reason — many users and processes write temporary files there, and the sticky bit stops one user from deleting another's temp files.
+

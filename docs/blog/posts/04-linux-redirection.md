@@ -9,7 +9,7 @@ tags:
   - redirection
 ---
 
-# Understanding Redirection in Linux
+# Understanding Redirection in Linux (>,>>)
 
 Today I learned about **redirection** in Linux — how to control where a command's output (or errors) actually go, instead of just letting them print to the screen. Here's the simple explanation.
 
