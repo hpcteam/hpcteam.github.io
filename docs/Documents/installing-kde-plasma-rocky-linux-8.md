@@ -33,7 +33,7 @@ dnf install epel-release
 This installs version 8-22.el8 from the extras repository.
 
 **Installation Log:**
-![Installation Step 1: EPEL Release](../../assets/kdm/p1.png)
+![Installation Step 1: EPEL Release](../assets/kdm/p1.png)
 
 ### Step 2: Enable PowerTools Repository
 
@@ -44,7 +44,7 @@ dnf config-manager --set-enabled powertools
 ```
 
 **Configuration Log:**
-![Step 2: Enable PowerTools](../../assets/kdm/p2.png)
+![Step 2: Enable PowerTools](../assets/kdm/p2.png)
 
 ### Step 3: Install KDE Plasma Workspaces and Base-X
 
@@ -60,10 +60,10 @@ This command installs:
 - **Total download size**: ~2.0 GB
 
 **Installation Progress:**
-![Step 3: Package Installation](../../assets/kdm/p3.png)
+![Step 3: Package Installation](../assets/kdm/p3.png)
 
 **Continuing Installation:**
-![Step 3 (continued): Package Lists](../../assets/kdm/p4.png)
+![Step 3 (continued): Package Lists](../assets/kdm/p4.png)
 
 ### Step 4: Enable SDDM Display Manager
 
@@ -74,7 +74,7 @@ systemctl enable sddm
 ```
 
 **SDDM Configuration:**
-![Step 4: Enable SDDM](../../assets/kdm/p5.png)
+![Step 4: Enable SDDM](../assets/kdm/p5.png)
 
 ### Step 5: Set Graphical Target as Default
 
@@ -85,7 +85,7 @@ systemctl set-default graphical.target
 ```
 
 **Target Configuration:**
-![Step 5: Set Graphical Target](../../assets/kdm/p6.png)
+![Step 5: Set Graphical Target](../assets/kdm/p6.png)
 
 ## Login and Desktop Environment
 
@@ -94,28 +94,28 @@ systemctl set-default graphical.target
 Once the installation is complete and the system has been rebooted, you'll see the SDDM login screen:
 
 **SDDM Login Interface:**
-![Login Screen](../../assets/kdm/p7.png)
+![Login Screen](../assets/kdm/p7.png)
 
 ### Authentication
 
 Enter your credentials to log in. The example shows the root user logging in:
 
 **Authentication Process:**
-![Root Login](../../assets/kdm/p8.png)
+![Root Login](../assets/kdm/p8.png)
 
 ### KDE Plasma Desktop Environment
 
 After successful authentication, the KDE Plasma desktop loads:
 
 **Desktop Environment Loading:**
-![KDE Desktop Loading](../../assets/kdm/p9.png)
+![KDE Desktop Loading](../assets/kdm/p9.png)
 
 ### KDE Applications Menu
 
 The full KDE Plasma desktop is now available with access to all installed applications:
 
 **Applications Menu:**
-![KDE Applications](../../assets/kdm/p10.png)
+![KDE Applications](../assets/kdm/p10.png)
 
 ## Installed Components
 
