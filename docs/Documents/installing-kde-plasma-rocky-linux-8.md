@@ -217,7 +217,6 @@ dnf upgrade
 - **Rocky Linux Documentation**: https://docs.rockylinux.org
 - **KDE Community Support**: https://discuss.kde.org
 
-## Conclusion
 
 The KDE Plasma Workspaces installation is now complete. You have a fully functional desktop environment with all necessary tools for productivity and system management. The modular nature of KDE allows for further customization and extension based on your specific needs.
 
@@ -225,6 +224,3 @@ For additional support or customization options, consult the KDE documentation o
 
 ---
 
-**Installation Completed**: September 17, 2026
-**System Status**: Fully Operational
-**Desktop Environment**: KDE Plasma 5.24.7

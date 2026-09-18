@@ -142,12 +142,13 @@ nav:
       - Cluster & System Setup:
           - Beegfs: Documents/Installation/Cluster-System-Setup/beegfs-lab-guide.md
           - HWClock: Documents/Installation/Cluster-System-Setup/hwclock.md
+          - NIS : Documents/Installation/Cluster-System-Setup/NIS.md
 
           - Lustre File System:
                 - Lustre: Documents/Lustre.md
                 - Installation: Documents/lustre-installtion.md
                 
-          - LDAP (Lightweight Directory Access Protocol): Documents/Installation/Cluster-System-Setup/LDAP.md
+          - LDAP : Documents/Installation/Cluster-System-Setup/LDAP.md
           - OpenHPC Slurm: Documents/Installation/Cluster-System-Setup/building-an-openhpc-cluster-in-vms.md
           - OpenPBS-23.06.06: Documents/Installation/Cluster-System-Setup/OpenPBS.md
           - XCAT: Documents/Installation/Cluster-System-Setup/xcat.md
