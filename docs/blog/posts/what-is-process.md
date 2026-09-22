@@ -15,7 +15,7 @@ tags:
   - top
 ---
 
-# Linux Process Management (RHCSA Level)
+# Linux Process Management 
 
 This post covers how Linux processes are created and managed — what a process actually is, how `fork()` creates child processes, the full lifecycle of process states, how to view running processes, and how to safely terminate them with `kill`, `killall`, and `pkill`.
 
@@ -41,7 +41,7 @@ ps -ef | head -1
 # root    1     0  ...  /usr/lib/systemd/systemd
 ```
 
-## 2. How a Process Is Created: `fork()`
+## 2. How a Process Is Created:
 
 Before a parent process starts a child process, it performs an operation called **`fork()`**.
 
