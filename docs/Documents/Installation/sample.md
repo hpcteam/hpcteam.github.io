@@ -1,184 +1,240 @@
----
-title: "Linux Process Management: States, fork(), and Killing Processes Explained"
-date: 2026-09-22
-authors:
-  - ayyappa
-categories:
-  - Linux
-tags:
-  - processes
-  - systemd
-  - fork
-  - zombie-process
-  - kill
-  - ps
-  - top
+# RHCSA Detailed Notes: Paths, Links, man, Vim, Variables
+
+Source: instructor session transcript. Items marked **Correction** fix points where the session's explanation was inaccurate or garbled. Verify them in your own VM and with `man`.
+
 ---
 
-# Linux Process Management (RHCSA Level)
+## 1. Absolute vs relative paths
 
-This post covers how Linux processes are created and managed — what a process actually is, how `fork()` creates child processes, the full lifecycle of process states, how to view running processes, and how to safely terminate them with `kill`, `killall`, and `pkill`.
-
-## 1. What Is a Process?
-
-A **process** is a running instance of a launched, executable program — essentially, a piece of code that is actively executing on your server.
-
-When you start an application, the system first checks whether the required **resources** are available before it will even begin. A process needs:
-
-- **Memory**
-- **Security properties** (permissions, user/group context)
-- **One or more execution threads** to run the program's code
-
-If the required resources aren't available, the process simply won't start.
-
-### `systemd` — The Ancestor of Every Process
-
-The very first process started on a RHEL system is **`systemd`** (PID 1). Every other process on the system is, directly or indirectly, a **child process of `systemd`** — any process can go on to create its own child processes, but tracing that chain back far enough always leads to `systemd`.
-
-```bash
-ps -ef | head -1
-# UID   PID  PPID  ...  CMD
-# root    1     0  ...  /usr/lib/systemd/systemd
-```
-
-## 2. How a Process Is Created: `fork()`
-
-Before a parent process starts a child process, it performs an operation called **`fork()`**.
-
-**`fork()`** means the parent process **duplicates its own resources** and hands that duplicate to a newly created child process.
-
-Here's the sequence:
-
-1. The parent process calls `fork()`, duplicating its resources for the child.
-2. The new child process is assigned a unique **Process ID (PID)**.
-3. The child process gathers whatever additional resources it needs, then begins executing its own code.
-4. While the child runs, the **parent process goes into a sleep state**, waiting.
-5. Once the child finishes executing, it must **release the resources** it acquired from the parent.
-6. The child then sends a signal — commonly referred to here as the **`wait`** signal — back to the parent, effectively saying: *"My work is done, you can reuse these resources to create another child process."*
-7. The parent wakes up and is free to fork another child process.
-
-### Zombie Processes
-
-Sometimes a child process **finishes executing but doesn't release the resources** it acquired from the parent, and its exit status is never collected. This leftover, "not-quite-cleaned-up" process is called a **zombie process** — it shows up in the process table (marked `Z`) but is no longer doing any actual work.
-
-```bash
-ps aux | awk '$8=="Z" {print}'
-```
-This lists any processes currently stuck in the zombie state.
-
-## 3. The Process Lifecycle (Process States)
-
-A process moves through a defined lifecycle:
-
-```
-fork() → new → scheduled → runnable (ready) → running → sleeping/waiting → (back to runnable, or terminated)
-```
-
-- **New / Scheduled:** after `fork()`, the process is created and handed to the scheduler.
-- **Runnable (Ready):** the process is ready to run. In this state, it can receive signals like **stop**, **resume**, or be sent to **sleep**.
-- **Running:** the process is actually executing on the CPU. From here, it can receive a **wait** (sleep) signal.
-- **Important rule:** once a process goes into a wait/sleep state, it **cannot** go directly back to running — it must first re-enter the runnable (ready) queue and be scheduled again.
-
-### Process State Codes
-
-| Code | State | Meaning |
+| | Absolute path | Relative path |
 |---|---|---|
-| `R` | Running / Runnable | The process is either actively executing on the CPU, or ready and waiting for CPU time. |
-| `S` | Sleeping — `TASK_INTERRUPTIBLE` | The process is waiting (for I/O, a resource, a condition, etc.) but **can** respond to signals — it can be brought back to a normal running state on request. |
-| `D` | Sleeping — `TASK_UNINTERRUPTIBLE` | The process is also sleeping, but unlike `S`, it does **not** respond to signals. This usually happens during low-level device I/O, where interrupting it mid-operation could leave the device in an unpredictable state. |
-| `K` | `TASK_KILLABLE` | Similar to `D` (uninterruptible), but it **will** respond specifically to a `KILL` signal. |
-| `I` | `TASK_REPORT_IDLE` | The process only responds to **fatal** signals sent forcefully — a general signal or a normal kill request won't wake it. |
-| `T` | Stopped | The process has been stopped (e.g., via a stop signal), and execution is paused. |
-| `Z` | Zombie | The process has finished executing but its resources/exit status haven't been cleaned up yet. |
+| Starts from | `/` (root directory) | Current working directory |
+| Begins with | `/` | Anything except `/` |
+| Works from anywhere | Yes | No, depends on where you are |
+| Example | `/root/earth/asia/india` | `earth/asia/india` (from `/root`) |
 
-**Example — watch a process's state live:**
+Helper commands:
 
-```bash
-ps -o pid,stat,cmd -C firefox
-```
-The `STAT` column shows the current code (`R`, `S`, `D`, `T`, `Z`, etc.) for that process.
+- `pwd` prints the present working directory.
+- `ls` lists the current directory.
+- `cd <path>` changes directory. `cd ..` goes up one level, `cd ../..` up two, `cd ../../..` up three.
 
-## 4. Viewing Processes: `ps` and `top`
+**Exam tip:** if unsure where your shell is, use an absolute path.
 
-| Command | What it shows |
+---
+
+## 2. File types
+
+Check the first character of `ls -l` output.
+
+| Char | Type |
 |---|---|
-| `ps -ef` | A **static** (point-in-time) snapshot of the process table, in full-format listing |
-| `ps -aux` | A **static** snapshot of the process table, BSD-style, showing all users' processes |
-| `top` | A **dynamic**, continuously refreshing, real-time view of the process table |
+| `-` | Regular file |
+| `d` | Directory |
+| `l` | Symbolic link |
+| `b` | Block device |
+| `c` | Character device |
+| `s` | Socket |
+| `p` | Named pipe |
 
-**Example:**
+The instructor grouped these as three kinds: regular, directory, and special (links, block, character, socket, pipe).
 
-```bash
-ps -ef | grep firefox
-top
-```
-`ps` gives you a one-time list; `top` keeps updating live so you can watch CPU/memory usage change in real time.
+---
 
-## 5. Killing Processes
+## 3. Links
 
-### `kill` — Send a Signal to a Specific PID
-
-`kill` sends a **signal** to a process. Linux defines **64 signals** in total, each meaning something different — not all of them terminate a process (some pause it, some tell it to reload configuration, etc.), but the two most commonly used to stop one are `-9` and `-15`.
-
-**Step 1 — find the process ID:**
+A link gives a file more than one name.
 
 ```bash
-pidof firefox
+ln source destination        # hard link
+ln -s source destination     # soft (symbolic) link
+ls -ilh                      # -i inode, -l long, -h human-readable
 ```
 
-**Step 2 — send a signal using that PID (or, in many shells, the process name directly):**
+The **inode number** identifies the underlying file. Same inode means same file data.
 
-```bash
-kill -15 firefox     # SIGTERM: politely ask the process to terminate, allowing cleanup
-kill -9 firefox       # SIGKILL: forcefully terminate immediately, no cleanup
-```
+### 3.1 Hard links
 
-**Best practice:** always try `kill -15` (graceful termination) **first**, and only fall back to `kill -9` (forceful termination) if the process doesn't respond — this gives the process a chance to close files, release resources, and shut down cleanly before being force-killed.
+Demo: `ln /root/lnpanda HL1` (then `HL2`, `HL3`).
 
-### `killall` — Kill by Process Name
+- All names share the **same inode**.
+- Editing through one name changes the content seen through all names.
+- Deleting one name leaves the others working.
+- **Cannot link directories** (`ln moving HLfile` is refused).
+- Cannot cross filesystems.
 
-`killall` kills **all processes that share the same name** — useful when multiple instances of the same program are running.
+**Correction:** the instructor said hard links use more storage. They do not use extra data space, because the names share the same data and inode.
 
-```bash
-killall firefox
-```
-This terminates every running `firefox` process at once, instead of having to `kill` each PID individually.
+### 3.2 Soft links
 
-### `pkill` — Kill by Pattern or Owner
+Demo: `ln -s /root/lnpanda SL1` (then `SL2`, `SL3`).
 
-`pkill` matches processes by name pattern **or** by other attributes, such as the user who owns them.
+- Has its **own inode**, so it is easy to tell from the target.
+- A small file that stores the path to the target.
+- **Can point to directories**.
+- Independent of hard links: you can soft-link any original file.
+- If you delete the original, the link **breaks** (dangling link).
+- Can cross filesystems.
 
-```bash
-pkill -U apple
-```
-This kills **all processes owned by the user `apple`**.
+### 3.3 Comparison
 
-### `pgrep` — Find Matching Processes (Without Killing Them)
+| | Hard link | Soft link |
+|---|---|---|
+| Inode | Same as target | Own inode |
+| Link to directory | No | Yes |
+| After original deleted | Still works | Broken |
+| Cross filesystems | No | Yes |
 
-`pgrep` is the "read-only" counterpart to `pkill` — instead of killing matching processes, it just **lists their PIDs**, so you can inspect what would be affected before actually killing anything.
+---
 
-```bash
-pgrep firefox
-```
-Returns the PID(s) of any running `firefox` processes.
+## 4. The `man` command
 
-```bash
-pgrep -U apple
-```
-Returns the PIDs of every process owned by user `apple` — the same matching logic as `pkill -U apple`, but without terminating them. This makes `pgrep` the safer way to double-check exactly what a `pkill` command would target, before you run it for real.
+`man <command>` opens the manual page: name, synopsis, description, options, files, bugs, author.
 
-## 6. Checking System Load and Logged-In Users
+Inside a man page:
 
-| Command | What it shows |
+| Key | Action |
 |---|---|
-| `w` | System load average, plus which users are currently connected and what they're running |
-| `uptime` | How long the system has been running (system uptime), along with a quick load average |
-| `who` | Which users are logged in, and when/where they connected from |
+| `/word` | Search forward |
+| `n` / `N` | Next / previous match |
+| `g` / `G` | Top / bottom of the page |
+| `q` | Quit |
+| `h` | Help for pager keys |
 
-**Example:**
+Keyword search: `man -k <keyword>` lists page names with one-line summaries.
+
+**Corrections:**
+
+- `man -k` shows matching page names and short descriptions, not the options. Open the page with `man <name>` for options.
+- If `man -k` returns nothing on a fresh system, run `mandb` as root.
+
+**Exam tip:** the manual pages are available in the exam. Practice finding options with `/` instead of memorizing them.
+
+---
+
+## 5. Vim
+
+On RHEL, packages are RPMs managed by DNF (not APT). `vi` comes from `vim-minimal`, `vim` from `vim-enhanced`. They behave the same for daily use.
+
+### 5.1 Modes
+
+| Mode | Purpose | Enter with |
+|---|---|---|
+| Command (normal) | Cut, copy, paste, delete, move | Default on open; `Esc` returns here |
+| Insert | Type text | `i`, `a`, `o` and similar |
+| Visual | Select text | `v` chars, `V` lines, `Ctrl+V` block |
+| Extended command (ex) | Save, quit, settings | `:` from command mode |
+
+### 5.2 Movement (command mode)
+
+- `h` left, `l` right, `j` down, `k` up
+- `/word` search, `n` next match
+
+### 5.3 Insert keys
+
+| Key | Typing starts |
+|---|---|
+| `i` | At the cursor |
+| `I` | Beginning of the line |
+| `a` | After the cursor |
+| `A` | End of the line |
+| `o` | New line below |
+| `O` | New line above |
+
+**Correction:** the transcript mixed these up. This table is standard Vim behavior.
+
+### 5.4 Editing (command mode)
+
+- `x` delete a character
+- `u` undo
+- `yy` copy the current line
+- `p` paste
+- `dd` delete the current line
+- In visual mode: select, then `y` to copy or `d` to delete
+
+### 5.5 Settings, save, quit
+
+| Command | Meaning |
+|---|---|
+| `:set nu` | Show line numbers |
+| `:set nonu` | Hide line numbers |
+| `:w` | Save |
+| `:q` | Quit (fails if unsaved changes) |
+| `:wq` | Save and quit |
+| `:q!` | Quit without saving |
+| `:wq!` | Force save and quit |
+| `ZZ` | Save and quit (from command mode) |
+
+### 5.6 Split windows
 
 ```bash
-w
-uptime
-who
+vim -o file1 file2    # stacked (horizontal split)
+vim -O file1 file2    # side by side (vertical split)
 ```
+
+**Correction:** the instructor said the reverse. `-o` stacks windows, `-O` places them side by side.
+
+### 5.7 Encrypting a file
+
+- In Vim, type `:X`, enter a password, and save.
+- Reopen with `vim file` and enter the password to read it.
+- To remove: `:X`, leave the password empty, save.
+- This is light protection, not strong security.
+
+### 5.8 Copy and paste in different environments
+
+- Red Hat lab console: you can paste into it using its text panel, but you cannot copy out of it.
+- PuTTY or PowerShell over SSH: selecting text copies, right-click pastes.
+
+---
+
+## 6. Variables
+
+A variable stores a value under a name.
+
+```bash
+name="Laxmi"        # no spaces around =
+echo $name
+```
+
+### 6.1 Lifetime
+
+A variable set at the prompt is lost when the shell closes or the system reboots.
+
+### 6.2 Persist for one user
+
+1. Add `name="Deepika"` to `~/.bashrc`.
+2. Reload: `source ~/.bashrc` (or `. ~/.bashrc`).
+3. It survives new logins and reboots.
+
+If you edit `~/.bashrc` but don't `source` it, your current shell keeps the old value.
+
+### 6.3 Environment variables
+
+```bash
+export name=value
+env | grep name
+```
+
+`export` passes the variable to child processes. It is not permanent by itself, so put the `export` line in `~/.bashrc` to keep it.
+
+### 6.4 Global for all users
+
+Demo: add `name=Mobin` to `/etc/environment` (no spaces around `=`), then check as other users.
+
+**Correction and caution:**
+
+- `/etc/environment` is read at login, so users see the value after logging in again.
+- A common alternative is a script in `/etc/profile.d/`, for example `/etc/profile.d/myvars.sh` containing `export name=value`.
+
+---
+
+## 7. VM tip from the session start
+
+Create the VM with a **20 GB disk**. An install on a roughly 8.8 GB disk failed at the installation destination step. Delete the VM and recreate it rather than trying to add space.
+
+---
+
+## 8. Next session
+
+`alias` and pipelines (`|`).

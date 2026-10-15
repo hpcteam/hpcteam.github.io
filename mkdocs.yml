@@ -202,3 +202,14 @@ nav:
       
 
   - Contact: https://www.linkedin.com/in/ayyappaswamy-eethakota-ab3834339/
+
+  - RHCSA :
+        - Day 1:
+            - Day-1-notes: RHCSA/DAY1/day-1-notes.md
+            - Day-1-practice-tasks: RHCSA/DAY1/day-1-practice-tasks.md
+        - Day 2:
+            - Day-2-notes: RHCSA/DAY2/day-2-notes.md
+            - Day-2-practice-tasks: RHCSA/DAY2/day-2-practice-tasks.md
+        - Day 3:
+            - Day-3-notes: RHCSA/DAY3/day-3-notes.md
+            - Day-3-practice-tasks: RHCSA/DAY3/day-3-practice-tasks.md
